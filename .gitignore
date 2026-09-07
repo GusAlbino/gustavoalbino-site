@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editores
+.vscode/
+.idea/
+
+# Dependências (caso o site ganhe build no futuro)
+node_modules/
+dist/
+.cache/
+
+# Arquivos de trabalho de design (não vão pro site)
+*.afdesign
+*.afphoto
+*.afpub
+*.sketch
+*.fig
