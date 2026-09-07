@@ -4,7 +4,7 @@ Otimiza os assets exportados do Claude Design para uso na web e corrige as
 referencias no index.html.
 
 Uso:
-    python3 tools/otimizar-assets.py <assets_origem> <assets_destino> <index.html>
+    python3 tools/otimizar-assets.py <assets_origem> public/assets public/index.html
 
 Regras
 ------

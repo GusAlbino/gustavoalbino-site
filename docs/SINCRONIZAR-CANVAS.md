@@ -23,10 +23,19 @@ novo e reinserir essas duas linhas na mesma posição.
 ## Estrutura
 
 ```
-index.html    ← o canvas + as 2 tags do React
-support.js    ← dc-runtime (gerado, não editar à mão)
-_ds/…         ← design system: tokens + bundle dos componentes
-assets/       ← imagens e vídeos (ver limitação abaixo)
+wrangler.jsonc   ← diz à Cloudflare que public/ é o site
+public/
+├── index.html   ← o canvas + as 2 tags do React
+├── support.js   ← dc-runtime (gerado, não editar à mão)
+├── _ds/…        ← design system: tokens + bundle dos componentes
+└── assets/      ← imagens e vídeos (ver limitação abaixo)
+```
+
+Reimportar significa substituir `public/index.html`, `public/support.js` e
+`public/_ds/`, e rodar o otimizador sobre os assets novos:
+
+```
+python3 tools/otimizar-assets.py <assets_do_handoff> public/assets public/index.html
 ```
 
 ## Limitação conhecida no transporte de assets
