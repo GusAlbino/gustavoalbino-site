@@ -38,6 +38,21 @@ Reimportar significa substituir `public/index.html`, `public/support.js` e
 python3 tools/otimizar-assets.py <assets_do_handoff> public/assets public/index.html
 ```
 
+## Ao reimportar: o que precisa ser refeito no index.html
+
+O canvas nao conhece nenhuma destas alteracoes. Reimportar sobrescreve o
+`index.html` e todas se perdem. Refazer, nesta ordem:
+
+1. As duas tags do React 18, antes do `support.js` (ver acima).
+2. O `<head>`: `lang`, `<title>`, `description`, as tags `og:`, o favicon e o
+   `<link rel="stylesheet" href="responsivo.css">`.
+3. Rodar `python3 tools/versionar-css.py` para carimbar o CSS.
+4. As mudancas de conteudo e estrutura feitas fora do canvas — hero, secao de
+   destaques, pagina Sobre, formulario ligado ao WhatsApp, download do CV.
+
+Quando houver muito disto acumulado, o certo passa a ser levar as mudancas
+**para dentro do canvas** e reexportar, em vez de reaplicar a cada vez.
+
 ## Limitação conhecida no transporte de assets
 
 A API de leitura do projeto Claude Design (`DesignSync.get_file`) **corta em

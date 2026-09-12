@@ -59,6 +59,9 @@ arquivo declarando `assets.directory`, ele publica o script padrão
 
 - Reimportar o site do Claude Design → `docs/SINCRONIZAR-CANVAS.md`
 - Otimizar assets novos → `tools/otimizar-assets.py`
+- **Depois de editar `public/responsivo.css` → `python3 tools/versionar-css.py`**
+  (carimba o link com o hash do conteúdo, para o navegador buscar a versão nova)
+- Regerar o card de compartilhamento → `tools/og-card/README.md`
 
 ## Rollback
 
