@@ -150,9 +150,8 @@
         <div>
           <span class="ga-kicker">{{ t.sobre.kicker }}</span>
           <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.95; font-size:clamp(30px,4vw,46px); margin:12px 0 22px; color:var(--ink); text-wrap:balance">{{ t.sobre.title }}</h2>
-          <sc-for list="{{ sobreParas }}" as="p" hint-placeholder-count="5">
-            <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:0 0 16px">{{ p }}</p>
-          </sc-for>
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.7; color:var(--text-body); margin:0 0 26px; max-width:54ch">{{ t.sobre.resumo }}</p>
+            <button onClick="{{ toSobre }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ t.sobre.btn }}</button>
         </div>
       </section>
 
@@ -312,7 +311,30 @@
     </sc-if>
 
     <!-- ═══════════════ CASES ═══════════════ -->
-    <sc-if value="{{ isCases }}" hint-placeholder-val="{{ false }}">
+    <!-- PÁGINA — SOBRE -->
+      <sc-if value="{{ isSobre }}" hint-placeholder-val="{{ false }}">
+        <section style="max-width:1180px; margin:0 auto; padding:56px 24px 8px">
+          <span class="ga-kicker">{{ t.sobre.kicker }}</span>
+          <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.95; font-size:clamp(32px,5vw,62px); margin:14px 0 0; color:var(--ink); text-wrap:balance">{{ t.sobre.title }}</h1>
+        </section>
+        <section style="max-width:1180px; margin:0 auto; padding:40px 24px 88px; display:grid; grid-template-columns:.85fr 1.15fr; gap:48px; align-items:start">
+          <div style="position:relative; aspect-ratio:4/5; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); display:flex; flex-direction:column; justify-content:space-between; padding:20px; position:sticky; top:96px">
+            <img src="assets/sobre-suica.jpg" alt="Gustavo Albino em trilha na neve — Suíça" width="900" height="1200" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
+            <span class="ga-badge" style="position:relative; align-self:flex-start; background:var(--paper-100); color:var(--ink); border-color:var(--ink)">{{ t.sobre.imgTag }}</span>
+          </div>
+          <div>
+            <sc-for list="{{ sobreParas }}" as="p" hint-placeholder-count="5">
+              <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px">{{ p }}</p>
+            </sc-for>
+            <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; padding-top:28px; border-top:2px solid var(--paper-400)">
+              <button onClick="{{ toContato }}" class="ga-btn ga-btn--primary ga-btn--lg">{{ t.hero.ctaTalk }}</button>
+              <button onClick="{{ toCases }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ t.hero.ctaCases }}</button>
+            </div>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ isCases }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1180px; margin:0 auto; padding:64px 24px 88px">
       <span class="ga-kicker">{{ t.casesPage.kicker }}</span>
       <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,72px); margin:12px 0 14px; color:var(--ink)">{{ t.casesPage.title }}</h1>
@@ -1578,7 +1600,7 @@ const DICT = {
   pt: {
     destaques: { kicker: 'Em destaque', title: 'O que eu faço, em três frentes.', intro: 'As mesmas competências que entrego como serviço são as que formam o portfólio. Comece por aqui.' },
     baixarCV: 'Baixar CV',
-    nav: { home: 'Home', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
+    nav: { home: 'Home', sobre: 'Sobre', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
     hero: {
       kicker: 'Lead Designer · Brasil · Atendendo Brasil e exterior',
       role: 'Lead Designer',
@@ -1597,6 +1619,8 @@ const DICT = {
     },
     marquee: ['Branding', 'Produto Digital', 'UI / UX', 'Editorial', 'Dataviz', 'Direção Criativa'],
     sobre: {
+      resumo: 'Eu desenho e eu corro montanha — e faz tempo que uma coisa não vive sem a outra. Dez anos de design entre Austrália, Suíça, Nova Zelândia e Portugal; a montanha entrou em 2018 e nunca mais saiu.',
+      btn: 'Saiba mais sobre mim',
       kicker: 'Sobre mim',
       title: 'Eu desenho e eu corro montanha.',
       imgTag: 'Trail na Suíça',
@@ -1726,7 +1750,7 @@ const DICT = {
   en: {
     destaques: { kicker: 'Featured', title: 'What I do, in three fronts.', intro: 'The same skills I deliver as a service are the ones that make up the portfolio. Start here.' },
     baixarCV: 'Download CV',
-    nav: { home: 'Home', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
+    nav: { home: 'Home', sobre: 'About', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
     hero: {
       kicker: 'Lead Designer · Brazil · Working with Brazil and abroad',
       role: 'Lead Designer',
@@ -1745,6 +1769,8 @@ const DICT = {
     },
     marquee: ['Branding', 'Digital Product', 'UI / UX', 'Editorial', 'Dataviz', 'Creative Direction'],
     sobre: {
+      resumo: 'I design and I run mountains — and it has been a while since one lived without the other. Ten years of design across Australia, Switzerland, New Zealand and Portugal; the mountain arrived in 2018 and never left.',
+      btn: 'More about me',
       kicker: 'About me',
       title: 'I design, and I run mountains.',
       imgTag: 'Trail in Switzerland',
@@ -3067,7 +3093,7 @@ class Component extends DCLogic {
     const keylineWidth = this.props.keylineWidth ?? 1.5;
     const frameStyle = `position:relative; width:100%; height:100%; box-sizing:border-box; overflow:hidden; border-radius:3px; border:${contourWidth}px solid ${contourColor}; outline:${keylineWidth}px solid #1B1B1B; outline-offset:0`;
 
-    const navOrder = ['home', 'cases', 'galeria', 'servicos', 'contato'];
+    const navOrder = ['home', 'sobre', 'cases', 'galeria', 'servicos', 'contato'];
     const navItems = navOrder.map((id) => ({
       id, label: D.nav[id],
       cls: 'ga-tab' + (page === id || (page === 'case' && id === 'cases') ? ' ga-tab--active' : ''),
@@ -3224,7 +3250,7 @@ class Component extends DCLogic {
       heroClassic: heroLayout === 'classic',
       frameStyle,
 
-      isHome: page === 'home',
+      isHome: page === 'home', isSobre: page === 'sobre', toSobre: () => go('sobre'),
       isCases: page === 'cases',
       isCaseYerba: page === 'case' && this.state.caseId === 'yerba-fina',
       isCaseHercules: page === 'case' && this.state.caseId === 'hercules',

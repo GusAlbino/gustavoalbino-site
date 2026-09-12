@@ -93,3 +93,28 @@ html, body { overflow-x: hidden; }
     scroll-snap-align: start;
   }
 }
+
+/* ---------- Navbar: uma linha rolavel no celular ----------
+   Com a entrada de "Sobre" a nav foi a 6 itens. Somados o seletor de idioma e
+   o botao de CV, ela quebrava em 3 linhas e o cabecalho ocupava 284px de uma
+   tela de 812 — 35% do visor antes de qualquer conteudo.
+
+   Vira uma faixa horizontal de uma linha so, rolavel por toque. Tudo continua
+   alcancavel, inclusive o botao de CV, que fica no fim da faixa.
+
+   A solucao definitiva e um menu hamburguer, que exige estado em JavaScript e
+   markup novo. Isto resolve o custo de altura sem essa obra. */
+@media (max-width: 720px) {
+  header nav {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: 100%;
+    padding-bottom: 2px;
+    mask-image: linear-gradient(to right, #000 0, #000 92%, transparent 100%);
+  }
+  header nav::-webkit-scrollbar { display: none; }
+  header nav > * { flex: 0 0 auto; }
+}
