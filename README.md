@@ -117,14 +117,27 @@ oficial em `static/images/rebranding/`, e o próprio site público.
 
 **Qualidade, depois de estar no ar:**
 
-- [ ] **Vídeos:** os 3 MP4 do case Hercules somam 30,8 MB dos 76,2 MB totais.
-      Não há `ffmpeg` nesta máquina. Recomprimir (HandBrake resolve) para ~3 MB cada.
-- [ ] **Fotos do hero:** `hero-runner`, `hero-suica`, `hero-trail` e `sobre-suica`
-      estão com ~1 MB cada. Cabe decisão do designer se vale baixar a qualidade.
-- [ ] **SEO:** todo o conteúdo é renderizado por JavaScript — o HTML servido vem
-      quase vazio. Buscadores e prévias de link (WhatsApp, LinkedIn) não veem nada.
-      Resolver com pré-renderização ou, no mínimo, tags Open Graph estáticas no `<head>`.
+- [ ] **Aviso "Cases em produção" está desatualizado.** Diz que o conteúdo
+      detalhado "entra em breve", mas 4 dos 5 cases já têm página completa.
+      Vende o trabalho por menos do que ele é. Só o Kaya Doc falta — tratar
+      junto com a construção daquele case.
+- [ ] **Preload entre páginas.** O site é um HTML único, e o preload scanner do
+      navegador baixa `<img src>` de páginas que o visitante nunca abre. Hoje
+      `stat-canhamo.jpg` e `hero-explore.jpg` (581 KB, do case Yerba Fina)
+      ainda carregam na home. A correção é arquitetural: `loading="lazy"` nas
+      imagens fora da dobra, ou separar as páginas em arquivos.
+- [ ] **Roteamento por URL.** Navegação e idioma são só `setState`. Nenhum case
+      é linkável, o botão "voltar" do navegador sai do site, e o inglês —
+      100% traduzido — é invisível para busca.
+- [ ] **Cards da galeria removidos por falta de material:** Identidade A,
+      Telas de Produto, Design System, Dataviz · Power BI e Experimentos.
+      Podem voltar com imagem real. Para Dataviz existe
+      `Website /Page - Web Design & UI Design/Dashboard design_PBI.jpg`.
+- [ ] **Vídeos:** os 3 MP4 do case Hercules somam 30,8 MB. Não há `ffmpeg`
+      nesta máquina; o HandBrake resolve.
+- [ ] **SEO:** o conteúdo é renderizado por JavaScript. O `<head>` já tem
+      title, description e Open Graph, mas o corpo servido vem vazio.
 - [ ] **Ruído no console:** o `_ds_bundle.js` embute um UI kit de demonstração
-      (`ui_kits/portfolio/app.jsx`) que registra 2 erros React #299. Inofensivo, mas sujo.
-- [ ] **WebP:** o `sips` desta máquina não gera WebP. Com ele, as imagens cairiam
-      mais uns 30%. Alternativa sem instalar nada: ligar o Polish da Cloudflare.
+      que registra 2 erros React #299. Inofensivo.
+- [ ] **WebP:** o `sips` desta máquina não gera WebP. Alternativa sem instalar
+      nada: ligar o Polish da Cloudflare.
