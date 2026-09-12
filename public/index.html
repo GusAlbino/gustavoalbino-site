@@ -115,6 +115,32 @@
         </div>
       </div>
 
+      <!-- BLOCO 1.5 — DESTAQUES -->
+      <section style="max-width:1180px; margin:0 auto; padding:72px 24px 8px">
+        <span class="ga-kicker">{{ t.destaques.kicker }}</span>
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.98; font-size:clamp(28px,4vw,44px); margin:12px 0 10px; color:var(--ink); text-wrap:balance">{{ t.destaques.title }}</h2>
+        <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); max-width:58ch; margin:0 0 28px">{{ t.destaques.intro }}</p>
+        <div class="ga-destaques" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+          <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
+            <div onClick="{{ d.onClick }}" class="ga-card ga-card--lift" style="cursor:pointer">
+              <div style="position:relative; aspect-ratio:4/3; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
+                <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
+                <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
+                  <div style="{{ d.bgStyle }}"></div>
+                  <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.64) 100%)"></div>
+                </sc-if>
+                <span class="ga-badge" style="position:relative; align-self:flex-start; background:{{ d.fg }}; color:{{ d.color }}; border-color:{{ d.fg }}">{{ d.tag }}</span>
+                <div style="position:relative; font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.9; font-size:34px; color:{{ d.fg }}">{{ d.title }}</div>
+              </div>
+              <div class="ga-card__body" style="padding:20px">
+                <p style="font-family:var(--font-body); font-size:14px; line-height:1.6; color:var(--text-body); margin:0 0 14px">{{ d.blurb }}</p>
+                <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--vermilion)">{{ d.cta }} →</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
       <!-- BLOCO 2 — SOBRE MIM -->
       <section style="max-width:1180px; margin:0 auto; padding:80px 24px; display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:start">
         <div style="position:relative; aspect-ratio:4/5; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); display:flex; flex-direction:column; justify-content:space-between; padding:20px; position:sticky; top:96px">
@@ -1550,6 +1576,7 @@ const LINKS = {
 
 const DICT = {
   pt: {
+    destaques: { kicker: 'Em destaque', title: 'O que eu faço, em três frentes.', intro: 'As mesmas competências que entrego como serviço são as que formam o portfólio. Comece por aqui.' },
     baixarCV: 'Baixar CV',
     nav: { home: 'Home', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
     hero: {
@@ -1697,6 +1724,7 @@ const DICT = {
     ],
   },
   en: {
+    destaques: { kicker: 'Featured', title: 'What I do, in three fronts.', intro: 'The same skills I deliver as a service are the ones that make up the portfolio. Start here.' },
     baixarCV: 'Download CV',
     nav: { home: 'Home', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
     hero: {
@@ -1884,6 +1912,26 @@ const CASES = [
     title: { pt: 'Hercules', en: 'Hercules' },
     typeLabel: { pt: 'Branding + Marketing', en: 'Branding + Marketing' },
     blurb: { pt: 'Marca de suplementos com energia RUN-DMC — do logo à newsletter e aos vídeos.', en: 'A supplements brand with RUN-DMC energy — from logo to newsletter and films.' } },
+];
+
+const DESTAQUES = [
+  { id: 'kaya-doc', cat: 'uiux', color: 'var(--cerulean)', fg: 'var(--paper-100)',
+    pt: { tag: 'Produto digital', title: 'Kaya Doc', cta: 'Ver nos cases',
+          blurb: 'Plataforma SaaS de cannabis medicinal para prescritores. Lidero o design de produto: UI, UX research, design system e IA no fluxo de trabalho.' },
+    en: { tag: 'Digital product', title: 'Kaya Doc', cta: 'See in cases',
+          blurb: 'Medical-cannabis SaaS for prescribers. I lead product design: UI, UX research, design system and AI in the workflow.' } },
+  { id: 'branding', cat: 'branding', color: 'var(--vermilion)', fg: 'var(--paper-100)',
+    bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
+    pt: { tag: 'Branding', title: 'Marcas', cta: 'Ver os cases',
+          blurb: 'Identidade do símbolo ao manual: Yerba Fina, Hercules, Othelo, Healing Wildflower e o rebranding da Kaya.' },
+    en: { tag: 'Branding', title: 'Brands', cta: 'See the cases',
+          blurb: 'Identity from symbol to guidelines: Yerba Fina, Hercules, Othelo, Healing Wildflower and the Kaya rebrand.' } },
+  { id: 'entregaveis', cat: null, color: 'var(--violet)', fg: 'var(--paper-100)',
+    bgImage: 'assets/ilustracao/blackfellas.jpg',
+    pt: { tag: 'Entregáveis', title: 'Peças', cta: 'Ver os acervos',
+          blurb: 'Logos, pôsteres, posts, e-books, anuários e ilustração autoral — o material que sai toda semana.' },
+    en: { tag: 'Deliverables', title: 'Pieces', cta: 'See the archives',
+          blurb: 'Logos, posters, social, e-books, yearbooks and original illustration — the work that ships every week.' } },
 ];
 
 const CASE_FILTERS = [
@@ -3053,6 +3101,14 @@ class Component extends DCLogic {
       onClick: () => this.openCase(c),
     }));
 
+    const goCases = (f) => { this.setState({ caseFilter: f || 'all' }); go('cases'); };
+    const destaques = DESTAQUES.map((d) => ({
+      ...d, ...d[lang],
+      hasBg: !!d.bgImage,
+      bgStyle: d.bgImage ? `position:absolute; inset:0; background-image:url("${d.bgImage}"); background-size:cover; background-position:center` : '',
+      onClick: () => (d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
+    }));
+
     const YF = YERBA[lang];
     const cd = {
       ...YF,
@@ -3220,7 +3276,7 @@ class Component extends DCLogic {
       aiTools: D.cv.aiTools,
 
       caseFilters: CASE_FILTERS.map((f) => filterChip(f, this.state.caseFilter, (k) => this.setState({ caseFilter: k }))),
-      casesList: cases,
+      destaques, casesList: cases,
       galFilters: GAL_FILTERS.map((f) => filterChip(f, this.state.galFilter, (k) => this.setState({ galFilter: k }))),
       galItems: gal,
       services,

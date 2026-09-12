@@ -71,3 +71,25 @@ html, body { overflow-x: hidden; }
   [style*="repeat(4,1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
   [style*="padding:80px 24px"] { padding: 32px 16px !important; }
 }
+
+/* ---------- Destaques: rolagem por toque no celular ----------
+   A regra geral acima transforma toda grade em coluna unica. Para os tres
+   destaques isso empilharia os cards e esconderia o segundo e o terceiro
+   abaixo da dobra. Aqui eles viram uma faixa rolavel com encaixe — a mesma
+   sensacao de carrossel, sem JavaScript e sem quebrar acessibilidade. */
+@media (max-width: 720px) {
+  .ga-destaques {
+    display: flex !important;
+    grid-template-columns: none !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px !important;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+  }
+  .ga-destaques > * {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+}
