@@ -1,0 +1,26 @@
+{
+  // Configuracao do Cloudflare Workers para um site estatico.
+  //
+  // Diferente do Cloudflare Pages, o Workers NAO descobre sozinho o que
+  // servir: sem este arquivo ele publica o script padrao "Hello World!".
+  //
+  // Nao ha campo "main" de proposito. Sem script, o Worker apenas serve os
+  // arquivos de "assets.directory" — que e exatamente o que um site
+  // estatico precisa.
+  // Precisa bater exatamente com o nome do projeto criado na Cloudflare. Se
+  // divergir, o deploy vai para outro Worker e a URL em uso continua servindo
+  // o conteudo antigo — ja aconteceu uma vez neste projeto.
+  "name": "gustavoalbino-site",
+  "compatibility_date": "2026-09-07",
+  "assets": {
+    // Somente o conteudo publicado. README, docs/ e tools/ ficam de fora
+    // justamente para nao irem para a web.
+    "directory": "./public"
+    //
+    // "not_found_handling" fica no padrao (404 de verdade) porque o site
+    // nao usa roteamento por URL — a navegacao entre Home, Cases, Projetos,
+    // Servicos e Contato acontece em memoria, sem mudar o endereco. Servir
+    // o index.html em caminhos inexistentes so mascararia imagem faltando,
+    // devolvendo 200 para arquivo que nao existe.
+  }
+}

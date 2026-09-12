@@ -1,0 +1,44 @@
+<html><head><meta charset="utf-8"><style>
+  @font-face { font-family:'MontLocal'; src:local('Montserrat ExtraBold'), url('file:///Users/dzoladesign/Library/Fonts/Montserrat-ExtraBold.ttf'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:1200px; overflow:hidden; background:#F8EFE8;
+              font-family:'MontLocal','Montserrat',Helvetica,Arial,sans-serif; }
+  /* o card fica CENTRALIZADO na pagina quadrada, porque o sips recorta pelo centro */
+  .card { position:absolute; left:-45px; top:240px; width:1200px; height:630px;
+          background:#F8EFE8; overflow:hidden; }
+  .dots { position:absolute; inset:0;
+          background-image:radial-gradient(rgba(27,27,27,0.16) 22%, transparent 23%);
+          background-size:10px 10px; }
+  .ink { position:absolute; right:0; top:0; bottom:0; width:330px; background:#C33C29;
+         border-left:3px solid #1B1B1B; }
+  .ink .d2 { position:absolute; inset:0;
+          background-image:radial-gradient(rgba(27,27,27,0.22) 24%, transparent 25%);
+          background-size:14px 14px; }
+  .selo { position:absolute; right:158px; top:50%; transform:translateY(-50%);
+          width:132px; height:132px; opacity:.97; }
+  .bloco { position:absolute; left:70px; top:50%; transform:translateY(-50%); width:790px; }
+  .kicker { font-size:21px; letter-spacing:.18em; color:#C33C29; font-weight:800;
+            text-transform:uppercase; display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .kicker::before { content:''; width:42px; height:3px; background:#C33C29; }
+  h1 { font-size:112px; line-height:.92; letter-spacing:-.03em; color:#1B1B1B;
+       text-transform:uppercase; font-weight:800; }
+  h1 em { color:#C33C29; font-style:normal; }
+  .sub { margin-top:24px; font-size:29px; line-height:1.35; color:#2E2E2E; font-weight:600; }
+  .meta { margin-top:26px; display:inline-block; background:#1B1B1B; color:#F8EFE8;
+          padding:10px 20px; border-radius:6px; font-size:18px; letter-spacing:.1em;
+          text-transform:uppercase; font-weight:800; }
+  .borda { position:absolute; inset:0; border:12px solid #1B1B1B; }
+</style></head><body>
+  <div class="card">
+    <div class="dots"></div>
+    <div class="ink"><div class="d2"></div></div>
+    <img class="selo" src="selo-branco.png">
+    <div class="bloco">
+      <div class="kicker">Lead Designer · Brasil</div>
+      <h1>Gustavo<br><em>Albino</em></h1>
+      <div class="sub">Branding, design de produto<br>e direção criativa</div>
+      <div class="meta">10+ anos · 4 países · 4 idiomas</div>
+    </div>
+    <div class="borda"></div>
+  </div>
+</body></html>
