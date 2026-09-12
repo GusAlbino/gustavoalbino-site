@@ -79,11 +79,14 @@
         <div style="max-width:1180px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; min-height:560px">
           <div style="padding:56px 0">
             <span class="ga-kicker">{{ t.hero.kicker }}</span>
-            <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.86; font-size:clamp(54px,8vw,108px); margin:14px 0 0; color:var(--ink)">Gustavo<br><span style="color:var(--vermilion)">Albino</span></h1>
+            <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.95; font-size:clamp(28px,3.6vw,46px); margin:14px 0 0; color:var(--ink); text-wrap:balance">{{ t.hero.h1a }}<br><span style="color:var(--vermilion)">{{ t.hero.h1b }}</span></h1>
             <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:20px 0 0">
               <span class="ga-badge ga-badge--ink" style="font-size:13px; padding:6px 12px">{{ t.hero.role }}</span>
               <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted)">{{ t.hero.meta }}</span>
             </div>
+              <div style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:12px 0 0; display:flex; align-items:center; gap:9px; flex-wrap:wrap">
+                <span style="width:9px; height:9px; border-radius:999px; background:var(--success); display:inline-block; flex:none"></span>{{ t.hero.proof }}
+              </div>
             <div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><p style="font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; font-size: clamp(17px,1.9vw,22px); line-height: 1.15; color: var(--ink); margin: 24px 0 8px; max-width: none; white-space: pre-line">{{ t.hero.taglineBold }}</p></div>
             <p style="font-family:var(--font-body); font-style:italic; font-size:17px; line-height:1.5; color:var(--text-body); margin:0 0 28px; max-width:40ch">{{ t.hero.taglineItalic }}</p>
             <div style="display:flex; gap:14px; flex-wrap:wrap">
@@ -1573,16 +1576,20 @@ const DICT = {
     baixarCV: 'Baixar CV',
     nav: { home: 'Home', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
     hero: {
-      kicker: 'Designer · Brasil',
-      role: 'Designer',
+      kicker: 'Lead Designer · Brasil · Atendendo Brasil e exterior',
+      role: 'Lead Designer',
       meta: '10+ anos · 4 países · 4 idiomas',
-      taglineBold: 'Branding, Design de produto e\nEstratégias de design',
-      taglineItalic: 'Para quem constrói marcas com significado — dentro e fora das trilhas.',
+      taglineBold: 'Branding, design de produto e direção criativa.',
+      taglineItalic: 'Para quem precisa que a marca aguente crescer — de negócio pequeno a time de produto lá fora.',
       ctaCases: 'Ver Cases',
       ctaTalk: 'Vamos Conversar',
       soon: 'Em breve',
       imgTag: 'Trail running',
       imgCaption: 'fig. — foto outdoor · placeholder',
+      h1a: 'Desenho marcas',
+      h1b: 'que não somem.',
+      proof: 'Na Kaya Mind desde 2022 · Disponível para 2026',
+
     },
     marquee: ['Branding', 'Produto Digital', 'UI / UX', 'Editorial', 'Dataviz', 'Direção Criativa', 'Trail'],
     sobre: {
@@ -1717,16 +1724,20 @@ const DICT = {
     baixarCV: 'Download CV',
     nav: { home: 'Home', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
     hero: {
-      kicker: 'Designer · Brazil',
-      role: 'Designer',
+      kicker: 'Lead Designer · Brazil · Working with Brazil and abroad',
+      role: 'Lead Designer',
       meta: '10+ years · 4 countries · 4 languages',
-      taglineBold: 'Branding, Product Design & Digital Experiences.',
-      taglineItalic: 'For brands built with purpose — on and off the trail.',
+      taglineBold: 'Branding, product design and creative direction.',
+      taglineItalic: 'For people who need a brand that can grow with the business — from small companies to product teams abroad.',
       ctaCases: 'View Cases',
       ctaTalk: "Let's Talk",
       soon: 'Coming soon',
       imgTag: 'Trail running',
       imgCaption: 'fig. — outdoor photo · placeholder',
+      h1a: 'I design brands',
+      h1b: "that don't blend in.",
+      proof: 'At Kaya Mind since 2022 · Available for 2026',
+
     },
     marquee: ['Branding', 'Digital Product', 'UI / UX', 'Editorial', 'Dataviz', 'Creative Direction', 'Trail'],
     sobre: {
