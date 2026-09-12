@@ -275,7 +275,6 @@
           </div>
 
           <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:40px; padding-top:28px; border-top:2px solid var(--paper-400)">
-            <button onClick="{{ downloadCV }}" class="ga-btn ga-btn--ink ga-btn--lg">{{ t.cv.downloadPT }}</button>
             <button onClick="{{ downloadCV }}" class="ga-btn ga-btn--gold ga-btn--lg">{{ t.cv.downloadEN }}</button>
             <button onClick="{{ toContato }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ t.hero.ctaTalk }}</button>
           </div>
@@ -1502,24 +1501,24 @@
           <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
             <form onSubmit="{{ submitContact }}" style="display:flex; flex-direction:column; gap:16px">
               <div class="ga-field">
-                <label class="ga-label">{{ t.contatoPage.fName }}</label>
-                <input class="ga-input" placeholder="{{ t.contatoPage.phName }}" required="required">
+                <label class="ga-label" for="c-nome">{{ t.contatoPage.fName }}</label>
+                <input class="ga-input" id="c-nome" name="nome" autocomplete="name" placeholder="{{ t.contatoPage.phName }}" required="required">
               </div>
               <div class="ga-field">
-                <label class="ga-label">{{ t.contatoPage.fEmail }}</label>
-                <input class="ga-input" type="email" placeholder="voce@email.com" required="required">
+                <label class="ga-label" for="c-email">{{ t.contatoPage.fEmail }}</label>
+                <input class="ga-input" id="c-email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required="required">
               </div>
               <div class="ga-field">
-                <label class="ga-label">{{ t.contatoPage.fType }}</label>
-                <select class="ga-select">
+                <label class="ga-label" for="c-tipo">{{ t.contatoPage.fType }}</label>
+                <select class="ga-select" id="c-tipo" name="tipo">
                   <sc-for list="{{ projectTypes }}" as="pt" hint-placeholder-count="6">
                     <option>{{ pt }}</option>
                   </sc-for>
                 </select>
               </div>
               <div class="ga-field">
-                <label class="ga-label">{{ t.contatoPage.fMsg }}</label>
-                <textarea class="ga-textarea" rows="5" placeholder="{{ t.contatoPage.phMsg }}" required="required"></textarea>
+                <label class="ga-label" for="c-mensagem">{{ t.contatoPage.fMsg }}</label>
+                <textarea class="ga-textarea" id="c-mensagem" name="mensagem" rows="5" placeholder="{{ t.contatoPage.phMsg }}" required="required"></textarea>
               </div>
               <button type="submit" class="ga-btn ga-btn--primary ga-btn--lg ga-btn--block">{{ t.contatoPage.send }}</button>
             </form>
@@ -1618,8 +1617,8 @@ const DICT = {
       langTitle: 'Idiomas',
       toolsTitle: 'Ferramentas',
       aiTitle: 'Ferramentas de IA',
-      downloadPT: 'Baixar CV (PT)',
-      downloadEN: 'Baixar CV (EN)',
+      downloadPT: '(removido — PDF em português desatualizado)',
+      downloadEN: 'Baixar CV (PDF, em inglês)',
       stats: [
         { num: '10+', label: 'anos de design' },
         { num: '04', label: 'países' },
@@ -1700,8 +1699,8 @@ const DICT = {
       text: 'Conte sobre o projeto, o prazo e a verba aproximada. Quanto mais contexto, melhor a resposta.',
       fName: 'Nome', phName: 'Seu nome',
       fEmail: 'E-mail', fType: 'Tipo de projeto', fMsg: 'Mensagem', phMsg: 'Conte sobre o projeto…',
-      send: 'Enviar mensagem',
-      sentTitle: 'Mensagem enviada!', sentText: 'Obrigado pelo contato — retorno em até 2 dias úteis.',
+      send: 'Enviar pelo WhatsApp',
+      sentTitle: 'Seu WhatsApp foi aberto', sentText: 'A mensagem já foi montada com o que você preencheu — é só tocar em enviar. Se o WhatsApp não abriu, escreva para gustavorsalbino@gmail.com.',
       availTitle: 'Disponível para projetos · 2026', availText: 'Tempo médio de resposta: 2 dias úteis. Atendo remoto, em PT e EN.',
     },
     projectTypes: ['Branding', 'Produto Digital — App', 'Website', 'Landing Page', 'Estratégia de Marca', 'Outro'],
@@ -1762,8 +1761,8 @@ const DICT = {
       langTitle: 'Languages',
       toolsTitle: 'Tools',
       aiTitle: 'AI Tools',
-      downloadPT: 'Download CV (PT)',
-      downloadEN: 'Download CV (EN)',
+      downloadPT: '(removed — PT PDF outdated)',
+      downloadEN: 'Download CV (PDF)',
       stats: [
         { num: '10+', label: 'years in design' },
         { num: '04', label: 'countries' },
@@ -1844,8 +1843,8 @@ const DICT = {
       text: 'Tell me about the project, the timeline and the approximate budget. The more context, the better the reply.',
       fName: 'Name', phName: 'Your name',
       fEmail: 'Email', fType: 'Project type', fMsg: 'Message', phMsg: 'Tell me about the project…',
-      send: 'Send message',
-      sentTitle: 'Message sent!', sentText: 'Thanks for reaching out — I reply within 2 business days.',
+      send: 'Send via WhatsApp',
+      sentTitle: 'Your WhatsApp is open', sentText: 'The message is ready with what you filled in — just hit send. If WhatsApp did not open, write to gustavorsalbino@gmail.com.',
       availTitle: 'Available for projects · 2026', availText: 'Average response time: 2 business days. Remote, in PT and EN.',
     },
     projectTypes: ['Branding', 'Digital Product — App', 'Website', 'Landing Page', 'Brand Strategy', 'Other'],
@@ -2997,11 +2996,27 @@ class Component extends DCLogic {
   openCase = (c) => { if (!c || !c.detail) return; this.setState({ page: 'case', caseId: c.id, sent: false }); if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' }); };
   setLang = (l) => this.setState({ lang: l });
   downloadCV = () => {
-    const el = typeof document !== 'undefined' && document.getElementById('cv-section');
-    if (this.state.page !== 'home') { this.go('home'); return; }
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-  };
-  submitContact = (e) => { e.preventDefault(); this.setState({ sent: true }); };
+      const a = document.createElement('a');
+      a.href = 'assets/gustavo-albino-cv.pdf';
+      a.download = 'Gustavo Albino - CV.pdf';
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  submitContact = (e) => {
+      e.preventDefault();
+      const f = e.target.elements;
+      const en = this.state.lang === 'en';
+      const corpo = [
+        en ? 'Hi Gustavo! I came from your website.' : 'Olá, Gustavo! Vim pelo seu site.',
+        '',
+        (en ? 'Name: ' : 'Nome: ') + (f.nome ? f.nome.value : ''),
+        (en ? 'E-mail: ' : 'E-mail: ') + (f.email ? f.email.value : ''),
+        (en ? 'Project type: ' : 'Tipo de projeto: ') + (f.tipo ? f.tipo.value : ''),
+        '',
+        f.mensagem ? f.mensagem.value : ''
+      ].join('\n');
+      window.open('https://wa.me/5531971422346?text=' + encodeURIComponent(corpo), '_blank', 'noopener');
+      this.setState({ sent: true });
+    };
 
   componentDidMount() { this.bindVideos(); }
   componentDidUpdate() { this.bindVideos(); }
