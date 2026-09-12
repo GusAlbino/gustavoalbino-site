@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=9424c8cd">
+<link rel="stylesheet" href="responsivo.css?v=ebb75588">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -120,10 +120,10 @@
         <span class="ga-kicker">{{ t.destaques.kicker }}</span>
         <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.98; font-size:clamp(28px,4vw,44px); margin:12px 0 10px; color:var(--ink); text-wrap:balance">{{ t.destaques.title }}</h2>
         <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); max-width:58ch; margin:0 0 28px">{{ t.destaques.intro }}</p>
-        <div class="ga-destaques" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+        <div class="ga-destaques" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px">
           <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
-            <div onClick="{{ d.onClick }}" class="ga-card ga-card--lift" style="cursor:pointer">
-              <div style="position:relative; aspect-ratio:4/3; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
+            <div onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer">
+              <div style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
                 <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
                 <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
                   <div style="{{ d.bgStyle }}"></div>
@@ -346,7 +346,7 @@
       </div>
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px">
         <sc-for list="{{ casesList }}" as="c" hint-placeholder-count="4">
-          <div onClick="{{ c.onClick }}" class="ga-card ga-card--lift" style="cursor:pointer">
+          <div onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer">
             <div style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
               <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <sc-if value="{{ c.hasBg }}" hint-placeholder-val="{{ false }}">
@@ -400,6 +400,44 @@
             <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
           </sc-for>
         </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:8px 24px 48px">
+          <span class="ga-kicker" style="color:var(--ink)">{{ kd.v1Kicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.v1Title }}</h2>
+          <sc-for list="{{ kd.v1Paras }}" as="p" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
+          </sc-for>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px">
+            <sc-for list="{{ kd.v1 }}" as="g" hint-placeholder-count="3">
+              <figure style="margin:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
+                <div role="img" aria-label="{{ g.cap }}" style="{{ g.imgStyle }}"></div>
+                <figcaption style="padding:11px 14px; font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-muted); border-top:2px solid var(--ink)">{{ g.cap }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:8px 24px 56px">
+          <span class="ga-kicker" style="color:var(--vermilion)">{{ kd.v2Kicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.v2Title }}</h2>
+          <sc-for list="{{ kd.v2Paras }}" as="p" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
+          </sc-for>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px">
+            <sc-for list="{{ kd.v2 }}" as="g" hint-placeholder-count="6">
+              <figure style="margin:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
+                <div role="img" aria-label="{{ g.cap }}" style="{{ g.imgStyle }}"></div>
+                <figcaption style="padding:11px 14px; font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-muted); border-top:2px solid var(--ink)">{{ g.cap }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+          <div style="margin-top:26px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
+            <a href="https://kayadoc.com" target="_blank" rel="noopener noreferrer" class="ga-btn ga-btn--ink">{{ kd.linkLabel }} ↗</a>
+            <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; color:var(--text-muted)">{{ kd.linkNote }}</span>
+          </div>
+        </section>
+
+        
 
         <section style="background:var(--ink); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:64px 0">
           <div style="max-width:1180px; margin:0 auto; padding:0 24px">
@@ -2016,7 +2054,12 @@ const BRANDS = [
 ];
 
 const CASES = [
-  { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
+  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 — hoje',
+    bgImage: 'assets/cases/kaya-doc/capa.jpg',
+    title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
+    typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
+    blurb: { pt: 'SaaS B2B de cannabis medicinal — design system e IA.', en: 'B2B medical-cannabis SaaS — design system and AI.' } },
+{ id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
     title: { pt: 'Othelo', en: 'Othelo' },
     typeLabel: { pt: 'Branding + Web', en: 'Branding + Web' },
@@ -2031,10 +2074,6 @@ const CASES = [
     title: { pt: 'Yerba Fina', en: 'Yerba Fina' },
     typeLabel: { pt: 'Branding', en: 'Branding' },
     blurb: { pt: 'Moda sustentável brasileira — identidade visual completa, do bud ao manual.', en: 'Brazilian sustainable fashion — full visual identity, from the bud to the guidelines.' } },
-  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 — hoje',
-    title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
-    typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
-    blurb: { pt: 'SaaS B2B de cannabis medicinal — design system e IA.', en: 'B2B medical-cannabis SaaS — design system and AI.' } },
   { id: 'hercules', cat: 'branding', detail: true, color: '#E1241C', fg: '#FFFFFF', mono: MONO_W, year: '2022',
     bgImage: 'assets/cases/hercules/card-cover.jpg',
     title: { pt: 'Hercules', en: 'Hercules' },
@@ -2058,8 +2097,34 @@ const KD_NUMEROS = [
   { n: '3', ptL: 'larguras, cada uma desenhada', enL: 'widths, each one designed' },
   { n: '2', ptL: 'camadas de token', enL: 'token layers' },
 ];
+const KD_BASE = 'assets/cases/kaya-doc/';
+const KD_V1 = [
+  { src: KD_BASE + 'v1-comparador.jpg', ratio: '3/2', capPt: 'Comparador de produtos · o núcleo da V1', capEn: 'Product comparator · the core of V1' },
+  { src: KD_BASE + 'v1-biblioteca.jpg', ratio: '3/2', capPt: 'Biblioteca de estudos científicos', capEn: 'Library of scientific studies' },
+  { src: KD_BASE + 'v1-whatsapp.jpg', ratio: '3/2', capPt: 'O cadastro acontecia fora do produto, por WhatsApp', capEn: 'Sign-up happened outside the product, over WhatsApp' },
+];
+const KD_V2 = [
+  { src: KD_BASE + 'v2-home-externa.jpg', ratio: '1/1', capPt: 'Site externo · fotografia e discurso de evidência', capEn: 'Public site · photography and an evidence-led message' },
+  { src: KD_BASE + 'v2-home-mobile.jpg', ratio: '1/1', capPt: 'Home do prescritor no celular', capEn: 'Prescriber home on mobile' },
+  { src: KD_BASE + 'v2-consulta.jpg', ratio: '1/1', capPt: 'Consulta em andamento · o fluxo clínico', capEn: 'Consultation in progress · the clinical flow' },
+  { src: KD_BASE + 'v2-educacao.jpg', ratio: '1/1', capPt: 'Educação médica com progresso e níveis', capEn: 'Medical education with progress and levels' },
+  { src: KD_BASE + 'v2-canabinoides.jpg', ratio: '1/1', capPt: 'Tipos de canabinoides · dataviz de domínio', capEn: 'Cannabinoid types · domain data visualisation' },
+  { src: KD_BASE + 'v2-dashboard.jpg', ratio: '3/4', capPt: 'Dashboard de marcas · captura do produto em uso', capEn: 'Brand dashboard · screenshot of the live product' },
+];
+
 const KAYA_DOC = {
   pt: {
+    v1Kicker: 'Versão 1', v1Title: 'O começo: a plataforma existia, a entrada não.',
+    v1Paras: [
+      'A primeira versão entregou o essencial — comparador de produtos, biblioteca de estudos científicos e descoberta de novos produtos. O verde institucional, a tipografia e a estrutura de menu vinham direto da marca Kaya.',
+      'E o cadastro do prescritor acontecia fora do produto, numa conversa de WhatsApp. Resolve os primeiros usuários; não escala para mil.',
+    ],
+    v2Kicker: 'Versão 2', v2Title: 'O que mudou — e por quê.',
+    v2Paras: [
+      'A V2 reconstrói sobre sistema. O que antes era tela desenhada uma a uma virou biblioteca: 353 componentes-mestre, 322 deles com variantes declaradas, tokens em duas camadas, e cada artefato existindo em desktop, tablet e mobile.',
+      'A entrada entra no produto: cadastro faseado em quatro etapas, com progresso rotulado. E o site externo troca a ilustração pela fotografia, assumindo um discurso de evidência científica em vez de institucional.',
+    ],
+    linkLabel: 'Ver o produto no ar', linkNote: 'kayadoc.com',
     back: 'Voltar aos cases', tag: 'Produto digital',
     role: 'Lead Designer — UI, UX research e design system',
     title: 'Kaya Doc', slogan: 'Prescrever com base em evidência',
@@ -2106,6 +2171,17 @@ const KAYA_DOC = {
     cta: 'Quer um sistema assim no seu produto?', ctaBtn: 'Vamos conversar',
   },
   en: {
+    v1Kicker: 'Version 1', v1Title: 'The start: the platform existed, the door did not.',
+    v1Paras: [
+      'The first version shipped the essentials — product comparator, library of scientific studies and product discovery. The institutional green, the typography and the menu structure came straight from the Kaya brand.',
+      'And prescriber sign-up happened outside the product, over a WhatsApp conversation. That handles the first hundred users; it does not scale to a thousand.',
+    ],
+    v2Kicker: 'Version 2', v2Title: 'What changed — and why.',
+    v2Paras: [
+      'V2 rebuilds on a system. What used to be screens drawn one by one became a library: 353 master components, 322 of them declared variants, tokens in two layers, and every artefact existing on desktop, tablet and mobile.',
+      'The door moves inside the product: sign-up phased across four steps, with labelled progress. And the public site swaps illustration for photography, taking an evidence-led message instead of an institutional one.',
+    ],
+    linkLabel: 'See the live product', linkNote: 'kayadoc.com',
     back: 'Back to cases', tag: 'Digital product',
     role: 'Lead Designer — UI, UX research and design system',
     title: 'Kaya Doc', slogan: 'Prescribing from evidence',
@@ -2155,6 +2231,7 @@ const KAYA_DOC = {
 
 const DESTAQUES = [
   { id: 'kaya-doc', cat: 'uiux', color: 'var(--cerulean)', fg: 'var(--paper-100)',
+    bgImage: 'assets/cases/kaya-doc/capa.jpg',
     pt: { tag: 'Produto digital', title: 'Kaya Doc', cta: 'Ver o case',
           blurb: 'Plataforma SaaS de cannabis medicinal para prescritores. Lidero o design de produto: UI, UX research, design system e IA no fluxo de trabalho.' },
     en: { tag: 'Digital product', title: 'Kaya Doc', cta: 'See the case',
@@ -3336,6 +3413,7 @@ class Component extends DCLogic {
     const cases = (this.state.caseFilter === 'all' ? CASES : CASES.filter((c) => c.cat === this.state.caseFilter)).map((c) => ({
       ...c, title: c.title[lang], typeLabel: c.typeLabel[lang], blurb: c.blurb[lang],
       hasBg: !!c.bgImage, showTitle: !c.hideTitle,
+      cls: 'ga-card ga-card--lift' + (c.id === 'kaya-doc' ? ' ga-card--wide' : ''),
       bgStyle: c.bgImage ? `position:absolute; inset:0; background-image:url("${c.bgImage}"); background-size:cover; background-position:center` : '',
       onClick: () => this.openCase(c),
     }));
@@ -3344,17 +3422,24 @@ class Component extends DCLogic {
     const destaques = DESTAQUES.map((d) => ({
       ...d, ...d[lang],
       hasBg: !!d.bgImage,
+      cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide' : ''),
+      ratio: d.id === 'kaya-doc' ? '21/9' : '4/3',
       bgStyle: d.bgImage ? `position:absolute; inset:0; background-image:url("${d.bgImage}"); background-size:cover; background-position:center` : '',
       onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })
                     : d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
     }));
 
     const KDL = KAYA_DOC[lang];
+    const kdImgs = (arr) => arr.map((x) => ({
+      cap: lang === 'pt' ? x.capPt : x.capEn,
+      imgStyle: `aspect-ratio:${x.ratio}; width:100%; background-image:url("${x.src}"); background-size:cover; background-position:top center`,
+    }));
     const kd = {
       ...KDL,
       paleta: KD_PALETA.map((c) => ({ ...c, sw: `background:${c.hex}; aspect-ratio:1; border:2px solid var(--ink); border-radius:var(--radius-sm)` })),
       neutras: KD_NEUTRAS.map((c) => ({ ...c, sw: `background:${c.hex}; aspect-ratio:1; border:2px solid var(--ink); border-radius:var(--radius-sm)` })),
       numeros: KD_NUMEROS.map((n) => ({ n: n.n, label: lang === 'pt' ? n.ptL : n.enL })),
+      v1: kdImgs(KD_V1), v2: kdImgs(KD_V2),
     };
 
     const YF = YERBA[lang];

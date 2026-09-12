@@ -118,3 +118,13 @@ html, body { overflow-x: hidden; }
   header nav::-webkit-scrollbar { display: none; }
   header nav > * { flex: 0 0 auto; }
 }
+
+/* ---------- Card em destaque ----------
+   O Kaya Doc e o case principal: e o trabalho atual, e o unico de produto
+   digital, e o que serve aos dois publicos do site ao mesmo tempo. Ocupa duas
+   colunas na home e no grid de cases, para ler como manchete e nao como par.
+   No celular, onde tudo e uma coluna, a regra se desfaz sozinha. */
+.ga-card--wide { grid-column: span 2; }
+@media (max-width: 720px) {
+  .ga-card--wide { grid-column: auto !important; }
+}
