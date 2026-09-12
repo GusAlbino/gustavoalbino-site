@@ -2,7 +2,7 @@
 
 Site pessoal de Gustavo Albino. Fonte da verdade do site publicado.
 
-- **Produção:** https://www.gustavoalbino.com.br
+- **Produção:** https://gustavoalbino.com.br
 - **Hospedagem:** Cloudflare Workers (deploy automático via Git)
 - **Registro do domínio:** Hostinger
 - **Desenho:** Claude Design → convertido em site estático neste repositório
