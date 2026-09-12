@@ -368,18 +368,125 @@
           </div>
         </sc-for>
       </div>
-      <div class="ga-callout ga-callout--warning" style="margin-top:32px">
-        <span class="ga-callout__bar"></span>
-        <div>
-          <p class="ga-callout__title">{{ t.casesPage.soonTitle }}</p>
-          <p class="ga-callout__text">{{ t.casesPage.soonText }}</p>
-        </div>
-      </div>
+      
     </div>
     </sc-if>
 
     <!-- ═══════════════ CASE DETAIL — YERBA FINA ═══════════════ -->
-    <sc-if value="{{ isCaseYerba }}" hint-placeholder-val="{{ false }}">
+    <!-- CASE — KAYA DOC -->
+      <sc-if value="{{ isCaseKaya }}" hint-placeholder-val="{{ false }}">
+        <section style="max-width:1180px; margin:0 auto; padding:24px 24px 8px">
+          <button onClick="{{ toCases }}" class="ga-btn ga-btn--ghost ga-btn--sm">{{ kd.back }}</button>
+        </section>
+        <section style="max-width:1180px; margin:0 auto; padding:24px 24px 56px">
+          <span class="ga-kicker">{{ kd.tag }}</span>
+          <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.92; font-size:clamp(38px,7vw,86px); margin:12px 0 6px; color:var(--ink)">{{ kd.title }}</h1>
+          <p style="font-family:var(--font-mono); font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--vermilion); margin:0 0 22px">{{ kd.slogan }}</p>
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch; font-size:19px; max-width:70ch">{{ kd.lede }}</p>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:34px; padding-top:26px; border-top:2px solid var(--ink)">
+            <sc-for list="{{ kd.ficha }}" as="f" hint-placeholder-count="4">
+              <div>
+                <div style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px">{{ f.k }}</div>
+                <div style="font-family:var(--font-body); font-weight:600; font-size:15px; line-height:1.45; color:var(--ink)">{{ f.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:8px 24px 56px">
+          <span class="ga-kicker" style="color:var(--ink)">{{ kd.produtoKicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.produtoTitle }}</h2>
+          <sc-for list="{{ kd.produtoParas }}" as="p" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
+          </sc-for>
+        </section>
+
+        <section style="background:var(--ink); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:64px 0">
+          <div style="max-width:1180px; margin:0 auto; padding:0 24px">
+            <span class="ga-kicker" style="color:var(--gold)">{{ kd.sistemaKicker }}</span>
+            <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance; color:var(--paper-300)">{{ kd.sistemaTitle }}</h2>
+            <sc-for list="{{ kd.sistemaParas }}" as="p" hint-placeholder-count="2">
+              <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch; color:var(--paper-400)">{{ p }}</p>
+            </sc-for>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:36px">
+              <sc-for list="{{ kd.numeros }}" as="n" hint-placeholder-count="4">
+                <div style="border:2px solid var(--paper-400); border-radius:var(--radius-md); padding:20px">
+                  <div style="font-family:var(--font-display); font-weight:900; font-size:44px; line-height:1; color:var(--gold)">{{ n.n }}</div>
+                  <div style="font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--paper-400); margin-top:8px; line-height:1.4">{{ n.label }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin-top:40px">
+              <div style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--paper-400); margin-bottom:12px">{{ kd.paletaLabel }}</div>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:10px">
+                <sc-for list="{{ kd.paleta }}" as="c" hint-placeholder-count="7">
+                  <div>
+                    <div style="{{ c.sw }}"></div>
+                    <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.04em; color:var(--paper-400); margin-top:7px">{{ c.hex }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--paper-400); margin:26px 0 12px">{{ kd.neutrasLabel }}</div>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:10px">
+                <sc-for list="{{ kd.neutras }}" as="c" hint-placeholder-count="4">
+                  <div>
+                    <div style="{{ c.sw }}"></div>
+                    <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.04em; color:var(--paper-400); margin-top:7px">{{ c.hex }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:64px 24px 8px">
+          <span class="ga-kicker" style="color:var(--ink)">{{ kd.hierarquiaKicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.hierarquiaTitle }}</h2>
+          <sc-for list="{{ kd.hierarquiaParas }}" as="p" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
+          </sc-for>
+        </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
+          <span class="ga-kicker" style="color:var(--ink)">{{ kd.fluxoKicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.fluxoTitle }}</h2>
+          <sc-for list="{{ kd.fluxoParas }}" as="p" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
+          </sc-for>
+        </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
+          <span class="ga-kicker" style="color:var(--ink)">{{ kd.detalheKicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.detalheTitle }}</h2>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:8px">
+            <sc-for list="{{ kd.detalheItems }}" as="i" hint-placeholder-count="3">
+              <div class="ga-panel" style="padding:24px">
+                <h3 style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:17px; line-height:1.2; margin:0 0 10px; color:var(--ink)">{{ i.t }}</h3>
+                <p style="font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--text-body); margin:0">{{ i.d }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="max-width:1180px; margin:0 auto; padding:56px 24px 80px">
+          <span class="ga-kicker" style="color:var(--ink)">{{ kd.papelKicker }}</span>
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(28px,4vw,46px); margin:12px 0 18px; color:var(--ink); text-wrap:balance">{{ kd.papelTitle }}</h2>
+          <sc-for list="{{ kd.papelParas }}" as="p" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:17px; line-height:1.75; color:var(--text-body); margin:0 0 18px; max-width:64ch">{{ p }}</p>
+          </sc-for>
+          <div class="ga-callout ga-callout--info" style="margin:28px 0 34px; max-width:72ch">
+            <span class="ga-callout__bar"></span>
+            <div><p class="ga-callout__text">{{ kd.nota }}</p></div>
+          </div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding-top:26px; border-top:2px solid var(--paper-400)">
+            <p style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:0 14px 0 0">{{ kd.cta }}</p>
+            <button onClick="{{ toContato }}" class="ga-btn ga-btn--primary ga-btn--lg">{{ kd.ctaBtn }}</button>
+            <button onClick="{{ toCases }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ kd.back }}</button>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ isCaseYerba }}" hint-placeholder-val="{{ false }}">
     <div style="background:#283618">
 
       <!-- back bar -->
@@ -1708,8 +1815,6 @@ const DICT = {
       kicker: 'Acervo · 5 cases',
       title: 'Cases',
       intro: 'Projetos de marca, produto e cultura — todos com a mesma exigência gráfica.',
-      soonTitle: 'Cases em produção',
-      soonText: 'O conteúdo detalhado de cada case (Contexto → Desafio → Processo → Solução → Resultado) entra em breve. A prova de trabalho do lançamento está na Galeria.',
     },
     galPage: {
       kicker: 'Prova de trabalho',
@@ -1858,8 +1963,6 @@ const DICT = {
       kicker: 'Archive · 5 cases',
       title: 'Cases',
       intro: 'Brand, product and culture projects — all held to the same graphic bar.',
-      soonTitle: 'Cases in production',
-      soonText: 'The detailed content of each case (Context → Challenge → Process → Solution → Result) is coming soon. The launch proof of work lives in the Gallery.',
     },
     galPage: {
       kicker: 'Proof of work',
@@ -1928,8 +2031,7 @@ const CASES = [
     title: { pt: 'Yerba Fina', en: 'Yerba Fina' },
     typeLabel: { pt: 'Branding', en: 'Branding' },
     blurb: { pt: 'Moda sustentável brasileira — identidade visual completa, do bud ao manual.', en: 'Brazilian sustainable fashion — full visual identity, from the bud to the guidelines.' } },
-  { id: 'kaya-doc', cat: 'uiux', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 — hoje',
-    bgImage: 'assets/cases/kaya-doc/comparador.jpg',
+  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 — hoje',
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
     blurb: { pt: 'SaaS B2B de cannabis medicinal — design system e IA.', en: 'B2B medical-cannabis SaaS — design system and AI.' } },
@@ -1940,11 +2042,122 @@ const CASES = [
     blurb: { pt: 'Marca de suplementos com energia RUN-DMC — do logo à newsletter e aos vídeos.', en: 'A supplements brand with RUN-DMC energy — from logo to newsletter and films.' } },
 ];
 
+const KD_PALETA = [
+  { hex: '#F6FCE9', nome: 'Verde 50' },   { hex: '#DBF2A6', nome: 'Verde 200' },
+  { hex: '#C9EB7A', nome: 'Verde 300' },  { hex: '#75CD1A', nome: 'Verde 600', padrao: true },
+  { hex: '#258E3F', nome: 'Verde 700' },  { hex: '#165526', nome: 'Verde 800' },
+  { hex: '#0F3919', nome: 'Verde 900' },
+];
+const KD_NEUTRAS = [
+  { hex: '#E5E8EC', nome: '50' },  { hex: '#BBC3CD', nome: '200' },
+  { hex: '#8392A5', nome: '400' }, { hex: '#525F70', nome: '600' },
+];
+const KD_NUMEROS = [
+  { n: '353', ptL: 'componentes-mestre', enL: 'master components' },
+  { n: '322', ptL: 'com variantes', enL: 'with variants' },
+  { n: '3', ptL: 'larguras, cada uma desenhada', enL: 'widths, each one designed' },
+  { n: '2', ptL: 'camadas de token', enL: 'token layers' },
+];
+const KAYA_DOC = {
+  pt: {
+    back: 'Voltar aos cases', tag: 'Produto digital',
+    role: 'Lead Designer — UI, UX research e design system',
+    title: 'Kaya Doc', slogan: 'Prescrever com base em evidência',
+    lede: 'Plataforma de cannabis medicinal para prescritores. Catálogo, comparador de produtos, biblioteca de estudos científicos e co-piloto de prescrição — num setor onde a informação é dispersa e a regulação é rígida. Lidero o design de produto desde 2022.',
+    ficha: [
+      { k: 'Cliente', v: 'Kaya Mind' },
+      { k: 'Papel', v: 'Lead Designer — produto, pesquisa e design system' },
+      { k: 'Período', v: 'Maio de 2022 — hoje' },
+      { k: 'Entregáveis', v: 'Design system, protótipo, UX research e handoff' },
+    ],
+    produtoKicker: 'O produto', produtoTitle: 'Decisão clínica precisa de informação organizada.',
+    produtoParas: [
+      'O prescritor de cannabis medicinal decide num terreno difícil: catálogo disperso entre fabricantes, regulação em movimento, e evidência científica espalhada por bases que não conversam entre si. A plataforma existe para reunir isso num lugar só.',
+      'Os números que a própria Kaya Doc publica dão a escala do problema: mais de 1.500 produtos catalogados, 200 marcas integradas, 250 estudos científicos e 100 condições médicas mapeadas.',
+    ],
+    sistemaKicker: 'O sistema', sistemaTitle: 'Um design system feito para virar código.',
+    sistemaParas: [
+      'A biblioteca tem 353 componentes-mestre, e 322 deles são variantes declaradas — não cópias soltas. Isso é o que separa uma pasta de telas de um sistema: quando o botão muda, ele muda em todo lugar.',
+      'A arquitetura de tokens tem duas camadas. Em cima, a paleta semântica do produto. Embaixo, uma base de primitivos com nomenclatura alinhada ao Tailwind — rounded-lg, shadow-md, a escala de 4 em 4 pixels. Não é preciosismo: é o que faz o handoff funcionar. O desenvolvedor lê o nome do token e sabe o que implementar, sem tradução no meio.',
+    ],
+    paletaLabel: 'Paleta do produto', neutrasLabel: 'Neutras',
+    hierarquiaKicker: 'Hierarquia', hierarquiaTitle: 'O nome do arquivo já responde a pergunta.',
+    hierarquiaParas: [
+      'Cada artefato existe em desktop, tablet e mobile como peça desenhada, não como adaptação automática. A barra de progresso do cadastro, por exemplo, tem uma versão própria para cada largura.',
+      'E a nomenclatura carrega a informação: Deskt_Pg00_Ex — KD 2.0 — Cadastro passo 1 de 2 diz dispositivo, página, escopo, produto e etapa do fluxo. Qualquer pessoa do time acha o arquivo sem precisar perguntar. Num time que cresce, isso vale mais que qualquer documento de processo.',
+    ],
+    fluxoKicker: 'O fluxo', fluxoTitle: 'Cadastro em quatro etapas, com o fim à vista.',
+    fluxoParas: [
+      'O cadastro do prescritor é faseado em quatro etapas, com barra de progresso rotulada de 25% a 100%. Formulário longo sem indicação de progresso é formulário abandonado; dizer onde a pessoa está reduz a desistência.',
+      'O sistema de formulário foi desenhado para o caminho infeliz também: o campo carrega um slot de legenda oculto, reservado para a mensagem de erro, e há um padrão específico para a opção "outra" — aquela em que o usuário precisa escrever algo que a lista não previu.',
+    ],
+    detalheKicker: 'Onde o cuidado aparece', detalheTitle: 'Três decisões que ninguém nota — e que mudam tudo.',
+    detalheItems: [
+      { t: 'Iconografia de evidência', d: 'Ensaio clínico, estudo de coorte e revisão sistemática têm ícones próprios. Não é decoração: o prescritor reconhece o peso da fonte antes de ler o título.' },
+      { t: 'Consentimento versionado', d: 'O diálogo de cookies carrega a versão da política que o usuário aceitou. LGPD tratada como design, não como aviso jurídico colado depois.' },
+      { t: 'Progressão como recompensa', d: 'Medalhas, níveis e barra de progresso aplicados à educação médica — o profissional acompanha o próprio avanço na biblioteca de estudos.' },
+    ],
+    papelKicker: 'Meu papel', papelTitle: 'O que eu lidero.',
+    papelParas: [
+      'Conduzo o design de produto do Kaya Doc 2.0 ponta a ponta: interface, experiência, pesquisa com usuário, construção e manutenção do design system, prototipagem avançada em Figma e integração de ferramentas de IA no próprio fluxo de trabalho da equipe.',
+      'Trabalho direto com stakeholders, tecnologia e engenharia — que é onde um design system deixa de ser uma biblioteca bonita e passa a ser infraestrutura.',
+    ],
+    nota: 'As telas do produto não são reproduzidas aqui. O Kaya Doc é propriedade da Kaya Mind, e este case descreve processo, sistema e decisões — não redistribui a interface.',
+    cta: 'Quer um sistema assim no seu produto?', ctaBtn: 'Vamos conversar',
+  },
+  en: {
+    back: 'Back to cases', tag: 'Digital product',
+    role: 'Lead Designer — UI, UX research and design system',
+    title: 'Kaya Doc', slogan: 'Prescribing from evidence',
+    lede: 'Medical-cannabis platform for prescribers. Catalogue, product comparator, library of scientific studies and a prescription co-pilot — in a field where information is scattered and regulation is strict. I have led product design since 2022.',
+    ficha: [
+      { k: 'Client', v: 'Kaya Mind' },
+      { k: 'Role', v: 'Lead Designer — product, research and design system' },
+      { k: 'Period', v: 'May 2022 — present' },
+      { k: 'Deliverables', v: 'Design system, prototype, UX research and handoff' },
+    ],
+    produtoKicker: 'The product', produtoTitle: 'Clinical decisions need organised information.',
+    produtoParas: [
+      'A medical-cannabis prescriber decides on hard ground: a catalogue scattered across manufacturers, regulation in motion, and scientific evidence spread over databases that do not talk to each other. The platform exists to bring that into one place.',
+      'The figures Kaya Doc publishes give the scale: over 1,500 catalogued products, 200 integrated brands, 250 scientific studies and 100 mapped medical conditions.',
+    ],
+    sistemaKicker: 'The system', sistemaTitle: 'A design system built to become code.',
+    sistemaParas: [
+      'The library holds 353 master components, 322 of them declared variants — not loose copies. That is what separates a folder of screens from a system: when the button changes, it changes everywhere.',
+      'Tokens are built in two layers. On top, the product semantic palette. Underneath, a primitive base named along Tailwind lines — rounded-lg, shadow-md, the 4px scale. Not fussiness: it is what makes handoff work. The developer reads the token name and knows what to build, with no translation in between.',
+    ],
+    paletaLabel: 'Product palette', neutrasLabel: 'Neutrals',
+    hierarquiaKicker: 'Hierarchy', hierarquiaTitle: 'The file name already answers the question.',
+    hierarquiaParas: [
+      'Every artefact exists on desktop, tablet and mobile as a designed piece, not an automatic adaptation. The sign-up progress bar, for one, has its own version per width.',
+      'And the naming carries the information: Deskt_Pg00_Ex — KD 2.0 — Cadastro passo 1 de 2 states device, page, scope, product and flow step. Anyone on the team finds the file without asking. In a growing team, that beats any process document.',
+    ],
+    fluxoKicker: 'The flow', fluxoTitle: 'Sign-up in four steps, with the end in sight.',
+    fluxoParas: [
+      'Prescriber sign-up is phased across four steps, with a progress bar labelled 25% to 100%. A long form with no sense of progress is an abandoned form; telling people where they are cuts drop-off.',
+      'The form system was designed for the unhappy path too: each field carries a hidden caption slot reserved for the error message, and there is a specific pattern for the "other" option — the one where the user must write something the list did not anticipate.',
+    ],
+    detalheKicker: 'Where the care shows', detalheTitle: 'Three decisions nobody notices — and that change everything.',
+    detalheItems: [
+      { t: 'Evidence iconography', d: 'Clinical trial, cohort study and systematic review each have their own icon. Not decoration: the prescriber recognises the weight of the source before reading the title.' },
+      { t: 'Versioned consent', d: 'The cookie dialog carries the policy version the user accepted. Data-protection law treated as design, not as a legal notice pasted on afterwards.' },
+      { t: 'Progress as reward', d: 'Medals, levels and a progress bar applied to medical education — the professional tracks their own advance through the study library.' },
+    ],
+    papelKicker: 'My role', papelTitle: 'What I lead.',
+    papelParas: [
+      'I drive product design for Kaya Doc 2.0 end to end: interface, experience, user research, building and maintaining the design system, advanced Figma prototyping, and bringing AI tools into the team workflow itself.',
+      'I work directly with stakeholders, technology and engineering — which is where a design system stops being a pretty library and becomes infrastructure.',
+    ],
+    nota: 'Product screens are not reproduced here. Kaya Doc is owned by Kaya Mind, and this case describes process, system and decisions — it does not redistribute the interface.',
+    cta: 'Want a system like this in your product?', ctaBtn: "Let's talk",
+  },
+};
+
 const DESTAQUES = [
   { id: 'kaya-doc', cat: 'uiux', color: 'var(--cerulean)', fg: 'var(--paper-100)',
-    pt: { tag: 'Produto digital', title: 'Kaya Doc', cta: 'Ver nos cases',
+    pt: { tag: 'Produto digital', title: 'Kaya Doc', cta: 'Ver o case',
           blurb: 'Plataforma SaaS de cannabis medicinal para prescritores. Lidero o design de produto: UI, UX research, design system e IA no fluxo de trabalho.' },
-    en: { tag: 'Digital product', title: 'Kaya Doc', cta: 'See in cases',
+    en: { tag: 'Digital product', title: 'Kaya Doc', cta: 'See the case',
           blurb: 'Medical-cannabis SaaS for prescribers. I lead product design: UI, UX research, design system and AI in the workflow.' } },
   { id: 'branding', cat: 'branding', color: 'var(--vermilion)', fg: 'var(--paper-100)',
     bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
@@ -3132,8 +3345,17 @@ class Component extends DCLogic {
       ...d, ...d[lang],
       hasBg: !!d.bgImage,
       bgStyle: d.bgImage ? `position:absolute; inset:0; background-image:url("${d.bgImage}"); background-size:cover; background-position:center` : '',
-      onClick: () => (d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
+      onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })
+                    : d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
     }));
+
+    const KDL = KAYA_DOC[lang];
+    const kd = {
+      ...KDL,
+      paleta: KD_PALETA.map((c) => ({ ...c, sw: `background:${c.hex}; aspect-ratio:1; border:2px solid var(--ink); border-radius:var(--radius-sm)` })),
+      neutras: KD_NEUTRAS.map((c) => ({ ...c, sw: `background:${c.hex}; aspect-ratio:1; border:2px solid var(--ink); border-radius:var(--radius-sm)` })),
+      numeros: KD_NUMEROS.map((n) => ({ n: n.n, label: lang === 'pt' ? n.ptL : n.enL })),
+    };
 
     const YF = YERBA[lang];
     const cd = {
@@ -3255,7 +3477,7 @@ class Component extends DCLogic {
       isCaseYerba: page === 'case' && this.state.caseId === 'yerba-fina',
       isCaseHercules: page === 'case' && this.state.caseId === 'hercules',
       isCaseJimi: page === 'case' && this.state.caseId === 'jimi-oliver',
-      isCaseOthelo: page === 'case' && this.state.caseId === 'othelo',
+      isCaseOthelo: page === 'case' && this.state.caseId === 'othelo', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
       isGaleria: page === 'galeria',
       isIlustra: page === 'ilustracao',
       isLogos: page === 'logos',
@@ -3302,7 +3524,7 @@ class Component extends DCLogic {
       aiTools: D.cv.aiTools,
 
       caseFilters: CASE_FILTERS.map((f) => filterChip(f, this.state.caseFilter, (k) => this.setState({ caseFilter: k }))),
-      destaques, casesList: cases,
+      kd, destaques, casesList: cases,
       galFilters: GAL_FILTERS.map((f) => filterChip(f, this.state.galFilter, (k) => this.setState({ galFilter: k }))),
       galItems: gal,
       services,

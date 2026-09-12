@@ -95,27 +95,14 @@ Guardado para referência caso seja preciso reverter:
 
 ## Pendências
 
-**BLOQUEIA A PUBLICAÇÃO — conformidade de assets da Kaya Mind:**
-
-O Kaya Doc é produto da Kaya Mind. A regra do titular é clara: **só pode ser
-publicado o que já existe no site oficial `kayadoc.com`, e os assets devem ir
-próximos do original, sem alteração.** O próprio arquivo do Figma carrega o
-aviso de propriedade exclusiva e proibição de reprodução não autorizada.
-
-- [ ] **Remover ou substituir** `public/assets/cases/kaya-doc/comparador.jpg`,
-      `biblioteca.jpg` e `descubra.jpg`. Os três vieram de pasta local, não do
-      site oficial — as telas ficam atrás de login.
-- [ ] **A hero aponta para `comparador.jpg`.** Trocar antes de qualquer deploy.
-
-O que é público e pode ser usado: o hero de `kayadoc.com/static/images/home-v2/`
-(porém é imagem gerada por IA, com artefatos visíveis quando ampliada), o logo
-oficial em `static/images/rebranding/`, e o próprio site público.
-
 **Para publicar:**
 
 - [ ] Proteger a `main` (Require a pull request before merging, **0 aprovações**)
 - [ ] Confirmar na Cloudflare que o projeto está ligado a este repositório
 - [ ] Mergear o PR #1 e ver o site substituir o `Hello World!`
+- [x] ~~Conformidade dos assets da Kaya Mind~~ — resolvido: nenhuma tela do
+      produto é reproduzida. O case descreve processo, sistema e decisões, e a
+      página traz nota explícita de propriedade da Kaya Mind.
 - [ ] Apontar `gustavoalbino.com.br` para a Cloudflare (por último)
 
 **Qualidade, depois de estar no ar:**
