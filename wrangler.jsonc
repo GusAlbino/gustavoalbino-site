@@ -7,12 +7,10 @@
   // Nao ha campo "main" de proposito. Sem script, o Worker apenas serve os
   // arquivos de "assets.directory" — que e exatamente o que um site
   // estatico precisa.
-  // Precisa bater exatamente com o nome do Worker ja existente na conta
-  // Cloudflare. Se divergir, o deploy cria um SEGUNDO Worker com outro nome
-  // e a URL em uso continua servindo o conteudo antigo.
-  // O nome e gerado automaticamente pela Cloudflare e some da vista assim
-  // que o dominio proprio for apontado para ca.
-  "name": "crimson-unit-81cd",
+  // Precisa bater exatamente com o nome do projeto criado na Cloudflare. Se
+  // divergir, o deploy vai para outro Worker e a URL em uso continua servindo
+  // o conteudo antigo — ja aconteceu uma vez neste projeto.
+  "name": "gustavoalbino-site",
   "compatibility_date": "2026-09-07",
   "assets": {
     // Somente o conteudo publicado. README, docs/ e tools/ ficam de fora
