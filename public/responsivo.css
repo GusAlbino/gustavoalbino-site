@@ -125,6 +125,41 @@ html, body { overflow-x: hidden; }
    colunas na home e no grid de cases, para ler como manchete e nao como par.
    No celular, onde tudo e uma coluna, a regra se desfaz sozinha. */
 .ga-card--wide { grid-column: span 2; }
+
+/* Acima do celular o card largo deixa de ser "midia em cima, texto embaixo" e
+   vira composicao horizontal: imagem a esquerda, texto a direita. Isso permite
+   que o mockup entre na proporcao nativa dele — quadrada — em vez de ser
+   recortado para caber numa faixa larga. Mockup tem muita margem em volta do
+   aparelho; cortar para 21:9 dava um zoom que apagava o monitor e deixava so
+   interface crua. */
+@media (min-width: 721px) {
+  .ga-card--wide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .ga-card--wide > div:first-child {
+    border-bottom: none !important;
+    border-right: 2px solid var(--ink);
+  }
+  .ga-card--wide > .ga-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 34px !important;
+  }
+  /* O texto do card largo ocupa meia coluna de 1132px; no corpo padrao ele
+     fica pequeno demais para o espaco. */
+  .ga-card--wide > .ga-card__body p { font-size: 17px !important; line-height: 1.65 !important; }
+
+  /* O veu escuro existe para dar contraste ao titulo branco sobre fotografia.
+     Sobre um mockup de produto, de fundo claro, ele acinzenta a peca inteira.
+     Aqui ele recua para uma faixa so no rodape, onde o titulo de fato esta. */
+  .ga-card--wide > div:first-child > div[style*="linear-gradient"] {
+    background: linear-gradient(180deg, transparent 0%, transparent 58%, rgba(0,0,0,.58) 100%) !important;
+  }
+}
+
 @media (max-width: 720px) {
   .ga-card--wide { grid-column: auto !important; }
 }

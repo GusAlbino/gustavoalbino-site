@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=ebb75588">
+<link rel="stylesheet" href="responsivo.css?v=7a354928">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -3423,7 +3423,7 @@ class Component extends DCLogic {
       ...d, ...d[lang],
       hasBg: !!d.bgImage,
       cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide' : ''),
-      ratio: d.id === 'kaya-doc' ? '21/9' : '4/3',
+      ratio: d.id === 'kaya-doc' ? '1/1' : '4/3',
       bgStyle: d.bgImage ? `position:absolute; inset:0; background-image:url("${d.bgImage}"); background-size:cover; background-position:center` : '',
       onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })
                     : d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
