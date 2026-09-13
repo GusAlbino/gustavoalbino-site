@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=5e4614fb">
+<link rel="stylesheet" href="responsivo.css?v=2db96002">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -152,7 +152,6 @@
           <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
             <div onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer">
               <div class="ga-midia ga-midia--destaque" style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
-                <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
                 <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
                   <div class="ga-capa" style="{{ d.bgStyle }}"></div>
                   <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.64) 100%)"></div>
@@ -378,7 +377,6 @@
         <sc-for list="{{ casesList }}" as="c" hint-placeholder-count="4">
           <div onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer">
             <div class="ga-midia ga-midia--case" style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
-              <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <sc-if value="{{ c.hasBg }}" hint-placeholder-val="{{ false }}">
                 <div class="ga-capa" style="{{ c.bgStyle }}"></div>
                 <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.62) 100%)"></div>
@@ -1220,6 +1218,125 @@
     </sc-if>
 
     <!-- ═══════════════ CASE DETAIL — OTHELO PRODUTORA ═══════════════ -->
+    <!-- ═══════════════ CASE DETAIL — GUSTAVO ALBINO ═══════════════ -->
+    <sc-if value="{{ isCaseGA }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Case · Gustavo Albino" style="background:#1B1B1B; color:#F4EFE6">
+
+      <div style="max-width:1180px; margin:0 auto; padding:22px 24px 0">
+        <button onClick="{{ toCases }}" style="display:inline-flex; align-items:center; gap:8px; background:none; border:none; cursor:pointer; font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#F4EFE6; padding:0">← {{ t.nav.cases }}</button>
+      </div>
+
+      <section class="ga-gam__hero" style="max-width:1180px; margin:0 auto; padding:24px 24px 56px; display:grid; grid-template-columns:1.02fr .98fr; gap:48px; align-items:center">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px">
+            <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#EEBD23">{{ gam.tipo }}</span>
+            <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8C8578">2023</span>
+          </div>
+          <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.88; font-size:clamp(38px,6vw,74px); margin:0 0 18px; color:#F4EFE6">Gustavo Albino</h1>
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:#C9C2B6; margin:0 0 26px; max-width:52ch">{{ gam.lede }}</p>
+          <div class="ga-gam__ficha" style="display:grid; grid-template-columns:repeat(3,1fr); border:2px solid #3A3A3A; border-radius:var(--radius-md); overflow:hidden">
+            <sc-for list="{{ gam.ficha }}" as="f" hint-placeholder-count="6">
+              <div style="padding:13px 15px; border-right:1px solid #3A3A3A; border-bottom:1px solid #3A3A3A">
+                <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#8C8578; margin-bottom:4px">{{ f.k }}</div>
+                <div style="font-family:var(--font-display); font-weight:800; font-size:14px; letter-spacing:-.01em; color:#F4EFE6; line-height:1.15">{{ f.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <figure style="margin:0; border:3px solid #F4EFE6; border-radius:var(--radius-md); overflow:hidden">
+          <img src="assets/cases/gustavo-albino/capa-3x2.jpg" alt="Selo Gustavo Albino" style="display:block; width:100%; height:auto">
+        </figure>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:0 24px 56px">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#F4EFE6">{{ gam.v1Title }}</h2>
+        <sc-for list="{{ gam.v1Paras }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C9C2B6; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-gam__grade" style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-top:24px">
+          <sc-for list="{{ gam.v1 }}" as="g" hint-placeholder-count="6">
+            <figure style="margin:0; border:2px solid #3A3A3A; border-radius:var(--radius-sm,6px); overflow:hidden; background:#F4EFE6">
+              <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto; padding:14px; box-sizing:border-box">
+              <figcaption style="border-top:2px solid #3A3A3A; background:#1B1B1B; padding:8px 10px; font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; color:#8C8578">{{ g.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="background:#F4EFE6; color:#1B1B1B; border-top:3px solid #F4EFE6">
+        <div style="max-width:1180px; margin:0 auto; padding:56px 24px">
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px">{{ gam.v2Title }}</h2>
+          <sc-for list="{{ gam.v2Paras }}" as="d" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#4A463E; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+          </sc-for>
+
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:19px; margin:36px 0 10px">{{ gam.partesTitle }}</h3>
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#4A463E; margin:0 0 20px; max-width:70ch">{{ gam.partesPara }}</p>
+          <div class="ga-gam__partes" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px">
+            <sc-for list="{{ gam.partes }}" as="g" hint-placeholder-count="3">
+              <figure style="margin:0; border:2px solid #1B1B1B; border-radius:var(--radius-md); overflow:hidden; background:#FFFFFF; box-shadow:var(--shadow-pop-sm)">
+                <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto; padding:26px; box-sizing:border-box">
+                <figcaption style="border-top:2px solid #1B1B1B; padding:9px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#6B6558">{{ g.cap }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:56px 24px">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#F4EFE6">{{ gam.sistemaTitle }}</h2>
+        <sc-for list="{{ gam.sistemaParas }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C9C2B6; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-gam__sistema" style="display:flex; gap:18px; margin-top:22px; align-items:flex-start; flex-wrap:wrap">
+          <sc-for list="{{ gam.sistema }}" as="g" hint-placeholder-count="2">
+            <figure style="margin:0; width:300px; max-width:100%; border:2px solid #3A3A3A; border-radius:var(--radius-md); overflow:hidden; background:#F4EFE6">
+              <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto">
+              <figcaption style="border-top:2px solid #3A3A3A; background:#1B1B1B; padding:9px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#8C8578">{{ g.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:0 24px 56px">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#F4EFE6">{{ gam.campanhaTitle }}</h2>
+        <sc-for list="{{ gam.campanhaParas }}" as="d" hint-placeholder-count="1">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C9C2B6; margin:0 0 20px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-gam__grade" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px">
+          <sc-for list="{{ gam.campanha }}" as="g" hint-placeholder-count="7">
+            <img src="{{ g.src }}" alt="Campanha de lançamento" loading="lazy" style="display:block; width:100%; height:auto; border:2px solid #3A3A3A; border-radius:var(--radius-sm,6px)">
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="background:#F4EFE6; color:#1B1B1B; border-top:3px solid #F4EFE6">
+        <div style="max-width:1180px; margin:0 auto; padding:56px 24px 72px">
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px">{{ gam.provaTitle }}</h2>
+          <sc-for list="{{ gam.provaParas }}" as="d" hint-placeholder-count="1">
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#4A463E; margin:0 0 20px; max-width:70ch">{{ d }}</p>
+          </sc-for>
+          <div style="border:2px solid #1B1B1B; border-radius:var(--radius-md); overflow:hidden; background:#FFFFFF; box-shadow:var(--shadow-pop-sm); max-width:640px">
+            <div class="ga-gam__cor" style="display:grid; grid-template-columns:1fr 1fr 96px; background:#1B1B1B; color:#F4EFE6">
+              <sc-for list="{{ gam.colTabela }}" as="c" hint-placeholder-count="3">
+                <div style="padding:8px 14px; font-family:var(--font-mono); font-weight:700; font-size:10px; letter-spacing:.12em; text-transform:uppercase">{{ c }}</div>
+              </sc-for>
+            </div>
+            <sc-for list="{{ gam.cores }}" as="c" hint-placeholder-count="6">
+              <div class="ga-gam__cor" style="display:grid; grid-template-columns:1fr 1fr 96px; align-items:center; border-top:1px solid #E3DDD0">
+                <div style="padding:10px 14px; font-family:var(--font-mono); font-size:13px; color:#1B1B1B">{{ c.hex }}</div>
+                <div style="padding:10px 14px; font-family:var(--font-mono); font-size:13px; color:#6B6558">{{ c.token }}</div>
+                <div style="height:100%; min-height:38px; {{ c.amostraSite }}"></div>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#6B6558; margin:12px 0 0">{{ gam.provaNota }}</p>
+        </div>
+      </section>
+
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isCaseOthelo }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Case · Othelo" style="background:#1A1A1A; color:#F4EFE6">
 
@@ -1447,9 +1564,8 @@
             <div style="position:relative; height:{{ g.h }}; background:{{ g.color }}; overflow:hidden; display:flex; align-items:flex-end; padding:16px">
               <sc-if value="{{ g.hasCover }}" hint-placeholder-val="{{ false }}">
                 <div style="{{ g.coverStyle }}"></div>
-                <div style="position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(27,27,27,.72))"></div>
+                <div style="position:absolute; inset:0; background:linear-gradient(transparent 26%, rgba(27,27,27,.58) 64%, rgba(27,27,27,.90) 100%)"></div>
               </sc-if>
-              <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <span style="position:relative; font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:18px; color:{{ g.fg }}; line-height:1">{{ g.title }}</span>
             </div>
             <div style="padding:12px 14px; display:flex; justify-content:space-between; align-items:center">
@@ -1487,12 +1603,25 @@
             <p style="font-family:var(--font-body); font-size:17px; line-height:1.62; color:var(--text-body); max-width:64ch; margin:0 0 20px">{{ s.desc }}</p>
             <a href="{{ s.site }}" target="_blank" rel="noopener" class="ga-btn ga-btn--ghost ga-btn--sm">{{ s.siteLabel }} ↗</a>
           </div>
-          <div class="ga-masonry" style="column-width:210px; column-gap:18px">
+          <div class="ga-masonry" style="column-width:290px; column-gap:18px">
             <sc-for list="{{ s.items }}" as="e" hint-placeholder-count="12">
-              <figure style="break-inside:avoid; margin:0 0 18px; border:2px solid var(--ink); box-shadow:var(--shadow-pop); border-radius:4px; overflow:hidden; background:var(--paper-100)">
-                <img src="{{ e.src }}" alt="" loading="lazy" style="display:block; width:100%; height:auto">
-                <figcaption style="border-top:2px solid var(--ink); padding:9px 13px; display:flex; align-items:center; justify-content:space-between; font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted)"><span>E-book</span><span style="color:var(--ink); font-weight:700">{{ e.year }}</span></figcaption>
-              </figure>
+              <figure style="break-inside:avoid; margin:0 0 18px; border:2px solid var(--ink); box-shadow:var(--shadow-pop); border-radius:6px; overflow:hidden; background:var(--paper-100)">
+                  <img src="{{ e.src }}" alt="{{ e.title }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+                  <figcaption style="padding:13px 14px 14px">
+                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px">
+                      <span style="font-family:var(--font-display); font-weight:800; font-size:14px; line-height:1.2; letter-spacing:-.01em; color:var(--ink)">{{ e.title }}</span>
+                      <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; color:var(--text-muted); flex:none">{{ e.year }}</span>
+                    </div>
+                    <sc-if value="{{ e.hasToc }}" hint-placeholder-val="{{ false }}">
+                      <ul style="margin:9px 0 0; padding:0 0 0 15px; list-style:disc">
+                        <sc-for list="{{ e.toc }}" as="ti" hint-placeholder-count="4">
+                          <li style="font-family:var(--font-body); font-size:12px; line-height:1.45; color:var(--text-body); margin:0 0 3px">{{ ti }}</li>
+                        </sc-for>
+                      </ul>
+                    </sc-if>
+                    <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:inline-block; margin-top:10px; font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--vermilion); text-decoration:none">{{ t.ebooksLabel }} ↗</a>
+                  </figcaption>
+                </figure>
             </sc-for>
           </div>
         </section>
@@ -1591,6 +1720,122 @@
     </sc-if>
 
     <!-- ═══════════════ LOGO & MARCA ═══════════════ -->
+    <!-- ═══════════════ PROJETOS CULTURAIS ═══════════════ -->
+    <sc-if value="{{ isCulturais }}" hint-placeholder-val="{{ false }}">
+    <div style="background:var(--paper-300)">
+
+      <div style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
+        <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:26px">← {{ t.nav.galeria }}</button>
+        <span class="ga-kicker" style="color:var(--vermilion)">{{ t.culturaisPage.kicker }}</span>
+        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(36px,5.4vw,66px); line-height:.94; margin:12px 0 14px; color:var(--ink)">{{ t.culturaisPage.title }}</h1>
+        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">{{ t.culturaisPage.intro }}</p>
+      </div>
+
+      <sc-for list="{{ culturais }}" as="c" hint-placeholder-count="3">
+      <section id="cult-{{ c.id }}" style="max-width:1180px; margin:0 auto; padding:56px 24px; border-bottom:3px solid var(--ink)">
+
+        <div class="ga-cult__topo" style="display:grid; grid-template-columns:.66fr 1fr; gap:44px; align-items:start">
+          <figure style="margin:0">
+            <div style="position:relative; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); background:var(--paper-100)">
+              <img src="{{ c.poster }}" alt="{{ c.posterCap }}" loading="lazy" style="display:block; width:100%; height:auto">
+            </div>
+            <figcaption style="font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); margin:10px 0 0">{{ c.posterCap }}</figcaption>
+          </figure>
+
+          <div>
+            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px">
+              <span class="ga-badge" style="background:{{ c.accent }}; color:var(--paper-100); border-color:var(--ink)">{{ c.edicao }}</span>
+              <span style="font-family:var(--font-mono); font-weight:700; font-size:26px; letter-spacing:.02em; color:{{ c.accent }}">{{ c.ano }}</span>
+            </div>
+            <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.94; font-size:clamp(28px,3.4vw,42px); margin:0 0 12px; color:var(--ink)">{{ c.title }}</h2>
+            <p style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:clamp(16px,2vw,21px); line-height:1.2; color:{{ c.accent }}; margin:0 0 20px">{{ c.tema }}</p>
+            <sc-for list="{{ c.desc }}" as="d" hint-placeholder-count="3">
+              <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:0 0 14px">{{ d }}</p>
+            </sc-for>
+
+            <div style="margin-top:24px; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
+              <div style="background:var(--ink); padding:9px 16px"><span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--paper-100)">{{ t.culturaisPage.ficha }}</span></div>
+              <div class="ga-cult__ficha" style="display:grid; grid-template-columns:repeat(3,1fr)">
+                <sc-for list="{{ c.ficha }}" as="f" hint-placeholder-count="6">
+                  <div style="padding:14px 16px; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400)">
+                    <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px">{{ f.k }}</div>
+                    <div style="font-family:var(--font-display); font-weight:800; font-size:15px; letter-spacing:-.01em; color:var(--ink); line-height:1.15">{{ f.v }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <sc-if value="{{ c.hasLink }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ c.link }}" target="_blank" rel="noopener" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; display:inline-flex; text-decoration:none">{{ t.culturaisPage.link }} · {{ c.linkLabel }} ↗</a>
+            </sc-if>
+          </div>
+        </div>
+
+        <sc-if value="{{ c.hasLogo }}" hint-placeholder-val="{{ false }}">
+        <div class="ga-cult__logo" style="margin-top:44px; display:grid; grid-template-columns:.85fr 1.15fr; align-items:stretch; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
+          <div style="padding:34px; display:flex; align-items:center; justify-content:center; background:var(--paper-200); border-right:2px solid var(--ink)">
+            <img src="{{ c.logo }}" alt="{{ t.culturaisPage.logoKicker }}" loading="lazy" style="display:block; width:100%; max-width:340px; height:auto">
+          </div>
+          <div style="padding:30px 34px; display:flex; flex-direction:column; justify-content:center">
+            <span class="ga-kicker">{{ t.culturaisPage.logoKicker }}</span>
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:10px 0 0">{{ c.logoNota }}</p>
+          </div>
+        </div>
+        </sc-if>
+
+        <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.pecas }}</h3>
+        <div class="ga-cult__grade" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start">
+          <sc-for list="{{ c.pecas }}" as="pc" hint-placeholder-count="3">
+            <figure style="margin:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100); box-shadow:var(--shadow-pop-sm)">
+              <img src="{{ pc.src }}" alt="{{ pc.cap }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+              <figcaption style="padding:10px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted)">{{ pc.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ c.hasFotos }}" hint-placeholder-val="{{ false }}">
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.fotos }}</h3>
+          <div class="ga-cult__grade" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start">
+            <sc-for list="{{ c.fotos }}" as="ft" hint-placeholder-count="3">
+              <figure style="margin:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100); box-shadow:var(--shadow-pop-sm)">
+                <img src="{{ ft.src }}" alt="{{ ft.cap }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+                <figcaption style="padding:10px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted)">{{ ft.cap }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ c.hasExtra }}" hint-placeholder-val="{{ false }}">
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.extra }}</h3>
+          <figure style="margin:0; max-width:620px; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100); box-shadow:var(--shadow-pop-sm)">
+            <img src="{{ c.extraSrc }}" alt="{{ c.extraCap }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+            <figcaption style="padding:10px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted)">{{ c.extraCap }}</figcaption>
+          </figure>
+        </sc-if>
+
+        <sc-if value="{{ c.hasApoios }}" hint-placeholder-val="{{ false }}">
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.apoios }}</h3>
+          <div class="ga-cult__apoios" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100)">
+            <sc-for list="{{ c.apoios }}" as="ap" hint-placeholder-count="8">
+              <div style="padding:20px 18px; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center">
+                <div style="height:52px; display:flex; align-items:center; justify-content:center; width:100%">
+                  <img src="{{ ap.src }}" alt="{{ ap.nome }}" loading="lazy" style="max-width:100%; max-height:52px; width:auto; height:auto; display:block">
+                </div>
+                <div>
+                  <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted)">{{ ap.papel }}</div>
+                  <div style="font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:-.01em; color:var(--ink); margin-top:2px">{{ ap.nome }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+      </section>
+      </sc-for>
+
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isLogos }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1180px; margin:0 auto; padding:40px 24px 88px">
       <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:28px">← {{ t.nav.galeria }}</button>
@@ -1622,6 +1867,14 @@
               </sc-for>
             </div>
           </div>
+            <sc-if value="{{ b.hasPosts }}" hint-placeholder-val="{{ false }}">
+              <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:20px 0 16px; max-width:70ch">{{ b.postsNota }}</p>
+              <div class="ga-logo__posts" style="display:grid; grid-template-columns:repeat(6,1fr); gap:12px">
+                <sc-for list="{{ b.posts }}" as="po" hint-placeholder-count="6">
+                  <img src="{{ po.src }}" alt="{{ b.name }}" loading="lazy" style="display:block; width:100%; height:auto; border:2px solid var(--ink); border-radius:6px">
+                </sc-for>
+              </div>
+            </sc-if>
         </section>
       </sc-for>
 
@@ -1888,8 +2141,21 @@ const DICT = {
     galPage: {
       kicker: 'Prova de trabalho',
       title: 'Projetos',
-      intro: 'Quatro acervos abertos: anuários e relatórios, ilustração autoral, e-books e marcas. Material entregue, não amostra.',
+      intro: 'Cinco acervos abertos: anuários e relatórios, ilustração autoral, e-books, marcas e projetos culturais. Material entregue, não amostra.',
     },
+    culturaisPage: {
+      kicker: 'Projetos culturais · Betim, MG',
+      title: 'Projetos culturais',
+      intro: 'Identidade e material gráfico para projetos aprovados em lei de incentivo. Cada um traz a lei, o local, a data, quem financiou e o que foi entregue, porque num projeto cultural essa ficha é parte do trabalho.',
+      ficha: 'Ficha do projeto',
+      pecas: 'Peças entregues',
+      fotos: 'O projeto na rua',
+      apoios: 'Apoio, patrocínio e realização',
+      logoKicker: 'Marca criada para o evento',
+      extra: 'Também saiu daqui',
+      link: 'Acompanhar no Instagram',
+    },
+    ebooksLabel: 'Baixar na Kaya',
     logosPage: {
       kicker: 'Logo & marca · seleção',
       title: 'Logo & Marca',
@@ -2037,8 +2303,21 @@ const DICT = {
     galPage: {
       kicker: 'Proof of work',
       title: 'Projects',
-      intro: 'Four open archives: yearbooks and reports, original illustration, e-books and brand marks. Delivered work, not samples.',
+      intro: 'Five open archives: yearbooks and reports, original illustration, e-books, brand marks and cultural projects. Delivered work, not samples.',
     },
+    culturaisPage: {
+      kicker: 'Cultural projects · Betim, Brazil',
+      title: 'Cultural projects',
+      intro: 'Identity and graphic material for projects approved under cultural incentive law. Each one lists the law, the venue, the date, who funded it and what shipped, because on a cultural project that sheet is part of the work.',
+      ficha: 'Project sheet',
+      pecas: 'Delivered pieces',
+      fotos: 'The project on the street',
+      apoios: 'Support, sponsorship and production',
+      logoKicker: 'Mark created for the event',
+      extra: 'Also came out of this',
+      link: 'Follow on Instagram',
+    },
+    ebooksLabel: 'Download on Kaya',
     logosPage: {
       kicker: 'Logo & mark · selection',
       title: 'Logo & Mark',
@@ -2088,6 +2367,118 @@ const BRANDS = [
   { name: 'Glance', logo: 'assets/brands/glance.png', fit: .90 },
 ];
 
+// Marca propria. O peso do case esta na virada de V1 para V2, porque o que
+// essa peca tem de ensinavel e o que SAI de uma identidade, nao o que entra.
+const GAM = 'assets/cases/gustavo-albino/';
+const GA_MARCA = {
+  cores: [
+    { hex: '#1A1A1A', token: '--ink', site: '#1B1B1B' },
+    { hex: '#007AA4', token: '--cerulean', site: '#0079A4' },
+    { hex: '#3C357D', token: '--violet', site: '#5D357C' },
+    { hex: '#C33C29', token: '--vermilion', site: '#C33C29' },
+    { hex: '#EEBD34', token: '--gold', site: '#EEBD23' },
+    { hex: '#F8EFEB', token: '--paper-300', site: '#F8EFE8' },
+  ],
+  v1: [
+    { src: GAM + 'v1/monograma.png', pt: 'monograma original', en: 'original monogram' },
+    { src: GAM + 'v1/gadsg.png', pt: 'assinatura GADSG', en: 'GADSG signature' },
+    { src: GAM + 'v1/roxo.png', pt: 'versao magenta', en: 'magenta version' },
+    { src: GAM + 'v1/verde.png', pt: 'versao verde', en: 'green version' },
+    { src: GAM + 'v1/var-1.png', pt: 'variacao 1', en: 'variant 1' },
+    { src: GAM + 'v1/var-3.png', pt: 'variacao 3, gradiente', en: 'variant 3, gradient' },
+  ],
+  partes: [
+    { src: GAM + 'v2/parte-1.png', pt: 'anel · o nome', en: 'ring · the name' },
+    { src: GAM + 'v2/parte-2.png', pt: 'miolo · o monograma', en: 'core · the monogram' },
+    { src: GAM + 'v2/oficial.png', pt: 'selo completo', en: 'complete seal' },
+  ],
+  // O painel de referencias ficou de fora: sao capturas de Pinterest com arte
+  // de terceiros (Red Hot Chili Peppers, Thor, Daredevil) e a interface do
+  // Pinterest a vista. Num portfolio que vende direcao de arte, publicar isso
+  // e risco de direito autoral e ainda le como referencia emprestada.
+  sistema: [
+    { src: GAM + 'sistema/paleta.jpg', pt: 'paleta oficial', en: 'official palette' },
+  ],
+  campanha: [
+    { src: GAM + 'campanha/post-1.jpg' }, { src: GAM + 'campanha/post-2.jpg' },
+    { src: GAM + 'campanha/post-3.jpg' }, { src: GAM + 'campanha/post-4.jpg' },
+    { src: GAM + 'campanha/post-5.jpg' }, { src: GAM + 'campanha/post-6.jpg' },
+    { src: GAM + 'campanha/post-7.jpg' },
+  ],
+  pt: {
+    tipo: 'Branding · marca própria',
+    lede: 'Identidade própria, refeita do zero em 2023. Do monograma solto da primeira versão ao selo que assina este site.',
+    ficha: [
+      { k: 'Papel', v: 'Tudo' }, { k: 'Ano da virada', v: '2023' },
+      { k: 'Antes', v: 'GADSG · Gustavo Albino Design' }, { k: 'Depois', v: 'Selo Gustavo Albino' },
+      { k: 'Tipografia', v: 'Lemon Milk + Futura' }, { k: 'Lançamento', v: '30 posts em sequência' },
+    ],
+    v1Title: 'A primeira versão',
+    v1Paras: [
+      'A primeira marca era só o monograma: o G e o A construídos em quadrantes dentro de um anel, assinados GADSG, de Gustavo Albino Design. Servia como marca d’água e como avatar, e parava aí.',
+      'Ela vivia de cor. Magenta, verde, gradiente de roxo para ciano, negativo sobre preto. Quatro variações para o mesmo desenho, o que é confortável de fazer e caro de manter: cada aplicação nova virava uma decisão nova.',
+    ],
+    v2Title: 'O que mudou em 2023',
+    v2Paras: [
+      'O nome entrou no anel. O monograma ficou exatamente onde estava, e "Gustavo Albino" passou a circundá-lo. Isso fecha o buraco que a primeira versão tinha: monograma sozinho não se apresenta a quem nunca ouviu o nome, e num portfólio a primeira pessoa que chega é justamente essa.',
+      'A cor saiu do logo e foi para o sistema. Um lockup, preto, e a paleta trabalhando em volta em vez de dentro. Menos combinação para manter, e a marca deixa de mudar de cara a cada peça.',
+    ],
+    partesTitle: 'Como o selo é montado',
+    partesPara: 'São duas peças que se sobrepõem. O anel carrega o nome e dá a silhueta que se reconhece a 16 pixels. O miolo carrega a assinatura e sobrevive sozinho quando não cabe o nome, que é o caso de favicon, avatar e marca d’água.',
+    sistemaTitle: 'O sistema',
+    sistemaParas: [
+      'Seis cores, com os hexadecimais à vista desde o primeiro dia. Lemon Milk nos títulos, pelo peso da caixa-alta condensada. Futura no texto, pela leitura longa.',
+      'O painel de referências deixa a origem explícita: quadrinho, cartaz, gráfico de rua. Não é painel de clima, é catálogo de onde cada decisão veio.',
+    ],
+    campanhaTitle: 'O lançamento',
+    campanhaParas: [
+      'A troca de identidade foi tratada como projeto, e não como troca de foto de perfil. Trinta posts em sequência: tudo novo, nova ID, novas cores, nova fonte, elementos gráficos, a paleta com os hexadecimais, e o logo revelado em nove partes antes de aparecer inteiro.',
+    ],
+    provaTitle: 'A prova está nesta página',
+    provaParas: [
+      'A paleta que saiu na campanha de 2023 é a paleta deste site. Ela não foi adaptada: já estava resolvida quando o site foi construído, dois anos depois.',
+    ],
+    provaNota: 'Hexadecimal publicado na campanha contra o token que este site usa agora.',
+    colTabela: ['campanha 2023', 'token do site', 'hoje'],
+  },
+  en: {
+    tipo: 'Branding · own brand',
+    lede: 'My own identity, rebuilt from scratch in 2023. From the loose monogram of the first version to the seal that signs this site.',
+    ficha: [
+      { k: 'Role', v: 'Everything' }, { k: 'Rebrand year', v: '2023' },
+      { k: 'Before', v: 'GADSG · Gustavo Albino Design' }, { k: 'After', v: 'Gustavo Albino seal' },
+      { k: 'Type', v: 'Lemon Milk + Futura' }, { k: 'Launch', v: '30 posts in sequence' },
+    ],
+    v1Title: 'The first version',
+    v1Paras: [
+      'The first mark was the monogram alone: a G and an A built in quadrants inside a ring, signed GADSG, for Gustavo Albino Design. It worked as a watermark and as an avatar, and it stopped there.',
+      'It lived on colour. Magenta, green, a purple to cyan gradient, negative on black. Four variants of one drawing, which is comfortable to make and expensive to keep: every new application became a new decision.',
+    ],
+    v2Title: 'What changed in 2023',
+    v2Paras: [
+      'The name moved into the ring. The monogram stayed exactly where it was, and "Gustavo Albino" now circles it. That closes the hole the first version had: a monogram on its own does not introduce you to someone who has never heard the name, and in a portfolio that is precisely who arrives first.',
+      'Colour left the logo and moved into the system. One lockup, black, with the palette working around it instead of inside it. Fewer combinations to maintain, and the brand stops changing face on every piece.',
+    ],
+    partesTitle: 'How the seal is built',
+    partesPara: 'Two pieces overlap. The ring carries the name and gives the silhouette you recognise at 16 pixels. The core carries the signature and survives on its own when the name does not fit, which is the case for favicon, avatar and watermark.',
+    sistemaTitle: 'The system',
+    sistemaParas: [
+      'Six colours, with the hex values published from day one. Lemon Milk for headings, for the weight of condensed uppercase. Futura for body, for long reading.',
+      'The reference board makes the origin explicit: comics, posters, street graphics. It is not a mood board, it is a catalogue of where each decision came from.',
+    ],
+    campanhaTitle: 'The launch',
+    campanhaParas: [
+      'The identity change was treated as a project, not as a profile picture swap. Thirty posts in sequence: everything new, new ID, new colours, new typeface, graphic elements, the palette with its hex values, and the logo revealed in nine parts before it appeared whole.',
+    ],
+    provaTitle: 'The proof is this page',
+    provaParas: [
+      'The palette released in the 2023 campaign is the palette of this site. It was not adapted: it was already settled when the site was built, two years later.',
+    ],
+    provaNota: 'Hex published in the campaign against the token this site uses now.',
+    colTabela: ['2023 campaign', 'site token', 'today'],
+  },
+};
+
 const CASES = [
   { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
     bgImage: 'assets/cases/kaya-doc/capa-3x2.jpg',
@@ -2095,6 +2486,12 @@ const CASES = [
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
     blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
+  { id: 'gustavo-albino', cat: 'branding', detail: true, color: '#1B1B1B', fg: '#F4EFE6', mono: MONO_W, year: '2023',
+    bgImage: 'assets/cases/gustavo-albino/capa-3x2.jpg',
+    bgSquare: 'assets/cases/gustavo-albino/capa.jpg',
+    title: { pt: 'Gustavo Albino', en: 'Gustavo Albino' },
+    typeLabel: { pt: 'Marca própria', en: 'Own brand' },
+    blurb: { pt: 'Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.', en: 'My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.' } },
 { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
     bgSquare: 'assets/cases/othelo/card-cover-1x1.jpg',
@@ -2299,23 +2696,174 @@ const CASE_FILTERS = [
   { key: 'identidade', pt: 'Identidade Visual', en: 'Visual Identity' },
 ];
 
+// Projetos culturais — trabalho de identidade para projetos aprovados em lei
+// de incentivo. Cada entrada carrega a lei, o local, a data e quem financiou,
+// porque num projeto cultural essa ficha e parte do trabalho e nao rodape.
+const CULT = 'assets/culturais/';
+const CULTURAIS = [
+  {
+    id: 'muros', accent: '#E1241C',
+    poster: CULT + 'muros/banner-9x3.jpg', posterRatio: '1500/500',
+    logo: CULT + 'muros/logo-evento.png',
+    link: 'https://www.instagram.com/muroscorevida/', linkLabel: '@muroscorevida',
+    edicao: { pt: '4ª edição', en: '4th edition' }, ano: '2026',
+    title: { pt: 'Muros do Jardim Teresópolis · Cor e Vida', en: 'Muros do Jardim Teresópolis · Cor e Vida' },
+    tema: {
+      pt: 'Arte urbana como caminho de desenvolvimento humano.',
+      en: 'Urban art as a path for human development.' },
+    posterCap: { pt: 'Banner 9x3m, arte principal do evento', en: 'Banner 9x3m, the event key art' },
+    logoNota: {
+      pt: 'A marca nasceu para esta edição e para mais nada. Lettering de spray sobre contorno pesado, na mesma gramática do grafite que os educandos usam no muro. Ela assina banner, outdoor, adesivo, etiqueta, camiseta e catálogo.',
+      en: 'The mark was made for this edition and nothing else. Spray lettering over a heavy outline, in the same grammar as the graffiti the students use on the wall. It signs the banner, billboard, sticker, label, T-shirt and catalogue.' },
+    desc: {
+      pt: [
+        'O projeto leva grafite e estética urbana para os muros do Jardim Teresópolis, em Betim. Cinquenta educandos passam por um processo formativo e transformam a percepção do próprio território enquanto aprendem técnica visual.',
+        'A 4ª edição organiza o trabalho em três temas: diversidade étnica, sustentabilidade social e urbana, e saberes populares. Cada tema vira painel de rua e depois página de catálogo.',
+        'Assino o design gráfico do projeto, o que na ficha técnica é o crédito e na prática significa a marca do evento e todas as peças que saem dela, do adesivo de 12cm ao banner de 9 metros.',
+      ],
+      en: [
+        'The project brings graffiti and urban aesthetics to the walls of Jardim Teresópolis, in Betim. Fifty students go through a training process and change how they see their own territory while learning visual technique.',
+        'The 4th edition organises the work in three themes: ethnic diversity, social and urban sustainability, and popular knowledge. Each theme becomes a street panel and later a catalogue page.',
+        'I sign the graphic design of the project. On the credits page that is the line; in practice it means the event mark and every piece that comes out of it, from the 12cm sticker to the 9 metre banner.',
+      ] },
+    ficha: [
+      { k: { pt: 'Lei de incentivo', en: 'Incentive law' }, v: { pt: 'Lei Rouanet · MinC', en: 'Rouanet Law · MinC' } },
+      { k: { pt: 'Local', en: 'Venue' }, v: { pt: 'Jd. Teresópolis · Betim, MG', en: 'Jd. Teresópolis · Betim, Brazil' } },
+      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: '4ª · 2026', en: '4th · 2026' } },
+      { k: { pt: 'Meu papel', en: 'My role' }, v: { pt: 'Designer gráfico', en: 'Graphic designer' } },
+      { k: { pt: 'Patrocínio', en: 'Sponsor' }, v: { pt: 'Grupo SADA', en: 'Grupo SADA' } },
+      { k: { pt: 'Realização', en: 'Production' }, v: { pt: 'Othelo Produtora', en: 'Othelo Produtora' } },
+    ],
+    pecas: [
+      { src: CULT + 'muros/mockup.jpg', cap: { pt: 'Camiseta da equipe', en: 'Crew T-shirt' } },
+      { src: CULT + 'muros/adesivo.jpg', cap: { pt: 'Adesivo', en: 'Sticker' } },
+      { src: CULT + 'muros/etiqueta.jpg', cap: { pt: 'Etiqueta', en: 'Label' } },
+    ],
+    fotos: [
+      { src: CULT + 'muros/foto-1.jpg', cap: { pt: 'Equipe em campo', en: 'Crew on site' } },
+      { src: CULT + 'muros/foto-2.jpg', cap: { pt: 'Educandos do projeto', en: 'Project students' } },
+      { src: CULT + 'muros/foto-3.jpg', cap: { pt: 'Muro em execução', en: 'Wall in progress' } },
+    ],
+    extra: { src: CULT + 'muros/catalogo-capa.jpg',
+      cap: { pt: 'Catálogo · memorial cultural, 20 páginas', en: 'Catalogue · cultural memorial, 20 pages' } },
+    apoios: [
+      { src: CULT + 'muros/apoio/grupo-sada.png', nome: 'Grupo SADA', papel: { pt: 'Patrocínio', en: 'Sponsor' } },
+      { src: CULT + 'muros/apoio/lei-rouanet-2026.png', nome: 'Lei Rouanet', papel: { pt: 'Incentivo', en: 'Incentive' } },
+      { src: CULT + 'muros/apoio/minc.png', nome: 'Ministério da Cultura', papel: { pt: 'Incentivo', en: 'Incentive' } },
+      { src: CULT + 'muros/apoio/governo.png', nome: 'Governo Federal', papel: { pt: 'Incentivo', en: 'Incentive' } },
+      { src: CULT + 'muros/apoio/othelo-produtora.png', nome: 'Othelo Produtora', papel: { pt: 'Realização', en: 'Production' } },
+      { src: CULT + 'muros/apoio/avsi-brasil.png', nome: 'AVSI Brasil', papel: { pt: 'Apoio', en: 'Support' } },
+      { src: CULT + 'muros/apoio/arvore-da-vida.png', nome: 'Árvore da Vida', papel: { pt: 'Apoio', en: 'Support' } },
+      { src: CULT + 'muros/apoio/4-mundo.png', nome: '4º Mundo', papel: { pt: 'Apoio', en: 'Support' } },
+    ],
+  },
+  {
+    id: 'recital', accent: '#C8102E',
+    poster: CULT + 'recital/poster.jpg', posterRatio: '848/1200',
+    edicao: { pt: 'Evento', en: 'Event' }, ano: '2024',
+    title: { pt: 'Recital de Natal · alunos Phoenix', en: 'Christmas Recital · Phoenix students' },
+    tema: { pt: 'Um retrato, um lettering e o vermelho da escola.', en: 'One portrait, one lettering and the school red.' },
+    posterCap: { pt: 'Pôster oficial A3', en: 'Official A3 poster' },
+    desc: {
+      pt: [
+        'Recital de encerramento dos alunos da Phoenix Escola de Música, na Loja Duetto Musical do Shopping Monte Carmo, em Betim.',
+        'A identidade parte de um retrato do professor com a guitarra, em luz vermelha sobre preto, e resolve o título em lettering manuscrito. O vermelho não foi escolha minha: já é a cor da fênix no logo da escola, e a peça só amplia o que a marca tinha.',
+        'Saiu em três formatos, cada um com um enquadramento próprio do retrato: post quadrado para Instagram, pôster A3 e banner vertical de 60x120cm para o ponto de venda.',
+      ],
+      en: [
+        'End-of-year recital by the students of Phoenix Escola de Música, at Loja Duetto Musical in Shopping Monte Carmo, Betim.',
+        'The identity starts from a portrait of the teacher with his guitar, red light on black, and resolves the title in handwritten lettering. The red was not my call: it is already the phoenix colour in the school logo, and the piece only amplifies what the brand had.',
+        'It shipped in three formats, each with its own crop of the portrait: a square Instagram post, an A3 poster and a 60x120cm vertical banner for the venue.',
+      ] },
+    ficha: [
+      { k: { pt: 'Lei de incentivo', en: 'Incentive law' }, v: { pt: 'Lei Noemi Gontijo', en: 'Noemi Gontijo Law' } },
+      { k: { pt: 'Local', en: 'Venue' }, v: { pt: 'Loja Duetto Musical · Betim', en: 'Loja Duetto Musical · Betim' } },
+      { k: { pt: 'Data', en: 'Date' }, v: { pt: '14/12/2024 · 19h30', en: '14 Dec 2024 · 7:30pm' } },
+      { k: { pt: 'Realização', en: 'Production' }, v: { pt: 'Phoenix Escola de Música', en: 'Phoenix Escola de Música' } },
+      { k: { pt: 'Apoio', en: 'Support' }, v: { pt: 'Prefeitura de Betim', en: 'Betim City Hall' } },
+      { k: { pt: 'Peças', en: 'Pieces' }, v: { pt: 'Pôster, post e banner', en: 'Poster, post and banner' } },
+    ],
+    pecas: [
+      { src: CULT + 'recital/post.jpg', cap: { pt: 'Post de Instagram', en: 'Instagram post' } },
+      { src: CULT + 'recital/banner.jpg', cap: { pt: 'Banner 60x120cm', en: 'Banner 60x120cm' } },
+    ],
+  },
+  {
+    id: 'defesa', accent: '#8E44AD',
+    poster: CULT + 'defesa/poster.jpg', posterRatio: '848/1200',
+    edicao: { pt: 'Exposição', en: 'Exhibition' }, ano: '2024',
+    title: { pt: 'Defesa dos Animais e Meio Ambiente', en: 'In Defence of Animals and the Environment' },
+    tema: { pt: 'A pele do elefante vira o fundo do cartaz.', en: 'The elephant skin becomes the poster ground.' },
+    posterCap: { pt: 'Pôster oficial A3', en: 'Official A3 poster' },
+    desc: {
+      pt: [
+        'Exposição de telas de Maria Inez Ribeiro na Casa da Cultura de Betim, sobre preservação da fauna e da natureza.',
+        'A artista criou o projeto "A Arte em Defesa dos Elefantes", que virou o livro "Elefantes de A a Z". O cartaz parte daí: um close da pele do elefante em gradiente do azul ao laranja, com o título quebrado em seis linhas que ocupam a altura inteira da folha.',
+        'Além do cartaz e do post, desenhei dez cartões de agradecimento, um para cada tela exposta, e o banner pull-up da entrada. O cartão leva a tela na frente e o nome da obra, para o visitante sair com a peça que viu.',
+      ],
+      en: [
+        'Exhibition of paintings by Maria Inez Ribeiro at Casa da Cultura in Betim, on the preservation of wildlife and nature.',
+        'The artist created the project "A Arte em Defesa dos Elefantes", which became the book "Elefantes de A a Z". The poster starts there: a close-up of elephant skin in a blue to orange gradient, with the title broken across six lines that fill the full height of the sheet.',
+        'Besides the poster and the post, I designed ten thank-you cards, one for each painting on show, and the pull-up banner at the entrance. Each card carries the painting and its title, so the visitor leaves with the piece they saw.',
+      ] },
+    ficha: [
+      { k: { pt: 'Lei de incentivo', en: 'Incentive law' }, v: { pt: 'PNAB · Aldir Blanc', en: 'PNAB · Aldir Blanc' } },
+      { k: { pt: 'Local', en: 'Venue' }, v: { pt: 'Casa da Cultura · Betim, MG', en: 'Casa da Cultura · Betim, Brazil' } },
+      { k: { pt: 'Data', en: 'Date' }, v: { pt: '14/12/2024 · 10h às 17h30', en: '14 Dec 2024 · 10am to 5:30pm' } },
+      { k: { pt: 'Artista', en: 'Artist' }, v: { pt: 'Maria Inez Ribeiro', en: 'Maria Inez Ribeiro' } },
+      { k: { pt: 'Apoio', en: 'Support' }, v: { pt: 'Prefeitura de Betim', en: 'Betim City Hall' } },
+      { k: { pt: 'Peças', en: 'Pieces' }, v: { pt: 'Cartaz, post, 10 cartões', en: 'Poster, post, 10 cards' } },
+    ],
+    pecas: [
+      { src: CULT + 'defesa/post.jpg', cap: { pt: 'Post de divulgação', en: 'Announcement post' } },
+      { src: CULT + 'defesa/cartoes/cartao-1.jpg', cap: { pt: 'Cartão · Amor de Mãe', en: 'Card · Amor de Mãe' } },
+      { src: CULT + 'defesa/cartoes/cartao-2.jpg', cap: { pt: 'Cartão · Elefante Artista', en: 'Card · Elefante Artista' } },
+      { src: CULT + 'defesa/cartoes/cartao-3.jpg', cap: { pt: 'Cartão · Em Defesa da Vida', en: 'Card · Em Defesa da Vida' } },
+      { src: CULT + 'defesa/cartoes/cartao-4.jpg', cap: { pt: 'Cartão · Equilibrista', en: 'Card · Equilibrista' } },
+      { src: CULT + 'defesa/cartoes/cartao-5.jpg', cap: { pt: 'Cartão · Indiano', en: 'Card · Indiano' } },
+      { src: CULT + 'defesa/cartoes/cartao-6.jpg', cap: { pt: 'Cartão · Mosaico', en: 'Card · Mosaico' } },
+      { src: CULT + 'defesa/cartoes/cartao-7.jpg', cap: { pt: 'Cartão · Puro Amor', en: 'Card · Puro Amor' } },
+      { src: CULT + 'defesa/cartoes/cartao-8.jpg', cap: { pt: 'Cartão · Trilha do Marfim', en: 'Card · Trilha do Marfim' } },
+      { src: CULT + 'defesa/cartoes/cartao-9.jpg', cap: { pt: 'Cartão · Vergonha', en: 'Card · Vergonha' } },
+      { src: CULT + 'defesa/cartoes/cartao-10.jpg', cap: { pt: 'Cartão · Cabeça multicor', en: 'Card · Cabeça multicor' } },
+    ],
+    extra: { src: CULT + 'defesa/portfolio-capa.jpg',
+      cap: { pt: 'Portfólio artístico da Maria Inez, 12 páginas', en: "Maria Inez's artist portfolio, 12 pages" } },
+  },
+];
+
 const GAL_FILTERS = [
   { key: 'all', pt: 'Tudo', en: 'All' },
   { key: 'grafico', pt: 'Gráfico', en: 'Graphic' },
   { key: 'ilustracao', pt: 'Ilustração', en: 'Illustration' },
   { key: 'reports', pt: 'Reports', en: 'Reports' },
   { key: 'ebooks', pt: 'E-books', en: 'E-books' },
+  { key: 'culturais', pt: 'Projetos culturais', en: 'Cultural projects' },
 ];
 
 const GAL = [
   { cat: 'reports', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '340px', img: 'assets/anuarios/2025-cover.jpg', imgFit: 'cover', route: 'anuarios', pt: 'Anuários da Cannabis', en: 'Cannabis Yearbooks' },
   { cat: 'ilustracao', color: 'var(--gold)', fg: 'var(--paper-100)', mono: MONO_B, h: '270px', img: 'assets/ilustracao/amazon.jpg', route: 'ilustracao', pt: 'Ilustração Autoral', en: 'Original Illustration' },
-  { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/strains.jpg', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
-  { cat: 'grafico', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '260px', img: 'assets/logos/healing-wildflower-icon.png', imgFit: 'contain', imgBg: '#EDF2F3', route: 'logos', pt: 'Logo & Marca', en: 'Logo & Mark' },
+  { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/tendencias.jpg', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
+  { cat: 'culturais', color: 'var(--vermilion)', fg: 'var(--paper-100)', mono: MONO_W, h: '300px', img: 'assets/culturais/muros/logo-evento.png', imgFit: 'auto 62%', imgPos: 'center 36%', imgBg: '#F3ECDF', route: 'culturais', pt: 'Projetos Culturais', en: 'Cultural Projects' },
+  { cat: 'grafico', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '260px', img: 'assets/logo-seal-black.png', imgFit: 'auto 56%', imgPos: 'center 38%', imgBg: '#F2EDE3', route: 'logos', pt: 'Logo & Marca', en: 'Logo & Mark' },
 ];
 
 // Logo & Marca — brand showcase (multi-version brands + single-lockup brands)
 const LOGO_BRANDS = [
+  { name: 'Run For Your Life', tagPt: 'Corrida de trilha · noturno, esportivo', tagEn: 'Trail running · night, athletic', tint: '#EFEDE8',
+    big: 'assets/logos/rfyl-prime.png', bigCapPt: 'logo primário com assinatura', bigCapEn: 'primary logo with tagline',
+    smalls: [
+      { src: 'assets/logos/rfyl-simple.png', capPt: 'logo reduzido, sem assinatura', capEn: 'short logo, no tagline' },
+      { src: 'assets/logos/rfyl-icon.png', capPt: 'monograma RFYL', capEn: 'RFYL monogram' },
+    ],
+    posts: [
+      { src: 'assets/logos/rfyl-posts/post-1.jpg' }, { src: 'assets/logos/rfyl-posts/post-2.jpg' },
+      { src: 'assets/logos/rfyl-posts/post-3.jpg' }, { src: 'assets/logos/rfyl-posts/post-4.jpg' },
+      { src: 'assets/logos/rfyl-posts/post-5.jpg' }, { src: 'assets/logos/rfyl-posts/post-6.jpg' },
+    ],
+    postsNotaPt: 'A marca foi desenhada para viver sobre fotografia de corrida, que é onde ela de fato aparece. O "R" invertido fecha com o "L" e forma um percurso, e o laranja é o único ponto de cor num sistema preto e branco, para a marca sobreviver a mata fechada, asfalto molhado e contraluz.',
+    postsNotaEn: 'The mark was designed to live over running photography, which is where it actually shows up. The reversed "R" locks with the "L" to draw a course, and orange is the only colour in an otherwise black and white system, so the mark survives dense forest, wet asphalt and backlight.' },
   { name: 'Healing Wildflower', tagPt: 'Bem-estar · floral, feminino', tagEn: 'Wellness · floral, feminine', tint: '#EDF2F3',
     big: 'assets/logos/healing-wildflower-prime.png', bigCapPt: 'logo primário (vertical)', bigCapEn: 'primary logo (vertical)',
     smalls: [
@@ -2365,44 +2913,52 @@ const EBOOK_SERIES = [
     site: 'https://kayamind.com/e-books/',
     siteLabelPt: 'Conferir no site da Kaya Mind',
     siteLabelEn: 'See them on the Kaya Mind site',
-    descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os e-books que produzi para a marca (capa, diagramação e direção de arte), muitos em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios.',
-    descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the e-books I designed for the brand (covers, layout and art direction), many in partnership with industry companies, covering health, cultivation, regulation and business.',
+    descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os 43 e-books que produzi para a marca desde 2022: capa, diagramação e direção de arte. Muitos saíram em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios. O recorte começa no Cenário Político Brasileiro, o primeiro que diagramei.',
+    descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the 43 e-books I have designed for the brand since 2022: covers, layout and art direction. Many shipped in partnership with industry companies, covering health, cultivation, regulation and business. The set starts at Cenário Político Brasileiro, the first one I laid out.',
     items: [
-      { src: 'assets/ebooks/k2-produtos-2026.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-infra-financeira.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-hempmeds-sono.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-mkt-tabacarias.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-canhamo-industrial.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-feridas.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-vozes.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-foco.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-dor-cronica.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-clinica-segura.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-headshops-boom.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-tabaco.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-cogumelos.jpg', year: '2025' },
-      { src: 'assets/ebooks/associacao.jpg', year: '2025' },
-      { src: 'assets/ebooks/canabinoides-menores.jpg', year: '2025' },
-      { src: 'assets/ebooks/genetica.jpg', year: '2024' },
-      { src: 'assets/ebooks/mkt-influencia.jpg', year: '2024' },
-      { src: 'assets/ebooks/thcv.jpg', year: '2024' },
-      { src: 'assets/ebooks/futuro.jpg', year: '2024' },
-      { src: 'assets/ebooks/estudos.jpg', year: '2024' },
-      { src: 'assets/ebooks/uso-topico.jpg', year: '2024' },
-      { src: 'assets/ebooks/depressao.jpg', year: '2024' },
-      { src: 'assets/ebooks/saude-mental.jpg', year: '2024' },
-      { src: 'assets/ebooks/manipulacao.jpg', year: '2024' },
-      { src: 'assets/ebooks/cadeia-produtiva.jpg', year: '2024' },
-      { src: 'assets/ebooks/sono.jpg', year: '2023' },
-      { src: 'assets/ebooks/sedas.jpg', year: '2023' },
-      { src: 'assets/ebooks/strains.jpg', year: '2023' },
-      { src: 'assets/ebooks/tabacarias.jpg', year: '2023' },
-      { src: 'assets/ebooks/evidencias.jpg', year: '2023' },
-      { src: 'assets/ebooks/filtros-piteiras.jpg', year: '2023' },
-      { src: 'assets/ebooks/oleo.jpg', year: '2023' },
-      { src: 'assets/ebooks/produtos.jpg', year: '2023' },
-      { src: 'assets/ebooks/receitas.jpg', year: '2023' },
-      { src: 'assets/ebooks/tendencias.jpg', year: '2023' },
+      { src: 'assets/ebooks-kaya/terapia-canabinoide-na-neurologia.jpg', year: '2026', title: 'Terapia Canabinoide na Neurologia', url: 'https://kayamind.com/terapia-canabinoide-na-neurologia/', toc: ['Como interpretar as evidências', 'TEA e Síndrome de Tourette', 'Esclerose múltipla e espasticidade', 'Outras condições e panorama comparativo'] },
+      { src: 'assets/ebooks-kaya/mkt-digital-tabacarias-headshops.jpg', year: '2026', title: 'Marketing Digital para Tabacarias e Headshops', url: 'https://kayamind.com/mkt-digital-tabacarias-headshops/', toc: ['Produção de conteúdo', 'Distribuição e alcance', 'Conversão e relacionamento', 'Gestão e análise'] },
+      { src: 'assets/ebooks-kaya/ebook-wepayments-mercado-de-cannabis-no-brasil.jpg', year: '2026', title: 'Mercado de Cannabis no Brasil', url: 'https://kayamind.com/ebook-wepayments-mercado-de-cannabis-no-brasil/', toc: ['Modelos de negócio mais comuns no setor', 'Desafios operacionais do mercado de CBD', 'Compliance financeiro na prática', 'Profissionalização e o futuro do setor'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-medicinal-e-sono.jpg', year: '2026', title: 'Cannabis Medicinal e Sono', url: 'https://kayamind.com/ebook-cannabis-medicinal-e-sono/', toc: ['Por que os tratamentos convencionais nem sempre funcionam?', 'Sistema endocanabinoide e fisiologia do sono', 'Cannabis medicinal nos distúrbios do sono', 'Evidências científicas: o que os estudos mostram?'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-autismo.jpg', year: '2026', title: 'Cannabis e Autismo', url: 'https://kayamind.com/ebook-cannabis-autismo/', toc: ['Principais estudos clínicos e revisões científicas', 'Segurança no uso da cannabis medicinal no TEA', 'Como acompanhar a resposta ao tratamento', 'Acesso e qualidade dos produtos'] },
+      { src: 'assets/ebooks-kaya/e-book-produtos-de-cannabis-medicinal-no-brasil.jpg', year: '2026', title: 'Produtos de Cannabis Medicinal no Brasil', url: 'https://kayamind.com/e-book-produtos-de-cannabis-medicinal-no-brasil/', toc: ['O universo de produtos disponíveis', 'As vias de acesso', 'Formatos e composição', 'Análise de preços'] },
+      { src: 'assets/ebooks-kaya/e-book-abecmed.jpg', year: '2026', title: 'Inflorescências e Uso Terapêutico', url: 'https://kayamind.com/e-book-abecmed/', toc: ['COMO PODEM FAZER PARTE DO TRATAMENTO?', 'REDUÇÃO DE DANOS', 'ACOMPANHAMENTO PROFISSIONAL', 'ASPECTOS LEGAIS'] },
+      { src: 'assets/ebooks-kaya/associacoes-cannabis-brasil-ebook.jpg', year: '2026', title: 'Associações de Cannabis', url: 'https://kayamind.com/associacoes-cannabis-brasil-ebook/', toc: ['O que são as associações de pacientes', 'O panorama das associações brasileiras', 'Como funciona a produção dos medicamentos', 'O novo cenário regulatório'] },
+      { src: 'assets/ebooks-kaya/tabaco-alem-do-obvio.jpg', year: '2025', title: 'Tabaco Além do Óbvio', url: 'https://kayamind.com/tabaco-alem-do-obvio/', toc: ['Tipos mais comuns de tabaco', 'A alquimia dos blends', 'Armazenamento: como manter o tabaco no ponto ideal', 'Universo roll-your-own'] },
+      { src: 'assets/ebooks-kaya/o-poder-do-canhamo-para-a-sustentabilidade.jpg', year: '2025', title: 'O Poder do Cânhamo', url: 'https://kayamind.com/o-poder-do-canhamo-para-a-sustentabilidade/', toc: ['A relação entre cânhamo e sustentabilidade', 'O papel da planta na restauração do solo e biodiversidade', 'O impressionante case de Chernobyl', 'Como o cânhamo contribui para os Objetivos da Agenda 2030 da ONU'] },
+      { src: 'assets/ebooks-kaya/ebook-vozes-pela-cannabis.jpg', year: '2025', title: 'Vozes pela Cannabis', url: 'https://kayamind.com/ebook-vozes-pela-cannabis/', toc: ['Artistas e personalidades como porta-vozes da mudança', 'Histórias reais que inspiram', 'Verdivita + Gilsons: uma parceria que ecoa', 'O futuro da cannabis: cultura, política e sociedade'] },
+      { src: 'assets/ebooks-kaya/ebook-smartgrow-canhamo-industrial-no-brasil.jpg', year: '2025', title: 'Cânhamo Industrial no Brasil', url: 'https://kayamind.com/ebook-smartgrow-canhamo-industrial-no-brasil/', toc: ['Modalidades de cultivo do cânhamo', 'Etapas do cultivo industrial', 'Oportunidades e desafios no Brasil', 'O mercado do cânhamo e a bioeconomia'] },
+      { src: 'assets/ebooks-kaya/ebook-o-desafio-de-absorcao-do-cbd.jpg', year: '2025', title: 'O Desafio de Absorção do CBD', url: 'https://kayamind.com/ebook-o-desafio-de-absorcao-do-cbd/', toc: ['Como o CBD atua no organismo e seus benefícios para o bem-estar', 'O problema da baixa absorção do CBD em formulações tradicionais', 'Como a tecnologia do CBD solúvel em água está transformando a indústria', 'O que é a tecnologia CannaSorb® CB-Active e por que ela é considerada uma inovação revolucionária'] },
+      { src: 'assets/ebooks-kaya/ebook-complysoft-como-montar-uma-associacao-canabica.jpg', year: '2025', title: 'Como Montar uma Associação Canábica', url: 'https://kayamind.com/ebook-complysoft-como-montar-uma-associacao-canabica/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-feridas-de-dificil-cicatrizacao.jpg', year: '2025', title: 'Cannabis e Feridas', url: 'https://kayamind.com/ebook-cannabis-e-feridas-de-dificil-cicatrizacao/', toc: ['Por que falar de feridas de difícil cicatrização', 'O que é o sistema endocanabinoide (SEC) na pele', 'Mecanismos: como os canabinoides podem ajudar na cicatrização', 'Evidências científicas por condição'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-dor-cronica.jpg', year: '2025', title: 'Cannabis e Dor Crônica', url: 'https://kayamind.com/ebook-cannabis-e-dor-cronica/', toc: ['Por que é tão difícil tratar a dor crônica?', 'O que a cannabis tem a ver com a dor?', 'Tipos de dor e como os canabinoides podem ajudar', 'Desafios, riscos e o que considerar antes de iniciar um tratamento com canabinoides'] },
+      { src: 'assets/ebooks-kaya/ebook-canabinoides-menores.jpg', year: '2025', title: 'Canabinoides Menores', url: 'https://kayamind.com/ebook-canabinoides-menores/', toc: ['Canabinoides menores: o que são e por que importam', 'Canabigerol (CBG)', 'Canabinol (CBN)', 'Tetraidrocanabivarina (THCV)'] },
+      { src: 'assets/ebooks-kaya/ebook-alma-lab-foco-e-concentracao.jpg', year: '2025', title: 'Foco e Concentração', url: 'https://kayamind.com/ebook-alma-lab-foco-e-concentracao/', toc: ['Como o cérebro regula o foco e a concentração', 'Estratégias naturais para melhorar o foco', 'Produtos naturais com evidência científica para foco e concentração', 'Alma Lab: ciência e inovação em foco e bem-estar'] },
+      { src: 'assets/ebooks-kaya/ebook-a-piteira-headshops-tabacarias.jpg', year: '2025', title: 'Headshops & Tabacarias', url: 'https://kayamind.com/ebook-a-piteira-headshops-tabacarias/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
+      { src: 'assets/ebooks-kaya/ebook-uso-topico-da-cannabis.jpg', year: '2024', title: 'O Uso Tópico da Cannabis', url: 'https://kayamind.com/ebook-uso-topico-da-cannabis/', toc: ['A atuação dos compostos da cannabis e o uso tópico', 'O que a ciência destaca em relação ao uso tópico da cannabis', 'Principais formas farmacêuticas: HempVegan e a inovação', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-thcv-canabinoide.jpg', year: '2024', title: 'THCv: Um Canabinoide Promissor', url: 'https://kayamind.com/ebook-thcv-canabinoide/', toc: ['A cannabis e suas múltiplas propriedades', 'O THCv e os processos motivacionais', 'O THCv e o parkinson', 'Evidências constatadas por outros estudos científicos'] },
+      { src: 'assets/ebooks-kaya/ebook-tecnologia-cannabis-medicinal.jpg', year: '2024', title: 'O Futuro da Cannabis Medicinal', url: 'https://kayamind.com/ebook-tecnologia-cannabis-medicinal/', toc: ['Panorama Atual do Mercado da Cannabis para Médicos', 'Vantagens Competitivas para Médicos na Era Atual', 'Preparação para o futuro no atendimento médico da cannabis', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-o-mercado-do-thc.jpg', year: '2024', title: 'O Mercado do THC', url: 'https://kayamind.com/ebook-o-mercado-do-thc/', toc: ['Os fitocanabinoides de cannabis', 'Potencial terapêutico do THC', 'O mercado de full spectrum THC no Uruguai', 'Pioneirismo da GrüneLabs no mercado do THC e Full Spectrum'] },
+      { src: 'assets/ebooks-kaya/ebook-muito-alem-da-fumaca-headshops.jpg', year: '2024', title: 'Muito Além da Fumaça', url: 'https://kayamind.com/ebook-muito-alem-da-fumaca-headshops/', toc: ['A ASCENSÃO DAS TABACARIAS E HEADSHOPS', 'TABACARIAS E HEADSHOPS E A RELAÇÃO COM A SMOKING CULTURE', 'COMPONDO O PORTFÓLIO DE PRODUTOS DO SEU ESTABELECIMENTO', 'TRADE MARKETING PARA COMPOSIÇÃO DE PORTFÓLIO'] },
+      { src: 'assets/ebooks-kaya/ebook-marketing-de-influencia.jpg', year: '2024', title: 'Marketing de Influência no Setor da Cannabis', url: 'https://kayamind.com/ebook-marketing-de-influencia/', toc: ['Marcas e Artistas', 'Marcas e Músicos', 'Marketing de Influência Entre Marcas', 'Espaços de Lazer e Entretenimento'] },
+      { src: 'assets/ebooks-kaya/ebook-farmacias-de-manipulacao.jpg', year: '2024', title: 'Farmácias de Manipulação e Cannabis Medicinal', url: 'https://kayamind.com/ebook-farmacias-de-manipulacao/', toc: ['As farmácias de manipulação', 'A regulamentação da cannabis nas farmácias de manipulação', 'Diferenciais dos produtos manipulados', 'Combinação de canabinoides'] },
+      { src: 'assets/ebooks-kaya/ebook-estudos-cientificos-cannabis-medicinal.jpg', year: '2024', title: 'Estudos Científicos sobre Cannabis Medicinal', url: 'https://kayamind.com/ebook-estudos-cientificos-cannabis-medicinal/', toc: ['Dor e tratamento da dor', 'Saúde mental e neuropsiquiátricos', 'Epilepsia e desordens neurológicas', 'Câncer e efeitos secundários da quimioterapia'] },
+      { src: 'assets/ebooks-kaya/ebook-cuidado-com-a-saude-mental.jpg', year: '2024', title: 'A Importância do Cuidado com a Saúde Mental', url: 'https://kayamind.com/ebook-cuidado-com-a-saude-mental/', toc: ['Formas de cuidar da saúde mental', 'Importância da adesão ao tratamento', 'Benefícios da Cannabis Medicinal para a saúde mental', 'Segurança e eficácia do tratamento'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-genetica.jpg', year: '2024', title: 'Cannabis e Genética', url: 'https://kayamind.com/ebook-cannabis-e-genetica/', toc: ['Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-cadeia-produtiva-cannabis.jpg', year: '2024', title: 'Cadeia Produtiva da Cannabis', url: 'https://kayamind.com/ebook-cadeia-produtiva-cannabis/', toc: ['Fabricação de produtos à base de cannabis', 'Garantindo a qualidade', 'Como é realizada a distribuição', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-30-perguntas-sobre-depressao.jpg', year: '2024', title: '30 Perguntas sobre Depressão', url: 'https://kayamind.com/ebook-30-perguntas-sobre-depressao/', toc: ['O que é a depressão', 'Quais são os principais sintomas da depressão', 'Possíveis tratamentos e acompanhamentos', 'Tratamentos alternativos com psicodélicos'] },
+      { src: 'assets/ebooks-kaya/e-book-guia-de-cultivo.jpg', year: '2024', title: 'Guia de Cultivo: da Semente à Flor', url: 'https://kayamind.com/e-book-guia-de-cultivo/', toc: ['Escolhendo o método de cultivo ideal', 'Germinação e fase vegetativa', 'Fase de floração e colheita', 'Cura, secagem e armazenamento'] },
+      { src: 'assets/ebooks-kaya/ebook-produtos-de-cannabis.jpg', year: '2023', title: 'Produtos de Cannabis', url: 'https://kayamind.com/ebook-produtos-de-cannabis/', toc: ['A importância da formulação do produto', 'Formas farmacêuticas disponíveis no Brasil', 'Óleos de cannabis', 'Gummies canábicas'] },
+      { src: 'assets/ebooks-kaya/ebook-filtros-e-piteiras.jpg', year: '2023', title: 'Guia de Filtros e Piteiras', url: 'https://kayamind.com/ebook-filtros-e-piteiras/', toc: ['Informações sobre a política de Redução de Danos', 'Diferenças entre filtros e piteiras', 'Marcas que possuem filtros e piteiras', 'Como utilizar filtros e piteiras no seu cigarro'] },
+      { src: 'assets/ebooks-kaya/ebook-as-strains-mais-famosas-da-internet.jpg', year: '2023', title: 'As Strains Mais Famosas da Internet', url: 'https://kayamind.com/ebook-as-strains-mais-famosas-da-internet/', toc: ['O que são os terpenos e suas influências', 'Tipos de cannabis', 'Dicas para um consumo saudável de cannabis', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/e-book-tendencias-do-mercado-da-cannabis.jpg', year: '2023', title: 'Tendências do Mercado da Cannabis', url: 'https://kayamind.com/e-book-tendencias-do-mercado-da-cannabis/', toc: ['Mercado global da cannabis: para onde vamos agora', 'O cânhamo: possibilidades e sua versatilidade', 'Cosméticos feitos com maconha', 'Cannabis e sexo'] },
+      { src: 'assets/ebooks-kaya/e-book-receitas-com-cannabis.jpg', year: '2023', title: 'Receitas com Cannabis', url: 'https://kayamind.com/e-book-receitas-com-cannabis/', toc: ['Como realizar o processo de descarboxilação', 'Manteiga canábica: a base da culinária com cannabis', 'Diferentes sobremesas', 'Pratos para compartilhar'] },
+      { src: 'assets/ebooks-kaya/e-book-oleo-de-cbd.jpg', year: '2023', title: 'Guia do Óleo da Cannabis no Brasil', url: 'https://kayamind.com/e-book-oleo-de-cbd/', toc: ['Tipos de canabinoides', 'Condições médicas que podem ser tratadas com o óleo', 'Onde comprar o óleo de cannabis no Brasil', 'Quanto custa o tratamento com cannabis'] },
+      { src: 'assets/ebooks-kaya/e-book-guia-das-sedas-para-bolar.jpg', year: '2023', title: 'Guia de Sedas para Bolar', url: 'https://kayamind.com/e-book-guia-das-sedas-para-bolar/', toc: ['Tamanho das sedas', 'A melhor seda para fumar', 'Dicas para ter a melhor experiência', 'Sedas mais populares no mercado'] },
+      { src: 'assets/ebooks-kaya/e-book-dicas-de-mkt-e-vendas-para-tabacarias.jpg', year: '2023', title: 'Dicas de Marketing e Vendas para Tabacarias', url: 'https://kayamind.com/e-book-dicas-de-mkt-e-vendas-para-tabacarias/', toc: ['Dicas para você conhecer melhor seus clientes no mercado da cannabis', 'Consumer Insights: como conhecer seu cliente ajuda no aumento das vendas', 'Customer Success: a satisfação do cliente no mercado da cannabis', 'Aprenda a impulsionar suas vendas no mercado da cannabis no Brasil'] },
+      { src: 'assets/ebooks-kaya/e-book-cannabis-medicinal-evidencias-cientificas.jpg', year: '2023', title: 'Cannabis Medicinal: Evidências Científicas', url: 'https://kayamind.com/e-book-cannabis-medicinal-evidencias-cientificas/', toc: ['Transtorno do Espectro Autista (TEA)', 'Esclerose múltipla', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/e-book-cannabis-e-sono.jpg', year: '2023', title: 'Cannabis Medicinal e Estudos do Sono', url: 'https://kayamind.com/e-book-cannabis-e-sono/', toc: ['Entenda sobre o sistema endocanabinoide', 'O que é o óleo de CBD e como ele pode te ajudar', 'Por que o CBN pode ser revolucionário', 'Qual a relação da cannabis com o sono?'] },
+      { src: 'assets/ebooks-kaya/e-book-cenario-politico-brasileiro-e-cannabis.jpg', year: '2022', title: 'Cenário Político Brasileiro e a Pauta da Cannabis', url: 'https://kayamind.com/e-book-cenario-politico-brasileiro-e-cannabis/', toc: ['Quantidade de menções à cannabis no twitter de determinados políticos', 'Dados que mostram o posicionamento dos partidos em relação ao PL 399/2015', 'Manifestações dos ministros do STF em torno da cannabis', 'Projetos de lei e seus autores que já foram criadas a respeito da planta'] },
     ],
   },
 ];
@@ -3585,12 +4141,39 @@ class Component extends DCLogic {
       ...g, title: g[lang], cat: GAL_FILTERS.find((f) => f.key === g.cat)[lang],
       onClick: g.route ? () => go(g.route) : null,
       hasCover: !!g.img,
-      coverStyle: g.img ? `position:absolute; inset:0; background-image:url("${g.img}"); background-size:${g.imgFit || 'cover'}; background-position:center; background-repeat:no-repeat; background-color:${g.imgBg || 'transparent'}` : '',
+      coverStyle: g.img ? `position:absolute; inset:0; background-image:url("${g.img}"); background-size:${g.imgFit || 'cover'}; background-position:${g.imgPos || 'center'}; background-repeat:no-repeat; background-color:${g.imgBg || 'transparent'}` : '',
     }));
 
     const services = D.services.map((s) => ({ ...s }));
 
     const pick = (x) => (x && typeof x === 'object' && ('pt' in x || 'en' in x)) ? x[lang] : x;
+    const GAMD = GA_MARCA[lang];
+    const gam = {
+      ...GAMD,
+      v1: GA_MARCA.v1.map((x) => ({ src: x.src, cap: x[lang] })),
+      partes: GA_MARCA.partes.map((x) => ({ src: x.src, cap: x[lang] })),
+      sistema: GA_MARCA.sistema.map((x) => ({ src: x.src, cap: x[lang] })),
+      campanha: GA_MARCA.campanha,
+      cores: GA_MARCA.cores.map((c) => ({
+        ...c, igual: c.hex.toUpperCase() === c.site.toUpperCase(),
+        amostraSite: `background:${c.site}`, amostraCampanha: `background:${c.hex}`,
+      })),
+    };
+
+    const culturais = CULTURAIS.map((c) => ({
+      id: c.id, accent: c.accent, ano: c.ano,
+      poster: c.poster, posterRatio: c.posterRatio, posterCap: pick(c.posterCap),
+      edicao: pick(c.edicao), title: pick(c.title), tema: pick(c.tema),
+      desc: c.desc[lang],
+      ficha: c.ficha.map((f) => ({ k: pick(f.k), v: pick(f.v) })),
+      pecas: c.pecas.map((x) => ({ src: x.src, cap: pick(x.cap) })),
+      hasLogo: !!c.logo, logo: c.logo || '', logoNota: c.logoNota ? pick(c.logoNota) : '',
+      hasFotos: !!c.fotos, fotos: (c.fotos || []).map((x) => ({ src: x.src, cap: pick(x.cap) })),
+      hasApoios: !!c.apoios, apoios: (c.apoios || []).map((x) => ({ src: x.src, nome: x.nome, papel: pick(x.papel) })),
+      hasExtra: !!c.extra, extraSrc: c.extra ? c.extra.src : '', extraCap: c.extra ? pick(c.extra.cap) : '',
+      hasLink: !!c.link, link: c.link || '', linkLabel: c.linkLabel || '',
+    }));
+
     const anuarios = ANUARIOS.map((a) => ({
       id: a.id, year: a.year, accent: a.accent, coverPlate: !!a.coverPlate, hasCover: !!a.cover,
       cover: a.cover, note: a.note ? a.note[lang] : null,
@@ -3643,18 +4226,22 @@ class Component extends DCLogic {
       isCaseYerba: page === 'case' && this.state.caseId === 'yerba-fina',
       isCaseHercules: page === 'case' && this.state.caseId === 'hercules',
       isCaseJimi: page === 'case' && this.state.caseId === 'jimi-oliver',
-      isCaseOthelo: page === 'case' && this.state.caseId === 'othelo', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
+      isCaseOthelo: page === 'case' && this.state.caseId === 'othelo',
+      isCaseGA: page === 'case' && this.state.caseId === 'gustavo-albino', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
       isGaleria: page === 'galeria',
       isIlustra: page === 'ilustracao',
       isLogos: page === 'logos',
       isEbooks: page === 'ebooks',
       isAnuarios: page === 'anuarios',
+      isCulturais: page === 'culturais',
       anuarios,
+      culturais,
+      gam,
       ebookSeries: EBOOK_SERIES.map((s) => ({
         name: s.name, accent: s.accent, site: s.site,
         desc: lang === 'pt' ? s.descPt : s.descEn,
         siteLabel: lang === 'pt' ? s.siteLabelPt : s.siteLabelEn,
-        items: s.items,
+        items: s.items.map((it) => ({ ...it, hasToc: !!(it.toc && it.toc.length) })),
       })),
       ilustraItems: ILUSTRA,
       logoBrands: LOGO_BRANDS.map((b) => ({
@@ -3664,6 +4251,8 @@ class Component extends DCLogic {
           src: s.src, cap: lang === 'pt' ? s.capPt : s.capEn,
           imgStyle: s.narrow ? 'display:block; width:160px; max-width:52%; height:auto' : 'display:block; width:100%; height:auto',
         })),
+        hasPosts: !!b.posts, posts: b.posts || [],
+        postsNota: b.posts ? (lang === 'pt' ? b.postsNotaPt : b.postsNotaEn) : '',
       })),
       logoSolos: LOGO_SOLOS.map((b) => ({
         name: b.name, tag: lang === 'pt' ? b.tagPt : b.tagEn, tint: b.tint, src: b.src,

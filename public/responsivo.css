@@ -454,3 +454,48 @@ html, body { overflow-x: hidden; }
      que ainda importa. */
   .ga-hero__foto { min-height: 220px !important; }
 }
+
+/* ---------- Projetos culturais ----------
+   A pagina repete a gramatica dos anuarios: peca grande a esquerda, dossie a
+   direita, grades de tres embaixo. No celular tudo vira coluna, e a ficha do
+   projeto passa de tres para duas colunas, porque o par rotulo/valor fica
+   ilegivel abaixo de uns 110px de largura. */
+@media (max-width: 900px) {
+  .ga-cult__topo[style] { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ga-cult__logo[style] { grid-template-columns: 1fr !important; }
+  .ga-cult__logo > div:first-child { border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .ga-cult__apoios[style] { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 720px) {
+  .ga-cult__grade[style] { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .ga-cult__ficha[style] { grid-template-columns: repeat(2, 1fr) !important; }
+  .ga-cult__apoios[style] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 420px) {
+  .ga-cult__grade[style] { grid-template-columns: 1fr !important; }
+}
+.ga-cult__topo > *, .ga-cult__grade > *, .ga-cult__apoios > *, .ga-cult__ficha > * { min-width: 0; }
+
+/* A faixa de posts da RFYL sao seis retratos 4:5. Em seis colunas eles ficam
+   com 170px no desktop, o suficiente para ler a marca sobre a foto. No tablet
+   viram tres e no celular dois, que e onde a foto ainda respira. */
+@media (max-width: 1024px) { .ga-logo__posts[style] { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 560px)  { .ga-logo__posts[style] { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* ---------- Case da marca propria ----------
+   A pagina alterna faixa escura e faixa clara, e as grades dentro dela sao
+   mais densas que as dos outros cases: seis miniaturas da primeira versao,
+   sete posts da campanha. No celular isso vira duas colunas, que e onde a
+   peca ainda se le. */
+@media (max-width: 900px) {
+  .ga-gam__hero[style] { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ga-gam__sistema[style] { grid-template-columns: 1fr !important; }
+  .ga-gam__grade[style] { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  .ga-gam__grade[style] { grid-template-columns: repeat(2, 1fr) !important; }
+  .ga-gam__partes[style] { grid-template-columns: 1fr !important; }
+  .ga-gam__ficha[style] { grid-template-columns: repeat(2, 1fr) !important; }
+  .ga-gam__cor[style] { grid-template-columns: 1fr 1fr 56px !important; }
+}
+.ga-gam__hero > *, .ga-gam__grade > *, .ga-gam__partes > *, .ga-gam__ficha > * { min-width: 0; }
