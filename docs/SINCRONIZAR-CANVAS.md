@@ -49,9 +49,36 @@ O canvas nao conhece nenhuma destas alteracoes. Reimportar sobrescreve o
 3. Rodar `python3 tools/versionar-css.py` para carimbar o CSS.
 4. As mudancas de conteudo e estrutura feitas fora do canvas — hero, secao de
    destaques, pagina Sobre, formulario ligado ao WhatsApp, download do CV.
+5. A parede de marcas: a classe `ga-brands` na grade, `ga-brand` na celula,
+   `repeat(4,1fr)` no lugar de `repeat(5,1fr)`, o campo `fit` em `BRANDS` (e o
+   `logoStyle` que o consome) e a nota de rodape como 12a celula em vez do
+   `<p>` abaixo da grade. Sao 11 marcas + 1 nota = 12 celulas, numero escolhido
+   para fechar retangulo em 4, 3 e 2 colunas. Mexer na contagem de marcas sem
+   mexer na grade deixa uma linha orfa.
 
 Quando houver muito disto acumulado, o certo passa a ser levar as mudancas
 **para dentro do canvas** e reexportar, em vez de reaplicar a cada vez.
+
+## Logos das marcas
+
+`tools/trim-logo.swift` (CoreGraphics puro, sem ImageMagick/Pillow) mede a
+caixa de conteudo de um logo, recorta a margem vazia e regrava em PNG:
+
+```
+swiftc -O -o /tmp/trim-logo tools/trim-logo.swift
+/tmp/trim-logo entrada.png saida.png 640            # recorta e limita a 640px
+/tmp/trim-logo entrada.png /dev/null --dry          # so mede, nao escreve
+/tmp/trim-logo arte.png logo.png 900 --chave-branco # tira o papel branco
+```
+
+`--chave-branco` usa flood fill a partir da borda: so o branco que encosta na
+margem vira transparencia, entao contraforma de letra continua opaca. Foi
+assim que o logo da Auroraeco saiu do postcard impresso — a unica copia em
+resolucao util que existia era a que estava aplicada na arte.
+
+O `--dry` e a forma de conferir o acervo inteiro de uma vez; todo logo deve
+reportar `ocupa 100%/100%`. Se reportar menos, sobrou margem vazia e ele vai
+renderizar menor que os vizinhos na parede de marcas.
 
 ## Limitação conhecida no transporte de assets
 

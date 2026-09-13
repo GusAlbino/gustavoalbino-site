@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gustavo Albino — Lead Designer | Branding, produto e direção criativa</title>
+<title>Gustavo Albino · Lead Designer | Branding, produto e direção criativa</title>
 <meta name="description" content="Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.">
 <link rel="canonical" href="https://gustavoalbino.com.br/">
 <link rel="icon" href="assets/logo-seal-black.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gustavo Albino">
-<meta property="og:title" content="Gustavo Albino — Lead Designer | Branding, produto e direção criativa">
+<meta property="og:title" content="Gustavo Albino · Lead Designer | Branding, produto e direção criativa">
 <meta property="og:description" content="Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.">
 <meta property="og:url" content="https://gustavoalbino.com.br/">
 <meta property="og:image" content="https://gustavoalbino.com.br/assets/og-card.png">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=7a354928">
+<link rel="stylesheet" href="responsivo.css?v=ea7882d0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -49,23 +49,51 @@
 
   <!-- ░░░ HEADER ░░░ -->
   <header style="position:sticky; top:0; z-index:40; background:var(--paper-300); border-bottom:2px solid var(--ink)">
-    <div style="max-width:1180px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
-      <button onClick="{{ toHome }}" style="display:flex; align-items:center; gap:11px; background:none; border:none; cursor:pointer; padding:0">
+    <div style="max-width:1180px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px">
+      <button onClick="{{ toHome }}" class="ga-logo" style="display:flex; align-items:center; gap:11px; background:none; border:none; cursor:pointer; padding:0">
         <img src="assets/logo-seal-black.png" alt="Gustavo Albino" width="44" height="44" style="display:block">
         <span style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:17px; line-height:.95; color:var(--ink); text-align:left">Gustavo<br>Albino</span>
       </button>
-      <nav style="display:flex; align-items:center; gap:6px; flex-wrap:wrap">
-        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+
+      <!-- Navegacao completa — some abaixo de 900px, onde entra o hamburguer -->
+      <nav class="ga-nav" style="display:flex; align-items:center; gap:6px">
+        <sc-for list="{{ navMain }}" as="item" hint-placeholder-count="5">
           <button onClick="{{ item.onClick }}" class="{{ item.cls }}">{{ item.label }}</button>
         </sc-for>
-        <div style="display:inline-flex; border:2px solid var(--ink); border-radius:var(--radius-pill); overflow:hidden; margin-left:6px; box-shadow:var(--shadow-pop-sm)">
+        <div class="ga-lang" style="display:inline-flex; border:2px solid var(--ink); border-radius:var(--radius-pill); overflow:hidden; margin-left:6px; box-shadow:var(--shadow-pop-sm)">
           <sc-for list="{{ langBtns }}" as="lb" hint-placeholder-count="2">
             <button onClick="{{ lb.onClick }}" style="{{ lb.style }}">{{ lb.label }}</button>
           </sc-for>
         </div>
-        <button onClick="{{ downloadCV }}" class="ga-btn ga-btn--primary ga-btn--sm" style="margin-left:6px">{{ t.baixarCV }}</button>
+        <button onClick="{{ toContato }}" class="ga-btn ga-btn--primary ga-btn--sm" style="margin-left:8px">{{ t.nav.contato }}</button>
+        <button onClick="{{ downloadCV }}" class="ga-btn ga-btn--ghost ga-btn--sm">{{ t.baixarCV }}</button>
       </nav>
+
+      <!-- Barra do celular: so o CTA e o hamburguer. O resto vive no painel. -->
+      <div class="ga-navbar-sm">
+        <button onClick="{{ toContato }}" class="ga-btn ga-btn--primary ga-btn--sm">{{ t.nav.contato }}</button>
+        <button onClick="{{ toggleMenu }}" class="{{ burgerCls }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpenStr }}" aria-controls="ga-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div class="ga-menu__veu" onClick="{{ closeMenu }}" aria-hidden="true"></div>
+      <div id="ga-menu" class="ga-menu">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <button onClick="{{ item.onClick }}" class="{{ item.menuCls }}">{{ item.label }}</button>
+        </sc-for>
+        <div class="ga-menu__foot">
+          <div class="ga-lang" style="display:inline-flex; border:2px solid var(--ink); border-radius:var(--radius-pill); overflow:hidden; box-shadow:var(--shadow-pop-sm)">
+            <sc-for list="{{ langBtns }}" as="lb" hint-placeholder-count="2">
+              <button onClick="{{ lb.onClick }}" style="{{ lb.style }}">{{ lb.label }}</button>
+            </sc-for>
+          </div>
+          <button onClick="{{ downloadCV }}" class="ga-btn ga-btn--ghost ga-btn--sm">{{ t.baixarCV }}</button>
+        </div>
+      </div>
+    </sc-if>
   </header>
 
   <main>
@@ -79,7 +107,7 @@
         <div style="max-width:1180px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; min-height:560px">
           <div style="padding:56px 0">
             <span class="ga-kicker">{{ t.hero.kicker }}</span>
-            <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.95; font-size:clamp(28px,3.6vw,46px); margin:14px 0 0; color:var(--ink); text-wrap:balance">{{ t.hero.h1a }}<br><span style="color:var(--vermilion)">{{ t.hero.h1b }}</span></h1>
+            <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.95; font-size:clamp(32px,4.6vw,46px); margin:14px 0 0; color:var(--ink); text-wrap:balance">{{ t.hero.h1a }}<br><span style="color:var(--vermilion)">{{ t.hero.h1b }}</span></h1>
             <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:20px 0 0">
               <span class="ga-badge ga-badge--ink" style="font-size:13px; padding:6px 12px">{{ t.hero.role }}</span>
               <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted)">{{ t.hero.meta }}</span>
@@ -123,10 +151,10 @@
         <div class="ga-destaques" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px">
           <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
             <div onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer">
-              <div style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
+              <div class="ga-midia ga-midia--destaque" style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
                 <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
                 <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
-                  <div style="{{ d.bgStyle }}"></div>
+                  <div class="ga-capa" style="{{ d.bgStyle }}"></div>
                   <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.64) 100%)"></div>
                 </sc-if>
                 <span class="ga-badge" style="position:relative; align-self:flex-start; background:{{ d.fg }}; color:{{ d.color }}; border-color:{{ d.fg }}">{{ d.tag }}</span>
@@ -144,7 +172,7 @@
       <!-- BLOCO 2 — SOBRE MIM -->
       <section style="max-width:1180px; margin:0 auto; padding:80px 24px; display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:start">
         <div style="position:relative; aspect-ratio:4/5; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); display:flex; flex-direction:column; justify-content:space-between; padding:20px; position:sticky; top:96px">
-          <img src="assets/sobre-suica.jpg" alt="Gustavo Albino em trilha na neve — Suíça" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
+          <img src="assets/sobre-suica.jpg" alt="Gustavo Albino em trilha na neve, Suíça" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
           <span class="ga-badge" style="position:relative; align-self:flex-start; background:var(--paper-100); color:var(--ink); border-color:var(--ink)">{{ t.sobre.imgTag }}</span>
         </div>
         <div>
@@ -181,9 +209,9 @@
           <span class="ga-kicker ga-kicker--bare" style="justify-content:center">{{ t.marcas.kicker }}</span>
           <h2 style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:clamp(22px,3vw,32px); margin:8px 0 0; color:var(--ink)">{{ t.marcas.title }}</h2>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100)">
+        <div class="ga-brands" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100)">
           <sc-for list="{{ brands }}" as="b">
-            <div title="{{ b.name }}" style="aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); padding:22px 24px; box-sizing:border-box">
+            <div class="ga-brand" title="{{ b.name }}" style="display:flex; align-items:center; justify-content:center; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); box-sizing:border-box">
               <sc-if value="{{ b.hasLogo }}" hint-placeholder-val="{{ false }}">
                 <div role="img" aria-label="{{ b.name }}" style="{{ b.logoStyle }}"></div>
               </sc-if>
@@ -192,8 +220,10 @@
               </sc-if>
             </div>
           </sc-for>
+          <div class="ga-brand ga-brand--nota" style="display:flex; align-items:center; justify-content:center; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); box-sizing:border-box">
+            <span style="font-family:var(--font-mono); font-size:12px; line-height:1.6; letter-spacing:.06em; color:var(--text-muted); text-align:center">{{ t.marcas.note }}</span>
+          </div>
         </div>
-        <p style="text-align:center; font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; color:var(--text-muted); margin:16px 0 0">{{ t.marcas.note }}</p>
       </section>
 
       <!-- BLOCO 5 — CV DIGITAL -->
@@ -319,7 +349,7 @@
         </section>
         <section style="max-width:1180px; margin:0 auto; padding:40px 24px 88px; display:grid; grid-template-columns:.85fr 1.15fr; gap:48px; align-items:start">
           <div style="position:relative; aspect-ratio:4/5; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); display:flex; flex-direction:column; justify-content:space-between; padding:20px; position:sticky; top:96px">
-            <img src="assets/sobre-suica.jpg" alt="Gustavo Albino em trilha na neve — Suíça" width="900" height="1200" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
+            <img src="assets/sobre-suica.jpg" alt="Gustavo Albino em trilha na neve, Suíça" width="900" height="1200" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
             <span class="ga-badge" style="position:relative; align-self:flex-start; background:var(--paper-100); color:var(--ink); border-color:var(--ink)">{{ t.sobre.imgTag }}</span>
           </div>
           <div>
@@ -341,16 +371,16 @@
       <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:60ch; margin:0 0 28px">{{ t.casesPage.intro }}</p>
       <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px">
         <sc-for list="{{ caseFilters }}" as="f" hint-placeholder-count="6">
-          <button onClick="{{ f.onClick }}" class="{{ f.cls }}" style="font-family:var(--font-body); font-weight:600; font-size:14px; padding:6px 14px; border:2px solid var(--ink); border-radius:var(--radius-pill); cursor:pointer; background:{{ f.bg }}; color:{{ f.fg }}">{{ f.label }}</button>
+          <button onClick="{{ f.onClick }}" class="ga-chip {{ f.cls }}" style="font-family:var(--font-body); font-weight:600; font-size:14px; padding:6px 14px; border:2px solid var(--ink); border-radius:var(--radius-pill); cursor:pointer; background:{{ f.bg }}; color:{{ f.fg }}">{{ f.label }}</button>
         </sc-for>
       </div>
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px">
         <sc-for list="{{ casesList }}" as="c" hint-placeholder-count="4">
           <div onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer">
-            <div style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
+            <div class="ga-midia ga-midia--case" style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
               <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <sc-if value="{{ c.hasBg }}" hint-placeholder-val="{{ false }}">
-                <div style="{{ c.bgStyle }}"></div>
+                <div class="ga-capa" style="{{ c.bgStyle }}"></div>
                 <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.62) 100%)"></div>
               </sc-if>
               <div style="position:relative; display:flex; justify-content:space-between; align-items:flex-start">
@@ -544,7 +574,7 @@
           <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:#E6E0D2; margin:18px 0 0; max-width:46ch">{{ cd.lede }}</p>
         </div>
         <div style="position:relative; border:3px solid #1B1B1B; border-radius:6px; overflow:hidden; box-shadow:7px 7px 0 #1B1B1B">
-          <img src="assets/cases/yerba-fina/hero-explore.jpg" alt="Campanha Yerba Fina — Explore seu meio" style="display:block; width:100%; height:auto">
+          <img src="assets/cases/yerba-fina/hero-explore.jpg" alt="Campanha Yerba Fina: Explore seu meio" style="display:block; width:100%; height:auto">
         </div>
       </section>
 
@@ -910,7 +940,7 @@
             <div style="padding:18px">
               <div style="font-family:'Anton', var(--font-display); text-transform:uppercase; font-size:18px; color:#FFFFFF; letter-spacing:.01em">Anton</div>
               <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">Display · wordmark</div>
-              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Condensada e pesada, toda em caixa-alta. Carrega o nome e as manchetes — peso de letreiro de academia.</p>
+              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Condensada e pesada, toda em caixa-alta. Carrega o nome e as manchetes. Peso de letreiro de academia.</p>
             </div>
           </div>
           <div style="border:2px solid #2A2A2A; border-radius:var(--radius-md); overflow:hidden; background:#161616; display:flex; flex-direction:column">
@@ -930,7 +960,7 @@
             <div style="padding:18px">
               <div style="font-family:'Anton', var(--font-display); text-transform:uppercase; font-size:18px; color:#FFFFFF; letter-spacing:.01em">Archivo</div>
               <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">Texto · interface</div>
-              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Grotesca limpa e legível para textos longos, rótulos e web — a base do dia a dia da marca.</p>
+              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Grotesca limpa e legível para textos longos, rótulos e web. A base do dia a dia da marca.</p>
             </div>
           </div>
         </div>
@@ -1408,10 +1438,10 @@
       <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:60ch; margin:0 0 28px">{{ t.galPage.intro }}</p>
       <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px">
         <sc-for list="{{ galFilters }}" as="f" hint-placeholder-count="7">
-          <button onClick="{{ f.onClick }}" class="{{ f.cls }}" style="font-family:var(--font-body); font-weight:600; font-size:14px; padding:6px 14px; border:2px solid var(--ink); border-radius:var(--radius-pill); cursor:pointer; background:{{ f.bg }}; color:{{ f.fg }}">{{ f.label }}</button>
+          <button onClick="{{ f.onClick }}" class="ga-chip {{ f.cls }}" style="font-family:var(--font-body); font-weight:600; font-size:14px; padding:6px 14px; border:2px solid var(--ink); border-radius:var(--radius-pill); cursor:pointer; background:{{ f.bg }}; color:{{ f.fg }}">{{ f.label }}</button>
         </sc-for>
       </div>
-      <div style="columns:3; column-gap:20px">
+      <div class="ga-galeria" style="columns:3; column-gap:20px">
         <sc-for list="{{ galItems }}" as="g" hint-placeholder-count="9">
           <div onClick="{{ g.onClick }}" class="ga-card ga-card--lift" style="break-inside:avoid; margin-bottom:20px; cursor:pointer; padding:0">
             <div style="position:relative; height:{{ g.h }}; background:{{ g.color }}; overflow:hidden; display:flex; align-items:flex-end; padding:16px">
@@ -1435,7 +1465,7 @@
     <sc-if value="{{ isIlustra }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1240px; margin:0 auto; padding:40px 24px 88px">
       <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:28px">← {{ t.nav.galeria }}</button>
-      <div style="columns:3; column-gap:18px">
+      <div class="ga-masonry" style="columns:3; column-gap:18px">
         <sc-for list="{{ ilustraItems }}" as="il" hint-placeholder-count="12">
           <div style="break-inside:avoid; margin:0 0 18px; border:2px solid var(--ink); box-shadow:var(--shadow-pop); border-radius:4px; overflow:hidden; background:var(--paper-100); line-height:0">
             <img src="{{ il.src }}" alt="" loading="lazy" style="display:block; width:100%; height:auto; aspect-ratio:{{ il.r }}; object-fit:cover">
@@ -1457,7 +1487,7 @@
             <p style="font-family:var(--font-body); font-size:17px; line-height:1.62; color:var(--text-body); max-width:64ch; margin:0 0 20px">{{ s.desc }}</p>
             <a href="{{ s.site }}" target="_blank" rel="noopener" class="ga-btn ga-btn--ghost ga-btn--sm">{{ s.siteLabel }} ↗</a>
           </div>
-          <div style="column-width:210px; column-gap:18px">
+          <div class="ga-masonry" style="column-width:210px; column-gap:18px">
             <sc-for list="{{ s.items }}" as="e" hint-placeholder-count="12">
               <figure style="break-inside:avoid; margin:0 0 18px; border:2px solid var(--ink); box-shadow:var(--shadow-pop); border-radius:4px; overflow:hidden; background:var(--paper-100)">
                 <img src="{{ e.src }}" alt="" loading="lazy" style="display:block; width:100%; height:auto">
@@ -1479,7 +1509,7 @@
         <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:26px">← {{ t.nav.galeria }}</button>
         <span class="ga-kicker" style="color:var(--cerulean)">Editorial &amp; Dataviz · Kaya Mind</span>
         <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">Anuários da Cannabis</h1>
-        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">Relatórios anuais de inteligência de mercado que produzi para a Kaya Mind: cada edição transforma dados brutos sobre o setor de cannabis medicinal no Brasil em narrativa visual — capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.</p>
+        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">Relatórios anuais de inteligência de mercado que produzi para a Kaya Mind: cada edição transforma dados brutos sobre o setor de cannabis medicinal no Brasil em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.</p>
       </div>
 
       <sc-for list="{{ anuarios }}" as="a" hint-placeholder-count="3">
@@ -1491,7 +1521,7 @@
           <figure style="margin:0; position:sticky; top:92px">
             <sc-if value="{{ a.hasCover }}" hint-placeholder-val="{{ false }}">
             <div style="position:relative; aspect-ratio:1240/1754; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-lg); background:var(--paper-100)">
-              <img src="{{ a.cover }}" alt="Capa do Anuário {{ a.year }}" style="{{ a.coverStyle }}">
+              <img src="{{ a.cover }}" alt="Capa do Anuário {{ a.year }}" loading="lazy" style="{{ a.coverStyle }}">
             </div>
             </sc-if>
             <sc-if value="{{ a.coverPlate }}" hint-placeholder-val="{{ false }}">
@@ -1647,7 +1677,7 @@
           <p style="font-family:var(--font-body); font-size:18px; line-height:1.6; color:var(--text-body); max-width:42ch">{{ t.contatoPage.text }}</p>
           <div style="margin-top:28px; display:flex; flex-direction:column; gap:14px">
             <sc-for list="{{ channels }}" as="ch" hint-placeholder-count="4">
-              <a href="{{ ch.href }}" target="_blank" rel="noopener" style="display:flex; gap:14px; align-items:baseline; text-decoration:none">
+              <a href="{{ ch.href }}" target="_blank" rel="noopener" class="ga-canal" style="display:flex; gap:14px; align-items:baseline; text-decoration:none">
                 <span style="font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); width:96px; flex:none">{{ ch.label }}</span>
                 <span style="font-family:var(--font-body); font-weight:600; font-size:16px; color:var(--ink)">{{ ch.value }}</span>
               </a>
@@ -1711,17 +1741,17 @@
         <p style="font-family:var(--font-body); font-size:14px; line-height:1.6; color:var(--paper-400); margin:16px 0 18px">{{ t.footer.tagline }}</p>
         <button onClick="{{ toContato }}" class="ga-btn ga-btn--gold ga-btn--sm">{{ t.footer.ctaBtn }}</button>
       </div>
-      <div style="display:flex; gap:56px; flex-wrap:wrap">
+      <div class="ga-footer-cols" style="display:flex; gap:56px; flex-wrap:wrap">
         <div>
           <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px">{{ t.footer.navTitle }}</div>
           <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
-            <button onClick="{{ item.onClick }}" style="display:block; background:none; border:none; color:var(--paper-300); font-family:var(--font-body); font-size:15px; padding:4px 0; cursor:pointer; text-align:left">{{ item.label }}</button>
+            <button onClick="{{ item.onClick }}" class="ga-footer-link" style="background:none; border:none; color:var(--paper-300); font-family:var(--font-body); font-size:15px; padding:4px 0; cursor:pointer; text-align:left">{{ item.label }}</button>
           </sc-for>
         </div>
         <div>
           <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px">{{ t.footer.socialTitle }}</div>
           <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
-            <a href="{{ s.href }}" target="_blank" rel="noopener" style="display:block; color:var(--paper-300); font-family:var(--font-body); font-size:15px; padding:4px 0; text-decoration:none">{{ s.label }}</a>
+            <a href="{{ s.href }}" target="_blank" rel="noopener" class="ga-footer-link" style="color:var(--paper-300); font-family:var(--font-body); font-size:15px; padding:4px 0; text-decoration:none">{{ s.label }}</a>
           </sc-for>
         </div>
       </div>
@@ -1745,13 +1775,14 @@ const DICT = {
   pt: {
     destaques: { kicker: 'Em destaque', title: 'O que eu faço, em três frentes.', intro: 'As mesmas competências que entrego como serviço são as que formam o portfólio. Comece por aqui.' },
     baixarCV: 'Baixar CV',
+    menuLabel: 'Abrir menu', menuLabelFechar: 'Fechar menu',
     nav: { home: 'Home', sobre: 'Sobre', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
     hero: {
       kicker: 'Lead Designer · Brasil · Atendendo Brasil e exterior',
       role: 'Lead Designer',
       meta: '10+ anos · 4 países · 4 idiomas',
       taglineBold: 'Branding, design de produto e direção criativa.',
-      taglineItalic: 'Para quem precisa que a marca aguente crescer — de negócio pequeno a time de produto lá fora.',
+      taglineItalic: 'Para quem precisa que a marca aguente crescer. De negócio pequeno a time de produto lá fora.',
       ctaCases: 'Ver Cases',
       ctaTalk: 'Vamos Conversar',
       soon: 'Em breve',
@@ -1764,26 +1795,26 @@ const DICT = {
     },
     marquee: ['Branding', 'Produto Digital', 'UI / UX', 'Editorial', 'Dataviz', 'Direção Criativa'],
     sobre: {
-      resumo: 'Eu desenho e eu corro montanha — e faz tempo que uma coisa não vive sem a outra. Dez anos de design entre Austrália, Suíça, Nova Zelândia e Portugal; a montanha entrou em 2018 e nunca mais saiu.',
+      resumo: 'Eu desenho e eu corro montanha. Faz tempo que uma coisa não vive sem a outra. Dez anos de design entre Austrália, Suíça, Nova Zelândia e Portugal; a montanha entrou em 2018 e nunca mais saiu.',
       btn: 'Saiba mais sobre mim',
       kicker: 'Sobre mim',
       title: 'Eu desenho e eu corro montanha.',
       imgTag: 'Trail na Suíça',
       paras: [
-        'Eu desenho e eu corro montanha — e faz tempo que uma coisa não vive sem a outra.',
+        'Eu desenho e eu corro montanha. Faz tempo que uma coisa não vive sem a outra.',
         'Comecei em 2018, na Suíça, fazendo trilha a pé. No início era só caminhada, um jeito de respirar entre um projeto e outro. Mas em 2019 resolvi experimentar correr na montanha, e nunca mais parei. Em 2025 encarei minha primeira competição de trilha. Em 2026 decidi ir além: mais provas, conhecendo de perto os atletas, as marcas, as assessorias e o público que move esse esporte.',
-        'Como designer, são mais de 10 anos criando marcas, produtos digitais e experiências visuais — boa parte deles fora do Brasil, entre Austrália, Suíça, Nova Zelândia e Portugal. Em algum momento percebi que minhas duas paixões podiam ser a mesma coisa.',
+        'Como designer, são mais de 10 anos criando marcas, produtos digitais e experiências visuais. Boa parte deles fora do Brasil, entre Austrália, Suíça, Nova Zelândia e Portugal. Em algum momento percebi que minhas duas paixões podiam ser a mesma coisa.',
         'É aí que está a minha vantagem: eu não olho o mundo outdoor de fora. Eu treino, eu compito, eu sei o que é furar a hidratação numa subida e aprender na prática o que funciona.',
-        'Meu propósito é unir essas duas frentes: trazer soluções de verdade para quem pratica o esporte, somando a vivência na montanha a uma década de design estratégico. Não é só fazer bonito — é fazer com quem está dentro.',
+        'Meu propósito é unir essas duas frentes: trazer soluções de verdade para quem pratica o esporte, somando a vivência na montanha a uma década de design estratégico. Bonito é o mínimo. O que conta é fazer junto com quem está dentro.',
       ],
     },
     entrega: {
       kicker: 'O que eu entrego',
       title: 'Quatro frentes, um só padrão.',
       pillars: [
-        { num: '01', title: 'Branding & Identidade', desc: 'Marcas, logos, sistema visual e manual — personalidade e consistência.' },
+        { num: '01', title: 'Branding & Identidade', desc: 'Marcas, logos, sistema visual e manual. Personalidade e consistência.' },
         { num: '02', title: 'Produto Digital', desc: 'UI/UX, apps e design systems pensados para usabilidade e escala.' },
-        { num: '03', title: 'Editorial & Dataviz', desc: 'Anuários, relatórios e Power BI — informação que vira história.' },
+        { num: '03', title: 'Editorial & Dataviz', desc: 'Anuários, relatórios e Power BI: informação que vira história.' },
         { num: '04', title: 'Direção Criativa', desc: 'Marcas, campanhas e eventos com direção de arte coesa.' },
       ],
     },
@@ -1796,7 +1827,7 @@ const DICT = {
       langTitle: 'Idiomas',
       toolsTitle: 'Ferramentas',
       aiTitle: 'Ferramentas de IA',
-      downloadPT: '(removido — PDF em português desatualizado)',
+      downloadPT: '(removido: PDF em português desatualizado)',
       downloadEN: 'Baixar CV (PDF, em inglês)',
       stats: [
         { num: '10+', label: 'anos de design' },
@@ -1845,14 +1876,14 @@ const DICT = {
       availability: 'Resposta em até 2 dias úteis',
     },
     footer: {
-      tagline: 'Lead Designer — branding, produto digital e direção criativa.',
+      tagline: 'Lead Designer · branding, produto digital e direção criativa.',
       navTitle: 'Navegar', socialTitle: 'Redes', ctaBtn: 'Vamos conversar',
       credit: '© 2026 Gustavo Albino · gustavoalbino.com.br',
     },
     casesPage: {
       kicker: 'Acervo · 5 cases',
       title: 'Cases',
-      intro: 'Projetos de marca, produto e cultura — todos com a mesma exigência gráfica.',
+      intro: 'Projetos de marca, produto e cultura, todos com a mesma exigência gráfica.',
     },
     galPage: {
       kicker: 'Prova de trabalho',
@@ -1877,29 +1908,30 @@ const DICT = {
       fName: 'Nome', phName: 'Seu nome',
       fEmail: 'E-mail', fType: 'Tipo de projeto', fMsg: 'Mensagem', phMsg: 'Conte sobre o projeto…',
       send: 'Enviar pelo WhatsApp',
-      sentTitle: 'Seu WhatsApp foi aberto', sentText: 'A mensagem já foi montada com o que você preencheu — é só tocar em enviar. Se o WhatsApp não abriu, escreva para gustavorsalbino@gmail.com.',
+      sentTitle: 'Seu WhatsApp foi aberto', sentText: 'A mensagem já foi montada com o que você preencheu. É só tocar em enviar. Se o WhatsApp não abriu, escreva para gustavorsalbino@gmail.com.',
       availTitle: 'Disponível para projetos · 2026', availText: 'Tempo médio de resposta: 2 dias úteis. Atendo remoto, em PT e EN.',
     },
-    projectTypes: ['Branding', 'Produto Digital — App', 'Website', 'Landing Page', 'Estratégia de Marca', 'Outro'],
+    projectTypes: ['Branding', 'Produto Digital / App', 'Website', 'Landing Page', 'Estratégia de Marca', 'Outro'],
     services: [
       { num: '01', title: 'Branding', desc: 'Criação e reposicionamento de marcas: identidade visual, logo, sistema visual e manual. Direção de arte que dá personalidade e consistência.', color: 'var(--vermilion)' },
-      { num: '02', title: 'Produto Digital — App', desc: 'Design de aplicativos do conceito à entrega: UX research, fluxo, UI, protótipo navegável e design system. Foco em usabilidade e escala.', color: 'var(--cerulean)' },
+      { num: '02', title: 'Produto Digital / App', desc: 'Design de aplicativos do conceito à entrega: UX research, fluxo, UI, protótipo navegável e design system. Foco em usabilidade e escala.', color: 'var(--cerulean)' },
       { num: '03', title: 'Website', desc: 'Sites institucionais e de produto: arquitetura, design das telas, protótipo e handoff. Responsivo e pensado para conversão.', color: 'var(--violet)' },
       { num: '04', title: 'Landing Page', desc: 'Páginas focadas em conversão para campanhas, eventos e lançamentos. Mensagem clara, hierarquia forte e CTA que funciona.', color: 'var(--gold)' },
-      { num: '05', title: 'Estratégia de Marca', desc: 'Posicionamento, arquitetura e estratégia visual — a camada estratégica por trás do design, para a marca crescer consistente.', color: 'var(--vermilion)' },
+      { num: '05', title: 'Estratégia de Marca', desc: 'Posicionamento, arquitetura e estratégia visual: a camada estratégica por trás do design, para a marca crescer consistente.', color: 'var(--vermilion)' },
       { num: '06', title: 'Planejamento de Marketing', desc: 'Visão de uso metódico e expansão da marca e dos produtos, conectando design, comunicação e objetivos de negócio.', color: 'var(--cerulean)' },
     ],
   },
   en: {
     destaques: { kicker: 'Featured', title: 'What I do, in three fronts.', intro: 'The same skills I deliver as a service are the ones that make up the portfolio. Start here.' },
     baixarCV: 'Download CV',
+    menuLabel: 'Open menu', menuLabelFechar: 'Close menu',
     nav: { home: 'Home', sobre: 'About', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
     hero: {
       kicker: 'Lead Designer · Brazil · Working with Brazil and abroad',
       role: 'Lead Designer',
       meta: '10+ years · 4 countries · 4 languages',
       taglineBold: 'Branding, product design and creative direction.',
-      taglineItalic: 'For people who need a brand that can grow with the business — from small companies to product teams abroad.',
+      taglineItalic: 'For people who need a brand that can grow with the business. From small companies to product teams abroad.',
       ctaCases: 'View Cases',
       ctaTalk: "Let's Talk",
       soon: 'Coming soon',
@@ -1912,26 +1944,26 @@ const DICT = {
     },
     marquee: ['Branding', 'Digital Product', 'UI / UX', 'Editorial', 'Dataviz', 'Creative Direction'],
     sobre: {
-      resumo: 'I design and I run mountains — and it has been a while since one lived without the other. Ten years of design across Australia, Switzerland, New Zealand and Portugal; the mountain arrived in 2018 and never left.',
+      resumo: 'I design and I run mountains. The two stopped being separate things a long time ago. Ten years of design across Australia, Switzerland, New Zealand and Portugal; the mountain arrived in 2018 and never left.',
       btn: 'More about me',
       kicker: 'About me',
       title: 'I design, and I run mountains.',
       imgTag: 'Trail in Switzerland',
       paras: [
-        "I design, and I run mountains — and for a while now, one hasn't lived without the other.",
+        "I design, and I run mountains. For a while now, one has not lived without the other.",
         "It started in 2018, in Switzerland, hiking the trails. At first it was just walking, a way to breathe between one project and the next. But in 2019 I decided to try running in the mountains, and I never stopped. In 2025 I took on my first trail race. In 2026 I decided to go further: more races, getting to know the athletes, the brands, the coaching teams and the community that drives this sport.",
-        'As a designer, it has been over 10 years creating brands, digital products and visual experiences — much of it abroad, between Australia, Switzerland, New Zealand and Portugal. At some point I realised my two passions could be one and the same.',
+        'As a designer, it has been over 10 years creating brands, digital products and visual experiences. Much of it abroad, between Australia, Switzerland, New Zealand and Portugal. At some point I realised my two passions could be one and the same.',
         "That's my edge: I don't look at the outdoor world from the outside. I train, I race, I know what it's like to get my fuelling wrong on a climb and learn first-hand what works.",
-        "My purpose is to bring those two sides together: real solutions for the people who practise the sport I love, backed by a decade of strategic design. It's not just about looking good — it's about building it from the inside.",
+        "My purpose is to bring those two sides together: real solutions for the people who practise the sport I love, backed by a decade of strategic design. Looking good is the floor. What counts is building it with the people who are in it.",
       ],
     },
     entrega: {
       kicker: 'What I deliver',
       title: 'Four fronts, one standard.',
       pillars: [
-        { num: '01', title: 'Branding & Identity', desc: 'Brands, logos, visual systems and guidelines — personality and consistency.' },
+        { num: '01', title: 'Branding & Identity', desc: 'Brands, logos, visual systems and guidelines. Personality and consistency.' },
         { num: '02', title: 'Digital Product', desc: 'UI/UX, apps and design systems built for usability and scale.' },
-        { num: '03', title: 'Editorial & Dataviz', desc: 'Yearbooks, reports and Power BI — information that becomes story.' },
+        { num: '03', title: 'Editorial & Dataviz', desc: 'Yearbooks, reports and Power BI: information that becomes story.' },
         { num: '04', title: 'Creative Direction', desc: 'Brands, campaigns and events with cohesive art direction.' },
       ],
     },
@@ -1944,7 +1976,7 @@ const DICT = {
       langTitle: 'Languages',
       toolsTitle: 'Tools',
       aiTitle: 'AI Tools',
-      downloadPT: '(removed — PT PDF outdated)',
+      downloadPT: '(removed: PT PDF outdated)',
       downloadEN: 'Download CV (PDF)',
       stats: [
         { num: '10+', label: 'years in design' },
@@ -1993,14 +2025,14 @@ const DICT = {
       availability: 'Replies within 2 business days',
     },
     footer: {
-      tagline: 'Lead Designer — branding, product design and creative direction.',
+      tagline: 'Lead Designer · branding, product design and creative direction.',
       navTitle: 'Navigate', socialTitle: 'Social', ctaBtn: "Let's talk",
       credit: '© 2026 Gustavo Albino · gustavoalbino.com.br',
     },
     casesPage: {
       kicker: 'Archive · 5 cases',
       title: 'Cases',
-      intro: 'Brand, product and culture projects — all held to the same graphic bar.',
+      intro: 'Brand, product and culture projects, all held to the same graphic bar.',
     },
     galPage: {
       kicker: 'Proof of work',
@@ -2025,60 +2057,68 @@ const DICT = {
       fName: 'Name', phName: 'Your name',
       fEmail: 'Email', fType: 'Project type', fMsg: 'Message', phMsg: 'Tell me about the project…',
       send: 'Send via WhatsApp',
-      sentTitle: 'Your WhatsApp is open', sentText: 'The message is ready with what you filled in — just hit send. If WhatsApp did not open, write to gustavorsalbino@gmail.com.',
+      sentTitle: 'Your WhatsApp is open', sentText: 'The message is ready with what you filled in. Just hit send. If WhatsApp did not open, write to gustavorsalbino@gmail.com.',
       availTitle: 'Available for projects · 2026', availText: 'Average response time: 2 business days. Remote, in PT and EN.',
     },
-    projectTypes: ['Branding', 'Digital Product — App', 'Website', 'Landing Page', 'Brand Strategy', 'Other'],
+    projectTypes: ['Branding', 'Digital Product / App', 'Website', 'Landing Page', 'Brand Strategy', 'Other'],
     services: [
       { num: '01', title: 'Branding', desc: 'Creating and repositioning brands: visual identity, logo, visual system and guidelines. Art direction that brings personality and consistency.', color: 'var(--vermilion)' },
-      { num: '02', title: 'Digital Product — App', desc: 'App design from concept to delivery: UX research, flow, UI, navigable prototype and design system. Focused on usability and scale.', color: 'var(--cerulean)' },
+      { num: '02', title: 'Digital Product / App', desc: 'App design from concept to delivery: UX research, flow, UI, navigable prototype and design system. Focused on usability and scale.', color: 'var(--cerulean)' },
       { num: '03', title: 'Website', desc: 'Institutional and product sites: architecture, screen design, prototype and handoff. Responsive and built for conversion.', color: 'var(--violet)' },
       { num: '04', title: 'Landing Page', desc: 'Conversion-focused pages for campaigns, events and launches. Clear message, strong hierarchy and a CTA that works.', color: 'var(--gold)' },
-      { num: '05', title: 'Brand Strategy', desc: 'Positioning, architecture and visual strategy — the strategic layer behind the design, so the brand grows consistently.', color: 'var(--vermilion)' },
+      { num: '05', title: 'Brand Strategy', desc: 'Positioning, architecture and visual strategy: the strategic layer behind the design, so the brand grows consistently.', color: 'var(--vermilion)' },
       { num: '06', title: 'Marketing Planning', desc: 'A methodical view of brand and product growth, connecting design, communication and business goals.', color: 'var(--cerulean)' },
     ],
   },
 };
 
 const BRANDS = [
-  { name: 'PelicanCorp', logo: 'assets/brands/pelicancorp.png' },
+  // fit = correcao optica: normaliza a area aparente de cada marca dentro da
+  // celula (logo mais encorpado ocupa menos caixa). Sem fit = 1.
+  { name: 'Kaya Mind', logo: 'assets/brands/kaya.png' },
+  { name: 'PelicanCorp', logo: 'assets/brands/pelicancorp.png', fit: .93 },
   { name: 'Geolantis360', logo: 'assets/brands/geolantis360.png' },
   { name: 'beforeudig', logo: 'assets/brands/beforeudig.png' },
   { name: 'MindMaze', logo: 'assets/brands/mindmaze.png' },
-  { name: 'Duetto', logo: 'assets/brands/duetto.png' },
-  { name: 'Total Energia', logo: 'assets/brands/total-energia.svg' },
-  { name: 'Bamo', logo: 'assets/brands/bamo.svg' },
-  { name: 'Aurora Eco', logo: 'assets/brands/auroraeco.png' },
+  { name: 'Duetto', logo: 'assets/brands/duetto.png', fit: .91 },
+  { name: 'Total Energia', logo: 'assets/brands/total-energia.svg', fit: .88 },
+  { name: 'Bamo', logo: 'assets/brands/bamo.png' },
+  { name: 'Aurora Eco', logo: 'assets/brands/auroraeco.png', fit: .88 },
   { name: 'West1', logo: 'assets/brands/west1.webp' },
-  { name: 'Glance', logo: 'assets/brands/glance.png' },
+  { name: 'Glance', logo: 'assets/brands/glance.png', fit: .90 },
 ];
 
 const CASES = [
-  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 — hoje',
-    bgImage: 'assets/cases/kaya-doc/capa.jpg',
+  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
+    bgImage: 'assets/cases/kaya-doc/capa-3x2.jpg',
+    bgSquare: 'assets/cases/kaya-doc/capa.jpg',
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
-    blurb: { pt: 'SaaS B2B de cannabis medicinal — design system e IA.', en: 'B2B medical-cannabis SaaS — design system and AI.' } },
+    blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
 { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
+    bgSquare: 'assets/cases/othelo/card-cover-1x1.jpg',
     title: { pt: 'Othelo', en: 'Othelo' },
     typeLabel: { pt: 'Branding + Web', en: 'Branding + Web' },
-    blurb: { pt: 'Produtora cultural que cofundei — marca de vinis, papelaria e site institucional.', en: 'Cultural production company I co-founded — vinyl brand, stationery and institutional site.' } },
+    blurb: { pt: 'Produtora cultural que cofundei. Marca de vinis, papelaria e site institucional.', en: 'Cultural production company I co-founded. Vinyl brand, stationery and institutional site.' } },
   { id: 'jimi-oliver', cat: 'identidade', detail: true, color: '#0E0E0E', fg: '#F4F0E9', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/jimi-oliver/cover-art.jpg',
+    bgSquare: 'assets/cases/jimi-oliver/card-cover-1x1.jpg',
     title: { pt: 'Jimi Oliver', en: 'Jimi Oliver' },
     typeLabel: { pt: 'Identidade Visual', en: 'Visual Identity' },
-    blurb: { pt: 'Identidade musical do álbum “Face to Face” — capa, vinil, CD, encarte e portfólio.', en: 'Musical identity for the album “Face to Face” — cover, vinyl, CD, booklet and portfolio.' } },
+    blurb: { pt: 'Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.', en: 'Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio.' } },
   { id: 'yerba-fina', cat: 'branding', detail: true, color: '#283618', fg: '#FFF2B0', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
+    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.jpg',
     title: { pt: 'Yerba Fina', en: 'Yerba Fina' },
     typeLabel: { pt: 'Branding', en: 'Branding' },
-    blurb: { pt: 'Moda sustentável brasileira — identidade visual completa, do bud ao manual.', en: 'Brazilian sustainable fashion — full visual identity, from the bud to the guidelines.' } },
+    blurb: { pt: 'Moda sustentável brasileira. Identidade completa, do bud ao manual.', en: 'Brazilian sustainable fashion. Full identity, from the bud to the guidelines.' } },
   { id: 'hercules', cat: 'branding', detail: true, color: '#E1241C', fg: '#FFFFFF', mono: MONO_W, year: '2022',
     bgImage: 'assets/cases/hercules/card-cover.jpg',
+    bgSquare: 'assets/cases/hercules/card-cover-1x1.jpg',
     title: { pt: 'Hercules', en: 'Hercules' },
     typeLabel: { pt: 'Branding + Marketing', en: 'Branding + Marketing' },
-    blurb: { pt: 'Marca de suplementos com energia RUN-DMC — do logo à newsletter e aos vídeos.', en: 'A supplements brand with RUN-DMC energy — from logo to newsletter and films.' } },
+    blurb: { pt: 'Marca de suplementos com energia RUN-DMC, do logo aos vídeos.', en: 'A supplements brand with RUN-DMC energy, from logo to films.' } },
 ];
 
 const KD_PALETA = [
@@ -2116,23 +2156,23 @@ const KAYA_DOC = {
   pt: {
     v1Kicker: 'Versão 1', v1Title: 'O começo: a plataforma existia, a entrada não.',
     v1Paras: [
-      'A primeira versão entregou o essencial — comparador de produtos, biblioteca de estudos científicos e descoberta de novos produtos. O verde institucional, a tipografia e a estrutura de menu vinham direto da marca Kaya.',
+      'A primeira versão entregou o essencial: comparador de produtos, biblioteca de estudos científicos e descoberta de novos produtos. O verde institucional, a tipografia e a estrutura de menu vinham direto da marca Kaya.',
       'E o cadastro do prescritor acontecia fora do produto, numa conversa de WhatsApp. Resolve os primeiros usuários; não escala para mil.',
     ],
-    v2Kicker: 'Versão 2', v2Title: 'O que mudou — e por quê.',
+    v2Kicker: 'Versão 2', v2Title: 'O que mudou, e por quê.',
     v2Paras: [
       'A V2 reconstrói sobre sistema. O que antes era tela desenhada uma a uma virou biblioteca: 353 componentes-mestre, 322 deles com variantes declaradas, tokens em duas camadas, e cada artefato existindo em desktop, tablet e mobile.',
       'A entrada entra no produto: cadastro faseado em quatro etapas, com progresso rotulado. E o site externo troca a ilustração pela fotografia, assumindo um discurso de evidência científica em vez de institucional.',
     ],
     linkLabel: 'Ver o produto no ar', linkNote: 'kayadoc.com',
     back: 'Voltar aos cases', tag: 'Produto digital',
-    role: 'Lead Designer — UI, UX research e design system',
+    role: 'Lead Designer · UI, UX research e design system',
     title: 'Kaya Doc', slogan: 'Prescrever com base em evidência',
-    lede: 'Plataforma de cannabis medicinal para prescritores. Catálogo, comparador de produtos, biblioteca de estudos científicos e co-piloto de prescrição — num setor onde a informação é dispersa e a regulação é rígida. Lidero o design de produto desde 2022.',
+    lede: 'Plataforma de cannabis medicinal para prescritores. Catálogo, comparador de produtos, biblioteca de estudos científicos e co-piloto de prescrição, num setor onde a informação é dispersa e a regulação é rígida. Lidero o design de produto desde 2022.',
     ficha: [
       { k: 'Cliente', v: 'Kaya Mind' },
-      { k: 'Papel', v: 'Lead Designer — produto, pesquisa e design system' },
-      { k: 'Período', v: 'Maio de 2022 — hoje' },
+      { k: 'Papel', v: 'Lead Designer · produto, pesquisa e design system' },
+      { k: 'Período', v: 'Maio de 2022 a hoje' },
       { k: 'Entregáveis', v: 'Design system, protótipo, UX research e handoff' },
     ],
     produtoKicker: 'O produto', produtoTitle: 'Decisão clínica precisa de informação organizada.',
@@ -2142,54 +2182,54 @@ const KAYA_DOC = {
     ],
     sistemaKicker: 'O sistema', sistemaTitle: 'Um design system feito para virar código.',
     sistemaParas: [
-      'A biblioteca tem 353 componentes-mestre, e 322 deles são variantes declaradas — não cópias soltas. Isso é o que separa uma pasta de telas de um sistema: quando o botão muda, ele muda em todo lugar.',
-      'A arquitetura de tokens tem duas camadas. Em cima, a paleta semântica do produto. Embaixo, uma base de primitivos com nomenclatura alinhada ao Tailwind — rounded-lg, shadow-md, a escala de 4 em 4 pixels. Não é preciosismo: é o que faz o handoff funcionar. O desenvolvedor lê o nome do token e sabe o que implementar, sem tradução no meio.',
+      'A biblioteca tem 353 componentes-mestre, e 322 deles são variantes declaradas, não cópias soltas. Isso é o que separa uma pasta de telas de um sistema: quando o botão muda, ele muda em todo lugar.',
+      'A arquitetura de tokens tem duas camadas. Em cima, a paleta semântica do produto. Embaixo, uma base de primitivos com nomenclatura alinhada ao Tailwind: rounded-lg, shadow-md, a escala de 4 em 4 pixels. Isso é o que faz o handoff funcionar. O desenvolvedor lê o nome do token e sabe o que implementar, sem tradução no meio.',
     ],
     paletaLabel: 'Paleta do produto', neutrasLabel: 'Neutras',
     hierarquiaKicker: 'Hierarquia', hierarquiaTitle: 'O nome do arquivo já responde a pergunta.',
     hierarquiaParas: [
       'Cada artefato existe em desktop, tablet e mobile como peça desenhada, não como adaptação automática. A barra de progresso do cadastro, por exemplo, tem uma versão própria para cada largura.',
-      'E a nomenclatura carrega a informação: Deskt_Pg00_Ex — KD 2.0 — Cadastro passo 1 de 2 diz dispositivo, página, escopo, produto e etapa do fluxo. Qualquer pessoa do time acha o arquivo sem precisar perguntar. Num time que cresce, isso vale mais que qualquer documento de processo.',
+      'E a nomenclatura carrega a informação: “Deskt_Pg00_Ex — KD 2.0 — Cadastro passo 1 de 2” diz dispositivo, página, escopo, produto e etapa do fluxo. Qualquer pessoa do time acha o arquivo sem precisar perguntar. Num time que cresce, isso vale mais que qualquer documento de processo.',
     ],
     fluxoKicker: 'O fluxo', fluxoTitle: 'Cadastro em quatro etapas, com o fim à vista.',
     fluxoParas: [
       'O cadastro do prescritor é faseado em quatro etapas, com barra de progresso rotulada de 25% a 100%. Formulário longo sem indicação de progresso é formulário abandonado; dizer onde a pessoa está reduz a desistência.',
-      'O sistema de formulário foi desenhado para o caminho infeliz também: o campo carrega um slot de legenda oculto, reservado para a mensagem de erro, e há um padrão específico para a opção "outra" — aquela em que o usuário precisa escrever algo que a lista não previu.',
+      'O sistema de formulário foi desenhado para o caminho infeliz também: o campo carrega um slot de legenda oculto, reservado para a mensagem de erro, e há um padrão específico para a opção "outra", aquela em que o usuário precisa escrever algo que a lista não previu.',
     ],
-    detalheKicker: 'Onde o cuidado aparece', detalheTitle: 'Três decisões que ninguém nota — e que mudam tudo.',
+    detalheKicker: 'Onde o cuidado aparece', detalheTitle: 'Três decisões que ninguém nota e que mudam tudo.',
     detalheItems: [
       { t: 'Iconografia de evidência', d: 'Ensaio clínico, estudo de coorte e revisão sistemática têm ícones próprios. Não é decoração: o prescritor reconhece o peso da fonte antes de ler o título.' },
-      { t: 'Consentimento versionado', d: 'O diálogo de cookies carrega a versão da política que o usuário aceitou. LGPD tratada como design, não como aviso jurídico colado depois.' },
-      { t: 'Progressão como recompensa', d: 'Medalhas, níveis e barra de progresso aplicados à educação médica — o profissional acompanha o próprio avanço na biblioteca de estudos.' },
+      { t: 'Consentimento versionado', d: 'O diálogo de cookies carrega a versão da política que o usuário aceitou. A LGPD entra como decisão de produto, na hora em que o consentimento acontece.' },
+      { t: 'Progressão como recompensa', d: 'Medalhas, níveis e barra de progresso aplicados à educação médica. O profissional acompanha o próprio avanço na biblioteca de estudos.' },
     ],
     papelKicker: 'Meu papel', papelTitle: 'O que eu lidero.',
     papelParas: [
       'Conduzo o design de produto do Kaya Doc 2.0 ponta a ponta: interface, experiência, pesquisa com usuário, construção e manutenção do design system, prototipagem avançada em Figma e integração de ferramentas de IA no próprio fluxo de trabalho da equipe.',
-      'Trabalho direto com stakeholders, tecnologia e engenharia — que é onde um design system deixa de ser uma biblioteca bonita e passa a ser infraestrutura.',
+      'Trabalho direto com stakeholders, tecnologia e engenharia, que é onde um design system deixa de ser uma biblioteca bonita e passa a ser infraestrutura.',
     ],
-    nota: 'As telas do produto não são reproduzidas aqui. O Kaya Doc é propriedade da Kaya Mind, e este case descreve processo, sistema e decisões — não redistribui a interface.',
+    nota: 'As telas do produto não são reproduzidas aqui. O Kaya Doc é propriedade da Kaya Mind, e este case descreve processo, sistema e decisões. Não redistribui a interface.',
     cta: 'Quer um sistema assim no seu produto?', ctaBtn: 'Vamos conversar',
   },
   en: {
     v1Kicker: 'Version 1', v1Title: 'The start: the platform existed, the door did not.',
     v1Paras: [
-      'The first version shipped the essentials — product comparator, library of scientific studies and product discovery. The institutional green, the typography and the menu structure came straight from the Kaya brand.',
+      'The first version shipped the essentials: product comparator, library of scientific studies and product discovery. The institutional green, the typography and the menu structure came straight from the Kaya brand.',
       'And prescriber sign-up happened outside the product, over a WhatsApp conversation. That handles the first hundred users; it does not scale to a thousand.',
     ],
-    v2Kicker: 'Version 2', v2Title: 'What changed — and why.',
+    v2Kicker: 'Version 2', v2Title: 'What changed, and why.',
     v2Paras: [
       'V2 rebuilds on a system. What used to be screens drawn one by one became a library: 353 master components, 322 of them declared variants, tokens in two layers, and every artefact existing on desktop, tablet and mobile.',
       'The door moves inside the product: sign-up phased across four steps, with labelled progress. And the public site swaps illustration for photography, taking an evidence-led message instead of an institutional one.',
     ],
     linkLabel: 'See the live product', linkNote: 'kayadoc.com',
     back: 'Back to cases', tag: 'Digital product',
-    role: 'Lead Designer — UI, UX research and design system',
+    role: 'Lead Designer · UI, UX research and design system',
     title: 'Kaya Doc', slogan: 'Prescribing from evidence',
-    lede: 'Medical-cannabis platform for prescribers. Catalogue, product comparator, library of scientific studies and a prescription co-pilot — in a field where information is scattered and regulation is strict. I have led product design since 2022.',
+    lede: 'Medical-cannabis platform for prescribers. Catalogue, product comparator, library of scientific studies and a prescription co-pilot, in a field where information is scattered and regulation is strict. I have led product design since 2022.',
     ficha: [
       { k: 'Client', v: 'Kaya Mind' },
-      { k: 'Role', v: 'Lead Designer — product, research and design system' },
-      { k: 'Period', v: 'May 2022 — present' },
+      { k: 'Role', v: 'Lead Designer · product, research and design system' },
+      { k: 'Period', v: 'May 2022 to present' },
       { k: 'Deliverables', v: 'Design system, prototype, UX research and handoff' },
     ],
     produtoKicker: 'The product', produtoTitle: 'Clinical decisions need organised information.',
@@ -2199,32 +2239,32 @@ const KAYA_DOC = {
     ],
     sistemaKicker: 'The system', sistemaTitle: 'A design system built to become code.',
     sistemaParas: [
-      'The library holds 353 master components, 322 of them declared variants — not loose copies. That is what separates a folder of screens from a system: when the button changes, it changes everywhere.',
-      'Tokens are built in two layers. On top, the product semantic palette. Underneath, a primitive base named along Tailwind lines — rounded-lg, shadow-md, the 4px scale. Not fussiness: it is what makes handoff work. The developer reads the token name and knows what to build, with no translation in between.',
+      'The library holds 353 master components, 322 of them declared variants, not loose copies. That is what separates a folder of screens from a system: when the button changes, it changes everywhere.',
+      'Tokens are built in two layers. On top, the product semantic palette. Underneath, a primitive base named along Tailwind lines: rounded-lg, shadow-md, the 4px scale. That is what makes handoff work. The developer reads the token name and knows what to build, with no translation in between.',
     ],
     paletaLabel: 'Product palette', neutrasLabel: 'Neutrals',
     hierarquiaKicker: 'Hierarchy', hierarquiaTitle: 'The file name already answers the question.',
     hierarquiaParas: [
       'Every artefact exists on desktop, tablet and mobile as a designed piece, not an automatic adaptation. The sign-up progress bar, for one, has its own version per width.',
-      'And the naming carries the information: Deskt_Pg00_Ex — KD 2.0 — Cadastro passo 1 de 2 states device, page, scope, product and flow step. Anyone on the team finds the file without asking. In a growing team, that beats any process document.',
+      'And the naming carries the information: “Deskt_Pg00_Ex — KD 2.0 — Cadastro passo 1 de 2” states device, page, scope, product and flow step. Anyone on the team finds the file without asking. In a growing team, that beats any process document.',
     ],
     fluxoKicker: 'The flow', fluxoTitle: 'Sign-up in four steps, with the end in sight.',
     fluxoParas: [
       'Prescriber sign-up is phased across four steps, with a progress bar labelled 25% to 100%. A long form with no sense of progress is an abandoned form; telling people where they are cuts drop-off.',
-      'The form system was designed for the unhappy path too: each field carries a hidden caption slot reserved for the error message, and there is a specific pattern for the "other" option — the one where the user must write something the list did not anticipate.',
+      'The form system was designed for the unhappy path too: each field carries a hidden caption slot reserved for the error message, and there is a specific pattern for the "other" option, the one where the user must write something the list did not anticipate.',
     ],
-    detalheKicker: 'Where the care shows', detalheTitle: 'Three decisions nobody notices — and that change everything.',
+    detalheKicker: 'Where the care shows', detalheTitle: 'Three decisions nobody notices, and that change everything.',
     detalheItems: [
       { t: 'Evidence iconography', d: 'Clinical trial, cohort study and systematic review each have their own icon. Not decoration: the prescriber recognises the weight of the source before reading the title.' },
-      { t: 'Versioned consent', d: 'The cookie dialog carries the policy version the user accepted. Data-protection law treated as design, not as a legal notice pasted on afterwards.' },
-      { t: 'Progress as reward', d: 'Medals, levels and a progress bar applied to medical education — the professional tracks their own advance through the study library.' },
+      { t: 'Versioned consent', d: 'The cookie dialog carries the policy version the user accepted. Data-protection law enters as a product decision, at the moment consent happens.' },
+      { t: 'Progress as reward', d: 'Medals, levels and a progress bar applied to medical education. The professional tracks their own advance through the study library.' },
     ],
     papelKicker: 'My role', papelTitle: 'What I lead.',
     papelParas: [
       'I drive product design for Kaya Doc 2.0 end to end: interface, experience, user research, building and maintaining the design system, advanced Figma prototyping, and bringing AI tools into the team workflow itself.',
-      'I work directly with stakeholders, technology and engineering — which is where a design system stops being a pretty library and becomes infrastructure.',
+      'I work directly with stakeholders, technology and engineering, which is where a design system stops being a pretty library and becomes infrastructure.',
     ],
-    nota: 'Product screens are not reproduced here. Kaya Doc is owned by Kaya Mind, and this case describes process, system and decisions — it does not redistribute the interface.',
+    nota: 'Product screens are not reproduced here. Kaya Doc is owned by Kaya Mind, and this case describes process, system and decisions. It does not redistribute the interface.',
     cta: 'Want a system like this in your product?', ctaBtn: "Let's talk",
   },
 };
@@ -2238,16 +2278,18 @@ const DESTAQUES = [
           blurb: 'Medical-cannabis SaaS for prescribers. I lead product design: UI, UX research, design system and AI in the workflow.' } },
   { id: 'branding', cat: 'branding', color: 'var(--vermilion)', fg: 'var(--paper-100)',
     bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
+    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.jpg',
     pt: { tag: 'Branding', title: 'Marcas', cta: 'Ver os cases',
           blurb: 'Identidade do símbolo ao manual: Yerba Fina, Hercules, Othelo, Healing Wildflower e o rebranding da Kaya.' },
     en: { tag: 'Branding', title: 'Brands', cta: 'See the cases',
           blurb: 'Identity from symbol to guidelines: Yerba Fina, Hercules, Othelo, Healing Wildflower and the Kaya rebrand.' } },
   { id: 'entregaveis', cat: null, color: 'var(--violet)', fg: 'var(--paper-100)',
     bgImage: 'assets/ilustracao/blackfellas.jpg',
+    bgSquare: 'assets/ilustracao/blackfellas-1x1.jpg',
     pt: { tag: 'Entregáveis', title: 'Peças', cta: 'Ver os acervos',
-          blurb: 'Logos, pôsteres, posts, e-books, anuários e ilustração autoral — o material que sai toda semana.' },
+          blurb: 'Logos, pôsteres, posts, e-books, anuários e ilustração autoral. O material que sai toda semana.' },
     en: { tag: 'Deliverables', title: 'Pieces', cta: 'See the archives',
-          blurb: 'Logos, posters, social, e-books, yearbooks and original illustration — the work that ships every week.' } },
+          blurb: 'Logos, posters, social, e-books, yearbooks and original illustration. The work that ships every week.' } },
 ];
 
 const CASE_FILTERS = [
@@ -2323,8 +2365,8 @@ const EBOOK_SERIES = [
     site: 'https://kayamind.com/e-books/',
     siteLabelPt: 'Conferir no site da Kaya Mind',
     siteLabelEn: 'See them on the Kaya Mind site',
-    descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os e-books que produzi para a marca — capa, diagramação e direção de arte —, muitos em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios.',
-    descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the e-books I designed for the brand — covers, layout and art direction — many in partnership with industry companies, covering health, cultivation, regulation and business.',
+    descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os e-books que produzi para a marca (capa, diagramação e direção de arte), muitos em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios.',
+    descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the e-books I designed for the brand (covers, layout and art direction), many in partnership with industry companies, covering health, cultivation, regulation and business.',
     items: [
       { src: 'assets/ebooks/k2-produtos-2026.jpg', year: '2026' },
       { src: 'assets/ebooks/k2-infra-financeira.jpg', year: '2026' },
@@ -2384,8 +2426,8 @@ const YF_LOGOS = [
   { src: YF_BASE + 'logo-simbolo-slogan.png', ratio: '1/1', featured: false,
     pt: 'Símbolo + slogan', en: 'Symbol + slogan',
     tagPt: 'Redes sociais', tagEn: 'Social media',
-    descPt: 'O bud com o slogan “Explore seu meio” logo abaixo. Formato vertical e compacto — ideal para redes sociais, selos e adesivos.',
-    descEn: 'The bud with the slogan “Explore your medium” beneath it. A compact vertical format — ideal for social media, seals and stickers.' },
+    descPt: 'O bud com o slogan “Explore seu meio” logo abaixo. Formato vertical e compacto, ideal para redes sociais, selos e adesivos.',
+    descEn: 'The bud with the slogan “Explore your medium” beneath it. A compact vertical format, ideal for social media, seals and stickers.' },
   { src: YF_BASE + 'logo-simbolo.png', ratio: '1/1', featured: false,
     pt: 'Símbolo', en: 'Symbol',
     tagPt: 'Ícone · favicon', tagEn: 'Icon · favicon',
@@ -2396,16 +2438,16 @@ const YF_LOGOS = [
 const YF_TYPE = [
   { name: 'Nafta Light', sample: 'Yerba Fina', tagPt: 'Logo & slogan', tagEn: 'Logo & slogan',
     sampleStyle: "font-family:'Permanent Marker', cursive; font-size:34px; color:#F8EFE8; transform:rotate(-4deg)",
-    pt: 'Pincel e marcador — exclusiva do logo e do slogan, nunca em outros materiais.',
-    en: 'Brush and marker — exclusive to the logo and slogan, never elsewhere.' },
+    pt: 'Pincel e marcador. Exclusiva do logo e do slogan, nunca em outros materiais.',
+    en: 'Brush and marker. Exclusive to the logo and slogan, never elsewhere.' },
   { name: 'Quartzo', sample: 'TÍTULOS', tagPt: 'Títulos & destaques', tagEn: 'Titles & highlights',
     sampleStyle: "font-family:var(--font-display); font-weight:900; font-size:36px; letter-spacing:.02em; color:#FFF2B0",
     pt: 'Slab-serif marcante, ideal para títulos e destaques de campanha.',
     en: 'Bold slab-serif, ideal for titles and campaign highlights.' },
   { name: 'Roboto', sample: 'Texto corrido', tagPt: 'Texto & interface', tagEn: 'Body & interface',
     sampleStyle: "font-family:var(--font-body); font-weight:500; font-size:26px; color:#E6E0D2",
-    pt: 'Leitura fácil em textos, botões e web — a base do dia a dia da marca.',
-    en: 'Easy reading for body, buttons and web — the brand’s everyday base.' },
+    pt: 'Leitura fácil em textos, botões e web. A base do dia a dia da marca.',
+    en: 'Easy reading for body, buttons and web. The brand’s everyday base.' },
 ];
 
 const YF_APPS_SQ = [
@@ -2426,7 +2468,7 @@ const YERBA = {
     role: 'Identidade · Logo · Manual de marca',
     title: 'Yerba Fina',
     slogan: 'Explore o seu meio',
-    lede: 'Identidade visual completa para uma marca de moda sustentável brasileira — roupas de cânhamo e bambu, com a atitude da rua e o respeito pela natureza.',
+    lede: 'Identidade visual completa para uma marca de moda sustentável brasileira: roupas de cânhamo e bambu, com a atitude da rua e o respeito pela natureza.',
     ficha: [
       { k: 'Categoria', v: 'Branding · Moda' },
       { k: 'Entregas', v: 'Logo, paleta, tipografia, manual de ID, social' },
@@ -2442,42 +2484,42 @@ const YERBA = {
     nomeKicker: 'O nome',
     nomeTitle: 'Yerba Fina',
     nomeParas: [
-      '“Yerba”, do espanhol, significa erva — uma homenagem à conexão da marca com a natureza.',
+      '“Yerba”, do espanhol, significa erva, uma homenagem à conexão da marca com a natureza.',
       '“Fina” carrega um duplo sentido: a moda fina, bem-feita; e a cultura canábica, onde “fininho” é uma referência carinhosa.',
     ],
     sloganLabel: 'O slogan',
-    sloganNote: 'Remete ao espírito aventureiro de se conectar com o seu meio — explorando a natureza ou desfrutando dos encantos da cidade.',
+    sloganNote: 'Remete ao espírito aventureiro de se conectar com o seu meio, explorando a natureza ou desfrutando dos encantos da cidade.',
     logoKicker: 'O logo',
     logoTitle: 'Um bud que se adapta a tudo.',
     logoParas: [
-      'No coração da marca está o bud — o botão da planta Cannabis Sativa L. desenhado à mão. Único, orgânico e direto, ele é uma referência ao cânhamo, principal insumo natural dos produtos.',
+      'No coração da marca está o bud, o botão da planta Cannabis Sativa L. desenhado à mão. Único, orgânico e direto, ele é uma referência ao cânhamo, principal insumo natural dos produtos.',
       'O nome acompanha o mesmo traço de pincel: letras manuais e inclinadas, naturais e sofisticadas ao mesmo tempo. A marca usa apenas o verde mais escuro da paleta.',
-      'Mais importante: o logo nasceu como um sistema responsivo. Não é uma peça única, e sim uma família de versões que se adaptam ao meio — do cabeçalho do site ao impresso, do avatar da rede social ao favicon — sempre mantendo a mesma identidade.',
+      'Mais importante: o logo nasceu como um sistema responsivo. Não é uma peça única, e sim uma família de versões que se adaptam ao meio (do cabeçalho do site ao impresso, do avatar da rede social ao favicon), sempre mantendo a mesma identidade.',
     ],
     logoSysKicker: 'Sistema responsivo',
     logoSysTitle: 'Uma marca, vários meios.',
-    logoSysNote: 'Cada versão foi desenhada para um contexto de uso. Escolha o lockup que melhor se encaixa no espaço — vertical, horizontal, quadrado ou mínimo — sem nunca quebrar a identidade.',
+    logoSysNote: 'Cada versão foi desenhada para um contexto de uso. Escolha o lockup que melhor se encaixa no espaço (vertical, horizontal, quadrado ou mínimo) sem nunca quebrar a identidade.',
     logoVariantsTitle: 'As versões do logo',
     logoMainCap: 'Logo principal · aplicação preferencial',
     paletaKicker: 'Paleta de cores',
     paletaTitle: 'Da mata ao pôr do sol.',
-    paletaNote: 'Os verdes remetem à natureza, ecologia e sustentabilidade. O amarelo é o sol — energia e leveza. Laranja e vermelho vêm do pôr do sol, trazendo calor à paleta. O logo oficial usa apenas o verde mais escuro.',
+    paletaNote: 'Os verdes remetem à natureza, ecologia e sustentabilidade. O amarelo é o sol: energia e leveza. Laranja e vermelho vêm do pôr do sol, trazendo calor à paleta. O logo oficial usa apenas o verde mais escuro.',
     tipoKicker: 'Tipografia',
     tipoTitle: 'Pincel, slab e leitura.',
     produtoKicker: 'Produto & sustentabilidade',
     produtoTitle: '65% cânhamo. 35% bambu. 100% Brasil.',
     produtoParas: [
-      'As roupas da Yerba Fina usam 65% de cânhamo e 35% de fibras de bambu — mais ecológico, mais sustentável, e brasileiro.',
+      'As roupas da Yerba Fina usam 65% de cânhamo e 35% de fibras de bambu. Mais ecológico, mais sustentável, e brasileiro.',
       'Cada peça vira um manifesto vestível: “Vista cânhamo, vista roupas sustentáveis, vista o seu meio ambiente”.',
     ],
     produtoTags: ['65% Cânhamo', '35% Bambu', 'Feito no Brasil'],
     aplicKicker: 'Aplicações',
     aplicTitle: 'A marca na rua.',
-    aplicNote: 'A identidade ganha vida em campanhas de social media, mockups de produto e peças de comunicação — sempre com a tensão entre o orgânico e o urbano.',
+    aplicNote: 'A identidade ganha vida em campanhas de social media, mockups de produto e peças de comunicação, sempre com a tensão entre o orgânico e o urbano.',
     resultadoKicker: 'Resultado',
     resultadoTitle: 'Ecologia e atitude no mesmo sistema.',
     resultadoParas: [
-      'Um sistema visual coeso, do símbolo ao post — flexível para viver no preto e branco do grafite, no verde da mata ou no cream da etiqueta.',
+      'Um sistema visual coeso, do símbolo ao post, flexível para viver no preto e branco do grafite, no verde da mata ou no cream da etiqueta.',
       'Mais do que um logo: um manual de marca completo que dá à Yerba Fina linguagem própria para crescer com consistência.',
     ],
     cta: 'Quer uma marca assim?',
@@ -2489,7 +2531,7 @@ const YERBA = {
     role: 'Identity · Logo · Brand guidelines',
     title: 'Yerba Fina',
     slogan: 'Explore your medium',
-    lede: 'A full visual identity for a Brazilian sustainable fashion brand — hemp and bamboo clothing, with street attitude and respect for nature.',
+    lede: 'A full visual identity for a Brazilian sustainable fashion brand: hemp and bamboo clothing, with street attitude and respect for nature.',
     ficha: [
       { k: 'Category', v: 'Branding · Fashion' },
       { k: 'Deliverables', v: 'Logo, palette, type, brand guidelines, social' },
@@ -2505,42 +2547,42 @@ const YERBA = {
     nomeKicker: 'The name',
     nomeTitle: 'Yerba Fina',
     nomeParas: [
-      '“Yerba”, from Spanish, means herb — a nod to the brand’s connection with nature.',
+      '“Yerba”, from Spanish, means herb, a nod to the brand’s connection with nature.',
       '“Fina” carries a double meaning: fine, well-made fashion; and cannabis culture, where “fininho” is a fond reference.',
     ],
     sloganLabel: 'The slogan',
-    sloganNote: 'It speaks to the adventurous spirit of connecting with your environment — exploring nature or enjoying the charms of the city.',
+    sloganNote: 'It speaks to the adventurous spirit of connecting with your environment, exploring nature or enjoying the charms of the city.',
     logoKicker: 'The logo',
     logoTitle: 'A bud that adapts to anything.',
     logoParas: [
-      'At the heart of the brand is the bud — the flower of the Cannabis Sativa L. plant, hand-drawn. Unique, organic and direct, it’s a reference to hemp, the products’ main natural input.',
+      'At the heart of the brand is the bud, the flower of the Cannabis Sativa L. plant, hand-drawn. Unique, organic and direct, it’s a reference to hemp, the products’ main natural input.',
       'The name follows the same brush stroke: handmade, slanted letters, natural and sophisticated at once. The brand uses only the darkest green of the palette.',
-      'Most importantly, the logo was built as a responsive system. It isn’t a single asset but a family of versions that adapt to the medium — from the website header to print, from the social avatar to the favicon — always keeping the same identity.',
+      'Most importantly, the logo was built as a responsive system. It isn’t a single asset but a family of versions that adapt to the medium (from the website header to print, from the social avatar to the favicon), always keeping the same identity.',
     ],
     logoSysKicker: 'Responsive system',
     logoSysTitle: 'One brand, many media.',
-    logoSysNote: 'Each version is designed for a usage context. Pick the lockup that best fits the space — vertical, horizontal, square or minimal — without ever breaking the identity.',
+    logoSysNote: 'Each version is designed for a usage context. Pick the lockup that best fits the space (vertical, horizontal, square or minimal) without ever breaking the identity.',
     logoVariantsTitle: 'The logo versions',
     logoMainCap: 'Primary logo · preferred application',
     paletaKicker: 'Colour palette',
     paletaTitle: 'From the woods to the sunset.',
-    paletaNote: 'The greens evoke nature, ecology and sustainability. Yellow is the sun — energy and lightness. Orange and red come from the sunset, bringing warmth. The official logo uses only the darkest green.',
+    paletaNote: 'The greens evoke nature, ecology and sustainability. Yellow is the sun: energy and lightness. Orange and red come from the sunset, bringing warmth. The official logo uses only the darkest green.',
     tipoKicker: 'Typography',
     tipoTitle: 'Brush, slab and reading.',
     produtoKicker: 'Product & sustainability',
     produtoTitle: '65% hemp. 35% bamboo. 100% Brazil.',
     produtoParas: [
-      'Yerba Fina garments use 65% hemp and 35% bamboo fibre — more ecological, more sustainable, and Brazilian.',
+      'Yerba Fina garments use 65% hemp and 35% bamboo fibre. More ecological, more sustainable, and Brazilian.',
       'Each piece becomes a wearable manifesto: “Wear hemp, wear sustainable clothes, wear your environment”.',
     ],
     produtoTags: ['65% Hemp', '35% Bamboo', 'Made in Brazil'],
     aplicKicker: 'Applications',
     aplicTitle: 'The brand on the street.',
-    aplicNote: 'The identity comes alive across social media campaigns, product mockups and comms pieces — always with the tension between the organic and the urban.',
+    aplicNote: 'The identity comes alive across social media campaigns, product mockups and comms pieces, always with the tension between the organic and the urban.',
     resultadoKicker: 'Outcome',
     resultadoTitle: 'Ecology and attitude in one system.',
     resultadoParas: [
-      'A cohesive visual system, from the symbol to the post — flexible enough to live in graffiti black-and-white, forest green or the cream of the tag.',
+      'A cohesive visual system, from the symbol to the post, flexible enough to live in graffiti black-and-white, forest green or the cream of the tag.',
       'More than a logo: a complete brand book that gives Yerba Fina its own language to grow consistently.',
     ],
     cta: 'Want a brand like this?',
@@ -2564,8 +2606,8 @@ const HERC_LOGOS = [
     descEn: 'Icon on the left, name on the right, framed by two red bars. Built for site headers, labels and any wide space.' },
   { src: HERC_BASE + 'logo-icone.png', bg: '#FFFFFF',
     pt: 'Ícone', en: 'Symbol', tagPt: 'Avatar · favicon', tagEn: 'Avatar · favicon',
-    descPt: 'O halter que vira “H”. A redução máxima da marca — avatar, favicon, selo e marca d’água quando o espaço aperta.',
-    descEn: 'The dumbbell that becomes an “H”. The brand at its smallest — avatar, favicon, seal and watermark when space is tight.' },
+    descPt: 'O halter que vira “H”. A redução máxima da marca: avatar, favicon, selo e marca d’água quando o espaço aperta.',
+    descEn: 'The dumbbell that becomes an “H”. The brand at its smallest: avatar, favicon, seal and watermark when space is tight.' },
   { src: HERC_BASE + 'logo-suplementos.jpg', bg: '#FFFFFF',
     pt: 'Versão institucional', en: 'Institutional version', tagPt: 'Suplementos', tagEn: 'Supplements',
     descPt: 'Lockup vertical completo com a palavra “Suplementos”. A assinatura formal da empresa, fora da linha de produto.',
@@ -2580,8 +2622,8 @@ const HERC_VARIANTS = [
 
 const HERC_PRODUCTS = [
   { accent: '#E1241C', namePt: '100% Whey', nameEn: '100% Whey', subPt: 'Whey protein isolate', subEn: 'Whey protein isolate',
-    descPt: 'A proteína-base. Absorção rápida e um leque enorme de aminoácidos essenciais — força, massa magra e recuperação.',
-    descEn: 'The base protein. Fast absorption and a huge range of essential amino acids — strength, lean mass and recovery.' },
+    descPt: 'A proteína-base. Absorção rápida e um leque enorme de aminoácidos essenciais: força, massa magra e recuperação.',
+    descEn: 'The base protein. Fast absorption and a huge range of essential amino acids: strength, lean mass and recovery.' },
   { accent: '#1F6FE0', namePt: 'BCAA', nameEn: 'BCAA', subPt: 'Aminoácidos de cadeia ramificada', subEn: 'Branched-chain amino acids',
     descPt: 'Leucina, isoleucina e valina. Constroem músculo, reduzem a fadiga e amenizam a dor pós-treino.',
     descEn: 'Leucine, isoleucine and valine. They build muscle, cut fatigue and ease post-workout soreness.' },
@@ -2589,8 +2631,8 @@ const HERC_PRODUCTS = [
     descPt: 'Digestão lenta: libera aminoácidos por horas. Ideal antes de dormir e para segurar o apetite.',
     descEn: 'Slow digestion: releases amino acids for hours. Ideal before bed and to hold back appetite.' },
   { accent: '#9B4DCA', namePt: 'Creatine', nameEn: 'Creatine', subPt: 'Monohidratada · pura', subEn: 'Pure monohydrate',
-    descPt: 'Mais força, mais massa magra e recuperação acelerada — explosão de energia para o esforço de alta intensidade.',
-    descEn: 'More strength, more lean mass and faster recovery — an energy burst for high-intensity effort.' },
+    descPt: 'Mais força, mais massa magra e recuperação acelerada. Explosão de energia para o esforço de alta intensidade.',
+    descEn: 'More strength, more lean mass and faster recovery. An energy burst for high-intensity effort.' },
 ];
 
 const HERC_MOCKUPS = [
@@ -2622,7 +2664,7 @@ const HERCULES = {
     role: 'Identidade · Linha de produto · Materiais de marketing',
     title: 'Hercules',
     slogan: 'Now you know how to become a demigod',
-    lede: 'Identidade visual e arsenal de marketing para uma marca de suplementos. Da força do mito grego à atitude de um logo de hip-hop — pensada para chegar gritando.',
+    lede: 'Identidade visual e arsenal de marketing para uma marca de suplementos. Da força do mito grego à atitude de um logo de hip-hop. Pensada para chegar gritando.',
     ficha: [
       { k: 'Categoria', v: 'Branding · Suplementos esportivos' },
       { k: 'Entregas', v: 'Logo, sistema, linha Colossus, newsletter, vídeos, social' },
@@ -2632,20 +2674,20 @@ const HERCULES = {
     conceitoKicker: 'O conceito',
     conceitoTitle: 'Run-DMC encontra o filho de Zeus.',
     conceitoParas: [
-      'O briefing pedia uma marca ousada e direta. A referência veio de dois mundos improváveis: o logo do Run-DMC — simples, na sua cara, fácil de ler e de aplicar em qualquer lugar — e Hercules, o semideus, filho de Zeus e campeão do Olimpo: símbolo de força, dureza e relentlessness.',
+      'O briefing pedia uma marca ousada e direta. A referência veio de dois mundos improváveis: o logo do Run-DMC (simples, na sua cara, fácil de ler e de aplicar em qualquer lugar) e Hercules, o semideus, filho de Zeus e campeão do Olimpo: símbolo de força, dureza e relentlessness.',
       'Misturei o estilo do logo do Run-DMC com o nome Hercules para criar uma marca que comunica na hora e dá ao consumidor a sensação de virar algo maior ao usar o produto.',
-      'Daí nasce o slogan — uma promessa, não uma descrição: “Now you know how to become a demigod”.',
+      'Daí nasce o slogan, que é promessa e não descrição: “Now you know how to become a demigod”.',
     ],
     logoKicker: 'O logo',
     logoTitle: 'Um halter que vira “H”.',
     logoParas: [
-      'A marca é construída sobre um único movimento gráfico: dois halteres se cruzam e formam a letra “H” de Hercules. Tudo em traço pesado, chapado, sem meio-tom — força lida em um segundo.',
+      'A marca é construída sobre um único movimento gráfico: dois halteres se cruzam e formam a letra “H” de Hercules. Tudo em traço pesado, chapado, sem meio-tom. Força lida em um segundo.',
       'As duas barras vermelhas em cima e embaixo são a citação direta ao Run-DMC: enquadram o nome, dão ritmo e gritam a marca de longe. Vermelho, preto e branco, nada além disso.',
     ],
     logoMainCap: 'Logo principal · aplicação preferencial',
     logoSysKicker: 'Sistema de marca',
     logoSysTitle: 'Uma marca, todos os espaços.',
-    logoSysNote: 'Do letreiro da fachada ao avatar de rede social, o sistema entrega o lockup certo para cada contexto — sempre com o mesmo DNA: halter-H, barras vermelhas e contorno pesado.',
+    logoSysNote: 'Do letreiro da fachada ao avatar de rede social, o sistema entrega o lockup certo para cada contexto, sempre com o mesmo DNA: halter-H, barras vermelhas e contorno pesado.',
     logoVariantsTitle: 'Versões cromáticas',
     paletaKicker: 'Paleta de cores',
     paletaTitle: 'Vermelho, preto, branco. Ponto.',
@@ -2654,31 +2696,31 @@ const HERCULES = {
     tipoTitle: 'Condensada, stencil e leitura.',
     tipoNote: 'Uma família pesada e condensada carrega o nome; um stencil militar assina a linha Colossus; uma grotesca limpa segura os textos longos.',
     produtoKicker: 'A linha de produto',
-    produtoTitle: 'Colossus — quatro armas.',
+    produtoTitle: 'Colossus: quatro armas.',
     produtoNote: 'A linha Colossus reúne os suplementos essenciais do fisiculturismo. Mesma arquitetura de rótulo, uma cor por produto: cada pote se reconhece na prateleira em um relance.',
     produtoLineCap: 'Linha Colossus completa · Casein · BCAA · Whey · Hydro Whey · Creatine',
     mockupKicker: 'A marca no mundo',
     mockupTitle: 'Do logo à fachada.',
-    mockupNote: 'O sistema testado em aplicação real — sinalização, letreiro e ambiente. Positivo, negativo e relevo, sempre legível à distância.',
+    mockupNote: 'O sistema testado em aplicação real: sinalização, letreiro e ambiente. Positivo, negativo e relevo, sempre legível à distância.',
     newsKicker: 'Newsletter',
     newsTitle: 'A newsletter do cliente.',
     newsParas: [
-      'Uma newsletter impressa de cliente — “Edição nº 5, março 2022” — apresenta a linha Colossus e funciona como guia de suplementos: whey, creatina, glutamina e o stack ideal de treino.',
+      'Uma newsletter impressa de cliente, a “Edição nº 5, março 2022”, apresenta a linha Colossus e funciona como guia de suplementos: whey, creatina, glutamina e o stack ideal de treino.',
       'O sistema de marca atravessa o editorial inteiro: barra vermelha de coluna, manchetes condensadas e a foto preto e branco de alto contraste segurando a página.',
     ],
     videoKicker: 'Vídeos promocionais',
     videoTitle: 'A marca em movimento.',
-    videoNote: 'Um filme de lançamento para a web e reels de oferta para stories — o mesmo grito visual em vídeo, do letreiro vermelho ao “50% OFF”.',
+    videoNote: 'Um filme de lançamento para a web e reels de oferta para stories. O mesmo grito visual em vídeo, do letreiro vermelho ao “50% OFF”.',
     videoFilmCap: 'Filme de lançamento · herculessupplements.com',
     videoReelCap: 'Reels · stories de oferta',
     socialKicker: 'Social & campanha',
     socialTitle: 'Feito para o feed.',
-    socialNote: 'Peças de social media e anúncios que levam a linha Colossus para a rua — sempre na tensão entre o atleta e a marca.',
+    socialNote: 'Peças de social media e anúncios que levam a linha Colossus para a rua, sempre na tensão entre o atleta e a marca.',
     resultadoKicker: 'Resultado',
     resultadoTitle: 'Uma marca que chega gritando.',
     resultadoParas: [
       'Do ícone ao filme de lançamento, um sistema coeso: vermelho, preto e branco, contorno pesado e a mesma atitude em qualquer mídia.',
-      'Mais do que um logo — uma marca completa, com linha de produto, editorial e vídeo, pronta para virar um semideus na prateleira.',
+      'Mais do que um logo: uma marca completa, com linha de produto, editorial e vídeo, pronta para virar um semideus na prateleira.',
     ],
     cta: 'Quer uma marca com essa energia?',
     ctaBtn: 'Vamos conversar',
@@ -2689,7 +2731,7 @@ const HERCULES = {
     role: 'Identity · Product line · Marketing assets',
     title: 'Hercules',
     slogan: 'Now you know how to become a demigod',
-    lede: 'Visual identity and a full marketing arsenal for a supplements brand. From the strength of Greek myth to the attitude of a hip-hop logo — built to arrive shouting.',
+    lede: 'Visual identity and a full marketing arsenal for a supplements brand. From the strength of Greek myth to the attitude of a hip-hop logo. Built to arrive shouting.',
     ficha: [
       { k: 'Category', v: 'Branding · Sports supplements' },
       { k: 'Deliverables', v: 'Logo, system, Colossus line, newsletter, videos, social' },
@@ -2699,20 +2741,20 @@ const HERCULES = {
     conceitoKicker: 'The concept',
     conceitoTitle: 'Run-DMC meets the son of Zeus.',
     conceitoParas: [
-      'The brief asked for a bold, in-your-face brand. The reference came from two unlikely worlds: the Run-DMC logo — simple, easy to read and to place anywhere — and Hercules, the demigod, son of Zeus and champion of Olympus: a symbol of strength, toughness and relentlessness.',
+      'The brief asked for a bold, in-your-face brand. The reference came from two unlikely worlds: the Run-DMC logo (simple, easy to read and to place anywhere) and Hercules, the demigod, son of Zeus and champion of Olympus: a symbol of strength, toughness and relentlessness.',
       'I blended the Run-DMC logo style with the Hercules name to build a brand that communicates instantly and gives the consumer the feeling of becoming something more by using the product.',
-      'Hence the slogan — a promise, not a description: “Now you know how to become a demigod”.',
+      'Hence the slogan, a promise and not a description: “Now you know how to become a demigod”.',
     ],
     logoKicker: 'The logo',
     logoTitle: 'A dumbbell that becomes an “H”.',
     logoParas: [
-      'The brand is built on a single graphic move: two dumbbells cross to form the letter “H” for Hercules. All of it heavy, flat, no halftone — strength read in a second.',
-      'The two red bars top and bottom are the direct Run-DMC quote: they frame the name, set the rhythm and shout the brand from across the room. Red, black and white — nothing else.',
+      'The brand is built on a single graphic move: two dumbbells cross to form the letter “H” for Hercules. All of it heavy, flat, no halftone. Strength read in a second.',
+      'The two red bars top and bottom are the direct Run-DMC quote: they frame the name, set the rhythm and shout the brand from across the room. Red, black and white. Nothing else.',
     ],
     logoMainCap: 'Primary logo · preferred application',
     logoSysKicker: 'Brand system',
     logoSysTitle: 'One brand, every space.',
-    logoSysNote: 'From the storefront sign to the social avatar, the system delivers the right lockup for each context — always with the same DNA: dumbbell-H, red bars and a heavy outline.',
+    logoSysNote: 'From the storefront sign to the social avatar, the system delivers the right lockup for each context, always with the same DNA: dumbbell-H, red bars and a heavy outline.',
     logoVariantsTitle: 'Colour versions',
     paletaKicker: 'Colour palette',
     paletaTitle: 'Red, black, white. Period.',
@@ -2721,31 +2763,31 @@ const HERCULES = {
     tipoTitle: 'Condensed, stencil and reading.',
     tipoNote: 'A heavy condensed family carries the name; a military stencil signs the Colossus line; a clean grotesque holds the long copy.',
     produtoKicker: 'The product line',
-    produtoTitle: 'Colossus — four weapons.',
+    produtoTitle: 'Colossus: four weapons.',
     produtoNote: 'The Colossus line gathers the essential bodybuilding supplements. Same label architecture, one colour per product: each tub is recognised on the shelf at a glance.',
     produtoLineCap: 'Full Colossus line · Casein · BCAA · Whey · Hydro Whey · Creatine',
     mockupKicker: 'The brand in the world',
     mockupTitle: 'From logo to storefront.',
-    mockupNote: 'The system tested in real application — signage, sign and environment. Positive, negative and relief, always legible from a distance.',
+    mockupNote: 'The system tested in real application: signage, sign and environment. Positive, negative and relief, always legible from a distance.',
     newsKicker: 'Newsletter',
     newsTitle: 'The customer newsletter.',
     newsParas: [
-      'A printed customer newsletter — “Issue 5, March 2022” — introduces the Colossus line and doubles as a supplement guide: whey, creatine, glutamine and the ideal training stack.',
+      'A printed customer newsletter, “Issue 5, March 2022”, introduces the Colossus line and doubles as a supplement guide: whey, creatine, glutamine and the ideal training stack.',
       'The brand system runs through the whole editorial: red column rule, condensed headlines and the high-contrast black-and-white photo holding the page.',
     ],
     videoKicker: 'Promotional videos',
     videoTitle: 'The brand in motion.',
-    videoNote: 'A launch film for the web and offer reels for stories — the same visual shout in video, from the red sign to “50% OFF”.',
+    videoNote: 'A launch film for the web and offer reels for stories. The same visual shout in video, from the red sign to “50% OFF”.',
     videoFilmCap: 'Launch film · herculessupplements.com',
     videoReelCap: 'Reels · offer stories',
     socialKicker: 'Social & campaign',
     socialTitle: 'Made for the feed.',
-    socialNote: 'Social media pieces and ads that take the Colossus line to the street — always in the tension between the athlete and the brand.',
+    socialNote: 'Social media pieces and ads that take the Colossus line to the street, always in the tension between the athlete and the brand.',
     resultadoKicker: 'Outcome',
     resultadoTitle: 'A brand that arrives shouting.',
     resultadoParas: [
       'From the icon to the launch film, one cohesive system: red, black and white, heavy outline and the same attitude across every medium.',
-      'More than a logo — a complete brand, with product line, editorial and video, ready to become a demigod on the shelf.',
+      'More than a logo: a complete brand, with product line, editorial and video, ready to become a demigod on the shelf.',
     ],
     cta: 'Want a brand with this energy?',
     ctaBtn: 'Let’s talk',
@@ -2786,7 +2828,7 @@ const JIMI = {
     back: 'Voltar aos cases',
     tag: 'Identidade Visual', role: 'Arte, capa de álbum e design',
     title: 'Jimi Oliver', slogan: 'Face to Face',
-    lede: 'Identidade visual e direção de arte para o álbum instrumental do guitarrista Jimi Oliver — da capa ao vinil, do CD ao palco. Um sistema preto e branco, fotográfico e elegante, à altura da fusão entre jazz e música brasileira.',
+    lede: 'Identidade visual e direção de arte para o álbum instrumental do guitarrista Jimi Oliver, da capa ao vinil, do CD ao palco. Um sistema preto e branco, fotográfico e elegante, à altura da fusão entre jazz e música brasileira.',
     ficha: [
       { k: 'Cliente', v: 'Jimi Oliver · Oliver Produtora' },
       { k: 'Papel', v: 'Direção de arte, capa e design gráfico' },
@@ -2796,14 +2838,14 @@ const JIMI = {
     projetoKicker: 'O projeto',
     projetoTitle: 'Um rosto, um álbum.',
     projetoParas: [
-      'Face to Face é o álbum de renascimento de Jimi Oliver — concebido durante a pandemia, depois da sua recuperação. A música atravessa as raízes do Brasil e cria uma simbiose com o jazz; a identidade precisava carregar a mesma carga emocional.',
-      'A resposta foi colocar o artista, literalmente, frente a frente com quem ouve: um retrato em preto e branco, alto contraste, e um logotipo serifado de contraste extremo. Sóbrio, autoral e atemporal — longe de qualquer clichê de gênero.',
+      'Face to Face é o álbum de renascimento de Jimi Oliver, concebido durante a pandemia, depois da sua recuperação. A música atravessa as raízes do Brasil e cria uma simbiose com o jazz; a identidade precisava carregar a mesma carga emocional.',
+      'A resposta foi colocar o artista, literalmente, frente a frente com quem ouve: um retrato em preto e branco, alto contraste, e um logotipo serifado de contraste extremo. Sóbrio, autoral e atemporal. Longe de qualquer clichê de gênero.',
     ],
     capaKicker: 'A capa',
     capaTitle: 'Preto e branco, frente a frente.',
     capaParas: [
       'O conceito nasce do título: o rosto do músico ocupa toda a capa, em duotom granulado, dividido entre sombra e luz. O logotipo “Face to Face”, em serifa Didone, traz o brilho gráfico que contrasta com a textura da fotografia.',
-      'A mesma assinatura se repete em cada peça — vinil, CD, encarte e palco — garantindo que o álbum seja reconhecido num relance, em qualquer formato.',
+      'A mesma assinatura se repete em cada peça (vinil, CD, encarte e palco), garantindo que o álbum seja reconhecido num relance, em qualquer formato.',
     ],
     capaCap: 'Capa oficial · retrato em duotom + logotipo Face to Face',
     discoKicker: 'O disco',
@@ -2811,19 +2853,19 @@ const JIMI = {
     discoNote: 'A arte foi pensada para o objeto físico: a capa do vinil, o miolo do CD com as faixas em arco e a citação de Salmos 126, e o encarte aberto com a tracklist e a ficha técnica completa.',
     aoVivoKicker: 'Ao vivo',
     aoVivoTitle: 'A capa vira cenário.',
-    aoVivoNote: 'No lançamento, a mesma identidade tomou o palco — o retrato da capa em halftone gigante no telão e as letras “JIMI” em painéis de LED. Do encarte ao show, um sistema só.',
+    aoVivoNote: 'No lançamento, a mesma identidade tomou o palco: o retrato da capa em halftone gigante no telão e as letras “JIMI” em painéis de LED. Do encarte ao show, um sistema só.',
     aoVivoPortraitCap: 'Show de lançamento · Betim, MG',
     portfolioKicker: 'Desdobramento',
     portfolioTitle: 'E rendeu um portfólio.',
     portfolioParas: [
-      'O projeto não parou na capa. A parceria gerou também o portfólio do artista: um documento editorial que reúne a trajetória de Jimi Oliver, seus álbuns, shows e currículo musical — no mesmo cuidado tipográfico e fotográfico da identidade.',
+      'O projeto não parou na capa. A parceria gerou também o portfólio do artista: um documento editorial que reúne a trajetória de Jimi Oliver, seus álbuns, shows e currículo musical, no mesmo cuidado tipográfico e fotográfico da identidade.',
       'Uma peça pronta para abrir portas com produtores, festivais e contratantes, dentro e fora do Brasil.',
     ],
     resultadoKicker: 'Resultado',
     resultadoTitle: 'Uma identidade que toca antes da primeira nota.',
     resultadoParas: [
       'Da capa do álbum ao palco e ao portfólio, um sistema coeso: preto, branco e fotografia de alto contraste, com a mesma elegância em todos os pontos de contato.',
-      'Mais que uma capa — a cara de um artista, pronta para circular no mercado da música instrumental.',
+      'Mais que uma capa: a cara de um artista, pronta para circular no mercado da música instrumental.',
     ],
     cta: 'Quer uma identidade assim para o seu projeto?',
     ctaBtn: 'Vamos conversar',
@@ -2832,7 +2874,7 @@ const JIMI = {
     back: 'Back to cases',
     tag: 'Visual Identity', role: 'Art direction, album cover & design',
     title: 'Jimi Oliver', slogan: 'Face to Face',
-    lede: 'Visual identity and art direction for guitarist Jimi Oliver’s instrumental album — from cover to vinyl, from CD to stage. A black-and-white, photographic, elegant system worthy of his jazz-meets-Brazil fusion.',
+    lede: 'Visual identity and art direction for guitarist Jimi Oliver’s instrumental album, from cover to vinyl, from CD to stage. A black-and-white, photographic, elegant system worthy of his jazz-meets-Brazil fusion.',
     ficha: [
       { k: 'Client', v: 'Jimi Oliver · Oliver Produtora' },
       { k: 'Role', v: 'Art direction, cover & graphic design' },
@@ -2842,14 +2884,14 @@ const JIMI = {
     projetoKicker: 'The project',
     projetoTitle: 'One face, one album.',
     projetoParas: [
-      'Face to Face is Jimi Oliver’s album of rebirth — conceived during the pandemic, after his recovery. The music crosses Brazil’s roots and fuses with jazz; the identity had to carry the same emotional weight.',
-      'The answer was to put the artist literally face to face with the listener: a high-contrast black-and-white portrait and an extreme-contrast serif logotype. Sober, authorial and timeless — far from any genre cliché.',
+      'Face to Face is Jimi Oliver’s album of rebirth, conceived during the pandemic, after his recovery. The music crosses Brazil’s roots and fuses with jazz; the identity had to carry the same emotional weight.',
+      'The answer was to put the artist literally face to face with the listener: a high-contrast black-and-white portrait and an extreme-contrast serif logotype. Sober, authorial and timeless. Far from any genre cliché.',
     ],
     capaKicker: 'The cover',
     capaTitle: 'Black and white, face to face.',
     capaParas: [
       'The concept comes from the title: the musician’s face fills the whole cover in a grainy duotone, split between shadow and light. The “Face to Face” logotype, set in a Didone serif, brings the graphic shine that contrasts with the photographic grain.',
-      'That same signature repeats on every piece — vinyl, CD, booklet and stage — so the album is recognised at a glance, in any format.',
+      'That same signature repeats on every piece (vinyl, CD, booklet and stage), so the album is recognised at a glance, in any format.',
     ],
     capaCap: 'Official cover · duotone portrait + Face to Face logotype',
     discoKicker: 'The record',
@@ -2857,19 +2899,19 @@ const JIMI = {
     discoNote: 'The art was built for the physical object: the vinyl sleeve, the CD label with the tracks set in an arc and the Psalm 126 quote, and the open booklet with the tracklist and full credits.',
     aoVivoKicker: 'Live',
     aoVivoTitle: 'The cover becomes the stage.',
-    aoVivoNote: 'At the launch, the same identity took over the stage — the cover portrait in giant halftone on the screen and the “JIMI” letters on LED panels. From booklet to show, one single system.',
+    aoVivoNote: 'At the launch, the same identity took over the stage: the cover portrait in giant halftone on the screen and the “JIMI” letters on LED panels. From booklet to show, one single system.',
     aoVivoPortraitCap: 'Launch show · Betim, Brazil',
     portfolioKicker: 'Spin-off',
     portfolioTitle: 'And it became a portfolio.',
     portfolioParas: [
-      'The project didn’t stop at the cover. The collaboration also produced the artist’s portfolio: an editorial document gathering Jimi Oliver’s career, albums, shows and musical résumé — with the same typographic and photographic care as the identity.',
+      'The project didn’t stop at the cover. The collaboration also produced the artist’s portfolio: an editorial document gathering Jimi Oliver’s career, albums, shows and musical résumé, with the same typographic and photographic care as the identity.',
       'A piece ready to open doors with producers, festivals and bookers, in Brazil and abroad.',
     ],
     resultadoKicker: 'Result',
     resultadoTitle: 'An identity that plays before the first note.',
     resultadoParas: [
       'From album cover to stage and portfolio, one cohesive system: black, white and high-contrast photography, with the same elegance across every touchpoint.',
-      'More than a cover — the face of an artist, ready to circulate in the instrumental-music market.',
+      'More than a cover: the face of an artist, ready to circulate in the instrumental-music market.',
     ],
     cta: 'Want an identity like this for your project?',
     ctaBtn: 'Let’s talk',
@@ -2887,10 +2929,10 @@ const OTH_PALETTE = [
 ];
 
 const OTH_LOGOS = [
-  { src: OTH_BASE + 'logo-dark.png', bg: '#F4EFE6', pt: 'Principal', en: 'Primary', tagPt: 'Positivo', tagEn: 'Positive', descPt: 'Grafite sobre creme — versão padrão.', descEn: 'Graphite on cream — default version.' },
+  { src: OTH_BASE + 'logo-dark.png', bg: '#F4EFE6', pt: 'Principal', en: 'Primary', tagPt: 'Positivo', tagEn: 'Positive', descPt: 'Grafite sobre creme. Versão padrão.', descEn: 'Graphite on cream. Default version.' },
   { src: OTH_BASE + 'logo-white.png', bg: '#1E1E1E', pt: 'Negativo', en: 'Negative', tagPt: 'Branco', tagEn: 'White', descPt: 'Branco sobre fundo escuro.', descEn: 'White on dark background.' },
   { src: OTH_BASE + 'logo-terracota.png', bg: '#F4EFE6', pt: 'Terracota', en: 'Terracotta', tagPt: 'Laranja', tagEn: 'Orange', descPt: 'A marca toda em laranja Othelo.', descEn: 'The whole mark in Othelo orange.' },
-  { src: OTH_BASE + 'logo-negative.png', bg: '#1E1E1E', pt: 'Contorno', en: 'Outline', tagPt: 'Outline', tagEn: 'Outline', descPt: 'Só traço — aplicações especiais.', descEn: 'Outline only — special applications.' },
+  { src: OTH_BASE + 'logo-negative.png', bg: '#1E1E1E', pt: 'Contorno', en: 'Outline', tagPt: 'Outline', tagEn: 'Outline', descPt: 'Só traço. Aplicações especiais.', descEn: 'Outline only. Special applications.' },
 ];
 
 const OTH_DISCS = [
@@ -2908,7 +2950,7 @@ const OTHELO = {
     back: 'Voltar aos cases',
     tag: 'Branding + Web Design', role: 'Cofundador · Direção criativa · Marca e site',
     title: 'Othelo', slogan: 'Seja grande, vem pra Othelo!',
-    lede: 'Identidade visual e site para a Othelo Produtora — uma produtora cultural que cofundei e onde sigo como diretor criativo. Da virada de marca (ex-Produtora Oliver) ao logotipo de vinis, da papelaria ao site: um sistema retrô-soul que homenageia Grande Otelo e a diversidade da cultura brasileira.',
+    lede: 'Identidade visual e site para a Othelo Produtora, uma produtora cultural que cofundei e onde sigo como diretor criativo. Da virada de marca (ex-Produtora Oliver) ao logotipo de vinis, da papelaria ao site: um sistema retrô-soul que homenageia Grande Otelo e a diversidade da cultura brasileira.',
     ficha: [
       { k: 'Cliente', v: 'Othelo Produtora · ex-Produtora Oliver' },
       { k: 'Papel', v: 'Cofundador, diretor criativo, branding & web' },
@@ -2918,20 +2960,20 @@ const OTHELO = {
     projetoKicker: 'O projeto',
     projetoTitle: 'De Oliver a Othelo.',
     projetoParas: [
-      'A Produtora Oliver entrou numa nova fase e virou Othelo Produtora — nome que é uma homenagem a Grande Otelo, um dos maiores artistas brasileiros. A reestruturação pedia tudo novo: logotipo, identidade visual e presença digital, sem perder o compromisso de promover a cultura e a diversidade dos artistas do Brasil.',
-      'A Othelo desenvolve projetos e editais culturais e apoia músicos, cantores, artistas plásticos, grafiteiros, pintores, artistas de rua e escritores — ampliando visibilidade, circulação e oportunidades reais.',
-      'Como cofundador, conduzi a virada de marca de ponta a ponta — e sigo na produtora como diretor criativo, cuidando da linguagem visual de cada projeto.',
+      'A Produtora Oliver entrou numa nova fase e virou Othelo Produtora, nome que é uma homenagem a Grande Otelo, um dos maiores artistas brasileiros. A reestruturação pedia tudo novo: logotipo, identidade visual e presença digital, sem perder o compromisso de promover a cultura e a diversidade dos artistas do Brasil.',
+      'A Othelo desenvolve projetos e editais culturais e apoia músicos, cantores, artistas plásticos, grafiteiros, pintores, artistas de rua e escritores, ampliando visibilidade, circulação e oportunidades reais.',
+      'Como cofundador, conduzi a virada de marca de ponta a ponta, e sigo na produtora como diretor criativo, cuidando da linguagem visual de cada projeto.',
     ],
     marcaKicker: 'A marca',
     marcaTitle: 'Dois vinis viram os “O”.',
     marcaParas: [
-      'O logotipo nasce de um movimento simples e direto: dois discos de vinil assumem o lugar das letras “O” em “Othelo”. Tipografia geométrica, pesada e setentista, com sulcos de bolacha desenhados no traço — soul, black music e cultura de rua lidos num relance.',
-      'O símbolo isolado — os dois discos sobrepostos — funciona como bug da marca em selo, ícone e assinaturas curtas.',
+      'O logotipo nasce de um movimento simples e direto: dois discos de vinil assumem o lugar das letras “O” em “Othelo”. Tipografia geométrica, pesada e setentista, com sulcos de bolacha desenhados no traço: soul, black music e cultura de rua lidos num relance.',
+      'O símbolo isolado, os dois discos sobrepostos, funciona como bug da marca em selo, ícone e assinaturas curtas.',
     ],
     marcaCap: 'Logotipo principal · vinis no lugar dos “O”',
-    discNote: 'O símbolo dos discos duplos resume a marca quando o nome completo não cabe — do favicon ao crachá.',
+    discNote: 'O símbolo dos discos duplos resume a marca quando o nome completo não cabe, do favicon ao crachá.',
     variantsTitle: 'Sistema de aplicação.',
-    variantsNote: 'Positivo, negativo, terracota e contorno — a marca se mantém legível em qualquer fundo, do palco à camiseta.',
+    variantsNote: 'Positivo, negativo, terracota e contorno: a marca se mantém legível em qualquer fundo, do palco à camiseta.',
     corKicker: 'Cor & tipografia',
     corTitle: 'Grafite, laranja e creme.',
     corNote: 'Uma paleta quente e analógica: grafite e creme como base, laranja como energia. Oswald, condensada e firme, nos títulos; Montserrat no texto. O brand board reúne o sistema, o universo de imagens e as fontes.',
@@ -2944,24 +2986,24 @@ const OTHELO = {
     webTitle: 'A produtora, no ar.',
     webParas: [
       'Desenhei e construí o site da Othelo para traduzir a essência cultural da marca de forma clara e envolvente. A navegação apresenta artistas, projetos e propósito de um jeito acessível, fortalecendo a conexão entre artistas, parceiros e público.',
-      'A hero abre com o convite “Seja grande, vem pra Othelo!”, seguida de próximos eventos, Instagram, a história de Grande Otelo e a missão — tudo na nova linguagem visual: tipografia, cores, grafismos e arquitetura de informação alinhados à nova fase.',
+      'A hero abre com o convite “Seja grande, vem pra Othelo!”, seguida de próximos eventos, Instagram, a história de Grande Otelo e a missão, tudo na nova linguagem visual: tipografia, cores, grafismos e arquitetura de informação alinhados à nova fase.',
     ],
     webCap: 'Home · site institucional da Othelo Produtora',
     aplicaKicker: 'Aplicações',
     aplicaTitle: 'Da camiseta ao outdoor.',
-    aplicaNote: 'A marca desce do digital para o físico — camisetas, peças out-of-home e social — sempre com o mesmo grito retrô.',
+    aplicaNote: 'A marca desce do digital para o físico (camisetas, peças out-of-home e social), sempre com o mesmo grito retrô.',
     billboardCap: 'Out-of-home · boombox + assinatura Othelo',
     papelKicker: 'Meu papel',
     papelTitle: 'Cofundador e diretor criativo.',
     papelParas: [
       'A Othelo não é só um cliente: é uma marca que ajudei a fundar. Conduzi a transição da Produtora Oliver, criei a nova identidade e o site, e defini a linguagem visual da casa.',
-      'Sigo atuando na produtora como diretor criativo — à frente da direção de arte de campanhas, eventos e projetos culturais, garantindo que cada peça fale a mesma língua da marca.',
+      'Sigo atuando na produtora como diretor criativo, à frente da direção de arte de campanhas, eventos e projetos culturais, garantindo que cada peça fale a mesma língua da marca.',
     ],
     resultadoKicker: 'Resultado',
     resultadoTitle: 'Uma marca cultural pronta para crescer.',
     resultadoParas: [
       'Do nome ao site, um sistema coeso e reconhecível: vinis, grafite e laranja em todos os pontos de contato, do palco às redes.',
-      'Uma base sólida para a Othelo conectar artistas a editais, festivais e oportunidades reais — e seguir profissionalizando a cena cultural brasileira.',
+      'Uma base sólida para a Othelo conectar artistas a editais, festivais e oportunidades reais, e seguir profissionalizando a cena cultural brasileira.',
     ],
     cta: 'Quer construir uma marca cultural assim?',
     ctaBtn: 'Vamos conversar',
@@ -2970,7 +3012,7 @@ const OTHELO = {
     back: 'Back to cases',
     tag: 'Branding + Web Design', role: 'Co-founder · Creative direction · Brand & site',
     title: 'Othelo', slogan: 'Seja grande, vem pra Othelo!',
-    lede: 'Visual identity and website for Othelo Produtora — a cultural production company I co-founded and still lead as creative director. From the rebrand (formerly Produtora Oliver) to the vinyl logotype, from stationery to the site: a retro-soul system honouring Grande Otelo and the diversity of Brazilian culture.',
+    lede: 'Visual identity and website for Othelo Produtora, a cultural production company I co-founded and still lead as creative director. From the rebrand (formerly Produtora Oliver) to the vinyl logotype, from stationery to the site: a retro-soul system honouring Grande Otelo and the diversity of Brazilian culture.',
     ficha: [
       { k: 'Client', v: 'Othelo Produtora · formerly Produtora Oliver' },
       { k: 'Role', v: 'Co-founder, creative director, branding & web' },
@@ -2980,20 +3022,20 @@ const OTHELO = {
     projetoKicker: 'The project',
     projetoTitle: 'From Oliver to Othelo.',
     projetoParas: [
-      'Produtora Oliver entered a new phase and became Othelo Produtora — a name that pays tribute to Grande Otelo, one of Brazil’s greatest artists. The restructure called for everything new: logotype, visual identity and digital presence, without losing the commitment to promote Brazilian culture and the diversity of its artists.',
-      'Othelo develops cultural projects and grant proposals and supports musicians, singers, visual artists, graffiti writers, painters, street artists and writers — expanding visibility, circulation and real opportunities.',
-      'As a co-founder, I led the rebrand end to end — and I remain at the company as creative director, shaping the visual language of every project.',
+      'Produtora Oliver entered a new phase and became Othelo Produtora, a name that pays tribute to Grande Otelo, one of Brazil’s greatest artists. The restructure called for everything new: logotype, visual identity and digital presence, without losing the commitment to promote Brazilian culture and the diversity of its artists.',
+      'Othelo develops cultural projects and grant proposals and supports musicians, singers, visual artists, graffiti writers, painters, street artists and writers, expanding visibility, circulation and real opportunities.',
+      'As a co-founder, I led the rebrand end to end, and I remain at the company as creative director, shaping the visual language of every project.',
     ],
     marcaKicker: 'The brand',
     marcaTitle: 'Two vinyls become the “O”s.',
     marcaParas: [
-      'The logotype comes from one simple, direct move: two vinyl records take the place of the “O”s in “Othelo”. Heavy, geometric, seventies type with record grooves drawn into the strokes — soul, black music and street culture read at a glance.',
-      'The standalone symbol — the two overlapping discs — works as the brand bug in seals, icons and short signatures.',
+      'The logotype comes from one simple, direct move: two vinyl records take the place of the “O”s in “Othelo”. Heavy, geometric, seventies type with record grooves drawn into the strokes: soul, black music and street culture read at a glance.',
+      'The standalone symbol, the two overlapping discs, works as the brand bug in seals, icons and short signatures.',
     ],
     marcaCap: 'Primary logotype · vinyls in place of the “O”s',
-    discNote: 'The double-disc symbol stands in for the brand when the full name won’t fit — from favicon to ID badge.',
+    discNote: 'The double-disc symbol stands in for the brand when the full name won’t fit, from favicon to ID badge.',
     variantsTitle: 'An application system.',
-    variantsNote: 'Positive, negative, terracotta and outline — the mark stays legible on any background, from stage to tee.',
+    variantsNote: 'Positive, negative, terracotta and outline: the mark stays legible on any background, from stage to tee.',
     corKicker: 'Colour & type',
     corTitle: 'Graphite, orange and cream.',
     corNote: 'A warm, analogue palette: graphite and cream as the base, orange as the energy. Oswald, condensed and firm, for headlines; Montserrat for body. The brand board gathers the system, the image world and the fonts.',
@@ -3006,24 +3048,24 @@ const OTHELO = {
     webTitle: 'The company, live.',
     webParas: [
       'I designed and built Othelo’s website to translate the brand’s cultural essence clearly and engagingly. The navigation presents artists, projects and purpose in an accessible way, strengthening the connection between artists, partners and audience.',
-      'The hero opens with the invitation “Seja grande, vem pra Othelo!”, followed by upcoming events, Instagram, the story of Grande Otelo and the mission — all in the new visual language: type, colours, graphics and information architecture aligned with the new phase.',
+      'The hero opens with the invitation “Seja grande, vem pra Othelo!”, followed by upcoming events, Instagram, the story of Grande Otelo and the mission, all in the new visual language: type, colours, graphics and information architecture aligned with the new phase.',
     ],
     webCap: 'Home · Othelo Produtora institutional site',
     aplicaKicker: 'Applications',
     aplicaTitle: 'From tee to billboard.',
-    aplicaNote: 'The brand steps from digital into the physical — tees, out-of-home and social — always with the same retro shout.',
+    aplicaNote: 'The brand steps from digital into the physical (tees, out-of-home and social), always with the same retro shout.',
     billboardCap: 'Out-of-home · boombox + Othelo signature',
     papelKicker: 'My role',
     papelTitle: 'Co-founder and creative director.',
     papelParas: [
       'Othelo isn’t just a client: it’s a brand I helped found. I led the transition from Produtora Oliver, created the new identity and the site, and defined the house’s visual language.',
-      'I still work at the company as creative director — leading art direction for campaigns, events and cultural projects, making sure every piece speaks the same brand language.',
+      'I still work at the company as creative director, leading art direction for campaigns, events and cultural projects, making sure every piece speaks the same brand language.',
     ],
     resultadoKicker: 'Result',
     resultadoTitle: 'A cultural brand ready to grow.',
     resultadoParas: [
       'From the name to the site, a cohesive, recognisable system: vinyls, graphite and orange across every touchpoint, from stage to social.',
-      'A solid base for Othelo to connect artists with grants, festivals and real opportunities — and keep professionalising Brazil’s cultural scene.',
+      'A solid base for Othelo to connect artists with grants, festivals and real opportunities, and keep professionalising Brazil’s cultural scene.',
     ],
     cta: 'Want to build a cultural brand like this?',
     ctaBtn: 'Let’s talk',
@@ -3037,16 +3079,16 @@ const ANUARIOS = [
     id: '2025', year: '2025', edicao: { pt: '4ª edição', en: '4th edition' }, accent: '#0079A4',
     cover: ANU_BASE + '2025-cover.jpg',
     title: { pt: 'Anuário da Cannabis Medicinal', en: 'Medical Cannabis Yearbook' },
-    tema: { pt: 'Consolidação e amadurecimento —\no mercado a um passo de R$ 1 bilhão.', en: 'Consolidation and maturity —\na market one step from R$ 1 billion.' },
+    tema: { pt: 'Consolidação e amadurecimento:\no mercado a um passo de R$ 1 bilhão.', en: 'Consolidation and maturity:\na market one step from R$ 1 billion.' },
     desc: {
       pt: [
-        'A 4ª edição retrata um mercado em consolidação: pelo segundo ano seguido a cannabis medicinal não cruzou a marca de R$ 1 bilhão, encerrando 2025 em R$ 970,9 milhões — um crescimento de 14%, em ritmo mais maduro e sustentável.',
-        'Mais de 873 mil pessoas já se tratam com cannabis (alta de 30% sobre 2024), e o acesso se capilarizou: 4.730 municípios — 85% do país — já registraram ao menos um paciente desde 2019.',
+        'A 4ª edição retrata um mercado em consolidação: pelo segundo ano seguido a cannabis medicinal não cruzou a marca de R$ 1 bilhão, encerrando 2025 em R$ 970,9 milhões, um crescimento de 14%, em ritmo mais maduro e sustentável.',
+        'Mais de 873 mil pessoas já se tratam com cannabis (alta de 30% sobre 2024), e o acesso se capilarizou: 4.730 municípios (85% do país) já registraram ao menos um paciente desde 2019.',
         'O ponto culminante do documento é a projeção de mercado: taxas de ~15% ao ano sustentam um setor próximo de R$ 1,28 bilhão até 2027.',
       ],
       en: [
-        'The 4th edition portrays a consolidating market: for the second year running medical cannabis stayed below R$ 1 billion, closing 2025 at R$ 970.9 million — 14% growth at a more mature, sustainable pace.',
-        'Over 873k people now treat with cannabis (up 30% on 2024), and access has spread: 4,730 municipalities — 85% of the country — have registered at least one patient since 2019.',
+        'The 4th edition portrays a consolidating market: for the second year running medical cannabis stayed below R$ 1 billion, closing 2025 at R$ 970.9 million, 14% growth at a more mature, sustainable pace.',
+        'Over 873k people now treat with cannabis (up 30% on 2024), and access has spread: 4,730 municipalities (85% of the country) have registered at least one patient since 2019.',
         'The report culminates in a market projection: ~15% annual growth sustaining a sector close to R$ 1.28 billion by 2027.',
       ],
     },
@@ -3109,12 +3151,12 @@ const ANUARIOS = [
     desc: {
       pt: [
         'O 3º Anuário aprofunda o impacto da cannabis medicinal na saúde pública e apresenta projeções inéditas e exclusivas sobre o tamanho do mercado.',
-        'O setor cresceu 22% e chegou a R$ 852 milhões, ainda sem atingir o R$ 1 bilhão esperado. Os pacientes saltaram para mais de 672 mil (+56% sobre 2023) — cerca de 10% do potencial de 6,9 milhões.',
+        'O setor cresceu 22% e chegou a R$ 852 milhões, ainda sem atingir o R$ 1 bilhão esperado. Os pacientes saltaram para mais de 672 mil (+56% sobre 2023), cerca de 10% do potencial de 6,9 milhões.',
         'Foram mapeados 2.158 produtos únicos (+27%) e mais de 413 empresas exportando para o Brasil, hoje um dos maiores mercados do mundo.',
       ],
       en: [
         'The 3rd Yearbook digs into cannabis\u2019s impact on public health and presents first-ever, exclusive projections of the market size.',
-        'The sector grew 22% to R$ 852 million, still short of the expected R$ 1 billion. Patients jumped past 672k (+56% over 2023) — about 10% of the 6.9 million potential.',
+        'The sector grew 22% to R$ 852 million, still short of the expected R$ 1 billion. Patients jumped past 672k (+56% over 2023), about 10% of the 6.9 million potential.',
         '2,158 unique products were mapped (+27%), with 413+ companies exporting to Brazil, now one of the largest markets in the world.',
       ],
     },
@@ -3174,13 +3216,13 @@ const ANUARIOS = [
     desc: {
       pt: [
         'A 2ª edição foca nos avanços legislativos e em como a regulamentação molda o acesso, a saúde e o mercado. O documento atualiza todos os cálculos internos e traz as projeções para os anos seguintes.',
-        'O mercado superou em 7% o valor esperado e chegou perto de R$ 700 milhões — um crescimento de 92% em relação a 2022. O número de pacientes saltou para cerca de 430 mil (+130%), distribuídos entre Anvisa (219 mil), farmácias (97 mil) e associações (114 mil).',
-        'Foram mapeados 2,7 mil produtos desde 2020 (1,7 mil disponíveis em 2023) e identificadas 1.034 empresas e associações atuando no país — com chances reais de o setor ultrapassar R$ 1 bilhão em 2024.',
+        'O mercado superou em 7% o valor esperado e chegou perto de R$ 700 milhões, um crescimento de 92% em relação a 2022. O número de pacientes saltou para cerca de 430 mil (+130%), distribuídos entre Anvisa (219 mil), farmácias (97 mil) e associações (114 mil).',
+        'Foram mapeados 2,7 mil produtos desde 2020 (1,7 mil disponíveis em 2023) e identificadas 1.034 empresas e associações atuando no país, com chances reais de o setor ultrapassar R$ 1 bilhão em 2024.',
       ],
       en: [
         'The 2nd edition focuses on legislative advances and how regulation shapes access, health and the market. It refreshes every internal calculation and lays out projections for the following years.',
-        'The market beat expectations by 7%, nearing R$ 700 million — 92% growth over 2022. Patients jumped to ~430k (+130%), split across Anvisa (219k), pharmacies (97k) and associations (114k).',
-        '2,700 products were mapped since 2020 (1,700 available in 2023) and 1,034 companies and associations identified — with real odds of the sector crossing R$ 1 billion in 2024.',
+        'The market beat expectations by 7%, nearing R$ 700 million, 92% growth over 2022. Patients jumped to ~430k (+130%), split across Anvisa (219k), pharmacies (97k) and associations (114k).',
+        '2,700 products were mapped since 2020 (1,700 available in 2023) and 1,034 companies and associations identified, with real odds of the sector crossing R$ 1 billion in 2024.',
       ],
     },
     ficha: [
@@ -3237,16 +3279,16 @@ const ANUARIOS = [
     desc: {
       pt: [
         'Edição do Anuário de Mercado da Kaya Mind dedicada ao varejo canábico brasileiro. Diferente dos anuários medicinais, o foco aqui é o ecossistema de growshops, headshops e as marcas que abastecem esse segmento.',
-        'O relatório mapeia os produtos e acessórios — do cultivo aos artigos para consumo — junto aos principais players, perfis de loja e tendências que vêm impulsionando esse mercado em expansão no país.',
+        'O relatório mapeia os produtos e acessórios (do cultivo aos artigos para consumo) junto aos principais players, perfis de loja e tendências que vêm impulsionando esse mercado em expansão no país.',
       ],
       en: [
         'A Kaya Mind Market Yearbook edition dedicated to Brazil’s cannabis retail. Unlike the medical yearbooks, the focus here is the ecosystem of growshops, headshops and the brands that supply this segment.',
-        'The report maps products and accessories — from cultivation to consumption goods — alongside the main players, store profiles and trends driving this expanding market.',
+        'The report maps products and accessories (from cultivation to consumption goods) alongside the main players, store profiles and trends driving this expanding market.',
       ],
     },
     note: {
-      pt: 'Os dados de mercado, gráficos de crescimento/projeção e as páginas internas serão adicionados a partir do PDF completo do relatório — envie o arquivo para eu replicar a mesma estrutura dos outros anuários.',
-      en: 'Market data, growth/projection charts and interior pages will be added from the full report PDF — share the file and I’ll replicate the same structure as the other yearbooks.',
+      pt: 'Os dados de mercado, gráficos de crescimento/projeção e as páginas internas serão adicionados a partir do PDF completo do relatório. Envie o arquivo para eu replicar a mesma estrutura dos outros anuários.',
+      en: 'Market data, growth/projection charts and interior pages will be added from the full report PDF. Share the file and I’ll replicate the same structure as the other yearbooks.',
     },
     ficha: [
       { k: { pt: 'Série', en: 'Series' }, v: { pt: 'Anuário de Mercado', en: 'Market Yearbook' } },
@@ -3269,12 +3311,12 @@ const ANUARIOS = [
       pt: [
         'A 1ª edição inaugura o panorama completo do mercado brasileiro: regulamentação, pacientes, pesquisa científica, empresas e as primeiras projeções de futuro.',
         'O país já contava com mais de 180 mil pacientes por todas as vias de acesso, diante de um potencial estimado de 6,9 milhões de brasileiros.',
-        'Se regulamentada nos três níveis — medicinal, recreativo e industrial — a planta poderia movimentar R$ 26,1 bilhões. O apoio popular ao uso medicinal já chegava a 54%.',
+        'Se regulamentada nos três níveis (medicinal, recreativo e industrial), a planta poderia movimentar R$ 26,1 bilhões. O apoio popular ao uso medicinal já chegava a 54%.',
       ],
       en: [
         'The 1st edition launches the full picture of the Brazilian market: regulation, patients, scientific research, companies and the first future projections.',
         'The country already had over 180k patients across all access routes, against an estimated potential of 6.9 million Brazilians.',
-        'Regulated across all three levels — medical, recreational and industrial — the plant could move R$ 26.1 billion. Public support for medical use already reached 54%.',
+        'Regulated across all three levels (medical, recreational and industrial), the plant could move R$ 26.1 billion. Public support for medical use already reached 54%.',
       ],
     },
     ficha: [
@@ -3302,7 +3344,7 @@ const ANUARIOS = [
         ],
       },
       {
-        title: { pt: 'Solicitações de importação — crescimento anual', en: 'Import requests — annual growth' },
+        title: { pt: 'Solicitações de importação: crescimento anual', en: 'Import requests: annual growth' },
         src: { pt: 'Fonte: Kaya Mind, com dados da Anvisa, 2022', en: 'Source: Kaya Mind, with Anvisa data, 2022' },
         max: 120,
         bars: [
@@ -3323,10 +3365,29 @@ const ANUARIOS = [
 ];
 
 class Component extends DCLogic {
-  state = { page: 'home', lang: 'pt', caseFilter: 'all', galFilter: 'all', sent: false, caseId: null };
+  state = { page: 'home', lang: 'pt', caseFilter: 'all', galFilter: 'all', sent: false, caseId: null, menuOpen: false };
 
-  go = (p) => { this.setState({ page: p, sent: false }); if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' }); };
-  openCase = (c) => { if (!c || !c.detail) return; this.setState({ page: 'case', caseId: c.id, sent: false }); if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  // O CSS responsivo poe overflow-x nos elementos de raiz, e isso faz do <body>
+  // o elemento que rola — window.scrollTo passa a nao ter efeito nenhum. Sem
+  // isto, trocar de pagina mantinha a rolagem antiga: o visitante clicava em
+  // "Cases" no meio da home e caia no meio dos cases, achando que nada mudou.
+  // Salto instantaneo, nao rolagem suave. Trocar de pagina deve parecer pagina
+  // nova; animar a volta atravessando nove telas de home demora e confunde. A
+  // rolagem suave ainda dependia de animacao, que o navegador pausa quando a
+  // aba esta em segundo plano — e a pagina abria no meio.
+  scrollTop = () => {
+    if (typeof window === 'undefined') return;
+    try { window.scrollTo(0, 0); } catch (e) {}
+    [document.documentElement, document.body].forEach((el) => { if (el) el.scrollTop = 0; });
+  };
+
+  // Esc fecha o menu. Vale para tablet e notebook estreito, que tambem caem no
+  // hamburguer e tem teclado.
+  onKey = (e) => { if (e.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false }); };
+
+  go = (p) => { this.setState({ page: p, sent: false, menuOpen: false }); this.scrollTop(); };
+  openCase = (c) => { if (!c || !c.detail) return; this.setState({ page: 'case', caseId: c.id, sent: false, menuOpen: false }); this.scrollTop(); };
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
   setLang = (l) => this.setState({ lang: l });
   downloadCV = () => {
       const a = document.createElement('a');
@@ -3351,8 +3412,14 @@ class Component extends DCLogic {
       this.setState({ sent: true });
     };
 
-  componentDidMount() { this.bindVideos(); }
+  componentDidMount() {
+    this.bindVideos();
+    if (typeof document !== 'undefined') document.addEventListener('keydown', this.onKey);
+  }
   componentDidUpdate() { this.bindVideos(); }
+  componentWillUnmount() {
+    if (typeof document !== 'undefined') document.removeEventListener('keydown', this.onKey);
+  }
   bindVideos() {
     if (typeof document === 'undefined') return;
     const vids = document.querySelectorAll('video[data-hc-video]');
@@ -3384,11 +3451,18 @@ class Component extends DCLogic {
     const frameStyle = `position:relative; width:100%; height:100%; box-sizing:border-box; overflow:hidden; border-radius:3px; border:${contourWidth}px solid ${contourColor}; outline:${keylineWidth}px solid #1B1B1B; outline-offset:0`;
 
     const navOrder = ['home', 'sobre', 'cases', 'galeria', 'servicos', 'contato'];
-    const navItems = navOrder.map((id) => ({
-      id, label: D.nav[id],
-      cls: 'ga-tab' + (page === id || (page === 'case' && id === 'cases') ? ' ga-tab--active' : ''),
-      onClick: () => go(id),
-    }));
+    const navItems = navOrder.map((id) => {
+      const active = page === id || (page === 'case' && id === 'cases');
+      return {
+        id, label: D.nav[id],
+        cls: 'ga-tab' + (active ? ' ga-tab--active' : ''),
+        menuCls: 'ga-menu__link' + (active ? ' ga-menu__link--active' : ''),
+        onClick: () => go(id),
+      };
+    });
+    // No desktop o Contato sai da fileira de links: ele e o botao de acao.
+    // No painel do celular a lista continua inteira, porque la ela e o indice.
+    const navMain = navItems.filter((n) => n.id !== 'contato');
 
     const langBtns = ['pt', 'en'].map((l) => {
       const active = lang === l;
@@ -3414,7 +3488,7 @@ class Component extends DCLogic {
       ...c, title: c.title[lang], typeLabel: c.typeLabel[lang], blurb: c.blurb[lang],
       hasBg: !!c.bgImage, showTitle: !c.hideTitle,
       cls: 'ga-card ga-card--lift' + (c.id === 'kaya-doc' ? ' ga-card--wide' : ''),
-      bgStyle: c.bgImage ? `position:absolute; inset:0; background-image:url("${c.bgImage}"); background-size:cover; background-position:center` : '',
+      bgStyle: c.bgImage ? `position:absolute; inset:0; --capa:url("${c.bgImage}"); --capa-1x1:url("${c.bgSquare || c.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
       onClick: () => this.openCase(c),
     }));
 
@@ -3424,7 +3498,7 @@ class Component extends DCLogic {
       hasBg: !!d.bgImage,
       cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide' : ''),
       ratio: d.id === 'kaya-doc' ? '1/1' : '4/3',
-      bgStyle: d.bgImage ? `position:absolute; inset:0; background-image:url("${d.bgImage}"); background-size:cover; background-position:center` : '',
+      bgStyle: d.bgImage ? `position:absolute; inset:0; --capa:url("${d.bgImage}"); --capa-1x1:url("${d.bgSquare || d.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
       onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })
                     : d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
     }));
@@ -3547,7 +3621,14 @@ class Component extends DCLogic {
       t: D,
       links: { email: LINKS.email, whatsapp: LINKS.whatsapp },
       navItems,
+      navMain,
       langBtns,
+      menuOpen: this.state.menuOpen,
+      menuOpenStr: this.state.menuOpen ? 'true' : 'false',
+      menuLabel: this.state.menuOpen ? D.menuLabelFechar : D.menuLabel,
+      burgerCls: 'ga-burger' + (this.state.menuOpen ? ' ga-burger--open' : ''),
+      toggleMenu: this.toggleMenu,
+      closeMenu: () => this.setState({ menuOpen: false }),
       downloadCV: this.downloadCV,
       toHome: () => go('home'),
       toCases: () => go('cases'),
@@ -3599,7 +3680,7 @@ class Component extends DCLogic {
       })),
       brands: BRANDS.map((b) => ({
         ...b, hasLogo: !!b.logo, noLogo: !b.logo,
-        logoStyle: `width:100%; height:100%; background-image:url("${b.logo}"); background-size:contain; background-position:center; background-repeat:no-repeat`,
+        logoStyle: `width:${(b.fit || 1) * 100}%; height:${(b.fit || 1) * 100}%; background-image:url("${b.logo}"); background-size:contain; background-position:center; background-repeat:no-repeat`,
       })),
       stats: D.cv.stats,
       timeline: D.cv.timeline,
