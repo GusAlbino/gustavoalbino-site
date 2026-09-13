@@ -305,20 +305,29 @@ html, body { overflow-x: hidden; }
    aparelho; cortar para 21:9 dava um zoom que apagava o monitor e deixava so
    interface crua. */
 @media (min-width: 721px) {
+  /* O card largo passou a ter tres celulas: mockup a esquerda, colagem de
+     tres telas a direita, e a descricao ocupando a base inteira. Antes eram
+     duas, midia e texto lado a lado, e metade do card era paragrafo. */
   .ga-card--wide {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
   }
-  .ga-card--wide > div:first-child {
-    border-bottom: none !important;
+  .ga-card--wide > .ga-midia {
+    grid-column: 1; grid-row: 1;
     border-right: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink) !important;
+  }
+  .ga-card--wide > .ga-colagem {
+    grid-column: 2; grid-row: 1;
+    border-bottom: 2px solid var(--ink);
   }
   .ga-card--wide > .ga-card__body {
+    grid-column: 1 / -1; grid-row: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 34px !important;
+    padding: 28px 34px !important;
   }
   /* O texto do card largo ocupa meia coluna de 1132px; no corpo padrao ele
      fica pequeno demais para o espaco. */
@@ -499,3 +508,31 @@ html, body { overflow-x: hidden; }
   .ga-gam__cor[style] { grid-template-columns: 1fr 1fr 56px !important; }
 }
 .ga-gam__hero > *, .ga-gam__grade > *, .ga-gam__partes > *, .ga-gam__ficha > * { min-width: 0; }
+
+/* ---------- Colagem do card em destaque ----------
+   Tres telas do produto, com a maior em cima ocupando a linha inteira e as
+   duas quadradas embaixo, que e a proporcao nativa delas. O gap de 2px sobre
+   fundo tinta vira fio, na mesma linguagem das bordas do resto do site.
+
+   Fica so no desktop. No celular o card largo se desfaz e vira card normal
+   dentro da faixa rolavel, e uma colagem ali dobraria a altura de um cartao
+   que ja precisa caber ao lado dos outros dois. */
+.ga-colagem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  background: var(--ink);
+  min-height: 0;
+}
+.ga-colagem > :first-child { grid-column: 1 / -1; }
+@media (max-width: 720px) {
+  .ga-colagem { display: none; }
+
+  /* Os tres destaques esticam ate a altura do mais alto, e os dois menores
+     deixavam 46px de campo vazio embaixo da descricao, que ficava flutuando.
+     Medido a 390px. O corpo passa a ocupar a sobra e empurra o texto para a
+     base do cartao. */
+  .ga-destaques > * { display: flex; flex-direction: column; }
+  .ga-destaques .ga-card__body { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+}
