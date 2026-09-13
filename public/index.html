@@ -152,7 +152,6 @@
           <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
             <div onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer">
               <div class="ga-midia ga-midia--destaque" style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
-                <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
                 <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
                   <div class="ga-capa" style="{{ d.bgStyle }}"></div>
                   <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.64) 100%)"></div>
@@ -378,7 +377,6 @@
         <sc-for list="{{ casesList }}" as="c" hint-placeholder-count="4">
           <div onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer">
             <div class="ga-midia ga-midia--case" style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
-              <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <sc-if value="{{ c.hasBg }}" hint-placeholder-val="{{ false }}">
                 <div class="ga-capa" style="{{ c.bgStyle }}"></div>
                 <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.62) 100%)"></div>
@@ -1447,9 +1445,8 @@
             <div style="position:relative; height:{{ g.h }}; background:{{ g.color }}; overflow:hidden; display:flex; align-items:flex-end; padding:16px">
               <sc-if value="{{ g.hasCover }}" hint-placeholder-val="{{ false }}">
                 <div style="{{ g.coverStyle }}"></div>
-                <div style="position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(27,27,27,.72))"></div>
+                <div style="position:absolute; inset:0; background:linear-gradient(transparent 26%, rgba(27,27,27,.58) 64%, rgba(27,27,27,.90) 100%)"></div>
               </sc-if>
-              <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <span style="position:relative; font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:18px; color:{{ g.fg }}; line-height:1">{{ g.title }}</span>
             </div>
             <div style="padding:12px 14px; display:flex; justify-content:space-between; align-items:center">
@@ -2311,7 +2308,7 @@ const GAL = [
   { cat: 'reports', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '340px', img: 'assets/anuarios/2025-cover.jpg', imgFit: 'cover', route: 'anuarios', pt: 'Anuários da Cannabis', en: 'Cannabis Yearbooks' },
   { cat: 'ilustracao', color: 'var(--gold)', fg: 'var(--paper-100)', mono: MONO_B, h: '270px', img: 'assets/ilustracao/amazon.jpg', route: 'ilustracao', pt: 'Ilustração Autoral', en: 'Original Illustration' },
   { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/strains.jpg', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
-  { cat: 'grafico', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '260px', img: 'assets/logos/healing-wildflower-icon.png', imgFit: 'contain', imgBg: '#EDF2F3', route: 'logos', pt: 'Logo & Marca', en: 'Logo & Mark' },
+  { cat: 'grafico', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '260px', img: 'assets/logo-seal-black.png', imgFit: 'auto 56%', imgPos: 'center 38%', imgBg: '#F2EDE3', route: 'logos', pt: 'Logo & Marca', en: 'Logo & Mark' },
 ];
 
 // Logo & Marca — brand showcase (multi-version brands + single-lockup brands)
@@ -3585,7 +3582,7 @@ class Component extends DCLogic {
       ...g, title: g[lang], cat: GAL_FILTERS.find((f) => f.key === g.cat)[lang],
       onClick: g.route ? () => go(g.route) : null,
       hasCover: !!g.img,
-      coverStyle: g.img ? `position:absolute; inset:0; background-image:url("${g.img}"); background-size:${g.imgFit || 'cover'}; background-position:center; background-repeat:no-repeat; background-color:${g.imgBg || 'transparent'}` : '',
+      coverStyle: g.img ? `position:absolute; inset:0; background-image:url("${g.img}"); background-size:${g.imgFit || 'cover'}; background-position:${g.imgPos || 'center'}; background-repeat:no-repeat; background-color:${g.imgBg || 'transparent'}` : '',
     }));
 
     const services = D.services.map((s) => ({ ...s }));
