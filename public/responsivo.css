@@ -313,20 +313,38 @@ html, body { overflow-x: hidden; }
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
   }
-  .ga-card--wide > .ga-midia {
+  /* Sem colagem o card largo continua sendo duas celulas lado a lado, que e
+     o caso da pagina Cases. A grade de tres celulas vale so onde existe
+     colagem, senao a coluna da direita fica vazia e o card quebra.
+
+     Ali o blurb tem uma linha so, entao meio a meio deixava metade do card
+     em branco. A midia leva 1.6 e o texto 1, o que faz o card ler como faixa
+     em destaque e nao como par desequilibrado. */
+  .ga-card--wide:not(.ga-card--colagem) { grid-template-columns: 1.6fr 1fr; }
+  .ga-card--wide > div:first-child {
+    border-bottom: none !important;
+    border-right: 2px solid var(--ink);
+  }
+  /* Sem colagem o corpo mantem o arranjo proprio dele, que na pagina Cases e
+     linha: blurb a esquerda, seta a direita. Forcar coluna empurrava a seta
+     para o rodape de uma celula alta e abria um vao de 300px no meio. */
+  .ga-card--wide.ga-card--colagem > .ga-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ga-card--wide > .ga-card__body { padding: 34px !important; align-items: center; }
+  .ga-card--colagem > .ga-midia {
     grid-column: 1; grid-row: 1;
     border-right: 2px solid var(--ink);
     border-bottom: 2px solid var(--ink) !important;
   }
-  .ga-card--wide > .ga-colagem {
+  .ga-card--colagem > .ga-colagem {
     grid-column: 2; grid-row: 1;
     border-bottom: 2px solid var(--ink);
   }
-  .ga-card--wide > .ga-card__body {
+  .ga-card--colagem > .ga-card__body {
     grid-column: 1 / -1; grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding: 28px 34px !important;
   }
   /* O texto do card largo ocupa meia coluna de 1132px; no corpo padrao ele

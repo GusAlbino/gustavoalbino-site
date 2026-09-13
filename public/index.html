@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=fecb29ad">
+<link rel="stylesheet" href="responsivo.css?v=f603370f">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -2491,9 +2491,9 @@ const GA_MARCA = {
 };
 
 const CASES = [
-  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
-    bgImage: 'assets/cases/kaya-doc/capa-3x2.jpg',
-    bgSquare: 'assets/cases/kaya-doc/capa.jpg',
+  { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--violet)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
+    bgImage: 'assets/cases/kaya-doc/capa-dark-3x2.jpg',
+    bgSquare: 'assets/cases/kaya-doc/capa-dark.jpg',
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
     blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
@@ -4072,7 +4072,7 @@ class Component extends DCLogic {
       colagem: (d.colagem || []).map((src) => ({
         estilo: `background-image:url("${src}"); background-size:cover; background-position:center`,
       })),
-      cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide' : ''),
+      cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide ga-card--colagem' : ''),
       ratio: d.id === 'kaya-doc' ? '1/1' : '4/3',
       bgStyle: d.bgImage ? `position:absolute; inset:0; --capa:url("${d.bgImage}"); --capa-1x1:url("${d.bgSquare || d.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
       onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })

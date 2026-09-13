@@ -28,10 +28,30 @@ da Cloudflare, e só entra em produção depois do merge.
    Desktop faz isso. Aconteceu em 13/09/2026 e foi assim que um commit pulou o
    PR. O hook de `pre-push` abaixo existe para essa mordida não repetir.
 
-3. Commit das alterações. A mensagem do commit vira a descrição do PR
-   automaticamente, desde que o PR tenha um commit só e o repositório não
-   tenha template. Por isso o template foi removido: ele substituía o
-   preenchimento automático e o PR saía em branco.
+3. Commit das alterações, **um commit por branch**. A mensagem do commit vira
+   a descrição do PR automaticamente, desde que o PR tenha um commit só e o
+   repositório não tenha template. Por isso o template foi removido: ele
+   substituía o preenchimento automático e o PR saía em branco.
+
+   A regra de um commit por branch não é preferência de estilo, é o que os
+   seis primeiros PRs mostraram:
+
+   | PR | commits | descrição |
+   |---|---|---|
+   | #1 | 28 | template em branco |
+   | #2 | 6 | template em branco |
+   | #3 | **1** | **2.920 caracteres, correta** |
+   | #4 | 6 | texto errado colado |
+   | #5 | **1** | **preenchida, correta** |
+   | #6 | 3 | vazia |
+
+   Todo PR de commit único saiu certo. Todo PR que dependeu de colar saiu
+   errado ou vazio, e os tempos entre abrir e mergear foram 13s, 14s, 47s e
+   126s: colar texto no meio disso não sobrevive.
+
+   Quando o trabalho tiver partes realmente independentes, o caminho é
+   branches separados, e aí são dois PRs de commit único em vez de um PR de
+   três commits sem descrição.
 4. `git push -u origin nome-da-branch` e abrir o PR.
 5. Conferir o preview antes do merge (ver a seção seguinte).
 6. Merge, e a Cloudflare publica em produção sozinha.
