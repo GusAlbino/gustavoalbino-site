@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=ea7882d0">
+<link rel="stylesheet" href="responsivo.css?v=c00a4c2a">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -104,12 +104,11 @@
 
       <!-- BLOCO 1 — HERO -->
       <section style="border-bottom:2px solid var(--ink); background:var(--paper-200)">
-        <div style="max-width:1180px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; min-height:560px">
-          <div style="padding:56px 0">
-            <span class="ga-kicker">{{ t.hero.kicker }}</span>
-            <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.95; font-size:clamp(32px,4.6vw,46px); margin:14px 0 0; color:var(--ink); text-wrap:balance">{{ t.hero.h1a }}<br><span style="color:var(--vermilion)">{{ t.hero.h1b }}</span></h1>
+        <div class="ga-hero" style="max-width:1180px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; min-height:560px">
+          <div class="ga-hero__texto" style="padding:56px 0">
+            <h1 class="ga-hero__titulo" style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.03em; line-height:.95; font-size:clamp(32px,4.6vw,46px); margin:14px 0 0; color:var(--ink); text-wrap:balance">{{ t.hero.h1a }}<br><span style="color:var(--vermilion)">{{ t.hero.h1b }}</span></h1>
+            <div class="ga-hero__resto">
             <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:20px 0 0">
-              <span class="ga-badge ga-badge--ink" style="font-size:13px; padding:6px 12px">{{ t.hero.role }}</span>
               <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted)">{{ t.hero.meta }}</span>
             </div>
               <div style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:12px 0 0; display:flex; align-items:center; gap:9px">
@@ -121,12 +120,13 @@
               <button onClick="{{ toCases }}" class="ga-btn ga-btn--primary ga-btn--lg">{{ t.hero.ctaCases }}</button>
               <button onClick="{{ toContato }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ t.hero.ctaTalk }}</button>
             </div>
+            </div>
           </div>
           <!-- COMIC PAGE LAYOUT -->
           
           <!-- CLASSIC SINGLE-IMAGE LAYOUT -->
           <sc-if value="{{ heroClassic }}" hint-placeholder-val="{{ false }}">
-          <div style="align-self:stretch; position:relative; min-height:360px; border-left:2px solid var(--ink); overflow:hidden; padding:24px">
+          <div class="ga-hero__foto" style="align-self:stretch; position:relative; min-height:360px; border-left:2px solid var(--ink); overflow:hidden; padding:24px">
             <img src="assets/gustavo-hero.jpg" alt="Gustavo Albino, Lead Designer" width="1080" height="1080" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%">
             <span class="ga-badge" style="position:relative; background:var(--paper-100); color:var(--ink); border-color:var(--ink)">{{ t.hero.imgTag }}</span>
           </div>
@@ -1786,7 +1786,7 @@ const DICT = {
       ctaCases: 'Ver Cases',
       ctaTalk: 'Vamos Conversar',
       soon: 'Em breve',
-      imgTag: 'Belo Horizonte · Brasil',
+      imgTag: 'Lead Designer',
       imgCaption: 'Lead Designer · Kaya Mind',
       h1a: 'Desenho marcas',
       h1b: 'que não somem.',
@@ -1935,7 +1935,7 @@ const DICT = {
       ctaCases: 'View Cases',
       ctaTalk: "Let's Talk",
       soon: 'Coming soon',
-      imgTag: 'Belo Horizonte · Brazil',
+      imgTag: 'Lead Designer',
       imgCaption: 'Lead Designer · Kaya Mind',
       h1a: 'I design brands',
       h1b: "that don't blend in.",
@@ -2075,7 +2075,7 @@ const DICT = {
 const BRANDS = [
   // fit = correcao optica: normaliza a area aparente de cada marca dentro da
   // celula (logo mais encorpado ocupa menos caixa). Sem fit = 1.
-  { name: 'Kaya Mind', logo: 'assets/brands/kaya.png' },
+  { name: 'Kaya', logo: 'assets/brands/kaya.png', fit: .88 },
   { name: 'PelicanCorp', logo: 'assets/brands/pelicancorp.png', fit: .93 },
   { name: 'Geolantis360', logo: 'assets/brands/geolantis360.png' },
   { name: 'beforeudig', logo: 'assets/brands/beforeudig.png' },
