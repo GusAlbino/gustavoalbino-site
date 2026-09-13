@@ -1,0 +1,33 @@
+#!/bin/sh
+# Recusa push que aponte para refs/heads/main.
+#
+# Existe por causa de um acidente real: um branch criado com
+# `git checkout -b novo origin/main` herda `origin/main` como upstream, e
+# qualquer cliente que empurre "o branch atual para o upstream dele" manda o
+# trabalho direto para producao, sem PR. O GitHub Desktop faz isso.
+#
+# Para publicar a main de proposito (merge local, correcao de emergencia):
+#   PERMITIR_MAIN=1 git push origin main
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  case "$remote_ref" in
+    refs/heads/main)
+      if [ "$PERMITIR_MAIN" = "1" ]; then
+        echo "pre-push: push para main liberado por PERMITIR_MAIN=1." >&2
+      else
+        echo "" >&2
+        echo "  BLOQUEADO: este push vai para refs/heads/main." >&2
+        echo "" >&2
+        echo "  O repositorio trabalha por PR. Empurre o branch com nome proprio:" >&2
+        echo "    git push -u origin \$(git rev-parse --abbrev-ref HEAD)" >&2
+        echo "" >&2
+        echo "  Se o branch atual ainda estiver apontando para a main, conserte antes:" >&2
+        echo "    git branch --unset-upstream" >&2
+        echo "" >&2
+        echo "  Para publicar a main de proposito: PERMITIR_MAIN=1 git push origin main" >&2
+        echo "" >&2
+        exit 1
+      fi
+      ;;
+  esac
+done
+exit 0

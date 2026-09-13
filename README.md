@@ -16,11 +16,69 @@ da Cloudflare, e só entra em produção depois do merge.
 ## Fluxo de uma alteração
 
 1. Desenho ajustado no Claude Design (quando for mudança visual).
-2. Nova branch a partir da `main` — nunca commitar direto na `main`.
-3. Commit das alterações.
-4. Abrir PR no GitHub Desktop.
-5. A Cloudflare comenta no PR um link de preview — **conferir ali**.
-6. Merge → a Cloudflare publica em produção sozinha.
+2. Nova branch a partir da `main`, **sem herdar o upstream dela**:
+
+   ```
+   git switch -c nome-da-branch --no-track origin/main
+   ```
+
+   O `--no-track` não é detalhe. `git checkout -b nome origin/main` configura
+   `origin/main` como upstream da branch nova, e cliente que empurra "a branch
+   atual para o upstream dela" manda o trabalho direto para produção. O GitHub
+   Desktop faz isso. Aconteceu em 13/09/2026 e foi assim que um commit pulou o
+   PR. O hook de `pre-push` abaixo existe para essa mordida não repetir.
+
+3. Commit das alterações. A mensagem do commit vira a descrição do PR
+   automaticamente, desde que o PR tenha um commit só e o repositório não
+   tenha template. Por isso o template foi removido: ele substituía o
+   preenchimento automático e o PR saía em branco.
+4. `git push -u origin nome-da-branch` e abrir o PR.
+5. Conferir o preview antes do merge (ver a seção seguinte).
+6. Merge, e a Cloudflare publica em produção sozinha.
+
+## Conferir antes do merge
+
+A Cloudflare comenta o link de preview no PR quando Workers Builds está
+conectado ao repositório. Quando não houver comentário, serve o build local na
+rede de casa e abre no próprio celular:
+
+```
+python3 -m http.server 4399 --directory public
+```
+
+Depois, no celular na mesma rede: `http://<ip-do-mac>:4399`. O IP sai de
+`ipconfig getifaddr en0` ou `en1`.
+
+Isso não é luxo. Em 13/09/2026 a hero passou na medição a 412px e mesmo assim
+o botão "Vamos conversar" caía abaixo da dobra num Motorola Edge 60 Fusion,
+porque a barra do Chrome come uns 100px que nenhum emulador mostra por padrão.
+
+Checklist do merge:
+
+- [ ] Abri o preview no desktop
+- [ ] Abri o preview no celular de verdade, não só em emulador
+- [ ] Textos sem placeholder e sem pendência aberta
+- [ ] Imagens otimizadas, nada acima de ~300 KB sem motivo
+- [ ] Links internos e externos funcionando
+- [ ] Nenhum arquivo de trabalho de design (.afdesign/.fig) commitado
+
+## Proteção da main
+
+Duas camadas, porque regra escrita sozinha não segurou:
+
+1. **Hook local**, que recusa qualquer push apontando para `refs/heads/main`.
+   Hooks não são versionados pelo git, então cada clone precisa instalar:
+
+   ```
+   cp tools/hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+   ```
+
+   Para publicar a `main` de propósito: `PERMITIR_MAIN=1 git push origin main`.
+
+2. **Branch protection no GitHub**, que é a camada que o hook não alcança
+   (push pela web, por outro clone, pelo celular). Em Settings → Branches →
+   Add branch ruleset, alvo `main`, marcando "Require a pull request before
+   merging". É grátis em repositório público.
 
 ## Estrutura
 
