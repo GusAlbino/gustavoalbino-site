@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=f603370f">
+<link rel="stylesheet" href="responsivo.css?v=6b62580d">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -1226,6 +1226,128 @@
 
     <!-- ═══════════════ CASE DETAIL — OTHELO PRODUTORA ═══════════════ -->
     <!-- ═══════════════ CASE DETAIL — GUSTAVO ALBINO ═══════════════ -->
+    <!-- ═══════════════ CASE DETAIL — RUNPACE ═══════════════ -->
+    <sc-if value="{{ isCaseRP }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Case · Runpace" style="background:#FFFFFF; color:#111827">
+
+      <div style="max-width:1180px; margin:0 auto; padding:22px 24px 0">
+        <button onClick="{{ toCases }}" style="display:inline-flex; align-items:center; gap:8px; background:none; border:none; cursor:pointer; font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#111827; padding:0">← {{ t.nav.cases }}</button>
+      </div>
+
+      <section class="ga-rp__hero" style="max-width:1180px; margin:0 auto; padding:24px 24px 52px; display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px">
+            <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#1D4ED8">{{ rp.tipo }}</span>
+            <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6B7280">2026</span>
+          </div>
+          <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.9; font-size:clamp(38px,6vw,72px); margin:0 0 18px; color:#111827">Runpace</h1>
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:#374151; margin:0 0 24px; max-width:50ch">{{ rp.lede }}</p>
+          <div class="ga-rp__ficha" style="display:grid; grid-template-columns:repeat(3,1fr); border:2px solid #111827; border-radius:2px; overflow:hidden">
+            <sc-for list="{{ rp.ficha }}" as="f" hint-placeholder-count="6">
+              <div style="padding:13px 15px; border-right:1px solid #E5E7EB; border-bottom:1px solid #E5E7EB">
+                <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#6B7280; margin-bottom:4px">{{ f.k }}</div>
+                <div style="font-family:var(--font-display); font-weight:800; font-size:14px; color:#111827; line-height:1.15">{{ f.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <a href="https://www.runpace.com.br/" target="_blank" rel="noopener" style="display:inline-block; margin-top:18px; font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#1D4ED8; text-decoration:none">{{ rp.site }} ↗</a>
+        </div>
+        <figure style="margin:0; border:2px solid #111827; border-radius:2px; overflow:hidden">
+          <img src="assets/cases/runpace/capa-3x2.jpg" alt="Runpace" style="display:block; width:100%; height:auto">
+        </figure>
+      </section>
+
+      <section style="background:#172554; color:#FFFFFF">
+        <div style="max-width:1180px; margin:0 auto; padding:56px 24px">
+          <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#F97316">{{ rp.principioTitle }}</span>
+          <p style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:1.02; font-size:clamp(26px,4.4vw,52px); margin:14px 0 22px; color:#FFFFFF; max-width:18ch">{{ rp.principio }}</p>
+          <sc-for list="{{ rp.principioParas }}" as="d" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C7D2E8; margin:0 0 14px; max-width:66ch">{{ d }}</p>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:56px 24px 0">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#111827">{{ rp.saiuTitle }}</h2>
+        <sc-for list="{{ rp.saiuParas }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#374151; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:44px 24px 0">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#111827">{{ rp.logoTitle }}</h2>
+        <sc-for list="{{ rp.logoParas }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#374151; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-rp__logos" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:22px">
+          <sc-for list="{{ rp.logos }}" as="g" hint-placeholder-count="4">
+            <figure style="margin:0; border:2px solid #111827; border-radius:2px; overflow:hidden">
+              <div style="{{ g.fundo }}; padding:30px 22px; display:flex; align-items:center; justify-content:center; min-height:110px">
+                <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto">
+              </div>
+              <figcaption style="border-top:2px solid #111827; padding:9px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#6B7280; background:#FFFFFF">{{ g.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+        <div class="ga-rp__icones" style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:14px; max-width:560px">
+          <sc-for list="{{ rp.icones }}" as="g" hint-placeholder-count="2">
+            <figure style="margin:0; border:2px solid #111827; border-radius:2px; overflow:hidden">
+              <div style="{{ g.fundo }}; padding:26px; display:flex; align-items:center; justify-content:center">
+                <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:58%; height:auto">
+              </div>
+              <figcaption style="border-top:2px solid #111827; padding:9px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#6B7280; background:#FFFFFF">{{ g.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:44px 24px 0">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#111827">{{ rp.corTitle }}</h2>
+        <sc-for list="{{ rp.corParas }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#374151; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-rp__cores" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:2px solid #111827; border-radius:2px; overflow:hidden; margin-top:20px">
+          <sc-for list="{{ rp.cores }}" as="c" hint-placeholder-count="4">
+            <div style="border-right:1px solid #E5E7EB">
+              <div style="{{ c.amostra }}; height:96px; border-bottom:1px solid #E5E7EB"></div>
+              <div style="padding:12px 14px; background:#FFFFFF">
+                <div style="font-family:var(--font-display); font-weight:900; font-size:22px; color:#111827; line-height:1">{{ c.share }}</div>
+                <div style="font-family:var(--font-mono); font-size:11px; color:#6B7280; margin-top:5px">{{ c.hex }}</div>
+                <div style="font-family:var(--font-body); font-size:12px; color:#374151; margin-top:3px">{{ c.nome }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:44px 24px 0">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#111827">{{ rp.nomeTitle }}</h2>
+        <sc-for list="{{ rp.nomeParas }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#374151; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:44px 24px 0">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 18px; color:#111827">{{ rp.aplicaTitle }}</h2>
+        <div class="ga-rp__aplica" style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:start">
+          <sc-for list="{{ rp.aplicacao }}" as="g" hint-placeholder-count="6">
+            <img src="{{ g.src }}" alt="Runpace" loading="lazy" style="display:block; width:100%; height:auto; border:2px solid #111827; border-radius:2px">
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:44px 24px 72px">
+        <div style="border-left:4px solid #F97316; padding:4px 0 4px 20px">
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(22px,2.6vw,30px); margin:0 0 12px; color:#111827">{{ rp.pendenciaTitle }}</h2>
+          <sc-for list="{{ rp.pendenciaParas }}" as="d" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#374151; margin:0 0 12px; max-width:70ch">{{ d }}</p>
+          </sc-for>
+        </div>
+      </section>
+
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isCaseGA }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Case · Gustavo Albino" style="background:#1B1B1B; color:#F4EFE6">
 
@@ -2050,7 +2172,7 @@ const DICT = {
       imgCaption: 'Lead Designer · Kaya Mind',
       h1a: 'Desenho marcas',
       h1b: 'que não somem.',
-      proof: 'Na Kaya Mind desde 2022 · Disponível para 2026',
+      proof: 'Na Kaya Mind desde 2022 · Lead Designer',
 
     },
     marquee: ['Branding', 'Produto Digital', 'UI / UX', 'Editorial', 'Dataviz', 'Direção Criativa'],
@@ -2130,7 +2252,7 @@ const DICT = {
       aiTools: ['Claude', 'Codex', 'Lovable', 'Manus', 'NotebookLM'],
     },
     cta: {
-      kicker: 'Disponível para 2026',
+      kicker: 'Novos projetos',
       title: 'Vamos criar algo juntos?',
       text: 'Conte sobre o projeto, o prazo e a ideia. Respondo rápido.',
       btn: 'Ir para Contato',
@@ -2184,7 +2306,7 @@ const DICT = {
       fEmail: 'E-mail', fType: 'Tipo de projeto', fMsg: 'Mensagem', phMsg: 'Conte sobre o projeto…',
       send: 'Enviar pelo WhatsApp',
       sentTitle: 'Seu WhatsApp foi aberto', sentText: 'A mensagem já foi montada com o que você preencheu. É só tocar em enviar. Se o WhatsApp não abriu, escreva para gustavorsalbino@gmail.com.',
-      availTitle: 'Disponível para projetos · 2026', availText: 'Tempo médio de resposta: 2 dias úteis. Atendo remoto, em PT e EN.',
+      availTitle: 'Disponível para projetos', availText: 'Tempo médio de resposta: 2 dias úteis. Atendo remoto, em PT e EN.',
     },
     projectTypes: ['Branding', 'Produto Digital / App', 'Website', 'Landing Page', 'Estratégia de Marca', 'Outro'],
     services: [
@@ -2214,7 +2336,7 @@ const DICT = {
       imgCaption: 'Lead Designer · Kaya Mind',
       h1a: 'I design brands',
       h1b: "that don't blend in.",
-      proof: 'At Kaya Mind since 2022 · Available for 2026',
+      proof: 'At Kaya Mind since 2022 · Lead Designer',
 
     },
     marquee: ['Branding', 'Digital Product', 'UI / UX', 'Editorial', 'Dataviz', 'Creative Direction'],
@@ -2294,7 +2416,7 @@ const DICT = {
       aiTools: ['Claude', 'Codex', 'Lovable', 'Manus', 'NotebookLM'],
     },
     cta: {
-      kicker: 'Available for 2026',
+      kicker: 'New projects',
       title: "Let's build something together?",
       text: "Tell me about the project, the timeline and the idea. I reply fast.",
       btn: 'Go to Contact',
@@ -2348,7 +2470,7 @@ const DICT = {
       fEmail: 'Email', fType: 'Project type', fMsg: 'Message', phMsg: 'Tell me about the project…',
       send: 'Send via WhatsApp',
       sentTitle: 'Your WhatsApp is open', sentText: 'The message is ready with what you filled in. Just hit send. If WhatsApp did not open, write to gustavorsalbino@gmail.com.',
-      availTitle: 'Available for projects · 2026', availText: 'Average response time: 2 business days. Remote, in PT and EN.',
+      availTitle: 'Available for projects', availText: 'Average response time: 2 business days. Remote, in PT and EN.',
     },
     projectTypes: ['Branding', 'Digital Product / App', 'Website', 'Landing Page', 'Brand Strategy', 'Other'],
     services: [
@@ -2490,20 +2612,132 @@ const GA_MARCA = {
   },
 };
 
+// Runpace. O case existe pelo que foi retirado, nao pelo que foi desenhado:
+// e a peca do portfolio que mostra criterio de sistema em vez de repertorio
+// visual.
+const RP = 'assets/cases/runpace/';
+const RUNPACE = {
+  cores: [
+    { hex: '#FFFFFF', nome: 'Pure White', uso: 'superfície', share: '70%' },
+    { hex: '#1D4ED8', nome: 'Royal Performance', uso: 'marca', share: '15%' },
+    { hex: '#111827', nome: 'Power Graphite', uso: 'estrutura', share: '10%' },
+    { hex: '#F97316', nome: 'Pulse Orange', uso: 'ação', share: '5%' },
+  ],
+  logos: [
+    { src: RP + 'logo/wm-azul.png', tint: '#FFFFFF', pt: 'principal · azul', en: 'primary · blue' },
+    { src: RP + 'logo/wm-branco.png', tint: '#172554', pt: 'negativa · branco', en: 'negative · white' },
+    { src: RP + 'logo/wm-grafite.png', tint: '#F97316', pt: 'mono · grafite', en: 'mono · graphite' },
+    { src: RP + 'logo/wm-laranja.png', tint: '#111827', pt: 'energia · laranja', en: 'energy · orange' },
+  ],
+  icones: [
+    { src: RP + 'logo/ic-azul.png', tint: '#FFFFFF', pt: 'monograma', en: 'monogram' },
+    { src: RP + 'logo/ic-laranja.png', tint: '#111827', pt: 'monograma em ação', en: 'monogram in action' },
+  ],
+  aplicacao: [
+    { src: RP + 'aplicacao/ap-1.jpg' }, { src: RP + 'aplicacao/ap-2.jpg' },
+    { src: RP + 'aplicacao/ap-3.jpg' }, { src: RP + 'aplicacao/ap-5.jpg' },
+    { src: RP + 'aplicacao/ap-6.jpg' }, { src: RP + 'aplicacao/ap-4.jpg' },
+  ],
+  pt: {
+    tipo: 'Branding · design system',
+    lede: 'Marca de óculos esportivos que já existia e precisava de sistema. O rebranding foi feito tirando, e não acrescentando.',
+    ficha: [
+      { k: 'Cliente', v: 'Runpace' }, { k: 'Categoria', v: 'Óculos esportivos' },
+      { k: 'Papel', v: 'Branding e design system' }, { k: 'Ano', v: '2026' },
+      { k: 'Entregue', v: 'Manual, sistema e tokens' }, { k: 'Tipografia', v: 'Archivo + Inter' },
+    ],
+    principioTitle: 'O princípio que governa',
+    principio: 'A Runpace retira. O concorrente acrescenta.',
+    principioParas: [
+      'Toda decisão do sistema responde a essa frase. Diante de qualquer dúvida, mais uma cor, mais um peso, mais um efeito, mais uma linha de texto, a resposta padrão é não.',
+      'Num mercado onde a concorrência empilha gradiente, sombra e promessa, subtrair é o que diferencia. E subtrair só funciona quando está escrito, porque senão o próximo fornecedor acrescenta.',
+    ],
+    saiuTitle: 'O que saiu',
+    saiuParas: [
+      '"FOR ATHLETES" saiu do logotipo em definitivo. "SEE FASTER, GO FARTHER" saiu do site. Eram duas promessas em inglês numa marca brasileira que vende para corredor brasileiro, e nenhuma das duas dizia nada que o produto não mostrasse sozinho.',
+      'Cinco palavras entraram na lista de proibidas: premium, exclusivo, revolucionário, game changer e imperdível. São as palavras que toda marca de esporte usa, o que é exatamente o motivo de não servirem para diferenciar nenhuma.',
+    ],
+    logoTitle: 'O logotipo',
+    logoParas: [
+      'Wordmark único, caixa alta, obliquado 17°, com cortes escalonados atravessando as letras a -6,5° e marcas de velocidade nos quatro lados. Sem símbolo acoplado e sem descritor.',
+      'Monocromático em todas as versões. Azul sobre claro, branco sobre escuro e sobre foto, grafite para uma cor e bordado, laranja só em peça de ação. Quatro versões, e nenhuma outra.',
+    ],
+    corTitle: 'A paleta tem proporção obrigatória',
+    corParas: [
+      'Não basta listar as cores, porque lista de cor não impede ninguém de fazer uma peça 60% laranja. O sistema declara quanto de cada superfície cada cor pode ocupar.',
+      'O contraste de cada par foi calculado pela fórmula WCAG 2.1 e está escrito no manual. O cinza 400 aparece marcado como decorativo apenas, nunca texto, porque 2,54:1 reprova.',
+    ],
+    nomeTitle: 'O nome do produto virou sistema',
+    nomeParas: [
+      'Cada modelo passa a se chamar por uma cidade das World Marathon Majors: Tókio, Berlim, Chicago, Londres. A coleção cresce sem precisar inventar nome, e o cliente entende a hierarquia sem explicação.',
+      'O manual manda verificar cada nome no INPI antes de produzir. Nome bonito que não registra vira prejuízo de embalagem.',
+    ],
+    aplicaTitle: 'A marca em uso',
+    pendenciaTitle: 'A pendência que ficou escrita',
+    pendenciaParas: [
+      'A arte oficial existe hoje só em PNG de 2091 por 752 pixels. Atende tela e impressão até cerca de 17cm a 300dpi, e não atende nada acima disso.',
+      'O manual traz a tabela de quais processos exigem vetor: embalagem, banner grande, adesivo, bordado, corte de vinil, hot stamping e serigrafia acima de 17cm. Documentar o buraco é mais útil ao cliente do que entregar o manual fingindo que ele não existe.',
+    ],
+    site: 'Ver a Runpace',
+  },
+  en: {
+    tipo: 'Branding · design system',
+    lede: 'A sports eyewear brand that already existed and needed a system. The rebrand was done by removing, not adding.',
+    ficha: [
+      { k: 'Client', v: 'Runpace' }, { k: 'Category', v: 'Sports eyewear' },
+      { k: 'Role', v: 'Branding and design system' }, { k: 'Year', v: '2026' },
+      { k: 'Delivered', v: 'Manual, system and tokens' }, { k: 'Type', v: 'Archivo + Inter' },
+    ],
+    principioTitle: 'The governing principle',
+    principio: 'Runpace removes. The competitor adds.',
+    principioParas: [
+      'Every decision in the system answers to that line. Faced with any doubt, one more colour, one more weight, one more effect, one more line of copy, the default answer is no.',
+      'In a market where competitors stack gradients, shadows and promises, subtracting is what sets you apart. And subtracting only holds when it is written down, because otherwise the next supplier adds it back.',
+    ],
+    saiuTitle: 'What was removed',
+    saiuParas: [
+      '"FOR ATHLETES" was removed from the logotype for good. "SEE FASTER, GO FARTHER" was removed from the site. Two English promises on a Brazilian brand selling to Brazilian runners, and neither said anything the product did not show on its own.',
+      'Five words went on the banned list: premium, exclusive, revolutionary, game changer and unmissable. They are the words every sports brand uses, which is exactly why they differentiate none of them.',
+    ],
+    logoTitle: 'The logotype',
+    logoParas: [
+      'A single wordmark, uppercase, obliqued 17°, with staggered cuts crossing the letters at -6.5° and speed marks on all four sides. No attached symbol and no descriptor.',
+      'Monochrome in every version. Blue on light, white on dark and over photography, graphite for one-colour print and embroidery, orange only on action pieces. Four versions, and no others.',
+    ],
+    corTitle: 'The palette carries a mandatory ratio',
+    corParas: [
+      'Listing colours is not enough, because a colour list does not stop anyone from making a piece that is 60% orange. The system declares how much of any surface each colour may occupy.',
+      'Contrast for every pair was calculated with the WCAG 2.1 formula and written into the manual. Gray 400 is marked decorative only, never text, because 2.54:1 fails.',
+    ],
+    nomeTitle: 'Product naming became a system',
+    nomeParas: [
+      'Each model is now named after a World Marathon Majors city: Tokyo, Berlin, Chicago, London. The line grows without inventing names, and the customer reads the hierarchy without explanation.',
+      'The manual requires checking each name with the Brazilian trademark office before production. A good name that cannot be registered turns into wasted packaging.',
+    ],
+    aplicaTitle: 'The brand in use',
+    pendenciaTitle: 'The gap, written down',
+    pendenciaParas: [
+      'The official artwork exists today only as a 2091 by 752 pixel PNG. It covers screen and print up to roughly 17cm at 300dpi, and nothing above that.',
+      'The manual carries the table of which processes require vector: packaging, large banner, sticker, embroidery, vinyl cutting, hot stamping and screen printing above 17cm. Documenting the gap serves the client better than shipping a manual that pretends it is not there.',
+    ],
+    site: 'Visit Runpace',
+  },
+};
+
 const CASES = [
+  { id: 'runpace', cat: 'branding', detail: true, color: '#172554', fg: '#FFFFFF', mono: MONO_W, year: '2026',
+    bgImage: 'assets/cases/runpace/capa-3x2.jpg',
+    bgSquare: 'assets/cases/runpace/capa.jpg',
+    title: { pt: 'Runpace', en: 'Runpace' },
+    typeLabel: { pt: 'Branding + Sistema', en: 'Branding + System' },
+    blurb: { pt: 'Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.', en: 'Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in.' } },
   { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--violet)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
     bgImage: 'assets/cases/kaya-doc/capa-dark-3x2.jpg',
     bgSquare: 'assets/cases/kaya-doc/capa-dark.jpg',
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
     blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
-  { id: 'gustavo-albino', cat: 'branding', detail: true, color: '#1B1B1B', fg: '#F4EFE6', mono: MONO_W, year: '2023',
-    bgImage: 'assets/cases/gustavo-albino/capa-3x2.jpg',
-    bgSquare: 'assets/cases/gustavo-albino/capa.jpg',
-    title: { pt: 'Gustavo Albino', en: 'Gustavo Albino' },
-    typeLabel: { pt: 'Marca própria', en: 'Own brand' },
-    blurb: { pt: 'Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.', en: 'My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.' } },
-{ id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
+  { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
     bgSquare: 'assets/cases/othelo/card-cover-1x1.jpg',
     title: { pt: 'Othelo', en: 'Othelo' },
@@ -2521,6 +2755,12 @@ const CASES = [
     title: { pt: 'Yerba Fina', en: 'Yerba Fina' },
     typeLabel: { pt: 'Branding', en: 'Branding' },
     blurb: { pt: 'Moda sustentável brasileira. Identidade completa, do bud ao manual.', en: 'Brazilian sustainable fashion. Full identity, from the bud to the guidelines.' } },
+  { id: 'gustavo-albino', cat: 'branding', detail: true, color: '#1B1B1B', fg: '#F4EFE6', mono: MONO_W, year: '2023',
+    bgImage: 'assets/cases/gustavo-albino/capa-3x2.jpg',
+    bgSquare: 'assets/cases/gustavo-albino/capa.jpg',
+    title: { pt: 'Gustavo Albino', en: 'Gustavo Albino' },
+    typeLabel: { pt: 'Marca própria', en: 'Own brand' },
+    blurb: { pt: 'Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.', en: 'My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.' } },
   { id: 'hercules', cat: 'branding', detail: true, color: '#E1241C', fg: '#FFFFFF', mono: MONO_W, year: '2022',
     bgImage: 'assets/cases/hercules/card-cover.jpg',
     bgSquare: 'assets/cases/hercules/card-cover-1x1.jpg',
@@ -4167,6 +4407,15 @@ class Component extends DCLogic {
     const services = D.services.map((s) => ({ ...s }));
 
     const pick = (x) => (x && typeof x === 'object' && ('pt' in x || 'en' in x)) ? x[lang] : x;
+    const RPD = RUNPACE[lang];
+    const rp = {
+      ...RPD,
+      cores: RUNPACE.cores.map((c) => ({ ...c, amostra: `background:${c.hex}` })),
+      logos: RUNPACE.logos.map((x) => ({ src: x.src, cap: x[lang], fundo: `background:${x.tint}` })),
+      icones: RUNPACE.icones.map((x) => ({ src: x.src, cap: x[lang], fundo: `background:${x.tint}` })),
+      aplicacao: RUNPACE.aplicacao,
+    };
+
     const GAMD = GA_MARCA[lang];
     const gam = {
       ...GAMD,
@@ -4247,7 +4496,8 @@ class Component extends DCLogic {
       isCaseHercules: page === 'case' && this.state.caseId === 'hercules',
       isCaseJimi: page === 'case' && this.state.caseId === 'jimi-oliver',
       isCaseOthelo: page === 'case' && this.state.caseId === 'othelo',
-      isCaseGA: page === 'case' && this.state.caseId === 'gustavo-albino', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
+      isCaseGA: page === 'case' && this.state.caseId === 'gustavo-albino',
+      isCaseRP: page === 'case' && this.state.caseId === 'runpace', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
       isGaleria: page === 'galeria',
       isIlustra: page === 'ilustracao',
       isLogos: page === 'logos',
@@ -4257,6 +4507,7 @@ class Component extends DCLogic {
       anuarios,
       culturais,
       gam,
+      rp,
       ebookSeries: EBOOK_SERIES.map((s) => ({
         name: s.name, accent: s.accent, site: s.site,
         desc: lang === 'pt' ? s.descPt : s.descEn,
