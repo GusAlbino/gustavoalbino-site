@@ -1484,12 +1484,25 @@
             <p style="font-family:var(--font-body); font-size:17px; line-height:1.62; color:var(--text-body); max-width:64ch; margin:0 0 20px">{{ s.desc }}</p>
             <a href="{{ s.site }}" target="_blank" rel="noopener" class="ga-btn ga-btn--ghost ga-btn--sm">{{ s.siteLabel }} ↗</a>
           </div>
-          <div class="ga-masonry" style="column-width:210px; column-gap:18px">
+          <div class="ga-masonry" style="column-width:290px; column-gap:18px">
             <sc-for list="{{ s.items }}" as="e" hint-placeholder-count="12">
-              <figure style="break-inside:avoid; margin:0 0 18px; border:2px solid var(--ink); box-shadow:var(--shadow-pop); border-radius:4px; overflow:hidden; background:var(--paper-100)">
-                <img src="{{ e.src }}" alt="" loading="lazy" style="display:block; width:100%; height:auto">
-                <figcaption style="border-top:2px solid var(--ink); padding:9px 13px; display:flex; align-items:center; justify-content:space-between; font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted)"><span>E-book</span><span style="color:var(--ink); font-weight:700">{{ e.year }}</span></figcaption>
-              </figure>
+              <figure style="break-inside:avoid; margin:0 0 18px; border:2px solid var(--ink); box-shadow:var(--shadow-pop); border-radius:6px; overflow:hidden; background:var(--paper-100)">
+                  <img src="{{ e.src }}" alt="{{ e.title }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+                  <figcaption style="padding:13px 14px 14px">
+                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px">
+                      <span style="font-family:var(--font-display); font-weight:800; font-size:14px; line-height:1.2; letter-spacing:-.01em; color:var(--ink)">{{ e.title }}</span>
+                      <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; color:var(--text-muted); flex:none">{{ e.year }}</span>
+                    </div>
+                    <sc-if value="{{ e.hasToc }}" hint-placeholder-val="{{ false }}">
+                      <ul style="margin:9px 0 0; padding:0 0 0 15px; list-style:disc">
+                        <sc-for list="{{ e.toc }}" as="ti" hint-placeholder-count="4">
+                          <li style="font-family:var(--font-body); font-size:12px; line-height:1.45; color:var(--text-body); margin:0 0 3px">{{ ti }}</li>
+                        </sc-for>
+                      </ul>
+                    </sc-if>
+                    <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:inline-block; margin-top:10px; font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--vermilion); text-decoration:none">{{ t.ebooksLabel }} ↗</a>
+                  </figcaption>
+                </figure>
             </sc-for>
           </div>
         </section>
@@ -2023,6 +2036,7 @@ const DICT = {
       extra: 'Também saiu daqui',
       link: 'Acompanhar no Instagram',
     },
+    ebooksLabel: 'Baixar na Kaya',
     logosPage: {
       kicker: 'Logo & marca · seleção',
       title: 'Logo & Marca',
@@ -2184,6 +2198,7 @@ const DICT = {
       extra: 'Also came out of this',
       link: 'Follow on Instagram',
     },
+    ebooksLabel: 'Download on Kaya',
     logosPage: {
       kicker: 'Logo & mark · selection',
       title: 'Logo & Mark',
@@ -2661,44 +2676,52 @@ const EBOOK_SERIES = [
     site: 'https://kayamind.com/e-books/',
     siteLabelPt: 'Conferir no site da Kaya Mind',
     siteLabelEn: 'See them on the Kaya Mind site',
-    descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os e-books que produzi para a marca (capa, diagramação e direção de arte), muitos em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios.',
-    descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the e-books I designed for the brand (covers, layout and art direction), many in partnership with industry companies, covering health, cultivation, regulation and business.',
+    descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os 43 e-books que produzi para a marca desde 2022: capa, diagramação e direção de arte. Muitos saíram em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios. O recorte começa no Cenário Político Brasileiro, o primeiro que diagramei.',
+    descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the 43 e-books I have designed for the brand since 2022: covers, layout and art direction. Many shipped in partnership with industry companies, covering health, cultivation, regulation and business. The set starts at Cenário Político Brasileiro, the first one I laid out.',
     items: [
-      { src: 'assets/ebooks/k2-produtos-2026.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-infra-financeira.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-hempmeds-sono.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-mkt-tabacarias.jpg', year: '2026' },
-      { src: 'assets/ebooks/k2-canhamo-industrial.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-feridas.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-vozes.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-foco.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-dor-cronica.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-clinica-segura.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-headshops-boom.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-tabaco.jpg', year: '2025' },
-      { src: 'assets/ebooks/k2-cogumelos.jpg', year: '2025' },
-      { src: 'assets/ebooks/associacao.jpg', year: '2025' },
-      { src: 'assets/ebooks/canabinoides-menores.jpg', year: '2025' },
-      { src: 'assets/ebooks/genetica.jpg', year: '2024' },
-      { src: 'assets/ebooks/mkt-influencia.jpg', year: '2024' },
-      { src: 'assets/ebooks/thcv.jpg', year: '2024' },
-      { src: 'assets/ebooks/futuro.jpg', year: '2024' },
-      { src: 'assets/ebooks/estudos.jpg', year: '2024' },
-      { src: 'assets/ebooks/uso-topico.jpg', year: '2024' },
-      { src: 'assets/ebooks/depressao.jpg', year: '2024' },
-      { src: 'assets/ebooks/saude-mental.jpg', year: '2024' },
-      { src: 'assets/ebooks/manipulacao.jpg', year: '2024' },
-      { src: 'assets/ebooks/cadeia-produtiva.jpg', year: '2024' },
-      { src: 'assets/ebooks/sono.jpg', year: '2023' },
-      { src: 'assets/ebooks/sedas.jpg', year: '2023' },
-      { src: 'assets/ebooks/strains.jpg', year: '2023' },
-      { src: 'assets/ebooks/tabacarias.jpg', year: '2023' },
-      { src: 'assets/ebooks/evidencias.jpg', year: '2023' },
-      { src: 'assets/ebooks/filtros-piteiras.jpg', year: '2023' },
-      { src: 'assets/ebooks/oleo.jpg', year: '2023' },
-      { src: 'assets/ebooks/produtos.jpg', year: '2023' },
-      { src: 'assets/ebooks/receitas.jpg', year: '2023' },
-      { src: 'assets/ebooks/tendencias.jpg', year: '2023' },
+      { src: 'assets/ebooks-kaya/terapia-canabinoide-na-neurologia.jpg', year: '2026', title: 'Terapia Canabinoide na Neurologia', url: 'https://kayamind.com/terapia-canabinoide-na-neurologia/', toc: ['Como interpretar as evidências', 'TEA e Síndrome de Tourette', 'Esclerose múltipla e espasticidade', 'Outras condições e panorama comparativo'] },
+      { src: 'assets/ebooks-kaya/mkt-digital-tabacarias-headshops.jpg', year: '2026', title: 'Marketing Digital para Tabacarias e Headshops', url: 'https://kayamind.com/mkt-digital-tabacarias-headshops/', toc: ['Produção de conteúdo', 'Distribuição e alcance', 'Conversão e relacionamento', 'Gestão e análise'] },
+      { src: 'assets/ebooks-kaya/ebook-wepayments-mercado-de-cannabis-no-brasil.jpg', year: '2026', title: 'Mercado de Cannabis no Brasil', url: 'https://kayamind.com/ebook-wepayments-mercado-de-cannabis-no-brasil/', toc: ['Modelos de negócio mais comuns no setor', 'Desafios operacionais do mercado de CBD', 'Compliance financeiro na prática', 'Profissionalização e o futuro do setor'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-medicinal-e-sono.jpg', year: '2026', title: 'Cannabis Medicinal e Sono', url: 'https://kayamind.com/ebook-cannabis-medicinal-e-sono/', toc: ['Por que os tratamentos convencionais nem sempre funcionam?', 'Sistema endocanabinoide e fisiologia do sono', 'Cannabis medicinal nos distúrbios do sono', 'Evidências científicas: o que os estudos mostram?'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-autismo.jpg', year: '2026', title: 'Cannabis e Autismo', url: 'https://kayamind.com/ebook-cannabis-autismo/', toc: ['Principais estudos clínicos e revisões científicas', 'Segurança no uso da cannabis medicinal no TEA', 'Como acompanhar a resposta ao tratamento', 'Acesso e qualidade dos produtos'] },
+      { src: 'assets/ebooks-kaya/e-book-produtos-de-cannabis-medicinal-no-brasil.jpg', year: '2026', title: 'Produtos de Cannabis Medicinal no Brasil', url: 'https://kayamind.com/e-book-produtos-de-cannabis-medicinal-no-brasil/', toc: ['O universo de produtos disponíveis', 'As vias de acesso', 'Formatos e composição', 'Análise de preços'] },
+      { src: 'assets/ebooks-kaya/e-book-abecmed.jpg', year: '2026', title: 'Inflorescências e Uso Terapêutico', url: 'https://kayamind.com/e-book-abecmed/', toc: ['COMO PODEM FAZER PARTE DO TRATAMENTO?', 'REDUÇÃO DE DANOS', 'ACOMPANHAMENTO PROFISSIONAL', 'ASPECTOS LEGAIS'] },
+      { src: 'assets/ebooks-kaya/associacoes-cannabis-brasil-ebook.jpg', year: '2026', title: 'Associações de Cannabis', url: 'https://kayamind.com/associacoes-cannabis-brasil-ebook/', toc: ['O que são as associações de pacientes', 'O panorama das associações brasileiras', 'Como funciona a produção dos medicamentos', 'O novo cenário regulatório'] },
+      { src: 'assets/ebooks-kaya/tabaco-alem-do-obvio.jpg', year: '2025', title: 'Tabaco Além do Óbvio', url: 'https://kayamind.com/tabaco-alem-do-obvio/', toc: ['Tipos mais comuns de tabaco', 'A alquimia dos blends', 'Armazenamento: como manter o tabaco no ponto ideal', 'Universo roll-your-own'] },
+      { src: 'assets/ebooks-kaya/o-poder-do-canhamo-para-a-sustentabilidade.jpg', year: '2025', title: 'O Poder do Cânhamo', url: 'https://kayamind.com/o-poder-do-canhamo-para-a-sustentabilidade/', toc: ['A relação entre cânhamo e sustentabilidade', 'O papel da planta na restauração do solo e biodiversidade', 'O impressionante case de Chernobyl', 'Como o cânhamo contribui para os Objetivos da Agenda 2030 da ONU'] },
+      { src: 'assets/ebooks-kaya/ebook-vozes-pela-cannabis.jpg', year: '2025', title: 'Vozes pela Cannabis', url: 'https://kayamind.com/ebook-vozes-pela-cannabis/', toc: ['Artistas e personalidades como porta-vozes da mudança', 'Histórias reais que inspiram', 'Verdivita + Gilsons: uma parceria que ecoa', 'O futuro da cannabis: cultura, política e sociedade'] },
+      { src: 'assets/ebooks-kaya/ebook-smartgrow-canhamo-industrial-no-brasil.jpg', year: '2025', title: 'Cânhamo Industrial no Brasil', url: 'https://kayamind.com/ebook-smartgrow-canhamo-industrial-no-brasil/', toc: ['Modalidades de cultivo do cânhamo', 'Etapas do cultivo industrial', 'Oportunidades e desafios no Brasil', 'O mercado do cânhamo e a bioeconomia'] },
+      { src: 'assets/ebooks-kaya/ebook-o-desafio-de-absorcao-do-cbd.jpg', year: '2025', title: 'O Desafio de Absorção do CBD', url: 'https://kayamind.com/ebook-o-desafio-de-absorcao-do-cbd/', toc: ['Como o CBD atua no organismo e seus benefícios para o bem-estar', 'O problema da baixa absorção do CBD em formulações tradicionais', 'Como a tecnologia do CBD solúvel em água está transformando a indústria', 'O que é a tecnologia CannaSorb® CB-Active e por que ela é considerada uma inovação revolucionária'] },
+      { src: 'assets/ebooks-kaya/ebook-complysoft-como-montar-uma-associacao-canabica.jpg', year: '2025', title: 'Como Montar uma Associação Canábica', url: 'https://kayamind.com/ebook-complysoft-como-montar-uma-associacao-canabica/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-feridas-de-dificil-cicatrizacao.jpg', year: '2025', title: 'Cannabis e Feridas', url: 'https://kayamind.com/ebook-cannabis-e-feridas-de-dificil-cicatrizacao/', toc: ['Por que falar de feridas de difícil cicatrização', 'O que é o sistema endocanabinoide (SEC) na pele', 'Mecanismos: como os canabinoides podem ajudar na cicatrização', 'Evidências científicas por condição'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-dor-cronica.jpg', year: '2025', title: 'Cannabis e Dor Crônica', url: 'https://kayamind.com/ebook-cannabis-e-dor-cronica/', toc: ['Por que é tão difícil tratar a dor crônica?', 'O que a cannabis tem a ver com a dor?', 'Tipos de dor e como os canabinoides podem ajudar', 'Desafios, riscos e o que considerar antes de iniciar um tratamento com canabinoides'] },
+      { src: 'assets/ebooks-kaya/ebook-canabinoides-menores.jpg', year: '2025', title: 'Canabinoides Menores', url: 'https://kayamind.com/ebook-canabinoides-menores/', toc: ['Canabinoides menores: o que são e por que importam', 'Canabigerol (CBG)', 'Canabinol (CBN)', 'Tetraidrocanabivarina (THCV)'] },
+      { src: 'assets/ebooks-kaya/ebook-alma-lab-foco-e-concentracao.jpg', year: '2025', title: 'Foco e Concentração', url: 'https://kayamind.com/ebook-alma-lab-foco-e-concentracao/', toc: ['Como o cérebro regula o foco e a concentração', 'Estratégias naturais para melhorar o foco', 'Produtos naturais com evidência científica para foco e concentração', 'Alma Lab: ciência e inovação em foco e bem-estar'] },
+      { src: 'assets/ebooks-kaya/ebook-a-piteira-headshops-tabacarias.jpg', year: '2025', title: 'Headshops & Tabacarias', url: 'https://kayamind.com/ebook-a-piteira-headshops-tabacarias/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
+      { src: 'assets/ebooks-kaya/ebook-uso-topico-da-cannabis.jpg', year: '2024', title: 'O Uso Tópico da Cannabis', url: 'https://kayamind.com/ebook-uso-topico-da-cannabis/', toc: ['A atuação dos compostos da cannabis e o uso tópico', 'O que a ciência destaca em relação ao uso tópico da cannabis', 'Principais formas farmacêuticas: HempVegan e a inovação', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-thcv-canabinoide.jpg', year: '2024', title: 'THCv: Um Canabinoide Promissor', url: 'https://kayamind.com/ebook-thcv-canabinoide/', toc: ['A cannabis e suas múltiplas propriedades', 'O THCv e os processos motivacionais', 'O THCv e o parkinson', 'Evidências constatadas por outros estudos científicos'] },
+      { src: 'assets/ebooks-kaya/ebook-tecnologia-cannabis-medicinal.jpg', year: '2024', title: 'O Futuro da Cannabis Medicinal', url: 'https://kayamind.com/ebook-tecnologia-cannabis-medicinal/', toc: ['Panorama Atual do Mercado da Cannabis para Médicos', 'Vantagens Competitivas para Médicos na Era Atual', 'Preparação para o futuro no atendimento médico da cannabis', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-o-mercado-do-thc.jpg', year: '2024', title: 'O Mercado do THC', url: 'https://kayamind.com/ebook-o-mercado-do-thc/', toc: ['Os fitocanabinoides de cannabis', 'Potencial terapêutico do THC', 'O mercado de full spectrum THC no Uruguai', 'Pioneirismo da GrüneLabs no mercado do THC e Full Spectrum'] },
+      { src: 'assets/ebooks-kaya/ebook-muito-alem-da-fumaca-headshops.jpg', year: '2024', title: 'Muito Além da Fumaça', url: 'https://kayamind.com/ebook-muito-alem-da-fumaca-headshops/', toc: ['A ASCENSÃO DAS TABACARIAS E HEADSHOPS', 'TABACARIAS E HEADSHOPS E A RELAÇÃO COM A SMOKING CULTURE', 'COMPONDO O PORTFÓLIO DE PRODUTOS DO SEU ESTABELECIMENTO', 'TRADE MARKETING PARA COMPOSIÇÃO DE PORTFÓLIO'] },
+      { src: 'assets/ebooks-kaya/ebook-marketing-de-influencia.jpg', year: '2024', title: 'Marketing de Influência no Setor da Cannabis', url: 'https://kayamind.com/ebook-marketing-de-influencia/', toc: ['Marcas e Artistas', 'Marcas e Músicos', 'Marketing de Influência Entre Marcas', 'Espaços de Lazer e Entretenimento'] },
+      { src: 'assets/ebooks-kaya/ebook-farmacias-de-manipulacao.jpg', year: '2024', title: 'Farmácias de Manipulação e Cannabis Medicinal', url: 'https://kayamind.com/ebook-farmacias-de-manipulacao/', toc: ['As farmácias de manipulação', 'A regulamentação da cannabis nas farmácias de manipulação', 'Diferenciais dos produtos manipulados', 'Combinação de canabinoides'] },
+      { src: 'assets/ebooks-kaya/ebook-estudos-cientificos-cannabis-medicinal.jpg', year: '2024', title: 'Estudos Científicos sobre Cannabis Medicinal', url: 'https://kayamind.com/ebook-estudos-cientificos-cannabis-medicinal/', toc: ['Dor e tratamento da dor', 'Saúde mental e neuropsiquiátricos', 'Epilepsia e desordens neurológicas', 'Câncer e efeitos secundários da quimioterapia'] },
+      { src: 'assets/ebooks-kaya/ebook-cuidado-com-a-saude-mental.jpg', year: '2024', title: 'A Importância do Cuidado com a Saúde Mental', url: 'https://kayamind.com/ebook-cuidado-com-a-saude-mental/', toc: ['Formas de cuidar da saúde mental', 'Importância da adesão ao tratamento', 'Benefícios da Cannabis Medicinal para a saúde mental', 'Segurança e eficácia do tratamento'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-genetica.jpg', year: '2024', title: 'Cannabis e Genética', url: 'https://kayamind.com/ebook-cannabis-e-genetica/', toc: ['Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-cadeia-produtiva-cannabis.jpg', year: '2024', title: 'Cadeia Produtiva da Cannabis', url: 'https://kayamind.com/ebook-cadeia-produtiva-cannabis/', toc: ['Fabricação de produtos à base de cannabis', 'Garantindo a qualidade', 'Como é realizada a distribuição', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-30-perguntas-sobre-depressao.jpg', year: '2024', title: '30 Perguntas sobre Depressão', url: 'https://kayamind.com/ebook-30-perguntas-sobre-depressao/', toc: ['O que é a depressão', 'Quais são os principais sintomas da depressão', 'Possíveis tratamentos e acompanhamentos', 'Tratamentos alternativos com psicodélicos'] },
+      { src: 'assets/ebooks-kaya/e-book-guia-de-cultivo.jpg', year: '2024', title: 'Guia de Cultivo: da Semente à Flor', url: 'https://kayamind.com/e-book-guia-de-cultivo/', toc: ['Escolhendo o método de cultivo ideal', 'Germinação e fase vegetativa', 'Fase de floração e colheita', 'Cura, secagem e armazenamento'] },
+      { src: 'assets/ebooks-kaya/ebook-produtos-de-cannabis.jpg', year: '2023', title: 'Produtos de Cannabis', url: 'https://kayamind.com/ebook-produtos-de-cannabis/', toc: ['A importância da formulação do produto', 'Formas farmacêuticas disponíveis no Brasil', 'Óleos de cannabis', 'Gummies canábicas'] },
+      { src: 'assets/ebooks-kaya/ebook-filtros-e-piteiras.jpg', year: '2023', title: 'Guia de Filtros e Piteiras', url: 'https://kayamind.com/ebook-filtros-e-piteiras/', toc: ['Informações sobre a política de Redução de Danos', 'Diferenças entre filtros e piteiras', 'Marcas que possuem filtros e piteiras', 'Como utilizar filtros e piteiras no seu cigarro'] },
+      { src: 'assets/ebooks-kaya/ebook-as-strains-mais-famosas-da-internet.jpg', year: '2023', title: 'As Strains Mais Famosas da Internet', url: 'https://kayamind.com/ebook-as-strains-mais-famosas-da-internet/', toc: ['O que são os terpenos e suas influências', 'Tipos de cannabis', 'Dicas para um consumo saudável de cannabis', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/e-book-tendencias-do-mercado-da-cannabis.jpg', year: '2023', title: 'Tendências do Mercado da Cannabis', url: 'https://kayamind.com/e-book-tendencias-do-mercado-da-cannabis/', toc: ['Mercado global da cannabis: para onde vamos agora', 'O cânhamo: possibilidades e sua versatilidade', 'Cosméticos feitos com maconha', 'Cannabis e sexo'] },
+      { src: 'assets/ebooks-kaya/e-book-receitas-com-cannabis.jpg', year: '2023', title: 'Receitas com Cannabis', url: 'https://kayamind.com/e-book-receitas-com-cannabis/', toc: ['Como realizar o processo de descarboxilação', 'Manteiga canábica: a base da culinária com cannabis', 'Diferentes sobremesas', 'Pratos para compartilhar'] },
+      { src: 'assets/ebooks-kaya/e-book-oleo-de-cbd.jpg', year: '2023', title: 'Guia do Óleo da Cannabis no Brasil', url: 'https://kayamind.com/e-book-oleo-de-cbd/', toc: ['Tipos de canabinoides', 'Condições médicas que podem ser tratadas com o óleo', 'Onde comprar o óleo de cannabis no Brasil', 'Quanto custa o tratamento com cannabis'] },
+      { src: 'assets/ebooks-kaya/e-book-guia-das-sedas-para-bolar.jpg', year: '2023', title: 'Guia de Sedas para Bolar', url: 'https://kayamind.com/e-book-guia-das-sedas-para-bolar/', toc: ['Tamanho das sedas', 'A melhor seda para fumar', 'Dicas para ter a melhor experiência', 'Sedas mais populares no mercado'] },
+      { src: 'assets/ebooks-kaya/e-book-dicas-de-mkt-e-vendas-para-tabacarias.jpg', year: '2023', title: 'Dicas de Marketing e Vendas para Tabacarias', url: 'https://kayamind.com/e-book-dicas-de-mkt-e-vendas-para-tabacarias/', toc: ['Dicas para você conhecer melhor seus clientes no mercado da cannabis', 'Consumer Insights: como conhecer seu cliente ajuda no aumento das vendas', 'Customer Success: a satisfação do cliente no mercado da cannabis', 'Aprenda a impulsionar suas vendas no mercado da cannabis no Brasil'] },
+      { src: 'assets/ebooks-kaya/e-book-cannabis-medicinal-evidencias-cientificas.jpg', year: '2023', title: 'Cannabis Medicinal: Evidências Científicas', url: 'https://kayamind.com/e-book-cannabis-medicinal-evidencias-cientificas/', toc: ['Transtorno do Espectro Autista (TEA)', 'Esclerose múltipla', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/e-book-cannabis-e-sono.jpg', year: '2023', title: 'Cannabis Medicinal e Estudos do Sono', url: 'https://kayamind.com/e-book-cannabis-e-sono/', toc: ['Entenda sobre o sistema endocanabinoide', 'O que é o óleo de CBD e como ele pode te ajudar', 'Por que o CBN pode ser revolucionário', 'Qual a relação da cannabis com o sono?'] },
+      { src: 'assets/ebooks-kaya/e-book-cenario-politico-brasileiro-e-cannabis.jpg', year: '2022', title: 'Cenário Político Brasileiro e a Pauta da Cannabis', url: 'https://kayamind.com/e-book-cenario-politico-brasileiro-e-cannabis/', toc: ['Quantidade de menções à cannabis no twitter de determinados políticos', 'Dados que mostram o posicionamento dos partidos em relação ao PL 399/2015', 'Manifestações dos ministros do STF em torno da cannabis', 'Projetos de lei e seus autores que já foram criadas a respeito da planta'] },
     ],
   },
 ];
@@ -3966,7 +3989,7 @@ class Component extends DCLogic {
         name: s.name, accent: s.accent, site: s.site,
         desc: lang === 'pt' ? s.descPt : s.descEn,
         siteLabel: lang === 'pt' ? s.siteLabelPt : s.siteLabelEn,
-        items: s.items,
+        items: s.items.map((it) => ({ ...it, hasToc: !!(it.toc && it.toc.length) })),
       })),
       ilustraItems: ILUSTRA,
       logoBrands: LOGO_BRANDS.map((b) => ({
