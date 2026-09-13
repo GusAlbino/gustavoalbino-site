@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=2db96002">
+<link rel="stylesheet" href="responsivo.css?v=fecb29ad">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -159,6 +159,13 @@
                 <span class="ga-badge" style="position:relative; align-self:flex-start; background:{{ d.fg }}; color:{{ d.color }}; border-color:{{ d.fg }}">{{ d.tag }}</span>
                 <div style="position:relative; font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.9; font-size:34px; color:{{ d.fg }}">{{ d.title }}</div>
               </div>
+              <sc-if value="{{ d.hasColagem }}" hint-placeholder-val="{{ false }}">
+                <div class="ga-colagem">
+                  <sc-for list="{{ d.colagem }}" as="co" hint-placeholder-count="3">
+                    <div style="{{ co.estilo }}"></div>
+                  </sc-for>
+                </div>
+              </sc-if>
               <div class="ga-card__body" style="padding:20px">
                 <p style="font-family:var(--font-body); font-size:14px; line-height:1.6; color:var(--text-body); margin:0 0 14px">{{ d.blurb }}</p>
                 <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--vermilion)">{{ d.cta }} →</span>
@@ -2110,15 +2117,17 @@ const DICT = {
         { label: 'Espanhol', level: 3 },
       ],
       tools: [
+        { label: 'Figma', level: 5 },
+        { label: 'Claude', level: 5 },
+        { label: 'InDesign', level: 5 },
+        { label: 'Canva', level: 5 },
+        { label: 'Affinity', level: 5 },
         { label: 'Illustrator', level: 5 },
         { label: 'Photoshop', level: 5 },
-        { label: 'InDesign', level: 5 },
-        { label: 'Figma', level: 5 },
-        { label: 'Premiere', level: 4 },
-        { label: 'XD', level: 4 },
+        { label: 'PowerPoint', level: 5 },
         { label: 'Power BI', level: 4 },
       ],
-      aiTools: ['Midjourney / Firefly', 'ChatGPT / Claude', 'Lovable', 'NotebookLM', 'Manus'],
+      aiTools: ['Claude', 'Codex', 'Lovable', 'Manus', 'NotebookLM'],
     },
     cta: {
       kicker: 'Disponível para 2026',
@@ -2272,15 +2281,17 @@ const DICT = {
         { label: 'Spanish', level: 3 },
       ],
       tools: [
+        { label: 'Figma', level: 5 },
+        { label: 'Claude', level: 5 },
+        { label: 'InDesign', level: 5 },
+        { label: 'Canva', level: 5 },
+        { label: 'Affinity', level: 5 },
         { label: 'Illustrator', level: 5 },
         { label: 'Photoshop', level: 5 },
-        { label: 'InDesign', level: 5 },
-        { label: 'Figma', level: 5 },
-        { label: 'Premiere', level: 4 },
-        { label: 'XD', level: 4 },
+        { label: 'PowerPoint', level: 5 },
         { label: 'Power BI', level: 4 },
       ],
-      aiTools: ['Midjourney / Firefly', 'ChatGPT / Claude', 'Lovable', 'NotebookLM', 'Manus'],
+      aiTools: ['Claude', 'Codex', 'Lovable', 'Manus', 'NotebookLM'],
     },
     cta: {
       kicker: 'Available for 2026',
@@ -2669,9 +2680,14 @@ const KAYA_DOC = {
 const DESTAQUES = [
   { id: 'kaya-doc', cat: 'uiux', color: 'var(--cerulean)', fg: 'var(--paper-100)',
     bgImage: 'assets/cases/kaya-doc/capa.jpg',
-    pt: { tag: 'Produto digital', title: 'Kaya Doc', cta: 'Ver o case',
+    colagem: [
+      'assets/cases/kaya-doc/v2-home-externa.jpg',
+      'assets/cases/kaya-doc/v2-consulta.jpg',
+      'assets/cases/kaya-doc/v2-canabinoides.jpg',
+    ],
+    pt: { tag: 'Produto digital', title: 'Plataforma SaaS', cta: 'Ver o case',
           blurb: 'Plataforma SaaS de cannabis medicinal para prescritores. Lidero o design de produto: UI, UX research, design system e IA no fluxo de trabalho.' },
-    en: { tag: 'Digital product', title: 'Kaya Doc', cta: 'See the case',
+    en: { tag: 'Digital product', title: 'SaaS platform', cta: 'See the case',
           blurb: 'Medical-cannabis SaaS for prescribers. I lead product design: UI, UX research, design system and AI in the workflow.' } },
   { id: 'branding', cat: 'branding', color: 'var(--vermilion)', fg: 'var(--paper-100)',
     bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
@@ -4052,6 +4068,10 @@ class Component extends DCLogic {
     const destaques = DESTAQUES.map((d) => ({
       ...d, ...d[lang],
       hasBg: !!d.bgImage,
+      hasColagem: !!d.colagem,
+      colagem: (d.colagem || []).map((src) => ({
+        estilo: `background-image:url("${src}"); background-size:cover; background-position:center`,
+      })),
       cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide' : ''),
       ratio: d.id === 'kaya-doc' ? '1/1' : '4/3',
       bgStyle: d.bgImage ? `position:absolute; inset:0; --capa:url("${d.bgImage}"); --capa-1x1:url("${d.bgSquare || d.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
