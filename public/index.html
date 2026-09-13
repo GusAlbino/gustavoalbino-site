@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=f3ed9813">
+<link rel="stylesheet" href="responsivo.css?v=2db96002">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -1218,6 +1218,125 @@
     </sc-if>
 
     <!-- ═══════════════ CASE DETAIL — OTHELO PRODUTORA ═══════════════ -->
+    <!-- ═══════════════ CASE DETAIL — GUSTAVO ALBINO ═══════════════ -->
+    <sc-if value="{{ isCaseGA }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Case · Gustavo Albino" style="background:#1B1B1B; color:#F4EFE6">
+
+      <div style="max-width:1180px; margin:0 auto; padding:22px 24px 0">
+        <button onClick="{{ toCases }}" style="display:inline-flex; align-items:center; gap:8px; background:none; border:none; cursor:pointer; font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#F4EFE6; padding:0">← {{ t.nav.cases }}</button>
+      </div>
+
+      <section class="ga-gam__hero" style="max-width:1180px; margin:0 auto; padding:24px 24px 56px; display:grid; grid-template-columns:1.02fr .98fr; gap:48px; align-items:center">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px">
+            <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#EEBD23">{{ gam.tipo }}</span>
+            <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8C8578">2023</span>
+          </div>
+          <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.88; font-size:clamp(38px,6vw,74px); margin:0 0 18px; color:#F4EFE6">Gustavo Albino</h1>
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:#C9C2B6; margin:0 0 26px; max-width:52ch">{{ gam.lede }}</p>
+          <div class="ga-gam__ficha" style="display:grid; grid-template-columns:repeat(3,1fr); border:2px solid #3A3A3A; border-radius:var(--radius-md); overflow:hidden">
+            <sc-for list="{{ gam.ficha }}" as="f" hint-placeholder-count="6">
+              <div style="padding:13px 15px; border-right:1px solid #3A3A3A; border-bottom:1px solid #3A3A3A">
+                <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#8C8578; margin-bottom:4px">{{ f.k }}</div>
+                <div style="font-family:var(--font-display); font-weight:800; font-size:14px; letter-spacing:-.01em; color:#F4EFE6; line-height:1.15">{{ f.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <figure style="margin:0; border:3px solid #F4EFE6; border-radius:var(--radius-md); overflow:hidden">
+          <img src="assets/cases/gustavo-albino/capa-3x2.jpg" alt="Selo Gustavo Albino" style="display:block; width:100%; height:auto">
+        </figure>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:0 24px 56px">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#F4EFE6">{{ gam.v1Title }}</h2>
+        <sc-for list="{{ gam.v1Paras }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C9C2B6; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-gam__grade" style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-top:24px">
+          <sc-for list="{{ gam.v1 }}" as="g" hint-placeholder-count="6">
+            <figure style="margin:0; border:2px solid #3A3A3A; border-radius:var(--radius-sm,6px); overflow:hidden; background:#F4EFE6">
+              <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto; padding:14px; box-sizing:border-box">
+              <figcaption style="border-top:2px solid #3A3A3A; background:#1B1B1B; padding:8px 10px; font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; color:#8C8578">{{ g.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="background:#F4EFE6; color:#1B1B1B; border-top:3px solid #F4EFE6">
+        <div style="max-width:1180px; margin:0 auto; padding:56px 24px">
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px">{{ gam.v2Title }}</h2>
+          <sc-for list="{{ gam.v2Paras }}" as="d" hint-placeholder-count="2">
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#4A463E; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+          </sc-for>
+
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:19px; margin:36px 0 10px">{{ gam.partesTitle }}</h3>
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#4A463E; margin:0 0 20px; max-width:70ch">{{ gam.partesPara }}</p>
+          <div class="ga-gam__partes" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px">
+            <sc-for list="{{ gam.partes }}" as="g" hint-placeholder-count="3">
+              <figure style="margin:0; border:2px solid #1B1B1B; border-radius:var(--radius-md); overflow:hidden; background:#FFFFFF; box-shadow:var(--shadow-pop-sm)">
+                <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto; padding:26px; box-sizing:border-box">
+                <figcaption style="border-top:2px solid #1B1B1B; padding:9px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#6B6558">{{ g.cap }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:56px 24px">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#F4EFE6">{{ gam.sistemaTitle }}</h2>
+        <sc-for list="{{ gam.sistemaParas }}" as="d" hint-placeholder-count="2">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C9C2B6; margin:0 0 14px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-gam__sistema" style="display:flex; gap:18px; margin-top:22px; align-items:flex-start; flex-wrap:wrap">
+          <sc-for list="{{ gam.sistema }}" as="g" hint-placeholder-count="2">
+            <figure style="margin:0; width:300px; max-width:100%; border:2px solid #3A3A3A; border-radius:var(--radius-md); overflow:hidden; background:#F4EFE6">
+              <img src="{{ g.src }}" alt="{{ g.cap }}" loading="lazy" style="display:block; width:100%; height:auto">
+              <figcaption style="border-top:2px solid #3A3A3A; background:#1B1B1B; padding:9px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#8C8578">{{ g.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1180px; margin:0 auto; padding:0 24px 56px">
+        <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px; color:#F4EFE6">{{ gam.campanhaTitle }}</h2>
+        <sc-for list="{{ gam.campanhaParas }}" as="d" hint-placeholder-count="1">
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#C9C2B6; margin:0 0 20px; max-width:70ch">{{ d }}</p>
+        </sc-for>
+        <div class="ga-gam__grade" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px">
+          <sc-for list="{{ gam.campanha }}" as="g" hint-placeholder-count="7">
+            <img src="{{ g.src }}" alt="Campanha de lançamento" loading="lazy" style="display:block; width:100%; height:auto; border:2px solid #3A3A3A; border-radius:var(--radius-sm,6px)">
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="background:#F4EFE6; color:#1B1B1B; border-top:3px solid #F4EFE6">
+        <div style="max-width:1180px; margin:0 auto; padding:56px 24px 72px">
+          <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(24px,3vw,34px); margin:0 0 14px">{{ gam.provaTitle }}</h2>
+          <sc-for list="{{ gam.provaParas }}" as="d" hint-placeholder-count="1">
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.72; color:#4A463E; margin:0 0 20px; max-width:70ch">{{ d }}</p>
+          </sc-for>
+          <div style="border:2px solid #1B1B1B; border-radius:var(--radius-md); overflow:hidden; background:#FFFFFF; box-shadow:var(--shadow-pop-sm); max-width:640px">
+            <div class="ga-gam__cor" style="display:grid; grid-template-columns:1fr 1fr 96px; background:#1B1B1B; color:#F4EFE6">
+              <sc-for list="{{ gam.colTabela }}" as="c" hint-placeholder-count="3">
+                <div style="padding:8px 14px; font-family:var(--font-mono); font-weight:700; font-size:10px; letter-spacing:.12em; text-transform:uppercase">{{ c }}</div>
+              </sc-for>
+            </div>
+            <sc-for list="{{ gam.cores }}" as="c" hint-placeholder-count="6">
+              <div class="ga-gam__cor" style="display:grid; grid-template-columns:1fr 1fr 96px; align-items:center; border-top:1px solid #E3DDD0">
+                <div style="padding:10px 14px; font-family:var(--font-mono); font-size:13px; color:#1B1B1B">{{ c.hex }}</div>
+                <div style="padding:10px 14px; font-family:var(--font-mono); font-size:13px; color:#6B6558">{{ c.token }}</div>
+                <div style="height:100%; min-height:38px; {{ c.amostraSite }}"></div>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:#6B6558; margin:12px 0 0">{{ gam.provaNota }}</p>
+        </div>
+      </section>
+
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isCaseOthelo }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Case · Othelo" style="background:#1A1A1A; color:#F4EFE6">
 
@@ -2248,6 +2367,118 @@ const BRANDS = [
   { name: 'Glance', logo: 'assets/brands/glance.png', fit: .90 },
 ];
 
+// Marca propria. O peso do case esta na virada de V1 para V2, porque o que
+// essa peca tem de ensinavel e o que SAI de uma identidade, nao o que entra.
+const GAM = 'assets/cases/gustavo-albino/';
+const GA_MARCA = {
+  cores: [
+    { hex: '#1A1A1A', token: '--ink', site: '#1B1B1B' },
+    { hex: '#007AA4', token: '--cerulean', site: '#0079A4' },
+    { hex: '#3C357D', token: '--violet', site: '#5D357C' },
+    { hex: '#C33C29', token: '--vermilion', site: '#C33C29' },
+    { hex: '#EEBD34', token: '--gold', site: '#EEBD23' },
+    { hex: '#F8EFEB', token: '--paper-300', site: '#F8EFE8' },
+  ],
+  v1: [
+    { src: GAM + 'v1/monograma.png', pt: 'monograma original', en: 'original monogram' },
+    { src: GAM + 'v1/gadsg.png', pt: 'assinatura GADSG', en: 'GADSG signature' },
+    { src: GAM + 'v1/roxo.png', pt: 'versao magenta', en: 'magenta version' },
+    { src: GAM + 'v1/verde.png', pt: 'versao verde', en: 'green version' },
+    { src: GAM + 'v1/var-1.png', pt: 'variacao 1', en: 'variant 1' },
+    { src: GAM + 'v1/var-3.png', pt: 'variacao 3, gradiente', en: 'variant 3, gradient' },
+  ],
+  partes: [
+    { src: GAM + 'v2/parte-1.png', pt: 'anel · o nome', en: 'ring · the name' },
+    { src: GAM + 'v2/parte-2.png', pt: 'miolo · o monograma', en: 'core · the monogram' },
+    { src: GAM + 'v2/oficial.png', pt: 'selo completo', en: 'complete seal' },
+  ],
+  // O painel de referencias ficou de fora: sao capturas de Pinterest com arte
+  // de terceiros (Red Hot Chili Peppers, Thor, Daredevil) e a interface do
+  // Pinterest a vista. Num portfolio que vende direcao de arte, publicar isso
+  // e risco de direito autoral e ainda le como referencia emprestada.
+  sistema: [
+    { src: GAM + 'sistema/paleta.jpg', pt: 'paleta oficial', en: 'official palette' },
+  ],
+  campanha: [
+    { src: GAM + 'campanha/post-1.jpg' }, { src: GAM + 'campanha/post-2.jpg' },
+    { src: GAM + 'campanha/post-3.jpg' }, { src: GAM + 'campanha/post-4.jpg' },
+    { src: GAM + 'campanha/post-5.jpg' }, { src: GAM + 'campanha/post-6.jpg' },
+    { src: GAM + 'campanha/post-7.jpg' },
+  ],
+  pt: {
+    tipo: 'Branding · marca própria',
+    lede: 'Identidade própria, refeita do zero em 2023. Do monograma solto da primeira versão ao selo que assina este site.',
+    ficha: [
+      { k: 'Papel', v: 'Tudo' }, { k: 'Ano da virada', v: '2023' },
+      { k: 'Antes', v: 'GADSG · Gustavo Albino Design' }, { k: 'Depois', v: 'Selo Gustavo Albino' },
+      { k: 'Tipografia', v: 'Lemon Milk + Futura' }, { k: 'Lançamento', v: '30 posts em sequência' },
+    ],
+    v1Title: 'A primeira versão',
+    v1Paras: [
+      'A primeira marca era só o monograma: o G e o A construídos em quadrantes dentro de um anel, assinados GADSG, de Gustavo Albino Design. Servia como marca d’água e como avatar, e parava aí.',
+      'Ela vivia de cor. Magenta, verde, gradiente de roxo para ciano, negativo sobre preto. Quatro variações para o mesmo desenho, o que é confortável de fazer e caro de manter: cada aplicação nova virava uma decisão nova.',
+    ],
+    v2Title: 'O que mudou em 2023',
+    v2Paras: [
+      'O nome entrou no anel. O monograma ficou exatamente onde estava, e "Gustavo Albino" passou a circundá-lo. Isso fecha o buraco que a primeira versão tinha: monograma sozinho não se apresenta a quem nunca ouviu o nome, e num portfólio a primeira pessoa que chega é justamente essa.',
+      'A cor saiu do logo e foi para o sistema. Um lockup, preto, e a paleta trabalhando em volta em vez de dentro. Menos combinação para manter, e a marca deixa de mudar de cara a cada peça.',
+    ],
+    partesTitle: 'Como o selo é montado',
+    partesPara: 'São duas peças que se sobrepõem. O anel carrega o nome e dá a silhueta que se reconhece a 16 pixels. O miolo carrega a assinatura e sobrevive sozinho quando não cabe o nome, que é o caso de favicon, avatar e marca d’água.',
+    sistemaTitle: 'O sistema',
+    sistemaParas: [
+      'Seis cores, com os hexadecimais à vista desde o primeiro dia. Lemon Milk nos títulos, pelo peso da caixa-alta condensada. Futura no texto, pela leitura longa.',
+      'O painel de referências deixa a origem explícita: quadrinho, cartaz, gráfico de rua. Não é painel de clima, é catálogo de onde cada decisão veio.',
+    ],
+    campanhaTitle: 'O lançamento',
+    campanhaParas: [
+      'A troca de identidade foi tratada como projeto, e não como troca de foto de perfil. Trinta posts em sequência: tudo novo, nova ID, novas cores, nova fonte, elementos gráficos, a paleta com os hexadecimais, e o logo revelado em nove partes antes de aparecer inteiro.',
+    ],
+    provaTitle: 'A prova está nesta página',
+    provaParas: [
+      'A paleta que saiu na campanha de 2023 é a paleta deste site. Ela não foi adaptada: já estava resolvida quando o site foi construído, dois anos depois.',
+    ],
+    provaNota: 'Hexadecimal publicado na campanha contra o token que este site usa agora.',
+    colTabela: ['campanha 2023', 'token do site', 'hoje'],
+  },
+  en: {
+    tipo: 'Branding · own brand',
+    lede: 'My own identity, rebuilt from scratch in 2023. From the loose monogram of the first version to the seal that signs this site.',
+    ficha: [
+      { k: 'Role', v: 'Everything' }, { k: 'Rebrand year', v: '2023' },
+      { k: 'Before', v: 'GADSG · Gustavo Albino Design' }, { k: 'After', v: 'Gustavo Albino seal' },
+      { k: 'Type', v: 'Lemon Milk + Futura' }, { k: 'Launch', v: '30 posts in sequence' },
+    ],
+    v1Title: 'The first version',
+    v1Paras: [
+      'The first mark was the monogram alone: a G and an A built in quadrants inside a ring, signed GADSG, for Gustavo Albino Design. It worked as a watermark and as an avatar, and it stopped there.',
+      'It lived on colour. Magenta, green, a purple to cyan gradient, negative on black. Four variants of one drawing, which is comfortable to make and expensive to keep: every new application became a new decision.',
+    ],
+    v2Title: 'What changed in 2023',
+    v2Paras: [
+      'The name moved into the ring. The monogram stayed exactly where it was, and "Gustavo Albino" now circles it. That closes the hole the first version had: a monogram on its own does not introduce you to someone who has never heard the name, and in a portfolio that is precisely who arrives first.',
+      'Colour left the logo and moved into the system. One lockup, black, with the palette working around it instead of inside it. Fewer combinations to maintain, and the brand stops changing face on every piece.',
+    ],
+    partesTitle: 'How the seal is built',
+    partesPara: 'Two pieces overlap. The ring carries the name and gives the silhouette you recognise at 16 pixels. The core carries the signature and survives on its own when the name does not fit, which is the case for favicon, avatar and watermark.',
+    sistemaTitle: 'The system',
+    sistemaParas: [
+      'Six colours, with the hex values published from day one. Lemon Milk for headings, for the weight of condensed uppercase. Futura for body, for long reading.',
+      'The reference board makes the origin explicit: comics, posters, street graphics. It is not a mood board, it is a catalogue of where each decision came from.',
+    ],
+    campanhaTitle: 'The launch',
+    campanhaParas: [
+      'The identity change was treated as a project, not as a profile picture swap. Thirty posts in sequence: everything new, new ID, new colours, new typeface, graphic elements, the palette with its hex values, and the logo revealed in nine parts before it appeared whole.',
+    ],
+    provaTitle: 'The proof is this page',
+    provaParas: [
+      'The palette released in the 2023 campaign is the palette of this site. It was not adapted: it was already settled when the site was built, two years later.',
+    ],
+    provaNota: 'Hex published in the campaign against the token this site uses now.',
+    colTabela: ['2023 campaign', 'site token', 'today'],
+  },
+};
+
 const CASES = [
   { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
     bgImage: 'assets/cases/kaya-doc/capa-3x2.jpg',
@@ -2255,6 +2486,12 @@ const CASES = [
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
     blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
+  { id: 'gustavo-albino', cat: 'branding', detail: true, color: '#1B1B1B', fg: '#F4EFE6', mono: MONO_W, year: '2023',
+    bgImage: 'assets/cases/gustavo-albino/capa-3x2.jpg',
+    bgSquare: 'assets/cases/gustavo-albino/capa.jpg',
+    title: { pt: 'Gustavo Albino', en: 'Gustavo Albino' },
+    typeLabel: { pt: 'Marca própria', en: 'Own brand' },
+    blurb: { pt: 'Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.', en: 'My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.' } },
 { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
     bgSquare: 'assets/cases/othelo/card-cover-1x1.jpg',
@@ -3910,6 +4147,19 @@ class Component extends DCLogic {
     const services = D.services.map((s) => ({ ...s }));
 
     const pick = (x) => (x && typeof x === 'object' && ('pt' in x || 'en' in x)) ? x[lang] : x;
+    const GAMD = GA_MARCA[lang];
+    const gam = {
+      ...GAMD,
+      v1: GA_MARCA.v1.map((x) => ({ src: x.src, cap: x[lang] })),
+      partes: GA_MARCA.partes.map((x) => ({ src: x.src, cap: x[lang] })),
+      sistema: GA_MARCA.sistema.map((x) => ({ src: x.src, cap: x[lang] })),
+      campanha: GA_MARCA.campanha,
+      cores: GA_MARCA.cores.map((c) => ({
+        ...c, igual: c.hex.toUpperCase() === c.site.toUpperCase(),
+        amostraSite: `background:${c.site}`, amostraCampanha: `background:${c.hex}`,
+      })),
+    };
+
     const culturais = CULTURAIS.map((c) => ({
       id: c.id, accent: c.accent, ano: c.ano,
       poster: c.poster, posterRatio: c.posterRatio, posterCap: pick(c.posterCap),
@@ -3976,7 +4226,8 @@ class Component extends DCLogic {
       isCaseYerba: page === 'case' && this.state.caseId === 'yerba-fina',
       isCaseHercules: page === 'case' && this.state.caseId === 'hercules',
       isCaseJimi: page === 'case' && this.state.caseId === 'jimi-oliver',
-      isCaseOthelo: page === 'case' && this.state.caseId === 'othelo', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
+      isCaseOthelo: page === 'case' && this.state.caseId === 'othelo',
+      isCaseGA: page === 'case' && this.state.caseId === 'gustavo-albino', isCaseKaya: page === 'case' && this.state.caseId === 'kaya-doc',
       isGaleria: page === 'galeria',
       isIlustra: page === 'ilustracao',
       isLogos: page === 'logos',
@@ -3985,6 +4236,7 @@ class Component extends DCLogic {
       isCulturais: page === 'culturais',
       anuarios,
       culturais,
+      gam,
       ebookSeries: EBOOK_SERIES.map((s) => ({
         name: s.name, accent: s.accent, site: s.site,
         desc: lang === 'pt' ? s.descPt : s.descEn,
