@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=291e2609">
+<link rel="stylesheet" href="responsivo.css?v=7410d9a6">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -209,9 +209,9 @@
           <span class="ga-kicker ga-kicker--bare" style="justify-content:center">{{ t.marcas.kicker }}</span>
           <h2 style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:clamp(22px,3vw,32px); margin:8px 0 0; color:var(--ink)">{{ t.marcas.title }}</h2>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100)">
+        <div class="ga-brands" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100)">
           <sc-for list="{{ brands }}" as="b">
-            <div title="{{ b.name }}" style="aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); padding:22px 24px; box-sizing:border-box">
+            <div class="ga-brand" title="{{ b.name }}" style="display:flex; align-items:center; justify-content:center; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); box-sizing:border-box">
               <sc-if value="{{ b.hasLogo }}" hint-placeholder-val="{{ false }}">
                 <div role="img" aria-label="{{ b.name }}" style="{{ b.logoStyle }}"></div>
               </sc-if>
@@ -220,8 +220,10 @@
               </sc-if>
             </div>
           </sc-for>
+          <div class="ga-brand ga-brand--nota" style="display:flex; align-items:center; justify-content:center; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); box-sizing:border-box">
+            <span style="font-family:var(--font-mono); font-size:12px; line-height:1.6; letter-spacing:.06em; color:var(--text-muted); text-align:center">{{ t.marcas.note }}</span>
+          </div>
         </div>
-        <p style="text-align:center; font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; color:var(--text-muted); margin:16px 0 0">{{ t.marcas.note }}</p>
       </section>
 
       <!-- BLOCO 5 — CV DIGITAL -->
@@ -2071,16 +2073,19 @@ const DICT = {
 };
 
 const BRANDS = [
-  { name: 'PelicanCorp', logo: 'assets/brands/pelicancorp.png' },
+  // fit = correcao optica: normaliza a area aparente de cada marca dentro da
+  // celula (logo mais encorpado ocupa menos caixa). Sem fit = 1.
+  { name: 'Kaya Mind', logo: 'assets/brands/kaya.png' },
+  { name: 'PelicanCorp', logo: 'assets/brands/pelicancorp.png', fit: .93 },
   { name: 'Geolantis360', logo: 'assets/brands/geolantis360.png' },
   { name: 'beforeudig', logo: 'assets/brands/beforeudig.png' },
   { name: 'MindMaze', logo: 'assets/brands/mindmaze.png' },
-  { name: 'Duetto', logo: 'assets/brands/duetto.png' },
-  { name: 'Total Energia', logo: 'assets/brands/total-energia.svg' },
-  { name: 'Bamo', logo: 'assets/brands/bamo.svg' },
-  { name: 'Aurora Eco', logo: 'assets/brands/auroraeco.png' },
+  { name: 'Duetto', logo: 'assets/brands/duetto.png', fit: .91 },
+  { name: 'Total Energia', logo: 'assets/brands/total-energia.svg', fit: .88 },
+  { name: 'Bamo', logo: 'assets/brands/bamo.png' },
+  { name: 'Aurora Eco', logo: 'assets/brands/auroraeco.png', fit: .88 },
   { name: 'West1', logo: 'assets/brands/west1.webp' },
-  { name: 'Glance', logo: 'assets/brands/glance.png' },
+  { name: 'Glance', logo: 'assets/brands/glance.png', fit: .90 },
 ];
 
 const CASES = [
@@ -3668,7 +3673,7 @@ class Component extends DCLogic {
       })),
       brands: BRANDS.map((b) => ({
         ...b, hasLogo: !!b.logo, noLogo: !b.logo,
-        logoStyle: `width:100%; height:100%; background-image:url("${b.logo}"); background-size:contain; background-position:center; background-repeat:no-repeat`,
+        logoStyle: `width:${(b.fit || 1) * 100}%; height:${(b.fit || 1) * 100}%; background-image:url("${b.logo}"); background-size:contain; background-position:center; background-repeat:no-repeat`,
       })),
       stats: D.cv.stats,
       timeline: D.cv.timeline,

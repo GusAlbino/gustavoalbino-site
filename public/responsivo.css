@@ -348,3 +348,29 @@ html, body { overflow-x: hidden; }
   [style*="padding:72px 24px"],
   [style*="padding: 72px 24px"] { padding: 32px 20px !important; }
 }
+
+/* ---------- Parede de marcas ----------
+   Sao 11 logos + a nota de rodape, que virou a 12a celula: 12 fecha retangulo
+   em 4, 3 e 2 colunas, entao a grade nunca termina com uma linha orfa.
+
+   As colunas sao declaradas aqui, e nao pelas regras genericas de
+   `[style*="repeat(4"]` la em cima, porque aquelas colapsam qualquer grade
+   para 2 colunas de uma vez so — util como rede de seguranca, grosseiro
+   demais para um bloco que tem uma contagem exata de celulas a respeitar.
+   `.ga-brands[style]` empata em especificidade com aquelas (0,2,0) e vence
+   por vir depois no arquivo. */
+.ga-brands[style] { grid-template-columns: repeat(4, 1fr) !important; }
+@media (max-width: 900px) { .ga-brands[style] { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 600px) { .ga-brands[style] { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* A celula saiu do style inline para ca porque a proporcao e o respiro
+   precisam mudar com a largura: no celular a celula tem 171px e um padding de
+   24px comeria um terco dela. */
+/* min-width:0 desarma o `minmax(auto, 1fr)` implicito do grid. Sem isso a
+   trilha nao encolhe abaixo do min-content da celula e, no celular, a coluna
+   da direita fica 16px cortada pelo overflow:hidden da moldura. */
+.ga-brand { aspect-ratio: 2 / 1; padding: 18px 24px; min-width: 0; }
+@media (max-width: 600px) {
+  .ga-brand { aspect-ratio: 9 / 5; padding: 12px 16px; }
+  .ga-brand--nota span { font-size: 11px !important; }
+}
