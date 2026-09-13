@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=6586b498">
+<link rel="stylesheet" href="responsivo.css?v=f3ed9813">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -1735,6 +1735,14 @@
               </sc-for>
             </div>
           </div>
+            <sc-if value="{{ b.hasPosts }}" hint-placeholder-val="{{ false }}">
+              <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:20px 0 16px; max-width:70ch">{{ b.postsNota }}</p>
+              <div class="ga-logo__posts" style="display:grid; grid-template-columns:repeat(6,1fr); gap:12px">
+                <sc-for list="{{ b.posts }}" as="po" hint-placeholder-count="6">
+                  <img src="{{ po.src }}" alt="{{ b.name }}" loading="lazy" style="display:block; width:100%; height:auto; border:2px solid var(--ink); border-radius:6px">
+                </sc-for>
+              </div>
+            </sc-if>
         </section>
       </sc-for>
 
@@ -2591,6 +2599,19 @@ const GAL = [
 
 // Logo & Marca — brand showcase (multi-version brands + single-lockup brands)
 const LOGO_BRANDS = [
+  { name: 'Run For Your Life', tagPt: 'Corrida de trilha · noturno, esportivo', tagEn: 'Trail running · night, athletic', tint: '#EFEDE8',
+    big: 'assets/logos/rfyl-prime.png', bigCapPt: 'logo primário com assinatura', bigCapEn: 'primary logo with tagline',
+    smalls: [
+      { src: 'assets/logos/rfyl-simple.png', capPt: 'logo reduzido, sem assinatura', capEn: 'short logo, no tagline' },
+      { src: 'assets/logos/rfyl-icon.png', capPt: 'monograma RFYL', capEn: 'RFYL monogram' },
+    ],
+    posts: [
+      { src: 'assets/logos/rfyl-posts/post-1.jpg' }, { src: 'assets/logos/rfyl-posts/post-2.jpg' },
+      { src: 'assets/logos/rfyl-posts/post-3.jpg' }, { src: 'assets/logos/rfyl-posts/post-4.jpg' },
+      { src: 'assets/logos/rfyl-posts/post-5.jpg' }, { src: 'assets/logos/rfyl-posts/post-6.jpg' },
+    ],
+    postsNotaPt: 'A marca foi desenhada para viver sobre fotografia de corrida, que é onde ela de fato aparece. O "R" invertido fecha com o "L" e forma um percurso, e o laranja é o único ponto de cor num sistema preto e branco, para a marca sobreviver a mata fechada, asfalto molhado e contraluz.',
+    postsNotaEn: 'The mark was designed to live over running photography, which is where it actually shows up. The reversed "R" locks with the "L" to draw a course, and orange is the only colour in an otherwise black and white system, so the mark survives dense forest, wet asphalt and backlight.' },
   { name: 'Healing Wildflower', tagPt: 'Bem-estar · floral, feminino', tagEn: 'Wellness · floral, feminine', tint: '#EDF2F3',
     big: 'assets/logos/healing-wildflower-prime.png', bigCapPt: 'logo primário (vertical)', bigCapEn: 'primary logo (vertical)',
     smalls: [
@@ -3955,6 +3976,8 @@ class Component extends DCLogic {
           src: s.src, cap: lang === 'pt' ? s.capPt : s.capEn,
           imgStyle: s.narrow ? 'display:block; width:160px; max-width:52%; height:auto' : 'display:block; width:100%; height:auto',
         })),
+        hasPosts: !!b.posts, posts: b.posts || [],
+        postsNota: b.posts ? (lang === 'pt' ? b.postsNotaPt : b.postsNotaEn) : '',
       })),
       logoSolos: LOGO_SOLOS.map((b) => ({
         name: b.name, tag: lang === 'pt' ? b.tagPt : b.tagEn, tint: b.tint, src: b.src,

@@ -475,3 +475,9 @@ html, body { overflow-x: hidden; }
   .ga-cult__grade[style] { grid-template-columns: 1fr !important; }
 }
 .ga-cult__topo > *, .ga-cult__grade > *, .ga-cult__apoios > *, .ga-cult__ficha > * { min-width: 0; }
+
+/* A faixa de posts da RFYL sao seis retratos 4:5. Em seis colunas eles ficam
+   com 170px no desktop, o suficiente para ler a marca sobre a foto. No tablet
+   viram tres e no celular dois, que e onde a foto ainda respira. */
+@media (max-width: 1024px) { .ga-logo__posts[style] { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 560px)  { .ga-logo__posts[style] { grid-template-columns: repeat(2, 1fr) !important; } }
