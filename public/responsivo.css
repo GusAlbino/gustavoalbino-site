@@ -454,3 +454,24 @@ html, body { overflow-x: hidden; }
      que ainda importa. */
   .ga-hero__foto { min-height: 220px !important; }
 }
+
+/* ---------- Projetos culturais ----------
+   A pagina repete a gramatica dos anuarios: peca grande a esquerda, dossie a
+   direita, grades de tres embaixo. No celular tudo vira coluna, e a ficha do
+   projeto passa de tres para duas colunas, porque o par rotulo/valor fica
+   ilegivel abaixo de uns 110px de largura. */
+@media (max-width: 900px) {
+  .ga-cult__topo[style] { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ga-cult__logo[style] { grid-template-columns: 1fr !important; }
+  .ga-cult__logo > div:first-child { border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .ga-cult__apoios[style] { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 720px) {
+  .ga-cult__grade[style] { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .ga-cult__ficha[style] { grid-template-columns: repeat(2, 1fr) !important; }
+  .ga-cult__apoios[style] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 420px) {
+  .ga-cult__grade[style] { grid-template-columns: 1fr !important; }
+}
+.ga-cult__topo > *, .ga-cult__grade > *, .ga-cult__apoios > *, .ga-cult__ficha > * { min-width: 0; }

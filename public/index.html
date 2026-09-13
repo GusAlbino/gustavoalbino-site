@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=5e4614fb">
+<link rel="stylesheet" href="responsivo.css?v=6586b498">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -1588,6 +1588,122 @@
     </sc-if>
 
     <!-- ═══════════════ LOGO & MARCA ═══════════════ -->
+    <!-- ═══════════════ PROJETOS CULTURAIS ═══════════════ -->
+    <sc-if value="{{ isCulturais }}" hint-placeholder-val="{{ false }}">
+    <div style="background:var(--paper-300)">
+
+      <div style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
+        <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:26px">← {{ t.nav.galeria }}</button>
+        <span class="ga-kicker" style="color:var(--vermilion)">{{ t.culturaisPage.kicker }}</span>
+        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(36px,5.4vw,66px); line-height:.94; margin:12px 0 14px; color:var(--ink)">{{ t.culturaisPage.title }}</h1>
+        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">{{ t.culturaisPage.intro }}</p>
+      </div>
+
+      <sc-for list="{{ culturais }}" as="c" hint-placeholder-count="3">
+      <section id="cult-{{ c.id }}" style="max-width:1180px; margin:0 auto; padding:56px 24px; border-bottom:3px solid var(--ink)">
+
+        <div class="ga-cult__topo" style="display:grid; grid-template-columns:.66fr 1fr; gap:44px; align-items:start">
+          <figure style="margin:0">
+            <div style="position:relative; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); background:var(--paper-100)">
+              <img src="{{ c.poster }}" alt="{{ c.posterCap }}" loading="lazy" style="display:block; width:100%; height:auto">
+            </div>
+            <figcaption style="font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); margin:10px 0 0">{{ c.posterCap }}</figcaption>
+          </figure>
+
+          <div>
+            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px">
+              <span class="ga-badge" style="background:{{ c.accent }}; color:var(--paper-100); border-color:var(--ink)">{{ c.edicao }}</span>
+              <span style="font-family:var(--font-mono); font-weight:700; font-size:26px; letter-spacing:.02em; color:{{ c.accent }}">{{ c.ano }}</span>
+            </div>
+            <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.94; font-size:clamp(28px,3.4vw,42px); margin:0 0 12px; color:var(--ink)">{{ c.title }}</h2>
+            <p style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:clamp(16px,2vw,21px); line-height:1.2; color:{{ c.accent }}; margin:0 0 20px">{{ c.tema }}</p>
+            <sc-for list="{{ c.desc }}" as="d" hint-placeholder-count="3">
+              <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:0 0 14px">{{ d }}</p>
+            </sc-for>
+
+            <div style="margin-top:24px; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
+              <div style="background:var(--ink); padding:9px 16px"><span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--paper-100)">{{ t.culturaisPage.ficha }}</span></div>
+              <div class="ga-cult__ficha" style="display:grid; grid-template-columns:repeat(3,1fr)">
+                <sc-for list="{{ c.ficha }}" as="f" hint-placeholder-count="6">
+                  <div style="padding:14px 16px; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400)">
+                    <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px">{{ f.k }}</div>
+                    <div style="font-family:var(--font-display); font-weight:800; font-size:15px; letter-spacing:-.01em; color:var(--ink); line-height:1.15">{{ f.v }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <sc-if value="{{ c.hasLink }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ c.link }}" target="_blank" rel="noopener" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; display:inline-flex; text-decoration:none">{{ t.culturaisPage.link }} · {{ c.linkLabel }} ↗</a>
+            </sc-if>
+          </div>
+        </div>
+
+        <sc-if value="{{ c.hasLogo }}" hint-placeholder-val="{{ false }}">
+        <div class="ga-cult__logo" style="margin-top:44px; display:grid; grid-template-columns:.85fr 1.15fr; align-items:stretch; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
+          <div style="padding:34px; display:flex; align-items:center; justify-content:center; background:var(--paper-200); border-right:2px solid var(--ink)">
+            <img src="{{ c.logo }}" alt="{{ t.culturaisPage.logoKicker }}" loading="lazy" style="display:block; width:100%; max-width:340px; height:auto">
+          </div>
+          <div style="padding:30px 34px; display:flex; flex-direction:column; justify-content:center">
+            <span class="ga-kicker">{{ t.culturaisPage.logoKicker }}</span>
+            <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:10px 0 0">{{ c.logoNota }}</p>
+          </div>
+        </div>
+        </sc-if>
+
+        <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.pecas }}</h3>
+        <div class="ga-cult__grade" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start">
+          <sc-for list="{{ c.pecas }}" as="pc" hint-placeholder-count="3">
+            <figure style="margin:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100); box-shadow:var(--shadow-pop-sm)">
+              <img src="{{ pc.src }}" alt="{{ pc.cap }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+              <figcaption style="padding:10px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted)">{{ pc.cap }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ c.hasFotos }}" hint-placeholder-val="{{ false }}">
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.fotos }}</h3>
+          <div class="ga-cult__grade" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start">
+            <sc-for list="{{ c.fotos }}" as="ft" hint-placeholder-count="3">
+              <figure style="margin:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100); box-shadow:var(--shadow-pop-sm)">
+                <img src="{{ ft.src }}" alt="{{ ft.cap }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+                <figcaption style="padding:10px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted)">{{ ft.cap }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ c.hasExtra }}" hint-placeholder-val="{{ false }}">
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.extra }}</h3>
+          <figure style="margin:0; max-width:620px; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100); box-shadow:var(--shadow-pop-sm)">
+            <img src="{{ c.extraSrc }}" alt="{{ c.extraCap }}" loading="lazy" style="display:block; width:100%; height:auto; border-bottom:2px solid var(--ink)">
+            <figcaption style="padding:10px 12px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted)">{{ c.extraCap }}</figcaption>
+          </figure>
+        </sc-if>
+
+        <sc-if value="{{ c.hasApoios }}" hint-placeholder-val="{{ false }}">
+          <h3 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:20px; color:var(--ink); margin:44px 0 16px">{{ t.culturaisPage.apoios }}</h3>
+          <div class="ga-cult__apoios" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-100)">
+            <sc-for list="{{ c.apoios }}" as="ap" hint-placeholder-count="8">
+              <div style="padding:20px 18px; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400); display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center">
+                <div style="height:52px; display:flex; align-items:center; justify-content:center; width:100%">
+                  <img src="{{ ap.src }}" alt="{{ ap.nome }}" loading="lazy" style="max-width:100%; max-height:52px; width:auto; height:auto; display:block">
+                </div>
+                <div>
+                  <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted)">{{ ap.papel }}</div>
+                  <div style="font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:-.01em; color:var(--ink); margin-top:2px">{{ ap.nome }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+      </section>
+      </sc-for>
+
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isLogos }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1180px; margin:0 auto; padding:40px 24px 88px">
       <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:28px">← {{ t.nav.galeria }}</button>
@@ -1885,7 +2001,19 @@ const DICT = {
     galPage: {
       kicker: 'Prova de trabalho',
       title: 'Projetos',
-      intro: 'Quatro acervos abertos: anuários e relatórios, ilustração autoral, e-books e marcas. Material entregue, não amostra.',
+      intro: 'Cinco acervos abertos: anuários e relatórios, ilustração autoral, e-books, marcas e projetos culturais. Material entregue, não amostra.',
+    },
+    culturaisPage: {
+      kicker: 'Projetos culturais · Betim, MG',
+      title: 'Projetos culturais',
+      intro: 'Identidade e material gráfico para projetos aprovados em lei de incentivo. Cada um traz a lei, o local, a data, quem financiou e o que foi entregue, porque num projeto cultural essa ficha é parte do trabalho.',
+      ficha: 'Ficha do projeto',
+      pecas: 'Peças entregues',
+      fotos: 'O projeto na rua',
+      apoios: 'Apoio, patrocínio e realização',
+      logoKicker: 'Marca criada para o evento',
+      extra: 'Também saiu daqui',
+      link: 'Acompanhar no Instagram',
     },
     logosPage: {
       kicker: 'Logo & marca · seleção',
@@ -2034,7 +2162,19 @@ const DICT = {
     galPage: {
       kicker: 'Proof of work',
       title: 'Projects',
-      intro: 'Four open archives: yearbooks and reports, original illustration, e-books and brand marks. Delivered work, not samples.',
+      intro: 'Five open archives: yearbooks and reports, original illustration, e-books, brand marks and cultural projects. Delivered work, not samples.',
+    },
+    culturaisPage: {
+      kicker: 'Cultural projects · Betim, Brazil',
+      title: 'Cultural projects',
+      intro: 'Identity and graphic material for projects approved under cultural incentive law. Each one lists the law, the venue, the date, who funded it and what shipped, because on a cultural project that sheet is part of the work.',
+      ficha: 'Project sheet',
+      pecas: 'Delivered pieces',
+      fotos: 'The project on the street',
+      apoios: 'Support, sponsorship and production',
+      logoKicker: 'Mark created for the event',
+      extra: 'Also came out of this',
+      link: 'Follow on Instagram',
     },
     logosPage: {
       kicker: 'Logo & mark · selection',
@@ -2296,18 +2436,156 @@ const CASE_FILTERS = [
   { key: 'identidade', pt: 'Identidade Visual', en: 'Visual Identity' },
 ];
 
+// Projetos culturais — trabalho de identidade para projetos aprovados em lei
+// de incentivo. Cada entrada carrega a lei, o local, a data e quem financiou,
+// porque num projeto cultural essa ficha e parte do trabalho e nao rodape.
+const CULT = 'assets/culturais/';
+const CULTURAIS = [
+  {
+    id: 'muros', accent: '#E1241C',
+    poster: CULT + 'muros/banner-9x3.jpg', posterRatio: '1500/500',
+    logo: CULT + 'muros/logo-evento.png',
+    link: 'https://www.instagram.com/muroscorevida/', linkLabel: '@muroscorevida',
+    edicao: { pt: '4ª edição', en: '4th edition' }, ano: '2026',
+    title: { pt: 'Muros do Jardim Teresópolis · Cor e Vida', en: 'Muros do Jardim Teresópolis · Cor e Vida' },
+    tema: {
+      pt: 'Arte urbana como caminho de desenvolvimento humano.',
+      en: 'Urban art as a path for human development.' },
+    posterCap: { pt: 'Banner 9x3m, arte principal do evento', en: 'Banner 9x3m, the event key art' },
+    logoNota: {
+      pt: 'A marca nasceu para esta edição e para mais nada. Lettering de spray sobre contorno pesado, na mesma gramática do grafite que os educandos usam no muro. Ela assina banner, outdoor, adesivo, etiqueta, camiseta e catálogo.',
+      en: 'The mark was made for this edition and nothing else. Spray lettering over a heavy outline, in the same grammar as the graffiti the students use on the wall. It signs the banner, billboard, sticker, label, T-shirt and catalogue.' },
+    desc: {
+      pt: [
+        'O projeto leva grafite e estética urbana para os muros do Jardim Teresópolis, em Betim. Cinquenta educandos passam por um processo formativo e transformam a percepção do próprio território enquanto aprendem técnica visual.',
+        'A 4ª edição organiza o trabalho em três temas: diversidade étnica, sustentabilidade social e urbana, e saberes populares. Cada tema vira painel de rua e depois página de catálogo.',
+        'Assino o design gráfico do projeto, o que na ficha técnica é o crédito e na prática significa a marca do evento e todas as peças que saem dela, do adesivo de 12cm ao banner de 9 metros.',
+      ],
+      en: [
+        'The project brings graffiti and urban aesthetics to the walls of Jardim Teresópolis, in Betim. Fifty students go through a training process and change how they see their own territory while learning visual technique.',
+        'The 4th edition organises the work in three themes: ethnic diversity, social and urban sustainability, and popular knowledge. Each theme becomes a street panel and later a catalogue page.',
+        'I sign the graphic design of the project. On the credits page that is the line; in practice it means the event mark and every piece that comes out of it, from the 12cm sticker to the 9 metre banner.',
+      ] },
+    ficha: [
+      { k: { pt: 'Lei de incentivo', en: 'Incentive law' }, v: { pt: 'Lei Rouanet · MinC', en: 'Rouanet Law · MinC' } },
+      { k: { pt: 'Local', en: 'Venue' }, v: { pt: 'Jd. Teresópolis · Betim, MG', en: 'Jd. Teresópolis · Betim, Brazil' } },
+      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: '4ª · 2026', en: '4th · 2026' } },
+      { k: { pt: 'Meu papel', en: 'My role' }, v: { pt: 'Designer gráfico', en: 'Graphic designer' } },
+      { k: { pt: 'Patrocínio', en: 'Sponsor' }, v: { pt: 'Grupo SADA', en: 'Grupo SADA' } },
+      { k: { pt: 'Realização', en: 'Production' }, v: { pt: 'Othelo Produtora', en: 'Othelo Produtora' } },
+    ],
+    pecas: [
+      { src: CULT + 'muros/mockup.jpg', cap: { pt: 'Camiseta da equipe', en: 'Crew T-shirt' } },
+      { src: CULT + 'muros/adesivo.jpg', cap: { pt: 'Adesivo', en: 'Sticker' } },
+      { src: CULT + 'muros/etiqueta.jpg', cap: { pt: 'Etiqueta', en: 'Label' } },
+    ],
+    fotos: [
+      { src: CULT + 'muros/foto-1.jpg', cap: { pt: 'Equipe em campo', en: 'Crew on site' } },
+      { src: CULT + 'muros/foto-2.jpg', cap: { pt: 'Educandos do projeto', en: 'Project students' } },
+      { src: CULT + 'muros/foto-3.jpg', cap: { pt: 'Muro em execução', en: 'Wall in progress' } },
+    ],
+    extra: { src: CULT + 'muros/catalogo-capa.jpg',
+      cap: { pt: 'Catálogo · memorial cultural, 20 páginas', en: 'Catalogue · cultural memorial, 20 pages' } },
+    apoios: [
+      { src: CULT + 'muros/apoio/grupo-sada.png', nome: 'Grupo SADA', papel: { pt: 'Patrocínio', en: 'Sponsor' } },
+      { src: CULT + 'muros/apoio/lei-rouanet-2026.png', nome: 'Lei Rouanet', papel: { pt: 'Incentivo', en: 'Incentive' } },
+      { src: CULT + 'muros/apoio/minc.png', nome: 'Ministério da Cultura', papel: { pt: 'Incentivo', en: 'Incentive' } },
+      { src: CULT + 'muros/apoio/governo.png', nome: 'Governo Federal', papel: { pt: 'Incentivo', en: 'Incentive' } },
+      { src: CULT + 'muros/apoio/othelo-produtora.png', nome: 'Othelo Produtora', papel: { pt: 'Realização', en: 'Production' } },
+      { src: CULT + 'muros/apoio/avsi-brasil.png', nome: 'AVSI Brasil', papel: { pt: 'Apoio', en: 'Support' } },
+      { src: CULT + 'muros/apoio/arvore-da-vida.png', nome: 'Árvore da Vida', papel: { pt: 'Apoio', en: 'Support' } },
+      { src: CULT + 'muros/apoio/4-mundo.png', nome: '4º Mundo', papel: { pt: 'Apoio', en: 'Support' } },
+    ],
+  },
+  {
+    id: 'recital', accent: '#C8102E',
+    poster: CULT + 'recital/poster.jpg', posterRatio: '848/1200',
+    edicao: { pt: 'Evento', en: 'Event' }, ano: '2024',
+    title: { pt: 'Recital de Natal · alunos Phoenix', en: 'Christmas Recital · Phoenix students' },
+    tema: { pt: 'Um retrato, um lettering e o vermelho da escola.', en: 'One portrait, one lettering and the school red.' },
+    posterCap: { pt: 'Pôster oficial A3', en: 'Official A3 poster' },
+    desc: {
+      pt: [
+        'Recital de encerramento dos alunos da Phoenix Escola de Música, na Loja Duetto Musical do Shopping Monte Carmo, em Betim.',
+        'A identidade parte de um retrato do professor com a guitarra, em luz vermelha sobre preto, e resolve o título em lettering manuscrito. O vermelho não foi escolha minha: já é a cor da fênix no logo da escola, e a peça só amplia o que a marca tinha.',
+        'Saiu em três formatos, cada um com um enquadramento próprio do retrato: post quadrado para Instagram, pôster A3 e banner vertical de 60x120cm para o ponto de venda.',
+      ],
+      en: [
+        'End-of-year recital by the students of Phoenix Escola de Música, at Loja Duetto Musical in Shopping Monte Carmo, Betim.',
+        'The identity starts from a portrait of the teacher with his guitar, red light on black, and resolves the title in handwritten lettering. The red was not my call: it is already the phoenix colour in the school logo, and the piece only amplifies what the brand had.',
+        'It shipped in three formats, each with its own crop of the portrait: a square Instagram post, an A3 poster and a 60x120cm vertical banner for the venue.',
+      ] },
+    ficha: [
+      { k: { pt: 'Lei de incentivo', en: 'Incentive law' }, v: { pt: 'Lei Noemi Gontijo', en: 'Noemi Gontijo Law' } },
+      { k: { pt: 'Local', en: 'Venue' }, v: { pt: 'Loja Duetto Musical · Betim', en: 'Loja Duetto Musical · Betim' } },
+      { k: { pt: 'Data', en: 'Date' }, v: { pt: '14/12/2024 · 19h30', en: '14 Dec 2024 · 7:30pm' } },
+      { k: { pt: 'Realização', en: 'Production' }, v: { pt: 'Phoenix Escola de Música', en: 'Phoenix Escola de Música' } },
+      { k: { pt: 'Apoio', en: 'Support' }, v: { pt: 'Prefeitura de Betim', en: 'Betim City Hall' } },
+      { k: { pt: 'Peças', en: 'Pieces' }, v: { pt: 'Pôster, post e banner', en: 'Poster, post and banner' } },
+    ],
+    pecas: [
+      { src: CULT + 'recital/post.jpg', cap: { pt: 'Post de Instagram', en: 'Instagram post' } },
+      { src: CULT + 'recital/banner.jpg', cap: { pt: 'Banner 60x120cm', en: 'Banner 60x120cm' } },
+    ],
+  },
+  {
+    id: 'defesa', accent: '#8E44AD',
+    poster: CULT + 'defesa/poster.jpg', posterRatio: '848/1200',
+    edicao: { pt: 'Exposição', en: 'Exhibition' }, ano: '2024',
+    title: { pt: 'Defesa dos Animais e Meio Ambiente', en: 'In Defence of Animals and the Environment' },
+    tema: { pt: 'A pele do elefante vira o fundo do cartaz.', en: 'The elephant skin becomes the poster ground.' },
+    posterCap: { pt: 'Pôster oficial A3', en: 'Official A3 poster' },
+    desc: {
+      pt: [
+        'Exposição de telas de Maria Inez Ribeiro na Casa da Cultura de Betim, sobre preservação da fauna e da natureza.',
+        'A artista criou o projeto "A Arte em Defesa dos Elefantes", que virou o livro "Elefantes de A a Z". O cartaz parte daí: um close da pele do elefante em gradiente do azul ao laranja, com o título quebrado em seis linhas que ocupam a altura inteira da folha.',
+        'Além do cartaz e do post, desenhei dez cartões de agradecimento, um para cada tela exposta, e o banner pull-up da entrada. O cartão leva a tela na frente e o nome da obra, para o visitante sair com a peça que viu.',
+      ],
+      en: [
+        'Exhibition of paintings by Maria Inez Ribeiro at Casa da Cultura in Betim, on the preservation of wildlife and nature.',
+        'The artist created the project "A Arte em Defesa dos Elefantes", which became the book "Elefantes de A a Z". The poster starts there: a close-up of elephant skin in a blue to orange gradient, with the title broken across six lines that fill the full height of the sheet.',
+        'Besides the poster and the post, I designed ten thank-you cards, one for each painting on show, and the pull-up banner at the entrance. Each card carries the painting and its title, so the visitor leaves with the piece they saw.',
+      ] },
+    ficha: [
+      { k: { pt: 'Lei de incentivo', en: 'Incentive law' }, v: { pt: 'PNAB · Aldir Blanc', en: 'PNAB · Aldir Blanc' } },
+      { k: { pt: 'Local', en: 'Venue' }, v: { pt: 'Casa da Cultura · Betim, MG', en: 'Casa da Cultura · Betim, Brazil' } },
+      { k: { pt: 'Data', en: 'Date' }, v: { pt: '14/12/2024 · 10h às 17h30', en: '14 Dec 2024 · 10am to 5:30pm' } },
+      { k: { pt: 'Artista', en: 'Artist' }, v: { pt: 'Maria Inez Ribeiro', en: 'Maria Inez Ribeiro' } },
+      { k: { pt: 'Apoio', en: 'Support' }, v: { pt: 'Prefeitura de Betim', en: 'Betim City Hall' } },
+      { k: { pt: 'Peças', en: 'Pieces' }, v: { pt: 'Cartaz, post, 10 cartões', en: 'Poster, post, 10 cards' } },
+    ],
+    pecas: [
+      { src: CULT + 'defesa/post.jpg', cap: { pt: 'Post de divulgação', en: 'Announcement post' } },
+      { src: CULT + 'defesa/cartoes/cartao-1.jpg', cap: { pt: 'Cartão · Amor de Mãe', en: 'Card · Amor de Mãe' } },
+      { src: CULT + 'defesa/cartoes/cartao-2.jpg', cap: { pt: 'Cartão · Elefante Artista', en: 'Card · Elefante Artista' } },
+      { src: CULT + 'defesa/cartoes/cartao-3.jpg', cap: { pt: 'Cartão · Em Defesa da Vida', en: 'Card · Em Defesa da Vida' } },
+      { src: CULT + 'defesa/cartoes/cartao-4.jpg', cap: { pt: 'Cartão · Equilibrista', en: 'Card · Equilibrista' } },
+      { src: CULT + 'defesa/cartoes/cartao-5.jpg', cap: { pt: 'Cartão · Indiano', en: 'Card · Indiano' } },
+      { src: CULT + 'defesa/cartoes/cartao-6.jpg', cap: { pt: 'Cartão · Mosaico', en: 'Card · Mosaico' } },
+      { src: CULT + 'defesa/cartoes/cartao-7.jpg', cap: { pt: 'Cartão · Puro Amor', en: 'Card · Puro Amor' } },
+      { src: CULT + 'defesa/cartoes/cartao-8.jpg', cap: { pt: 'Cartão · Trilha do Marfim', en: 'Card · Trilha do Marfim' } },
+      { src: CULT + 'defesa/cartoes/cartao-9.jpg', cap: { pt: 'Cartão · Vergonha', en: 'Card · Vergonha' } },
+      { src: CULT + 'defesa/cartoes/cartao-10.jpg', cap: { pt: 'Cartão · Cabeça multicor', en: 'Card · Cabeça multicor' } },
+    ],
+    extra: { src: CULT + 'defesa/portfolio-capa.jpg',
+      cap: { pt: 'Portfólio artístico da Maria Inez, 12 páginas', en: "Maria Inez's artist portfolio, 12 pages" } },
+  },
+];
+
 const GAL_FILTERS = [
   { key: 'all', pt: 'Tudo', en: 'All' },
   { key: 'grafico', pt: 'Gráfico', en: 'Graphic' },
   { key: 'ilustracao', pt: 'Ilustração', en: 'Illustration' },
   { key: 'reports', pt: 'Reports', en: 'Reports' },
   { key: 'ebooks', pt: 'E-books', en: 'E-books' },
+  { key: 'culturais', pt: 'Projetos culturais', en: 'Cultural projects' },
 ];
 
 const GAL = [
   { cat: 'reports', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '340px', img: 'assets/anuarios/2025-cover.jpg', imgFit: 'cover', route: 'anuarios', pt: 'Anuários da Cannabis', en: 'Cannabis Yearbooks' },
   { cat: 'ilustracao', color: 'var(--gold)', fg: 'var(--paper-100)', mono: MONO_B, h: '270px', img: 'assets/ilustracao/amazon.jpg', route: 'ilustracao', pt: 'Ilustração Autoral', en: 'Original Illustration' },
-  { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/strains.jpg', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
+  { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/tendencias.jpg', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
+  { cat: 'culturais', color: 'var(--vermilion)', fg: 'var(--paper-100)', mono: MONO_W, h: '300px', img: 'assets/culturais/muros/logo-evento.png', imgFit: 'auto 62%', imgPos: 'center 36%', imgBg: '#F3ECDF', route: 'culturais', pt: 'Projetos Culturais', en: 'Cultural Projects' },
   { cat: 'grafico', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '260px', img: 'assets/logo-seal-black.png', imgFit: 'auto 56%', imgPos: 'center 38%', imgBg: '#F2EDE3', route: 'logos', pt: 'Logo & Marca', en: 'Logo & Mark' },
 ];
 
@@ -3588,6 +3866,20 @@ class Component extends DCLogic {
     const services = D.services.map((s) => ({ ...s }));
 
     const pick = (x) => (x && typeof x === 'object' && ('pt' in x || 'en' in x)) ? x[lang] : x;
+    const culturais = CULTURAIS.map((c) => ({
+      id: c.id, accent: c.accent, ano: c.ano,
+      poster: c.poster, posterRatio: c.posterRatio, posterCap: pick(c.posterCap),
+      edicao: pick(c.edicao), title: pick(c.title), tema: pick(c.tema),
+      desc: c.desc[lang],
+      ficha: c.ficha.map((f) => ({ k: pick(f.k), v: pick(f.v) })),
+      pecas: c.pecas.map((x) => ({ src: x.src, cap: pick(x.cap) })),
+      hasLogo: !!c.logo, logo: c.logo || '', logoNota: c.logoNota ? pick(c.logoNota) : '',
+      hasFotos: !!c.fotos, fotos: (c.fotos || []).map((x) => ({ src: x.src, cap: pick(x.cap) })),
+      hasApoios: !!c.apoios, apoios: (c.apoios || []).map((x) => ({ src: x.src, nome: x.nome, papel: pick(x.papel) })),
+      hasExtra: !!c.extra, extraSrc: c.extra ? c.extra.src : '', extraCap: c.extra ? pick(c.extra.cap) : '',
+      hasLink: !!c.link, link: c.link || '', linkLabel: c.linkLabel || '',
+    }));
+
     const anuarios = ANUARIOS.map((a) => ({
       id: a.id, year: a.year, accent: a.accent, coverPlate: !!a.coverPlate, hasCover: !!a.cover,
       cover: a.cover, note: a.note ? a.note[lang] : null,
@@ -3646,7 +3938,9 @@ class Component extends DCLogic {
       isLogos: page === 'logos',
       isEbooks: page === 'ebooks',
       isAnuarios: page === 'anuarios',
+      isCulturais: page === 'culturais',
       anuarios,
+      culturais,
       ebookSeries: EBOOK_SERIES.map((s) => ({
         name: s.name, accent: s.accent, site: s.site,
         desc: lang === 'pt' ? s.descPt : s.descEn,
