@@ -374,3 +374,27 @@ html, body { overflow-x: hidden; }
   .ga-brand { aspect-ratio: 9 / 5; padding: 12px 16px; }
   .ga-brand--nota span { font-size: 11px !important; }
 }
+
+/* ---------- Capa dos cards ----------
+   Cada card carrega duas capas na mesma regra inline: `--capa` na proporcao
+   larga do desktop e `--capa-1x1` quadrada. Trocar por media query em vez de
+   recortar no navegador tem duas vantagens. O enquadramento de cada tela e
+   decidido no arquivo, com a arte inteira a vista, e o celular baixa so a
+   versao que vai usar, porque background-image de elemento nao renderizado
+   nao e buscado.
+
+   O corte que isso desfaz era grande: a ilustracao de Entregaveis perdia 44%
+   da altura e o mockup do Kaya perdia 33% na pagina Cases. Num portfolio, a
+   capa cortada nao e so feia, ela esconde justamente a peca que o card
+   promete mostrar. */
+@media (max-width: 720px) {
+  .ga-capa { background-image: var(--capa-1x1) !important; }
+  .ga-midia { aspect-ratio: 1 / 1 !important; }
+}
+
+/* O mockup do Kaya e quadrado e a moldura 3/2 da pagina Cases comia 33% dele,
+   incluindo a base do monitor. Trocar a moldura para quadrada resolvia o
+   corte mas esvaziava o painel de texto do card largo, que tem blurb curto.
+   A saida foi pelo arquivo: `capa-3x2.jpg` encaixa o mockup inteiro num
+   quadro 3:2 pintado de branco. Como a propria peca ja e branca em volta do
+   monitor, a emenda nao aparece. */

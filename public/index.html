@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="responsivo.css?v=7410d9a6">
+<link rel="stylesheet" href="responsivo.css?v=ea7882d0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -151,10 +151,10 @@
         <div class="ga-destaques" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px">
           <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
             <div onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer">
-              <div style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
+              <div class="ga-midia ga-midia--destaque" style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
                 <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
                 <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
-                  <div style="{{ d.bgStyle }}"></div>
+                  <div class="ga-capa" style="{{ d.bgStyle }}"></div>
                   <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.64) 100%)"></div>
                 </sc-if>
                 <span class="ga-badge" style="position:relative; align-self:flex-start; background:{{ d.fg }}; color:{{ d.color }}; border-color:{{ d.fg }}">{{ d.tag }}</span>
@@ -377,10 +377,10 @@
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px">
         <sc-for list="{{ casesList }}" as="c" hint-placeholder-count="4">
           <div onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer">
-            <div style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
+            <div class="ga-midia ga-midia--case" style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
               <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply"></div>
               <sc-if value="{{ c.hasBg }}" hint-placeholder-val="{{ false }}">
-                <div style="{{ c.bgStyle }}"></div>
+                <div class="ga-capa" style="{{ c.bgStyle }}"></div>
                 <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.62) 100%)"></div>
               </sc-if>
               <div style="position:relative; display:flex; justify-content:space-between; align-items:flex-start">
@@ -1782,7 +1782,7 @@ const DICT = {
       role: 'Lead Designer',
       meta: '10+ anos · 4 países · 4 idiomas',
       taglineBold: 'Branding, design de produto e direção criativa.',
-      taglineItalic: 'Para quem precisa que a marca aguente crescer — de negócio pequeno a time de produto lá fora.',
+      taglineItalic: 'Para quem precisa que a marca aguente crescer. De negócio pequeno a time de produto lá fora.',
       ctaCases: 'Ver Cases',
       ctaTalk: 'Vamos Conversar',
       soon: 'Em breve',
@@ -1795,26 +1795,26 @@ const DICT = {
     },
     marquee: ['Branding', 'Produto Digital', 'UI / UX', 'Editorial', 'Dataviz', 'Direção Criativa'],
     sobre: {
-      resumo: 'Eu desenho e eu corro montanha — e faz tempo que uma coisa não vive sem a outra. Dez anos de design entre Austrália, Suíça, Nova Zelândia e Portugal; a montanha entrou em 2018 e nunca mais saiu.',
+      resumo: 'Eu desenho e eu corro montanha. Faz tempo que uma coisa não vive sem a outra. Dez anos de design entre Austrália, Suíça, Nova Zelândia e Portugal; a montanha entrou em 2018 e nunca mais saiu.',
       btn: 'Saiba mais sobre mim',
       kicker: 'Sobre mim',
       title: 'Eu desenho e eu corro montanha.',
       imgTag: 'Trail na Suíça',
       paras: [
-        'Eu desenho e eu corro montanha — e faz tempo que uma coisa não vive sem a outra.',
+        'Eu desenho e eu corro montanha. Faz tempo que uma coisa não vive sem a outra.',
         'Comecei em 2018, na Suíça, fazendo trilha a pé. No início era só caminhada, um jeito de respirar entre um projeto e outro. Mas em 2019 resolvi experimentar correr na montanha, e nunca mais parei. Em 2025 encarei minha primeira competição de trilha. Em 2026 decidi ir além: mais provas, conhecendo de perto os atletas, as marcas, as assessorias e o público que move esse esporte.',
-        'Como designer, são mais de 10 anos criando marcas, produtos digitais e experiências visuais — boa parte deles fora do Brasil, entre Austrália, Suíça, Nova Zelândia e Portugal. Em algum momento percebi que minhas duas paixões podiam ser a mesma coisa.',
+        'Como designer, são mais de 10 anos criando marcas, produtos digitais e experiências visuais. Boa parte deles fora do Brasil, entre Austrália, Suíça, Nova Zelândia e Portugal. Em algum momento percebi que minhas duas paixões podiam ser a mesma coisa.',
         'É aí que está a minha vantagem: eu não olho o mundo outdoor de fora. Eu treino, eu compito, eu sei o que é furar a hidratação numa subida e aprender na prática o que funciona.',
-        'Meu propósito é unir essas duas frentes: trazer soluções de verdade para quem pratica o esporte, somando a vivência na montanha a uma década de design estratégico. Não é só fazer bonito — é fazer com quem está dentro.',
+        'Meu propósito é unir essas duas frentes: trazer soluções de verdade para quem pratica o esporte, somando a vivência na montanha a uma década de design estratégico. Bonito é o mínimo. O que conta é fazer junto com quem está dentro.',
       ],
     },
     entrega: {
       kicker: 'O que eu entrego',
       title: 'Quatro frentes, um só padrão.',
       pillars: [
-        { num: '01', title: 'Branding & Identidade', desc: 'Marcas, logos, sistema visual e manual — personalidade e consistência.' },
+        { num: '01', title: 'Branding & Identidade', desc: 'Marcas, logos, sistema visual e manual. Personalidade e consistência.' },
         { num: '02', title: 'Produto Digital', desc: 'UI/UX, apps e design systems pensados para usabilidade e escala.' },
-        { num: '03', title: 'Editorial & Dataviz', desc: 'Anuários, relatórios e Power BI — informação que vira história.' },
+        { num: '03', title: 'Editorial & Dataviz', desc: 'Anuários, relatórios e Power BI: informação que vira história.' },
         { num: '04', title: 'Direção Criativa', desc: 'Marcas, campanhas e eventos com direção de arte coesa.' },
       ],
     },
@@ -1827,7 +1827,7 @@ const DICT = {
       langTitle: 'Idiomas',
       toolsTitle: 'Ferramentas',
       aiTitle: 'Ferramentas de IA',
-      downloadPT: '(removido — PDF em português desatualizado)',
+      downloadPT: '(removido: PDF em português desatualizado)',
       downloadEN: 'Baixar CV (PDF, em inglês)',
       stats: [
         { num: '10+', label: 'anos de design' },
@@ -1876,14 +1876,14 @@ const DICT = {
       availability: 'Resposta em até 2 dias úteis',
     },
     footer: {
-      tagline: 'Lead Designer — branding, produto digital e direção criativa.',
+      tagline: 'Lead Designer · branding, produto digital e direção criativa.',
       navTitle: 'Navegar', socialTitle: 'Redes', ctaBtn: 'Vamos conversar',
       credit: '© 2026 Gustavo Albino · gustavoalbino.com.br',
     },
     casesPage: {
       kicker: 'Acervo · 5 cases',
       title: 'Cases',
-      intro: 'Projetos de marca, produto e cultura — todos com a mesma exigência gráfica.',
+      intro: 'Projetos de marca, produto e cultura, todos com a mesma exigência gráfica.',
     },
     galPage: {
       kicker: 'Prova de trabalho',
@@ -1908,16 +1908,16 @@ const DICT = {
       fName: 'Nome', phName: 'Seu nome',
       fEmail: 'E-mail', fType: 'Tipo de projeto', fMsg: 'Mensagem', phMsg: 'Conte sobre o projeto…',
       send: 'Enviar pelo WhatsApp',
-      sentTitle: 'Seu WhatsApp foi aberto', sentText: 'A mensagem já foi montada com o que você preencheu — é só tocar em enviar. Se o WhatsApp não abriu, escreva para gustavorsalbino@gmail.com.',
+      sentTitle: 'Seu WhatsApp foi aberto', sentText: 'A mensagem já foi montada com o que você preencheu. É só tocar em enviar. Se o WhatsApp não abriu, escreva para gustavorsalbino@gmail.com.',
       availTitle: 'Disponível para projetos · 2026', availText: 'Tempo médio de resposta: 2 dias úteis. Atendo remoto, em PT e EN.',
     },
-    projectTypes: ['Branding', 'Produto Digital — App', 'Website', 'Landing Page', 'Estratégia de Marca', 'Outro'],
+    projectTypes: ['Branding', 'Produto Digital / App', 'Website', 'Landing Page', 'Estratégia de Marca', 'Outro'],
     services: [
       { num: '01', title: 'Branding', desc: 'Criação e reposicionamento de marcas: identidade visual, logo, sistema visual e manual. Direção de arte que dá personalidade e consistência.', color: 'var(--vermilion)' },
-      { num: '02', title: 'Produto Digital — App', desc: 'Design de aplicativos do conceito à entrega: UX research, fluxo, UI, protótipo navegável e design system. Foco em usabilidade e escala.', color: 'var(--cerulean)' },
+      { num: '02', title: 'Produto Digital / App', desc: 'Design de aplicativos do conceito à entrega: UX research, fluxo, UI, protótipo navegável e design system. Foco em usabilidade e escala.', color: 'var(--cerulean)' },
       { num: '03', title: 'Website', desc: 'Sites institucionais e de produto: arquitetura, design das telas, protótipo e handoff. Responsivo e pensado para conversão.', color: 'var(--violet)' },
       { num: '04', title: 'Landing Page', desc: 'Páginas focadas em conversão para campanhas, eventos e lançamentos. Mensagem clara, hierarquia forte e CTA que funciona.', color: 'var(--gold)' },
-      { num: '05', title: 'Estratégia de Marca', desc: 'Posicionamento, arquitetura e estratégia visual — a camada estratégica por trás do design, para a marca crescer consistente.', color: 'var(--vermilion)' },
+      { num: '05', title: 'Estratégia de Marca', desc: 'Posicionamento, arquitetura e estratégia visual: a camada estratégica por trás do design, para a marca crescer consistente.', color: 'var(--vermilion)' },
       { num: '06', title: 'Planejamento de Marketing', desc: 'Visão de uso metódico e expansão da marca e dos produtos, conectando design, comunicação e objetivos de negócio.', color: 'var(--cerulean)' },
     ],
   },
@@ -1931,7 +1931,7 @@ const DICT = {
       role: 'Lead Designer',
       meta: '10+ years · 4 countries · 4 languages',
       taglineBold: 'Branding, product design and creative direction.',
-      taglineItalic: 'For people who need a brand that can grow with the business — from small companies to product teams abroad.',
+      taglineItalic: 'For people who need a brand that can grow with the business. From small companies to product teams abroad.',
       ctaCases: 'View Cases',
       ctaTalk: "Let's Talk",
       soon: 'Coming soon',
@@ -1944,26 +1944,26 @@ const DICT = {
     },
     marquee: ['Branding', 'Digital Product', 'UI / UX', 'Editorial', 'Dataviz', 'Creative Direction'],
     sobre: {
-      resumo: 'I design and I run mountains — and it has been a while since one lived without the other. Ten years of design across Australia, Switzerland, New Zealand and Portugal; the mountain arrived in 2018 and never left.',
+      resumo: 'I design and I run mountains. The two stopped being separate things a long time ago. Ten years of design across Australia, Switzerland, New Zealand and Portugal; the mountain arrived in 2018 and never left.',
       btn: 'More about me',
       kicker: 'About me',
       title: 'I design, and I run mountains.',
       imgTag: 'Trail in Switzerland',
       paras: [
-        "I design, and I run mountains — and for a while now, one hasn't lived without the other.",
+        "I design, and I run mountains. For a while now, one has not lived without the other.",
         "It started in 2018, in Switzerland, hiking the trails. At first it was just walking, a way to breathe between one project and the next. But in 2019 I decided to try running in the mountains, and I never stopped. In 2025 I took on my first trail race. In 2026 I decided to go further: more races, getting to know the athletes, the brands, the coaching teams and the community that drives this sport.",
-        'As a designer, it has been over 10 years creating brands, digital products and visual experiences — much of it abroad, between Australia, Switzerland, New Zealand and Portugal. At some point I realised my two passions could be one and the same.',
+        'As a designer, it has been over 10 years creating brands, digital products and visual experiences. Much of it abroad, between Australia, Switzerland, New Zealand and Portugal. At some point I realised my two passions could be one and the same.',
         "That's my edge: I don't look at the outdoor world from the outside. I train, I race, I know what it's like to get my fuelling wrong on a climb and learn first-hand what works.",
-        "My purpose is to bring those two sides together: real solutions for the people who practise the sport I love, backed by a decade of strategic design. It's not just about looking good — it's about building it from the inside.",
+        "My purpose is to bring those two sides together: real solutions for the people who practise the sport I love, backed by a decade of strategic design. Looking good is the floor. What counts is building it with the people who are in it.",
       ],
     },
     entrega: {
       kicker: 'What I deliver',
       title: 'Four fronts, one standard.',
       pillars: [
-        { num: '01', title: 'Branding & Identity', desc: 'Brands, logos, visual systems and guidelines — personality and consistency.' },
+        { num: '01', title: 'Branding & Identity', desc: 'Brands, logos, visual systems and guidelines. Personality and consistency.' },
         { num: '02', title: 'Digital Product', desc: 'UI/UX, apps and design systems built for usability and scale.' },
-        { num: '03', title: 'Editorial & Dataviz', desc: 'Yearbooks, reports and Power BI — information that becomes story.' },
+        { num: '03', title: 'Editorial & Dataviz', desc: 'Yearbooks, reports and Power BI: information that becomes story.' },
         { num: '04', title: 'Creative Direction', desc: 'Brands, campaigns and events with cohesive art direction.' },
       ],
     },
@@ -2025,14 +2025,14 @@ const DICT = {
       availability: 'Replies within 2 business days',
     },
     footer: {
-      tagline: 'Lead Designer — branding, product design and creative direction.',
+      tagline: 'Lead Designer · branding, product design and creative direction.',
       navTitle: 'Navigate', socialTitle: 'Social', ctaBtn: "Let's talk",
       credit: '© 2026 Gustavo Albino · gustavoalbino.com.br',
     },
     casesPage: {
       kicker: 'Archive · 5 cases',
       title: 'Cases',
-      intro: 'Brand, product and culture projects — all held to the same graphic bar.',
+      intro: 'Brand, product and culture projects, all held to the same graphic bar.',
     },
     galPage: {
       kicker: 'Proof of work',
@@ -2057,16 +2057,16 @@ const DICT = {
       fName: 'Name', phName: 'Your name',
       fEmail: 'Email', fType: 'Project type', fMsg: 'Message', phMsg: 'Tell me about the project…',
       send: 'Send via WhatsApp',
-      sentTitle: 'Your WhatsApp is open', sentText: 'The message is ready with what you filled in — just hit send. If WhatsApp did not open, write to gustavorsalbino@gmail.com.',
+      sentTitle: 'Your WhatsApp is open', sentText: 'The message is ready with what you filled in. Just hit send. If WhatsApp did not open, write to gustavorsalbino@gmail.com.',
       availTitle: 'Available for projects · 2026', availText: 'Average response time: 2 business days. Remote, in PT and EN.',
     },
-    projectTypes: ['Branding', 'Digital Product — App', 'Website', 'Landing Page', 'Brand Strategy', 'Other'],
+    projectTypes: ['Branding', 'Digital Product / App', 'Website', 'Landing Page', 'Brand Strategy', 'Other'],
     services: [
       { num: '01', title: 'Branding', desc: 'Creating and repositioning brands: visual identity, logo, visual system and guidelines. Art direction that brings personality and consistency.', color: 'var(--vermilion)' },
-      { num: '02', title: 'Digital Product — App', desc: 'App design from concept to delivery: UX research, flow, UI, navigable prototype and design system. Focused on usability and scale.', color: 'var(--cerulean)' },
+      { num: '02', title: 'Digital Product / App', desc: 'App design from concept to delivery: UX research, flow, UI, navigable prototype and design system. Focused on usability and scale.', color: 'var(--cerulean)' },
       { num: '03', title: 'Website', desc: 'Institutional and product sites: architecture, screen design, prototype and handoff. Responsive and built for conversion.', color: 'var(--violet)' },
       { num: '04', title: 'Landing Page', desc: 'Conversion-focused pages for campaigns, events and launches. Clear message, strong hierarchy and a CTA that works.', color: 'var(--gold)' },
-      { num: '05', title: 'Brand Strategy', desc: 'Positioning, architecture and visual strategy — the strategic layer behind the design, so the brand grows consistently.', color: 'var(--vermilion)' },
+      { num: '05', title: 'Brand Strategy', desc: 'Positioning, architecture and visual strategy: the strategic layer behind the design, so the brand grows consistently.', color: 'var(--vermilion)' },
       { num: '06', title: 'Marketing Planning', desc: 'A methodical view of brand and product growth, connecting design, communication and business goals.', color: 'var(--cerulean)' },
     ],
   },
@@ -2090,30 +2090,35 @@ const BRANDS = [
 
 const CASES = [
   { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 — hoje',
-    bgImage: 'assets/cases/kaya-doc/capa.jpg',
+    bgImage: 'assets/cases/kaya-doc/capa-3x2.jpg',
+    bgSquare: 'assets/cases/kaya-doc/capa.jpg',
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
-    blurb: { pt: 'SaaS B2B de cannabis medicinal — design system e IA.', en: 'B2B medical-cannabis SaaS — design system and AI.' } },
+    blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
 { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
+    bgSquare: 'assets/cases/othelo/card-cover-1x1.jpg',
     title: { pt: 'Othelo', en: 'Othelo' },
     typeLabel: { pt: 'Branding + Web', en: 'Branding + Web' },
-    blurb: { pt: 'Produtora cultural que cofundei — marca de vinis, papelaria e site institucional.', en: 'Cultural production company I co-founded — vinyl brand, stationery and institutional site.' } },
+    blurb: { pt: 'Produtora cultural que cofundei. Marca de vinis, papelaria e site institucional.', en: 'Cultural production company I co-founded. Vinyl brand, stationery and institutional site.' } },
   { id: 'jimi-oliver', cat: 'identidade', detail: true, color: '#0E0E0E', fg: '#F4F0E9', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/jimi-oliver/cover-art.jpg',
+    bgSquare: 'assets/cases/jimi-oliver/card-cover-1x1.jpg',
     title: { pt: 'Jimi Oliver', en: 'Jimi Oliver' },
     typeLabel: { pt: 'Identidade Visual', en: 'Visual Identity' },
-    blurb: { pt: 'Identidade musical do álbum “Face to Face” — capa, vinil, CD, encarte e portfólio.', en: 'Musical identity for the album “Face to Face” — cover, vinyl, CD, booklet and portfolio.' } },
+    blurb: { pt: 'Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.', en: 'Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio.' } },
   { id: 'yerba-fina', cat: 'branding', detail: true, color: '#283618', fg: '#FFF2B0', mono: MONO_W, year: '2024',
     bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
+    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.jpg',
     title: { pt: 'Yerba Fina', en: 'Yerba Fina' },
     typeLabel: { pt: 'Branding', en: 'Branding' },
-    blurb: { pt: 'Moda sustentável brasileira — identidade visual completa, do bud ao manual.', en: 'Brazilian sustainable fashion — full visual identity, from the bud to the guidelines.' } },
+    blurb: { pt: 'Moda sustentável brasileira. Identidade completa, do bud ao manual.', en: 'Brazilian sustainable fashion. Full identity, from the bud to the guidelines.' } },
   { id: 'hercules', cat: 'branding', detail: true, color: '#E1241C', fg: '#FFFFFF', mono: MONO_W, year: '2022',
     bgImage: 'assets/cases/hercules/card-cover.jpg',
+    bgSquare: 'assets/cases/hercules/card-cover-1x1.jpg',
     title: { pt: 'Hercules', en: 'Hercules' },
     typeLabel: { pt: 'Branding + Marketing', en: 'Branding + Marketing' },
-    blurb: { pt: 'Marca de suplementos com energia RUN-DMC — do logo à newsletter e aos vídeos.', en: 'A supplements brand with RUN-DMC energy — from logo to newsletter and films.' } },
+    blurb: { pt: 'Marca de suplementos com energia RUN-DMC, do logo aos vídeos.', en: 'A supplements brand with RUN-DMC energy, from logo to films.' } },
 ];
 
 const KD_PALETA = [
@@ -2161,12 +2166,12 @@ const KAYA_DOC = {
     ],
     linkLabel: 'Ver o produto no ar', linkNote: 'kayadoc.com',
     back: 'Voltar aos cases', tag: 'Produto digital',
-    role: 'Lead Designer — UI, UX research e design system',
+    role: 'Lead Designer · UI, UX research e design system',
     title: 'Kaya Doc', slogan: 'Prescrever com base em evidência',
     lede: 'Plataforma de cannabis medicinal para prescritores. Catálogo, comparador de produtos, biblioteca de estudos científicos e co-piloto de prescrição — num setor onde a informação é dispersa e a regulação é rígida. Lidero o design de produto desde 2022.',
     ficha: [
       { k: 'Cliente', v: 'Kaya Mind' },
-      { k: 'Papel', v: 'Lead Designer — produto, pesquisa e design system' },
+      { k: 'Papel', v: 'Lead Designer · produto, pesquisa e design system' },
       { k: 'Período', v: 'Maio de 2022 — hoje' },
       { k: 'Entregáveis', v: 'Design system, protótipo, UX research e handoff' },
     ],
@@ -2218,12 +2223,12 @@ const KAYA_DOC = {
     ],
     linkLabel: 'See the live product', linkNote: 'kayadoc.com',
     back: 'Back to cases', tag: 'Digital product',
-    role: 'Lead Designer — UI, UX research and design system',
+    role: 'Lead Designer · UI, UX research and design system',
     title: 'Kaya Doc', slogan: 'Prescribing from evidence',
     lede: 'Medical-cannabis platform for prescribers. Catalogue, product comparator, library of scientific studies and a prescription co-pilot — in a field where information is scattered and regulation is strict. I have led product design since 2022.',
     ficha: [
       { k: 'Client', v: 'Kaya Mind' },
-      { k: 'Role', v: 'Lead Designer — product, research and design system' },
+      { k: 'Role', v: 'Lead Designer · product, research and design system' },
       { k: 'Period', v: 'May 2022 — present' },
       { k: 'Deliverables', v: 'Design system, prototype, UX research and handoff' },
     ],
@@ -2273,16 +2278,18 @@ const DESTAQUES = [
           blurb: 'Medical-cannabis SaaS for prescribers. I lead product design: UI, UX research, design system and AI in the workflow.' } },
   { id: 'branding', cat: 'branding', color: 'var(--vermilion)', fg: 'var(--paper-100)',
     bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
+    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.jpg',
     pt: { tag: 'Branding', title: 'Marcas', cta: 'Ver os cases',
           blurb: 'Identidade do símbolo ao manual: Yerba Fina, Hercules, Othelo, Healing Wildflower e o rebranding da Kaya.' },
     en: { tag: 'Branding', title: 'Brands', cta: 'See the cases',
           blurb: 'Identity from symbol to guidelines: Yerba Fina, Hercules, Othelo, Healing Wildflower and the Kaya rebrand.' } },
   { id: 'entregaveis', cat: null, color: 'var(--violet)', fg: 'var(--paper-100)',
     bgImage: 'assets/ilustracao/blackfellas.jpg',
+    bgSquare: 'assets/ilustracao/blackfellas-1x1.jpg',
     pt: { tag: 'Entregáveis', title: 'Peças', cta: 'Ver os acervos',
-          blurb: 'Logos, pôsteres, posts, e-books, anuários e ilustração autoral — o material que sai toda semana.' },
+          blurb: 'Logos, pôsteres, posts, e-books, anuários e ilustração autoral. O material que sai toda semana.' },
     en: { tag: 'Deliverables', title: 'Pieces', cta: 'See the archives',
-          blurb: 'Logos, posters, social, e-books, yearbooks and original illustration — the work that ships every week.' } },
+          blurb: 'Logos, posters, social, e-books, yearbooks and original illustration. The work that ships every week.' } },
 ];
 
 const CASE_FILTERS = [
@@ -3481,7 +3488,7 @@ class Component extends DCLogic {
       ...c, title: c.title[lang], typeLabel: c.typeLabel[lang], blurb: c.blurb[lang],
       hasBg: !!c.bgImage, showTitle: !c.hideTitle,
       cls: 'ga-card ga-card--lift' + (c.id === 'kaya-doc' ? ' ga-card--wide' : ''),
-      bgStyle: c.bgImage ? `position:absolute; inset:0; background-image:url("${c.bgImage}"); background-size:cover; background-position:center` : '',
+      bgStyle: c.bgImage ? `position:absolute; inset:0; --capa:url("${c.bgImage}"); --capa-1x1:url("${c.bgSquare || c.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
       onClick: () => this.openCase(c),
     }));
 
@@ -3491,7 +3498,7 @@ class Component extends DCLogic {
       hasBg: !!d.bgImage,
       cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide' : ''),
       ratio: d.id === 'kaya-doc' ? '1/1' : '4/3',
-      bgStyle: d.bgImage ? `position:absolute; inset:0; background-image:url("${d.bgImage}"); background-size:cover; background-position:center` : '',
+      bgStyle: d.bgImage ? `position:absolute; inset:0; --capa:url("${d.bgImage}"); --capa-1x1:url("${d.bgSquare || d.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
       onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })
                     : d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
     }));
