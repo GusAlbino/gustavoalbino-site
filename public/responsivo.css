@@ -2,9 +2,9 @@
    RESPONSIVO — remendo aplicado sobre o HTML exportado do Claude Design
 
    POR QUE ESTE ARQUIVO EXISTE
-   O index.html vem do canvas com 694 estilos inline, 65 deles com
-   grid-template-columns, contra apenas 130 classes. CSS comum não vence
-   estilo inline — daí o !important em todas as regras daqui.
+   O index.html vem do canvas com centenas de estilos inline, muitos deles
+   com grid-template-columns, contra poucas dezenas de classes. CSS comum
+   não vence estilo inline — daí o !important em quase tudo aqui.
 
    ONDE ESTÁ A CORREÇÃO DEFINITIVA
    No canvas do Claude Design, não aqui. Este arquivo é um remendo para o
@@ -12,15 +12,117 @@
    as mesmas. Se o canvas for reexportado com outra grade, revalidar.
 
    ESTRATÉGIA
-   Em vez de mapear os 65 grids um a um, o alvo é o padrão: no celular
-   qualquer grade vira uma coluna, e as exceções (logos, números) voltam a
-   duas logo em seguida. Ordem importa — os seletores têm a mesma
-   especificidade, então a última regra vence.
+   Mirar por classe sempre que possível — as classes ga-* foram plantadas no
+   index.html justamente para isso, e não quebram quando o canvas muda uma
+   string de estilo. A caça por [style*="..."] é o último recurso.
+   Ordem importa — seletores de mesma especificidade: a última regra vence.
    ════════════════════════════════════════════════════════════════ */
 
 /* ---------- Segurança de base, em qualquer largura ---------- */
 img, video, svg { max-width: 100%; height: auto; }
+
+/* overflow-x:hidden nos elementos de raiz transfere a rolagem para o <body>,
+   e aí window.scrollTo deixa de funcionar — foi o que fazia a troca de página
+   manter a rolagem antiga. O clip corta o estouro horizontal sem criar
+   contêiner de rolagem. O hidden fica como piso para navegador antigo; o JS
+   do index.html também rola body e documentElement, por garantia. */
 html, body { overflow-x: hidden; }
+@supports (overflow-x: clip) {
+  html, body { overflow-x: clip; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   NAVBAR — fileira completa no desktop, hamburguer no resto
+   Com seis páginas, seletor de idioma e dois botões, a nav não cabe em uma
+   linha abaixo de ~900px: ela quebrava em três e o cabeçalho comia 136px de
+   uma tela de 812 — 17% do visor antes de qualquer conteúdo. A faixa
+   horizontal rolável que havia aqui antes resolvia a altura, mas escondia
+   metade dos destinos atrás de um gesto que ninguém adivinha.
+   ════════════════════════════════════════════════════════════════ */
+
+.ga-navbar-sm { display: none; align-items: center; gap: 10px; }
+
+/* 1040px não é um número escolhido a esmo: medida no navegador, a fileira
+   inteira — cinco links, seletor de idioma, CTA e botão de CV — pede 829px, e
+   com o logo mais o respiro lateral fecha em 1035px. Abaixo disso ela quebra
+   em duas linhas. Tablet em paisagem entra no hamburguer, e é onde ele deve
+   estar mesmo: é tela de toque. */
+@media (max-width: 1039px) {
+  .ga-nav { display: none !important; }
+  .ga-navbar-sm { display: flex; }
+}
+
+/* No celular o wordmark encolhe para o selo, o nome, o CTA e o hamburguer
+   caberem numa linha de 375px — mas continua ali: o nome é a marca. */
+@media (max-width: 720px) {
+  .ga-logo { gap: 9px !important; }
+  .ga-logo span { font-size: 14px !important; }
+}
+
+/* Abaixo de 340px (iPhone SE de primeira geração e afins) não há largura para
+   os quatro elementos: o selo responde sozinho pela marca. */
+@media (max-width: 339px) {
+  .ga-logo span { display: none; }
+}
+
+/* ---------- O botão ---------- */
+.ga-burger {
+  width: 46px; height: 46px; flex: none;
+  display: inline-flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 5px;
+  background: var(--paper-100); color: var(--ink);
+  border: 2px solid var(--ink); border-radius: var(--radius-sm, 6px);
+  box-shadow: var(--shadow-pop-sm); cursor: pointer; padding: 0;
+}
+.ga-burger span {
+  display: block; width: 20px; height: 2.5px;
+  background: currentColor; border-radius: 2px;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.ga-burger--open { background: var(--ink); color: var(--paper-100); }
+.ga-burger--open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.ga-burger--open span:nth-child(2) { opacity: 0; }
+.ga-burger--open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ---------- O painel ---------- */
+.ga-menu {
+  border-top: 2px solid var(--ink);
+  background: var(--paper-300);
+  padding: 10px 20px 18px;
+  display: flex; flex-direction: column;
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+.ga-menu__link {
+  display: flex; align-items: center;
+  width: 100%; min-height: 52px;
+  padding: 0 4px;
+  background: none; border: none;
+  border-bottom: 1px solid var(--ink-600, rgba(27, 27, 27, .16));
+  font-family: var(--font-display); font-weight: 800;
+  text-transform: uppercase; letter-spacing: -.01em;
+  font-size: 20px; color: var(--ink);
+  text-align: left; cursor: pointer;
+}
+.ga-menu__link--active { color: var(--vermilion); }
+.ga-menu__link--active::after { content: '—'; margin-left: 10px; font-weight: 700; }
+.ga-menu__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-top: 18px;
+}
+.ga-menu__foot .ga-btn { min-height: 44px; }
+
+/* Véu atrás do painel: fecha o menu ao tocar fora dele, que é o gesto que
+   todo mundo tenta primeiro. Fica abaixo do painel e acima do resto. O
+   cabeçalho é sticky com z-index 40, então o véu vive dentro dele. */
+.ga-menu__veu {
+  position: fixed;
+  inset: 0;
+  top: 72px;
+  background: rgba(27, 27, 27, .28);
+  border: none;
+  z-index: -1;
+}
 
 /* ---------- Tablet: afrouxa as grades mais densas ---------- */
 @media (max-width: 1024px) {
@@ -48,32 +150,116 @@ html, body { overflow-x: hidden; }
   [style*="grid-template-columns"][style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
   [style*="grid-template-columns"][style*="repeat(7"] { grid-template-columns: repeat(4, 1fr) !important; }
 
-  /* 3. Respiro: o padding de cartaz não cabe em 391px. */
+  /* 3. MULTICOLUNA — o defeito da página Projetos.
+        A galeria nunca usou grid: ela é CSS multi-column (columns:3), e por
+        isso passou inteira por baixo das regras acima. No celular ficavam
+        três colunas de 96px, com os títulos quebrados em sílabas soltas.
+        Um card por vez, na vertical. */
+  .ga-galeria { columns: 1 !important; column-gap: 0 !important; }
+  .ga-galeria > * { margin-bottom: 18px !important; }
+
+  /* As alturas continuam as do canvas — 340px para o anuário, 230px para o
+     e-book, e assim por diante. Testei uniformizar tudo numa proporção só: a
+     página fica mais regular e o enquadramento piora, porque cada altura foi
+     escolhida para a capa que está ali. A capa do anuário é vertical e perde
+     a marca quando cortada em 4:3. Ritmo vale menos que a peça legível. */
+
+  /* Os mosaicos de imagem (ilustração e e-books) continuam em duas colunas:
+     são miniaturas de folhear, não cartões de entrada. Em uma coluna a
+     página de e-books passaria de 30 telas. */
+  .ga-masonry { columns: 2 !important; column-gap: 12px !important; }
+
+  /* Rede de segurança para qualquer multicoluna que apareça numa
+     reexportação do canvas sem a classe. */
+  [style*="columns:3"]:not(.ga-masonry),
+  [style*="columns: 3"]:not(.ga-masonry) { columns: 1 !important; }
+
+  /* 4. Respiro: o padding de cartaz não cabe em 375px. Em vez de caçar cada
+        combinação de padding inline — há mais de vinte —, o alvo é o
+        contêiner de página, que é sempre um destes dois max-widths. */
+  [style*="max-width:1180px"],
+  [style*="max-width:1240px"] {
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
   [style*="padding:80px 24px"],
   [style*="padding: 80px 24px"] { padding: 40px 20px !important; }
   [style*="padding:0 24px"],
   [style*="padding: 0px 24px"] { padding: 0 20px !important; }
-  [style*="max-width:1180px"],
-  [style*="max-width: 1180px"] { max-width: 100% !important; }
 
-  /* 4. O que era imagem lateral da hero não pode virar tira vertical. */
+  /* 5. O que era imagem lateral da hero não pode virar tira vertical. */
   [style*="grid-template-columns:1.05fr"] > * { min-width: 0 !important; }
 
-  /* 5. Alvo de toque: o mínimo acessível é 44px. A nav, o seletor de
-        idioma e os links de rodapé estavam entre 24 e 33px. */
-  nav a, nav button, header a, header button,
-  footer a, footer button,
+  /* 6. Alvo de toque: o mínimo acessível é 44px. A nav, o seletor de
+        idioma e os links de rodapé estavam entre 18 e 33px. O rodapé fica
+        de fora desta regra porque ela força inline-flex — ver adiante. */
+  header a, header button,
   .ga-btn, .ga-tag, .ga-tab {
     min-height: 44px !important;
     display: inline-flex !important;
     align-items: center !important;
   }
+  .ga-logo { min-height: 0 !important; }
 
-  /* 6. Texto longo não pode estourar o contêiner. */
+  /* Os chips de filtro de Cases e Projetos não tinham classe nenhuma, então
+     a regra acima nunca os alcançou: ficaram em 32px de altura. */
+  .ga-chip {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 16px !important;
+  }
+
+  /* 7. Texto longo não pode estourar o contêiner. */
   h1, h2, h3, p, a, span { overflow-wrap: anywhere; }
 
-  /* 7. O marquee continua rolando, mas sem criar barra horizontal. */
+  /* 8. O marquee continua rolando, mas sem criar barra horizontal. */
   [style*="animation"][style*="ga-marquee"] { will-change: transform; }
+}
+
+/* ---------- Projetos: o título sobre a capa ----------
+   O véu vai de transparente a 72% a partir dos 40% da altura. Sobre capa
+   lisa resolve; sobre as capas que já trazem tipografia clara na base — a de
+   e-books é o caso — o título do card briga com o título impresso na peça.
+   O véu passa a fechar mais embaixo e mais forte, onde o texto de fato está. */
+.ga-galeria > * > div:first-child > div[style*="linear-gradient"] {
+  background: linear-gradient(transparent 34%, rgba(27, 27, 27, .5) 64%, rgba(27, 27, 27, .88) 100%) !important;
+}
+
+/* ---------- Rodapé ----------
+   A regra de alvo de toque acima cobria "footer a, footer button" e impunha
+   display:inline-flex. Como os links do rodapé são block no estilo inline, o
+   !important vencia e as duas listas viravam uma linha só de palavras coladas:
+   "Home Sobre Cases Projetos Serviços Contato". Aqui eles voltam a ser
+   empilhados E ganham os 44px de altura. */
+.ga-footer-link {
+  display: flex !important;
+  align-items: center;
+  min-height: 40px;
+  width: 100%;
+}
+@media (max-width: 720px) {
+  .ga-footer-link { min-height: 44px; }
+  /* As duas colunas do rodapé lado a lado: 56px de gap não cabem. */
+  .ga-footer-cols { gap: 28px !important; }
+  .ga-footer-cols > * { flex: 1 1 40%; min-width: 130px; }
+}
+
+/* ---------- Contato: a lista de canais ----------
+   Cada linha tinha 18px de altura e o rótulo em 11px numa coluna fixa de
+   96px, que sobrava largura no celular e espremia o endereço de e-mail. */
+@media (max-width: 720px) {
+  .ga-canal {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+    min-height: 48px;
+    justify-content: center;
+    border-bottom: 1px solid var(--ink-600, rgba(27, 27, 27, .14));
+    padding-bottom: 8px;
+  }
+  .ga-canal > span:first-child { width: auto !important; font-size: 12px !important; }
 }
 
 /* ---------- Celular estreito ---------- */
@@ -103,32 +289,6 @@ html, body { overflow-x: hidden; }
     flex: 0 0 84%;
     scroll-snap-align: start;
   }
-}
-
-/* ---------- Navbar: uma linha rolavel no celular ----------
-   Com a entrada de "Sobre" a nav foi a 6 itens. Somados o seletor de idioma e
-   o botao de CV, ela quebrava em 3 linhas e o cabecalho ocupava 284px de uma
-   tela de 812 — 35% do visor antes de qualquer conteudo.
-
-   Vira uma faixa horizontal de uma linha so, rolavel por toque. Tudo continua
-   alcancavel, inclusive o botao de CV, que fica no fim da faixa.
-
-   A solucao definitiva e um menu hamburguer, que exige estado em JavaScript e
-   markup novo. Isto resolve o custo de altura sem essa obra. */
-@media (max-width: 720px) {
-  header nav {
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    width: 100%;
-    padding-bottom: 2px;
-    -webkit-mask-image: linear-gradient(to right, #000 0, #000 92%, transparent 100%);
-    mask-image: linear-gradient(to right, #000 0, #000 92%, transparent 100%);
-  }
-  header nav::-webkit-scrollbar { display: none; }
-  header nav > * { flex: 0 0 auto; }
 }
 
 /* ---------- Card em destaque ----------
