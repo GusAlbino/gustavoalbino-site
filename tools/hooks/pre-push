@@ -8,7 +8,38 @@
 #
 # Para publicar a main de proposito (merge local, correcao de emergencia):
 #   PERMITIR_MAIN=1 git push origin main
-while read -r _local_ref _local_sha remote_ref _remote_sha; do
+atual=$(git rev-parse --abbrev-ref HEAD)
+while read -r local_ref _local_sha remote_ref _remote_sha; do
+  # O nome do branch local tem que bater com o do remoto. Quando nao bate, o
+  # trabalho vai parar num branch que ninguem esta olhando, e o PR aberto
+  # contra o nome certo diz "nothing to compare".
+  #
+  # Acontece por heranca de upstream: `git branch -m` preserva o upstream, e
+  # `git checkout -b novo origin/main` configura `origin/main` como upstream
+  # do branch novo. Nos dois casos o cliente empurra para o lugar errado sem
+  # avisar. Os dois ja aconteceram neste repositorio.
+  destino=${remote_ref#refs/heads/}
+  origem=${local_ref#refs/heads/}
+  if [ -n "$origem" ] && [ "$origem" != "$destino" ] && [ "$destino" != "main" ]; then
+    if [ "$PERMITIR_NOME_DIFERENTE" = "1" ]; then
+      echo "pre-push: nome diferente liberado por PERMITIR_NOME_DIFERENTE=1." >&2
+    else
+      echo "" >&2
+      echo "  BLOQUEADO: o branch local e o remoto tem nomes diferentes." >&2
+      echo "" >&2
+      echo "    local:  $origem" >&2
+      echo "    remoto: $destino" >&2
+      echo "" >&2
+      echo "  Quase sempre isso e upstream herdado. Conserte e empurre de novo:" >&2
+      echo "    git branch --unset-upstream" >&2
+      echo "    git push -u origin $origem" >&2
+      echo "" >&2
+      echo "  Para empurrar com nome diferente de proposito:" >&2
+      echo "    PERMITIR_NOME_DIFERENTE=1 git push ..." >&2
+      echo "" >&2
+      exit 1
+    fi
+  fi
   case "$remote_ref" in
     refs/heads/main)
       if [ "$PERMITIR_MAIN" = "1" ]; then
