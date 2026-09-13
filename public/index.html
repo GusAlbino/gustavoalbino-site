@@ -72,7 +72,7 @@
       <!-- Barra do celular: so o CTA e o hamburguer. O resto vive no painel. -->
       <div class="ga-navbar-sm">
         <button onClick="{{ toContato }}" class="ga-btn ga-btn--primary ga-btn--sm">{{ t.nav.contato }}</button>
-        <button onClick="{{ toggleMenu }}" class="{{ burgerCls }}" aria-label="{{ t.menuLabel }}" aria-expanded="{{ menuOpenStr }}" aria-controls="ga-menu">
+        <button onClick="{{ toggleMenu }}" class="{{ burgerCls }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpenStr }}" aria-controls="ga-menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -1773,7 +1773,7 @@ const DICT = {
   pt: {
     destaques: { kicker: 'Em destaque', title: 'O que eu faço, em três frentes.', intro: 'As mesmas competências que entrego como serviço são as que formam o portfólio. Comece por aqui.' },
     baixarCV: 'Baixar CV',
-    menuLabel: 'Abrir menu',
+    menuLabel: 'Abrir menu', menuLabelFechar: 'Fechar menu',
     nav: { home: 'Home', sobre: 'Sobre', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
     hero: {
       kicker: 'Lead Designer · Brasil · Atendendo Brasil e exterior',
@@ -1922,7 +1922,7 @@ const DICT = {
   en: {
     destaques: { kicker: 'Featured', title: 'What I do, in three fronts.', intro: 'The same skills I deliver as a service are the ones that make up the portfolio. Start here.' },
     baixarCV: 'Download CV',
-    menuLabel: 'Open menu',
+    menuLabel: 'Open menu', menuLabelFechar: 'Close menu',
     nav: { home: 'Home', sobre: 'About', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
     hero: {
       kicker: 'Lead Designer · Brazil · Working with Brazil and abroad',
@@ -3613,6 +3613,7 @@ class Component extends DCLogic {
       langBtns,
       menuOpen: this.state.menuOpen,
       menuOpenStr: this.state.menuOpen ? 'true' : 'false',
+      menuLabel: this.state.menuOpen ? D.menuLabelFechar : D.menuLabel,
       burgerCls: 'ga-burger' + (this.state.menuOpen ? ' ga-burger--open' : ''),
       toggleMenu: this.toggleMenu,
       closeMenu: () => this.setState({ menuOpen: false }),
