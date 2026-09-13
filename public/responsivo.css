@@ -32,18 +32,29 @@ html, body { overflow-x: hidden; }
 /* ---------- Celular ---------- */
 @media (max-width: 720px) {
 
-  /* 1. Toda grade vira coluna única. Resolve hero, sobre, CV, cases,
-        galeria e detalhe de case de uma vez. */
-  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  /* 1. Grades de conteúdo viram coluna única — mas NÃO as de largura fixa.
+        O padrão "14px 1fr" é um par ícone+texto: colapsá-lo empilha o ícone
+        em cima do rótulo, que foi exatamente o defeito relatado no celular. */
+  [style*="grid-template-columns"]:not([style*="px 1fr"]) {
+    grid-template-columns: 1fr !important;
+  }
 
-  /* 2. Exceções: logo e número ficam melhores em dupla que empilhados. */
-  [style*="repeat(5,1fr)"],
-  [style*="repeat(4,1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  /* 2. Logo, número e amostra de cor cabem lado a lado e ficam muito melhores
+        assim: os 10 logos empilhados produziam 1.905px de rolagem sozinhos.
+        Os seletores omitem o que vem depois do número porque o navegador
+        normaliza "repeat(5,1fr)" para "repeat(5, 1fr)" — com espaço. Foi por
+        isso que a versão anterior desta regra nunca pegou. */
+  [style*="grid-template-columns"][style*="repeat(4"],
+  [style*="grid-template-columns"][style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="grid-template-columns"][style*="repeat(7"] { grid-template-columns: repeat(4, 1fr) !important; }
 
   /* 3. Respiro: o padding de cartaz não cabe em 391px. */
-  [style*="padding:80px 24px"]  { padding: 40px 20px !important; }
-  [style*="padding:0 24px"]     { padding: 0 20px !important; }
-  [style*="max-width:1180px"]   { max-width: 100% !important; }
+  [style*="padding:80px 24px"],
+  [style*="padding: 80px 24px"] { padding: 40px 20px !important; }
+  [style*="padding:0 24px"],
+  [style*="padding: 0px 24px"] { padding: 0 20px !important; }
+  [style*="max-width:1180px"],
+  [style*="max-width: 1180px"] { max-width: 100% !important; }
 
   /* 4. O que era imagem lateral da hero não pode virar tira vertical. */
   [style*="grid-template-columns:1.05fr"] > * { min-width: 0 !important; }
@@ -113,6 +124,7 @@ html, body { overflow-x: hidden; }
     scrollbar-width: none;
     width: 100%;
     padding-bottom: 2px;
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 92%, transparent 100%);
     mask-image: linear-gradient(to right, #000 0, #000 92%, transparent 100%);
   }
   header nav::-webkit-scrollbar { display: none; }
@@ -162,4 +174,17 @@ html, body { overflow-x: hidden; }
 
 @media (max-width: 720px) {
   .ga-card--wide { grid-column: auto !important; }
+}
+
+/* ---------- Hero no celular ----------
+   Medido a 390x844: a hero ocupava 1.048px e a foto comecava em 822 — ou seja,
+   o visitante via uma parede de texto e precisava rolar para ver a pessoa.
+   A imagem encolhe e o respiro diminui para a hero caber perto de uma tela. */
+@media (max-width: 720px) {
+  [style*="min-height:360px"],
+  [style*="min-height: 360px"] { min-height: 230px !important; }
+  [style*="padding:80px 24px"],
+  [style*="padding: 80px 24px"] { padding: 36px 20px !important; }
+  [style*="padding:72px 24px"],
+  [style*="padding: 72px 24px"] { padding: 32px 20px !important; }
 }
