@@ -75,27 +75,36 @@ function reescrever(resposta, cab) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    let resposta = await env.ASSETS.fetch(request);
-    let rota = url.pathname;
+    const caminho = url.pathname;
+    const resposta = await env.ASSETS.fetch(request);
 
-    if (resposta.status === 404) {
-      if (PEDE_ARQUIVO.test(url.pathname)) return resposta;
-      const app = await env.ASSETS.fetch(new URL('/index.html', url));
-      // 200, e nao 404 com corpo: e uma rota valida do site, servida pelo mesmo
-      // documento. Devolver 404 tiraria a pagina do indice.
-      resposta = new Response(app.body, { status: 200, headers: app.headers });
-    } else if (url.pathname !== '/' && !url.pathname.endsWith('/index.html')) {
-      return resposta;
-    }
+    // Arquivo que existe sai como esta. Arquivo que nao existe sai 404 de
+    // verdade: o app so entra em caminho sem extensao.
+    const ehRota = caminho === '/' || caminho.endsWith('/index.html')
+      ? true
+      : (resposta.status === 404 && !PEDE_ARQUIVO.test(caminho));
+    if (!ehRota) return resposta;
+
+    // O documento sempre vem de uma busca limpa por /index.html, inclusive na
+    // raiz, onde env.ASSETS.fetch(request) tambem responderia. O motivo e que
+    // repassar o request original carrega o Accept-Encoding do visitante, e a
+    // resposta volta comprimida: o HTMLRewriter recebe bytes que nao sao HTML
+    // e devolve o documento intacto, sem reescrever nada. Foi o que aconteceu
+    // na home, que saiu sem hreflang e sem JSON-LD enquanto as outras 35 rotas
+    // saiam certas.
+    const app = await env.ASSETS.fetch(new URL('/index.html', url));
+    // 200, e nao 404 com corpo: e uma rota valida do site, servida pelo mesmo
+    // documento. Devolver 404 tiraria a pagina do indice.
+    const documento = new Response(app.body, { status: 200, headers: app.headers });
 
     try {
       const m = await lerManifesto(env, url);
-      const chave = rota === '/index.html' ? '/' : rota.replace(/(.)\/$/, '$1');
+      const chave = caminho === '/index.html' ? '/' : caminho.replace(/(.)\/$/, '$1');
       const cab = m && m.rotas && m.rotas[chave];
-      if (cab) return reescrever(resposta, cab);
+      if (cab) return reescrever(documento, cab);
     } catch (e) {
       // cabecalho errado e ruim; site fora do ar e pior
     }
-    return resposta;
+    return documento;
   },
 };
