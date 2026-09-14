@@ -570,3 +570,26 @@ html, body { overflow-x: hidden; }
   .ga-rp__aplica[style] { grid-template-columns: 1fr !important; }
 }
 .ga-rp__hero > *, .ga-rp__logos > *, .ga-rp__cores > *, .ga-rp__ficha > * { min-width: 0; }
+
+/* ---------------------------------------------------------------------------
+   Coluna fixa: some quando o layout empilha.
+
+   Quatro blocos usam position:sticky para que uma coluna fique parada
+   enquanto a outra rola: a foto do Sobre (na home e na pagina), um bloco de
+   texto no case do Hercules e a capa de cada anuario. Em duas colunas isso
+   funciona e e bonito.
+
+   Empilhado nao. Com uma coluna so, o elemento gruda no topo e o resto da
+   pagina passa por tras dele, o que no celular parece defeito de rolagem: a
+   imagem fica parada no meio da tela enquanto o texto corre atras.
+
+   O corte e 1024px e nao 720px de proposito. Algumas dessas grades ja colapsam
+   antes de 720, e entre um valor e outro o sintoma aparecia no tablet. Perder
+   o efeito em tela media nao custa nada; mantê-lo onde atrapalha, custa.
+--------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .ga-coluna-fixa {
+    position: relative !important;
+    top: auto !important;
+  }
+}
