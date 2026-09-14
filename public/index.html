@@ -579,7 +579,7 @@
           <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:#E6E0D2; margin:18px 0 0; max-width:46ch">{{ cd.lede }}</p>
         </div>
         <div style="position:relative; border:3px solid #1B1B1B; border-radius:6px; overflow:hidden; box-shadow:7px 7px 0 #1B1B1B">
-          <img src="assets/cases/yerba-fina/hero-explore.jpg" alt="Campanha Yerba Fina: Explore seu meio" style="display:block; width:100%; height:auto">
+          <img src="assets/cases/yerba-fina/hero-explore.webp" alt="Campanha Yerba Fina: Explore seu meio" style="display:block; width:100%; height:auto">
         </div>
       </section>
 
@@ -725,7 +725,7 @@
         <section style="max-width:1180px; margin:0 auto; padding:8px 24px 64px">
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop)">
             <div style="position:relative; min-height:380px">
-              <img src="assets/cases/yerba-fina/stat-canhamo.jpg" alt="Yerba Fina usa 65% de cânhamo e 35% de bambu" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+              <img src="assets/cases/yerba-fina/stat-canhamo.webp" alt="Yerba Fina usa 65% de cânhamo e 35% de bambu" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
             </div>
             <div style="background:#E09D3E; padding:48px; display:flex; flex-direction:column; justify-content:center; border-left:2px solid var(--ink)">
               <span class="ga-kicker ga-kicker--bare" style="color:#283618">{{ cd.produtoKicker }}</span>
@@ -1253,7 +1253,7 @@
           <a href="https://www.runpace.com.br/" target="_blank" rel="noopener" style="display:inline-block; margin-top:18px; font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#1D4ED8; text-decoration:none">{{ rp.site }} ↗</a>
         </div>
         <figure style="margin:0; border:2px solid #111827; border-radius:2px; overflow:hidden">
-          <img src="assets/cases/runpace/capa-3x2.jpg" alt="Runpace" style="display:block; width:100%; height:auto">
+          <img src="assets/cases/runpace/capa-3x2.webp" alt="Runpace" style="display:block; width:100%; height:auto">
         </figure>
       </section>
 
@@ -1373,7 +1373,7 @@
           </div>
         </div>
         <figure style="margin:0; border:3px solid #F4EFE6; border-radius:var(--radius-md); overflow:hidden">
-          <img src="assets/cases/gustavo-albino/capa-3x2.jpg" alt="Selo Gustavo Albino" style="display:block; width:100%; height:auto">
+          <img src="assets/cases/gustavo-albino/capa-3x2.webp" alt="Selo Gustavo Albino" style="display:block; width:100%; height:auto">
         </figure>
       </section>
 
@@ -1766,8 +1766,8 @@
       <div style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
         <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:26px">← {{ t.nav.galeria }}</button>
         <span class="ga-kicker" style="color:var(--cerulean)">Editorial &amp; Dataviz · Kaya Mind</span>
-        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">Anuários da Cannabis</h1>
-        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">Relatórios anuais de inteligência de mercado que produzi para a Kaya Mind: cada edição transforma dados brutos sobre o setor de cannabis medicinal no Brasil em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.</p>
+        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">Anuários e Relatórios</h1>
+        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Oito edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.</p>
       </div>
 
       <sc-for list="{{ anuarios }}" as="a" hint-placeholder-count="3">
@@ -1780,20 +1780,6 @@
             <sc-if value="{{ a.hasCover }}" hint-placeholder-val="{{ false }}">
             <div style="position:relative; aspect-ratio:1240/1754; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-lg); background:var(--paper-100)">
               <img src="{{ a.cover }}" alt="Capa do Anuário {{ a.year }}" loading="lazy" style="{{ a.coverStyle }}">
-            </div>
-            </sc-if>
-            <sc-if value="{{ a.coverPlate }}" hint-placeholder-val="{{ false }}">
-            <div style="position:relative; aspect-ratio:1240/1754; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-lg); background:{{ a.accent }}; display:flex; flex-direction:column; justify-content:space-between; padding:34px 30px">
-              <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.22; mix-blend-mode:screen"></div>
-              <div style="position:relative; display:flex; align-items:center; justify-content:space-between">
-                <span style="font-family:var(--font-display); font-weight:900; font-size:30px; letter-spacing:-.02em; color:var(--paper-100)">KAYA</span>
-                <span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--paper-100); opacity:.85">{{ a.edicao }}</span>
-              </div>
-              <div style="position:relative">
-                <p style="font-family:var(--font-mono); font-weight:700; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--paper-100); margin:0 0 6px; opacity:.9">Anuário da</p>
-                <p style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.86; font-size:clamp(34px,4.4vw,52px); color:var(--paper-100); margin:0">Cannabis<br>Medicinal</p>
-                <p style="font-family:var(--font-display); font-weight:900; font-size:clamp(72px,12vw,128px); line-height:.8; letter-spacing:-.03em; color:var(--paper-100); margin:14px 0 0; -webkit-text-stroke:2px rgba(0,0,0,.35)">{{ a.year }}</p>
-              </div>
             </div>
             </sc-if>
           </figure>
@@ -1822,6 +1808,7 @@
                 </sc-for>
               </div>
             </div>
+            <a href="{{ a.link }}" target="_blank" rel="noopener noreferrer" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; text-decoration:none; display:inline-flex">{{ a.verLink }} ↗</a>
           </div>
         </div>
 
@@ -2517,30 +2504,30 @@ const GA_MARCA = {
     { hex: '#F8EFEB', token: '--paper-300', site: '#F8EFE8' },
   ],
   v1: [
-    { src: GAM + 'v1/monograma.png', pt: 'monograma original', en: 'original monogram' },
-    { src: GAM + 'v1/gadsg.png', pt: 'assinatura GADSG', en: 'GADSG signature' },
-    { src: GAM + 'v1/roxo.png', pt: 'versao magenta', en: 'magenta version' },
-    { src: GAM + 'v1/verde.png', pt: 'versao verde', en: 'green version' },
-    { src: GAM + 'v1/var-1.png', pt: 'variacao 1', en: 'variant 1' },
-    { src: GAM + 'v1/var-3.png', pt: 'variacao 3, gradiente', en: 'variant 3, gradient' },
+    { src: GAM + 'v1/monograma.webp', pt: 'monograma original', en: 'original monogram' },
+    { src: GAM + 'v1/gadsg.webp', pt: 'assinatura GADSG', en: 'GADSG signature' },
+    { src: GAM + 'v1/roxo.webp', pt: 'versao magenta', en: 'magenta version' },
+    { src: GAM + 'v1/verde.webp', pt: 'versao verde', en: 'green version' },
+    { src: GAM + 'v1/var-1.webp', pt: 'variacao 1', en: 'variant 1' },
+    { src: GAM + 'v1/var-3.webp', pt: 'variacao 3, gradiente', en: 'variant 3, gradient' },
   ],
   partes: [
-    { src: GAM + 'v2/parte-1.png', pt: 'anel · o nome', en: 'ring · the name' },
-    { src: GAM + 'v2/parte-2.png', pt: 'miolo · o monograma', en: 'core · the monogram' },
-    { src: GAM + 'v2/oficial.png', pt: 'selo completo', en: 'complete seal' },
+    { src: GAM + 'v2/parte-1.webp', pt: 'anel · o nome', en: 'ring · the name' },
+    { src: GAM + 'v2/parte-2.webp', pt: 'miolo · o monograma', en: 'core · the monogram' },
+    { src: GAM + 'v2/oficial.webp', pt: 'selo completo', en: 'complete seal' },
   ],
   // O painel de referencias ficou de fora: sao capturas de Pinterest com arte
   // de terceiros (Red Hot Chili Peppers, Thor, Daredevil) e a interface do
   // Pinterest a vista. Num portfolio que vende direcao de arte, publicar isso
   // e risco de direito autoral e ainda le como referencia emprestada.
   sistema: [
-    { src: GAM + 'sistema/paleta.jpg', pt: 'paleta oficial', en: 'official palette' },
+    { src: GAM + 'sistema/paleta.webp', pt: 'paleta oficial', en: 'official palette' },
   ],
   campanha: [
-    { src: GAM + 'campanha/post-1.jpg' }, { src: GAM + 'campanha/post-2.jpg' },
-    { src: GAM + 'campanha/post-3.jpg' }, { src: GAM + 'campanha/post-4.jpg' },
-    { src: GAM + 'campanha/post-5.jpg' }, { src: GAM + 'campanha/post-6.jpg' },
-    { src: GAM + 'campanha/post-7.jpg' },
+    { src: GAM + 'campanha/post-1.webp' }, { src: GAM + 'campanha/post-2.webp' },
+    { src: GAM + 'campanha/post-3.webp' }, { src: GAM + 'campanha/post-4.webp' },
+    { src: GAM + 'campanha/post-5.webp' }, { src: GAM + 'campanha/post-6.webp' },
+    { src: GAM + 'campanha/post-7.webp' },
   ],
   pt: {
     tipo: 'Branding · marca própria',
@@ -2628,19 +2615,19 @@ const RUNPACE = {
     { hex: '#F97316', nome: 'Pulse Orange', uso: 'ação', share: '5%' },
   ],
   logos: [
-    { src: RP + 'logo/wm-azul.png', tint: '#FFFFFF', pt: 'principal · azul', en: 'primary · blue' },
-    { src: RP + 'logo/wm-branco.png', tint: '#172554', pt: 'negativa · branco', en: 'negative · white' },
-    { src: RP + 'logo/wm-grafite.png', tint: '#F97316', pt: 'mono · grafite', en: 'mono · graphite' },
-    { src: RP + 'logo/wm-laranja.png', tint: '#111827', pt: 'energia · laranja', en: 'energy · orange' },
+    { src: RP + 'logo/wm-azul.webp', tint: '#FFFFFF', pt: 'principal · azul', en: 'primary · blue' },
+    { src: RP + 'logo/wm-branco.webp', tint: '#172554', pt: 'negativa · branco', en: 'negative · white' },
+    { src: RP + 'logo/wm-grafite.webp', tint: '#F97316', pt: 'mono · grafite', en: 'mono · graphite' },
+    { src: RP + 'logo/wm-laranja.webp', tint: '#111827', pt: 'energia · laranja', en: 'energy · orange' },
   ],
   icones: [
-    { src: RP + 'logo/ic-azul.png', tint: '#FFFFFF', pt: 'monograma', en: 'monogram' },
-    { src: RP + 'logo/ic-laranja.png', tint: '#111827', pt: 'monograma em ação', en: 'monogram in action' },
+    { src: RP + 'logo/ic-azul.webp', tint: '#FFFFFF', pt: 'monograma', en: 'monogram' },
+    { src: RP + 'logo/ic-laranja.webp', tint: '#111827', pt: 'monograma em ação', en: 'monogram in action' },
   ],
   aplicacao: [
-    { src: RP + 'aplicacao/ap-1.jpg' }, { src: RP + 'aplicacao/ap-2.jpg' },
-    { src: RP + 'aplicacao/ap-3.jpg' }, { src: RP + 'aplicacao/ap-5.jpg' },
-    { src: RP + 'aplicacao/ap-6.jpg' }, { src: RP + 'aplicacao/ap-4.jpg' },
+    { src: RP + 'aplicacao/ap-1.webp' }, { src: RP + 'aplicacao/ap-2.webp' },
+    { src: RP + 'aplicacao/ap-3.webp' }, { src: RP + 'aplicacao/ap-5.webp' },
+    { src: RP + 'aplicacao/ap-6.webp' }, { src: RP + 'aplicacao/ap-4.webp' },
   ],
   pt: {
     tipo: 'Branding · design system',
@@ -2730,44 +2717,44 @@ const RUNPACE = {
 
 const CASES = [
   { id: 'runpace', cat: 'branding', detail: true, color: '#172554', fg: '#FFFFFF', mono: MONO_W, year: '2026',
-    bgImage: 'assets/cases/runpace/capa-3x2.jpg',
-    bgSquare: 'assets/cases/runpace/capa.jpg',
+    bgImage: 'assets/cases/runpace/capa-3x2.webp',
+    bgSquare: 'assets/cases/runpace/capa.webp',
     title: { pt: 'Runpace', en: 'Runpace' },
     typeLabel: { pt: 'Branding + Sistema', en: 'Branding + System' },
     blurb: { pt: 'Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.', en: 'Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in.' } },
   { id: 'kaya-doc', cat: 'uiux', detail: true, color: 'var(--violet)', fg: 'var(--paper-100)', mono: MONO_W, year: '2022 a hoje',
-    bgImage: 'assets/cases/kaya-doc/capa-dark-3x2.jpg',
-    bgSquare: 'assets/cases/kaya-doc/capa-dark.jpg',
+    bgImage: 'assets/cases/kaya-doc/capa-dark-3x2.webp',
+    bgSquare: 'assets/cases/kaya-doc/capa-dark.webp',
     title: { pt: 'Kaya Doc', en: 'Kaya Doc' },
     typeLabel: { pt: 'Produto Digital', en: 'Digital Product' },
     blurb: { pt: 'SaaS B2B de cannabis medicinal. Design system e IA.', en: 'B2B medical-cannabis SaaS. Design system and AI.' } },
   { id: 'othelo', cat: 'branding', detail: true, color: '#1E1E1E', fg: '#F4EFE6', mono: MONO_W, year: '2024',
-    bgImage: 'assets/cases/othelo/logo-bg-orange.jpg',
-    bgSquare: 'assets/cases/othelo/card-cover-1x1.jpg',
+    bgImage: 'assets/cases/othelo/logo-bg-orange.webp',
+    bgSquare: 'assets/cases/othelo/card-cover-1x1.webp',
     title: { pt: 'Othelo', en: 'Othelo' },
     typeLabel: { pt: 'Branding + Web', en: 'Branding + Web' },
     blurb: { pt: 'Produtora de eventos culturais que cofundei, em Betim. Marca de vinis, papelaria e site institucional.', en: 'Cultural events producer I co-founded, in Betim. Vinyl brand, stationery and institutional site.' } },
   { id: 'jimi-oliver', cat: 'identidade', detail: true, color: '#0E0E0E', fg: '#F4F0E9', mono: MONO_W, year: '2024',
-    bgImage: 'assets/cases/jimi-oliver/cover-art.jpg',
-    bgSquare: 'assets/cases/jimi-oliver/card-cover-1x1.jpg',
+    bgImage: 'assets/cases/jimi-oliver/cover-art.webp',
+    bgSquare: 'assets/cases/jimi-oliver/card-cover-1x1.webp',
     title: { pt: 'Jimi Oliver', en: 'Jimi Oliver' },
     typeLabel: { pt: 'Identidade Visual', en: 'Visual Identity' },
     blurb: { pt: 'Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.', en: 'Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio.' } },
   { id: 'yerba-fina', cat: 'branding', detail: true, color: '#283618', fg: '#FFF2B0', mono: MONO_W, year: '2024',
-    bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
-    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.jpg',
+    bgImage: 'assets/cases/yerba-fina/card-cover.webp',
+    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.webp',
     title: { pt: 'Yerba Fina', en: 'Yerba Fina' },
     typeLabel: { pt: 'Branding', en: 'Branding' },
     blurb: { pt: 'Moda sustentável brasileira. Identidade completa, do bud ao manual.', en: 'Brazilian sustainable fashion. Full identity, from the bud to the guidelines.' } },
   { id: 'gustavo-albino', cat: 'branding', detail: true, color: '#1B1B1B', fg: '#F4EFE6', mono: MONO_W, year: '2023',
-    bgImage: 'assets/cases/gustavo-albino/capa-3x2.jpg',
-    bgSquare: 'assets/cases/gustavo-albino/capa.jpg',
+    bgImage: 'assets/cases/gustavo-albino/capa-3x2.webp',
+    bgSquare: 'assets/cases/gustavo-albino/capa.webp',
     title: { pt: 'Gustavo Albino', en: 'Gustavo Albino' },
     typeLabel: { pt: 'Marca própria', en: 'Own brand' },
     blurb: { pt: 'Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.', en: 'My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.' } },
   { id: 'hercules', cat: 'branding', detail: true, color: '#E1241C', fg: '#FFFFFF', mono: MONO_W, year: '2022',
-    bgImage: 'assets/cases/hercules/card-cover.jpg',
-    bgSquare: 'assets/cases/hercules/card-cover-1x1.jpg',
+    bgImage: 'assets/cases/hercules/card-cover.webp',
+    bgSquare: 'assets/cases/hercules/card-cover-1x1.webp',
     title: { pt: 'Hercules', en: 'Hercules' },
     typeLabel: { pt: 'Branding + Marketing', en: 'Branding + Marketing' },
     blurb: { pt: 'Marca de suplementos com energia RUN-DMC, do logo aos vídeos.', en: 'A supplements brand with RUN-DMC energy, from logo to films.' } },
@@ -2791,17 +2778,17 @@ const KD_NUMEROS = [
 ];
 const KD_BASE = 'assets/cases/kaya-doc/';
 const KD_V1 = [
-  { src: KD_BASE + 'v1-comparador.jpg', ratio: '3/2', capPt: 'Comparador de produtos · o núcleo da V1', capEn: 'Product comparator · the core of V1' },
-  { src: KD_BASE + 'v1-biblioteca.jpg', ratio: '3/2', capPt: 'Biblioteca de estudos científicos', capEn: 'Library of scientific studies' },
-  { src: KD_BASE + 'v1-whatsapp.jpg', ratio: '3/2', capPt: 'O cadastro acontecia fora do produto, por WhatsApp', capEn: 'Sign-up happened outside the product, over WhatsApp' },
+  { src: KD_BASE + 'v1-comparador.webp', ratio: '3/2', capPt: 'Comparador de produtos · o núcleo da V1', capEn: 'Product comparator · the core of V1' },
+  { src: KD_BASE + 'v1-biblioteca.webp', ratio: '3/2', capPt: 'Biblioteca de estudos científicos', capEn: 'Library of scientific studies' },
+  { src: KD_BASE + 'v1-whatsapp.webp', ratio: '3/2', capPt: 'O cadastro acontecia fora do produto, por WhatsApp', capEn: 'Sign-up happened outside the product, over WhatsApp' },
 ];
 const KD_V2 = [
-  { src: KD_BASE + 'v2-home-externa.jpg', ratio: '1/1', capPt: 'Site externo · fotografia e discurso de evidência', capEn: 'Public site · photography and an evidence-led message' },
-  { src: KD_BASE + 'v2-home-mobile.jpg', ratio: '1/1', capPt: 'Home do prescritor no celular', capEn: 'Prescriber home on mobile' },
-  { src: KD_BASE + 'v2-consulta.jpg', ratio: '1/1', capPt: 'Consulta em andamento · o fluxo clínico', capEn: 'Consultation in progress · the clinical flow' },
-  { src: KD_BASE + 'v2-educacao.jpg', ratio: '1/1', capPt: 'Educação médica com progresso e níveis', capEn: 'Medical education with progress and levels' },
-  { src: KD_BASE + 'v2-canabinoides.jpg', ratio: '1/1', capPt: 'Tipos de canabinoides · dataviz de domínio', capEn: 'Cannabinoid types · domain data visualisation' },
-  { src: KD_BASE + 'v2-dashboard.jpg', ratio: '3/4', capPt: 'Dashboard de marcas · captura do produto em uso', capEn: 'Brand dashboard · screenshot of the live product' },
+  { src: KD_BASE + 'v2-home-externa.webp', ratio: '1/1', capPt: 'Site externo · fotografia e discurso de evidência', capEn: 'Public site · photography and an evidence-led message' },
+  { src: KD_BASE + 'v2-home-mobile.webp', ratio: '1/1', capPt: 'Home do prescritor no celular', capEn: 'Prescriber home on mobile' },
+  { src: KD_BASE + 'v2-consulta.webp', ratio: '1/1', capPt: 'Consulta em andamento · o fluxo clínico', capEn: 'Consultation in progress · the clinical flow' },
+  { src: KD_BASE + 'v2-educacao.webp', ratio: '1/1', capPt: 'Educação médica com progresso e níveis', capEn: 'Medical education with progress and levels' },
+  { src: KD_BASE + 'v2-canabinoides.webp', ratio: '1/1', capPt: 'Tipos de canabinoides · dataviz de domínio', capEn: 'Cannabinoid types · domain data visualisation' },
+  { src: KD_BASE + 'v2-dashboard.webp', ratio: '3/4', capPt: 'Dashboard de marcas · captura do produto em uso', capEn: 'Brand dashboard · screenshot of the live product' },
 ];
 
 const KAYA_DOC = {
@@ -2923,19 +2910,19 @@ const KAYA_DOC = {
 
 const DESTAQUES = [
   { id: 'kaya-doc', cat: 'uiux', color: 'var(--cerulean)', fg: 'var(--paper-100)',
-    bgImage: 'assets/cases/kaya-doc/capa.jpg',
+    bgImage: 'assets/cases/kaya-doc/capa.webp',
     colagem: [
-      'assets/cases/kaya-doc/v2-home-externa.jpg',
-      'assets/cases/kaya-doc/v2-consulta.jpg',
-      'assets/cases/kaya-doc/v2-canabinoides.jpg',
+      'assets/cases/kaya-doc/v2-home-externa.webp',
+      'assets/cases/kaya-doc/v2-consulta.webp',
+      'assets/cases/kaya-doc/v2-canabinoides.webp',
     ],
     pt: { tag: 'Produto digital', title: 'Plataforma SaaS', cta: 'Ver o case',
           blurb: 'Plataforma SaaS de cannabis medicinal para prescritores. Lidero o design de produto: UI, UX research, design system e IA no fluxo de trabalho.' },
     en: { tag: 'Digital product', title: 'SaaS platform', cta: 'See the case',
           blurb: 'Medical-cannabis SaaS for prescribers. I lead product design: UI, UX research, design system and AI in the workflow.' } },
   { id: 'branding', cat: 'branding', color: 'var(--vermilion)', fg: 'var(--paper-100)',
-    bgImage: 'assets/cases/yerba-fina/card-cover.jpg',
-    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.jpg',
+    bgImage: 'assets/cases/yerba-fina/card-cover.webp',
+    bgSquare: 'assets/cases/yerba-fina/card-cover-1x1.webp',
     pt: { tag: 'Branding', title: 'Marcas', cta: 'Ver os cases',
           blurb: 'Identidade do símbolo ao manual: Yerba Fina, Hercules, Othelo, Healing Wildflower e o rebranding da Kaya.' },
     en: { tag: 'Branding', title: 'Brands', cta: 'See the cases',
@@ -3102,9 +3089,9 @@ const GAL_FILTERS = [
 ];
 
 const GAL = [
-  { cat: 'reports', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '340px', img: 'assets/anuarios/2025-cover.jpg', imgFit: 'cover', route: 'anuarios', pt: 'Anuários da Cannabis', en: 'Cannabis Yearbooks' },
+  { cat: 'reports', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '420px', img: 'assets/anuarios/2025-cover.webp', imgFit: 'cover', imgPos: 'center top', route: 'anuarios', pt: 'Anuários da Cannabis', en: 'Cannabis Yearbooks' },
   { cat: 'ilustracao', color: 'var(--gold)', fg: 'var(--paper-100)', mono: MONO_B, h: '270px', img: 'assets/ilustracao/amazon.jpg', route: 'ilustracao', pt: 'Ilustração Autoral', en: 'Original Illustration' },
-  { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/tendencias.jpg', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
+  { cat: 'ebooks', color: 'var(--ink)', fg: 'var(--paper-100)', mono: MONO_W, h: '230px', img: 'assets/ebooks/tendencias.webp', imgFit: 'cover', route: 'ebooks', pt: 'E-books · Série', en: 'E-books · Series' },
   { cat: 'culturais', color: 'var(--vermilion)', fg: 'var(--paper-100)', mono: MONO_W, h: '300px', img: 'assets/culturais/muros/logo-evento.png', imgFit: 'auto 62%', imgPos: 'center 36%', imgBg: '#F3ECDF', route: 'culturais', pt: 'Projetos Culturais', en: 'Cultural Projects' },
   { cat: 'grafico', color: 'var(--cerulean)', fg: 'var(--paper-100)', mono: MONO_W, h: '260px', img: 'assets/logo-seal-black.png', imgFit: 'auto 56%', imgPos: 'center 38%', imgBg: '#F2EDE3', route: 'logos', pt: 'Logo & Marca', en: 'Logo & Mark' },
 ];
@@ -3176,49 +3163,49 @@ const EBOOK_SERIES = [
     descPt: 'A Kaya Mind é referência em inteligência de mercado da cannabis no Brasil. Esta série reúne os 43 e-books que produzi para a marca desde 2022: capa, diagramação e direção de arte. Muitos saíram em parceria com empresas do setor, sobre saúde, cultivo, regulação e negócios. O recorte começa no Cenário Político Brasileiro, o primeiro que diagramei.',
     descEn: 'Kaya Mind is a leading cannabis market-intelligence company in Brazil. This series gathers the 43 e-books I have designed for the brand since 2022: covers, layout and art direction. Many shipped in partnership with industry companies, covering health, cultivation, regulation and business. The set starts at Cenário Político Brasileiro, the first one I laid out.',
     items: [
-      { src: 'assets/ebooks-kaya/terapia-canabinoide-na-neurologia.jpg', year: '2026', title: 'Terapia Canabinoide na Neurologia', url: 'https://kayamind.com/terapia-canabinoide-na-neurologia/', toc: ['Como interpretar as evidências', 'TEA e Síndrome de Tourette', 'Esclerose múltipla e espasticidade', 'Outras condições e panorama comparativo'] },
-      { src: 'assets/ebooks-kaya/mkt-digital-tabacarias-headshops.jpg', year: '2026', title: 'Marketing Digital para Tabacarias e Headshops', url: 'https://kayamind.com/mkt-digital-tabacarias-headshops/', toc: ['Produção de conteúdo', 'Distribuição e alcance', 'Conversão e relacionamento', 'Gestão e análise'] },
-      { src: 'assets/ebooks-kaya/ebook-wepayments-mercado-de-cannabis-no-brasil.jpg', year: '2026', title: 'Mercado de Cannabis no Brasil', url: 'https://kayamind.com/ebook-wepayments-mercado-de-cannabis-no-brasil/', toc: ['Modelos de negócio mais comuns no setor', 'Desafios operacionais do mercado de CBD', 'Compliance financeiro na prática', 'Profissionalização e o futuro do setor'] },
-      { src: 'assets/ebooks-kaya/ebook-cannabis-medicinal-e-sono.jpg', year: '2026', title: 'Cannabis Medicinal e Sono', url: 'https://kayamind.com/ebook-cannabis-medicinal-e-sono/', toc: ['Por que os tratamentos convencionais nem sempre funcionam?', 'Sistema endocanabinoide e fisiologia do sono', 'Cannabis medicinal nos distúrbios do sono', 'Evidências científicas: o que os estudos mostram?'] },
-      { src: 'assets/ebooks-kaya/ebook-cannabis-autismo.jpg', year: '2026', title: 'Cannabis e Autismo', url: 'https://kayamind.com/ebook-cannabis-autismo/', toc: ['Principais estudos clínicos e revisões científicas', 'Segurança no uso da cannabis medicinal no TEA', 'Como acompanhar a resposta ao tratamento', 'Acesso e qualidade dos produtos'] },
-      { src: 'assets/ebooks-kaya/e-book-produtos-de-cannabis-medicinal-no-brasil.jpg', year: '2026', title: 'Produtos de Cannabis Medicinal no Brasil', url: 'https://kayamind.com/e-book-produtos-de-cannabis-medicinal-no-brasil/', toc: ['O universo de produtos disponíveis', 'As vias de acesso', 'Formatos e composição', 'Análise de preços'] },
-      { src: 'assets/ebooks-kaya/e-book-abecmed.jpg', year: '2026', title: 'Inflorescências e Uso Terapêutico', url: 'https://kayamind.com/e-book-abecmed/', toc: ['COMO PODEM FAZER PARTE DO TRATAMENTO?', 'REDUÇÃO DE DANOS', 'ACOMPANHAMENTO PROFISSIONAL', 'ASPECTOS LEGAIS'] },
-      { src: 'assets/ebooks-kaya/associacoes-cannabis-brasil-ebook.jpg', year: '2026', title: 'Associações de Cannabis', url: 'https://kayamind.com/associacoes-cannabis-brasil-ebook/', toc: ['O que são as associações de pacientes', 'O panorama das associações brasileiras', 'Como funciona a produção dos medicamentos', 'O novo cenário regulatório'] },
-      { src: 'assets/ebooks-kaya/tabaco-alem-do-obvio.jpg', year: '2025', title: 'Tabaco Além do Óbvio', url: 'https://kayamind.com/tabaco-alem-do-obvio/', toc: ['Tipos mais comuns de tabaco', 'A alquimia dos blends', 'Armazenamento: como manter o tabaco no ponto ideal', 'Universo roll-your-own'] },
-      { src: 'assets/ebooks-kaya/o-poder-do-canhamo-para-a-sustentabilidade.jpg', year: '2025', title: 'O Poder do Cânhamo', url: 'https://kayamind.com/o-poder-do-canhamo-para-a-sustentabilidade/', toc: ['A relação entre cânhamo e sustentabilidade', 'O papel da planta na restauração do solo e biodiversidade', 'O impressionante case de Chernobyl', 'Como o cânhamo contribui para os Objetivos da Agenda 2030 da ONU'] },
-      { src: 'assets/ebooks-kaya/ebook-vozes-pela-cannabis.jpg', year: '2025', title: 'Vozes pela Cannabis', url: 'https://kayamind.com/ebook-vozes-pela-cannabis/', toc: ['Artistas e personalidades como porta-vozes da mudança', 'Histórias reais que inspiram', 'Verdivita + Gilsons: uma parceria que ecoa', 'O futuro da cannabis: cultura, política e sociedade'] },
-      { src: 'assets/ebooks-kaya/ebook-smartgrow-canhamo-industrial-no-brasil.jpg', year: '2025', title: 'Cânhamo Industrial no Brasil', url: 'https://kayamind.com/ebook-smartgrow-canhamo-industrial-no-brasil/', toc: ['Modalidades de cultivo do cânhamo', 'Etapas do cultivo industrial', 'Oportunidades e desafios no Brasil', 'O mercado do cânhamo e a bioeconomia'] },
-      { src: 'assets/ebooks-kaya/ebook-o-desafio-de-absorcao-do-cbd.jpg', year: '2025', title: 'O Desafio de Absorção do CBD', url: 'https://kayamind.com/ebook-o-desafio-de-absorcao-do-cbd/', toc: ['Como o CBD atua no organismo e seus benefícios para o bem-estar', 'O problema da baixa absorção do CBD em formulações tradicionais', 'Como a tecnologia do CBD solúvel em água está transformando a indústria', 'O que é a tecnologia CannaSorb® CB-Active e por que ela é considerada uma inovação revolucionária'] },
-      { src: 'assets/ebooks-kaya/ebook-complysoft-como-montar-uma-associacao-canabica.jpg', year: '2025', title: 'Como Montar uma Associação Canábica', url: 'https://kayamind.com/ebook-complysoft-como-montar-uma-associacao-canabica/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
-      { src: 'assets/ebooks-kaya/ebook-cannabis-e-feridas-de-dificil-cicatrizacao.jpg', year: '2025', title: 'Cannabis e Feridas', url: 'https://kayamind.com/ebook-cannabis-e-feridas-de-dificil-cicatrizacao/', toc: ['Por que falar de feridas de difícil cicatrização', 'O que é o sistema endocanabinoide (SEC) na pele', 'Mecanismos: como os canabinoides podem ajudar na cicatrização', 'Evidências científicas por condição'] },
-      { src: 'assets/ebooks-kaya/ebook-cannabis-e-dor-cronica.jpg', year: '2025', title: 'Cannabis e Dor Crônica', url: 'https://kayamind.com/ebook-cannabis-e-dor-cronica/', toc: ['Por que é tão difícil tratar a dor crônica?', 'O que a cannabis tem a ver com a dor?', 'Tipos de dor e como os canabinoides podem ajudar', 'Desafios, riscos e o que considerar antes de iniciar um tratamento com canabinoides'] },
-      { src: 'assets/ebooks-kaya/ebook-canabinoides-menores.jpg', year: '2025', title: 'Canabinoides Menores', url: 'https://kayamind.com/ebook-canabinoides-menores/', toc: ['Canabinoides menores: o que são e por que importam', 'Canabigerol (CBG)', 'Canabinol (CBN)', 'Tetraidrocanabivarina (THCV)'] },
-      { src: 'assets/ebooks-kaya/ebook-alma-lab-foco-e-concentracao.jpg', year: '2025', title: 'Foco e Concentração', url: 'https://kayamind.com/ebook-alma-lab-foco-e-concentracao/', toc: ['Como o cérebro regula o foco e a concentração', 'Estratégias naturais para melhorar o foco', 'Produtos naturais com evidência científica para foco e concentração', 'Alma Lab: ciência e inovação em foco e bem-estar'] },
-      { src: 'assets/ebooks-kaya/ebook-a-piteira-headshops-tabacarias.jpg', year: '2025', title: 'Headshops & Tabacarias', url: 'https://kayamind.com/ebook-a-piteira-headshops-tabacarias/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
-      { src: 'assets/ebooks-kaya/ebook-uso-topico-da-cannabis.jpg', year: '2024', title: 'O Uso Tópico da Cannabis', url: 'https://kayamind.com/ebook-uso-topico-da-cannabis/', toc: ['A atuação dos compostos da cannabis e o uso tópico', 'O que a ciência destaca em relação ao uso tópico da cannabis', 'Principais formas farmacêuticas: HempVegan e a inovação', 'Cannabis para Comunicadores'] },
-      { src: 'assets/ebooks-kaya/ebook-thcv-canabinoide.jpg', year: '2024', title: 'THCv: Um Canabinoide Promissor', url: 'https://kayamind.com/ebook-thcv-canabinoide/', toc: ['A cannabis e suas múltiplas propriedades', 'O THCv e os processos motivacionais', 'O THCv e o parkinson', 'Evidências constatadas por outros estudos científicos'] },
-      { src: 'assets/ebooks-kaya/ebook-tecnologia-cannabis-medicinal.jpg', year: '2024', title: 'O Futuro da Cannabis Medicinal', url: 'https://kayamind.com/ebook-tecnologia-cannabis-medicinal/', toc: ['Panorama Atual do Mercado da Cannabis para Médicos', 'Vantagens Competitivas para Médicos na Era Atual', 'Preparação para o futuro no atendimento médico da cannabis', 'Cannabis para Comunicadores'] },
-      { src: 'assets/ebooks-kaya/ebook-o-mercado-do-thc.jpg', year: '2024', title: 'O Mercado do THC', url: 'https://kayamind.com/ebook-o-mercado-do-thc/', toc: ['Os fitocanabinoides de cannabis', 'Potencial terapêutico do THC', 'O mercado de full spectrum THC no Uruguai', 'Pioneirismo da GrüneLabs no mercado do THC e Full Spectrum'] },
-      { src: 'assets/ebooks-kaya/ebook-muito-alem-da-fumaca-headshops.jpg', year: '2024', title: 'Muito Além da Fumaça', url: 'https://kayamind.com/ebook-muito-alem-da-fumaca-headshops/', toc: ['A ASCENSÃO DAS TABACARIAS E HEADSHOPS', 'TABACARIAS E HEADSHOPS E A RELAÇÃO COM A SMOKING CULTURE', 'COMPONDO O PORTFÓLIO DE PRODUTOS DO SEU ESTABELECIMENTO', 'TRADE MARKETING PARA COMPOSIÇÃO DE PORTFÓLIO'] },
-      { src: 'assets/ebooks-kaya/ebook-marketing-de-influencia.jpg', year: '2024', title: 'Marketing de Influência no Setor da Cannabis', url: 'https://kayamind.com/ebook-marketing-de-influencia/', toc: ['Marcas e Artistas', 'Marcas e Músicos', 'Marketing de Influência Entre Marcas', 'Espaços de Lazer e Entretenimento'] },
-      { src: 'assets/ebooks-kaya/ebook-farmacias-de-manipulacao.jpg', year: '2024', title: 'Farmácias de Manipulação e Cannabis Medicinal', url: 'https://kayamind.com/ebook-farmacias-de-manipulacao/', toc: ['As farmácias de manipulação', 'A regulamentação da cannabis nas farmácias de manipulação', 'Diferenciais dos produtos manipulados', 'Combinação de canabinoides'] },
-      { src: 'assets/ebooks-kaya/ebook-estudos-cientificos-cannabis-medicinal.jpg', year: '2024', title: 'Estudos Científicos sobre Cannabis Medicinal', url: 'https://kayamind.com/ebook-estudos-cientificos-cannabis-medicinal/', toc: ['Dor e tratamento da dor', 'Saúde mental e neuropsiquiátricos', 'Epilepsia e desordens neurológicas', 'Câncer e efeitos secundários da quimioterapia'] },
-      { src: 'assets/ebooks-kaya/ebook-cuidado-com-a-saude-mental.jpg', year: '2024', title: 'A Importância do Cuidado com a Saúde Mental', url: 'https://kayamind.com/ebook-cuidado-com-a-saude-mental/', toc: ['Formas de cuidar da saúde mental', 'Importância da adesão ao tratamento', 'Benefícios da Cannabis Medicinal para a saúde mental', 'Segurança e eficácia do tratamento'] },
-      { src: 'assets/ebooks-kaya/ebook-cannabis-e-genetica.jpg', year: '2024', title: 'Cannabis e Genética', url: 'https://kayamind.com/ebook-cannabis-e-genetica/', toc: ['Cannabis para Comunicadores'] },
-      { src: 'assets/ebooks-kaya/ebook-cadeia-produtiva-cannabis.jpg', year: '2024', title: 'Cadeia Produtiva da Cannabis', url: 'https://kayamind.com/ebook-cadeia-produtiva-cannabis/', toc: ['Fabricação de produtos à base de cannabis', 'Garantindo a qualidade', 'Como é realizada a distribuição', 'Cannabis para Comunicadores'] },
-      { src: 'assets/ebooks-kaya/ebook-30-perguntas-sobre-depressao.jpg', year: '2024', title: '30 Perguntas sobre Depressão', url: 'https://kayamind.com/ebook-30-perguntas-sobre-depressao/', toc: ['O que é a depressão', 'Quais são os principais sintomas da depressão', 'Possíveis tratamentos e acompanhamentos', 'Tratamentos alternativos com psicodélicos'] },
-      { src: 'assets/ebooks-kaya/e-book-guia-de-cultivo.jpg', year: '2024', title: 'Guia de Cultivo: da Semente à Flor', url: 'https://kayamind.com/e-book-guia-de-cultivo/', toc: ['Escolhendo o método de cultivo ideal', 'Germinação e fase vegetativa', 'Fase de floração e colheita', 'Cura, secagem e armazenamento'] },
-      { src: 'assets/ebooks-kaya/ebook-produtos-de-cannabis.jpg', year: '2023', title: 'Produtos de Cannabis', url: 'https://kayamind.com/ebook-produtos-de-cannabis/', toc: ['A importância da formulação do produto', 'Formas farmacêuticas disponíveis no Brasil', 'Óleos de cannabis', 'Gummies canábicas'] },
-      { src: 'assets/ebooks-kaya/ebook-filtros-e-piteiras.jpg', year: '2023', title: 'Guia de Filtros e Piteiras', url: 'https://kayamind.com/ebook-filtros-e-piteiras/', toc: ['Informações sobre a política de Redução de Danos', 'Diferenças entre filtros e piteiras', 'Marcas que possuem filtros e piteiras', 'Como utilizar filtros e piteiras no seu cigarro'] },
-      { src: 'assets/ebooks-kaya/ebook-as-strains-mais-famosas-da-internet.jpg', year: '2023', title: 'As Strains Mais Famosas da Internet', url: 'https://kayamind.com/ebook-as-strains-mais-famosas-da-internet/', toc: ['O que são os terpenos e suas influências', 'Tipos de cannabis', 'Dicas para um consumo saudável de cannabis', 'Cannabis para Comunicadores'] },
-      { src: 'assets/ebooks-kaya/e-book-tendencias-do-mercado-da-cannabis.jpg', year: '2023', title: 'Tendências do Mercado da Cannabis', url: 'https://kayamind.com/e-book-tendencias-do-mercado-da-cannabis/', toc: ['Mercado global da cannabis: para onde vamos agora', 'O cânhamo: possibilidades e sua versatilidade', 'Cosméticos feitos com maconha', 'Cannabis e sexo'] },
-      { src: 'assets/ebooks-kaya/e-book-receitas-com-cannabis.jpg', year: '2023', title: 'Receitas com Cannabis', url: 'https://kayamind.com/e-book-receitas-com-cannabis/', toc: ['Como realizar o processo de descarboxilação', 'Manteiga canábica: a base da culinária com cannabis', 'Diferentes sobremesas', 'Pratos para compartilhar'] },
-      { src: 'assets/ebooks-kaya/e-book-oleo-de-cbd.jpg', year: '2023', title: 'Guia do Óleo da Cannabis no Brasil', url: 'https://kayamind.com/e-book-oleo-de-cbd/', toc: ['Tipos de canabinoides', 'Condições médicas que podem ser tratadas com o óleo', 'Onde comprar o óleo de cannabis no Brasil', 'Quanto custa o tratamento com cannabis'] },
-      { src: 'assets/ebooks-kaya/e-book-guia-das-sedas-para-bolar.jpg', year: '2023', title: 'Guia de Sedas para Bolar', url: 'https://kayamind.com/e-book-guia-das-sedas-para-bolar/', toc: ['Tamanho das sedas', 'A melhor seda para fumar', 'Dicas para ter a melhor experiência', 'Sedas mais populares no mercado'] },
-      { src: 'assets/ebooks-kaya/e-book-dicas-de-mkt-e-vendas-para-tabacarias.jpg', year: '2023', title: 'Dicas de Marketing e Vendas para Tabacarias', url: 'https://kayamind.com/e-book-dicas-de-mkt-e-vendas-para-tabacarias/', toc: ['Dicas para você conhecer melhor seus clientes no mercado da cannabis', 'Consumer Insights: como conhecer seu cliente ajuda no aumento das vendas', 'Customer Success: a satisfação do cliente no mercado da cannabis', 'Aprenda a impulsionar suas vendas no mercado da cannabis no Brasil'] },
-      { src: 'assets/ebooks-kaya/e-book-cannabis-medicinal-evidencias-cientificas.jpg', year: '2023', title: 'Cannabis Medicinal: Evidências Científicas', url: 'https://kayamind.com/e-book-cannabis-medicinal-evidencias-cientificas/', toc: ['Transtorno do Espectro Autista (TEA)', 'Esclerose múltipla', 'Cannabis para Comunicadores'] },
-      { src: 'assets/ebooks-kaya/e-book-cannabis-e-sono.jpg', year: '2023', title: 'Cannabis Medicinal e Estudos do Sono', url: 'https://kayamind.com/e-book-cannabis-e-sono/', toc: ['Entenda sobre o sistema endocanabinoide', 'O que é o óleo de CBD e como ele pode te ajudar', 'Por que o CBN pode ser revolucionário', 'Qual a relação da cannabis com o sono?'] },
-      { src: 'assets/ebooks-kaya/e-book-cenario-politico-brasileiro-e-cannabis.jpg', year: '2022', title: 'Cenário Político Brasileiro e a Pauta da Cannabis', url: 'https://kayamind.com/e-book-cenario-politico-brasileiro-e-cannabis/', toc: ['Quantidade de menções à cannabis no twitter de determinados políticos', 'Dados que mostram o posicionamento dos partidos em relação ao PL 399/2015', 'Manifestações dos ministros do STF em torno da cannabis', 'Projetos de lei e seus autores que já foram criadas a respeito da planta'] },
+      { src: 'assets/ebooks-kaya/terapia-canabinoide-na-neurologia.webp', year: '2026', title: 'Terapia Canabinoide na Neurologia', url: 'https://kayamind.com/terapia-canabinoide-na-neurologia/', toc: ['Como interpretar as evidências', 'TEA e Síndrome de Tourette', 'Esclerose múltipla e espasticidade', 'Outras condições e panorama comparativo'] },
+      { src: 'assets/ebooks-kaya/mkt-digital-tabacarias-headshops.webp', year: '2026', title: 'Marketing Digital para Tabacarias e Headshops', url: 'https://kayamind.com/mkt-digital-tabacarias-headshops/', toc: ['Produção de conteúdo', 'Distribuição e alcance', 'Conversão e relacionamento', 'Gestão e análise'] },
+      { src: 'assets/ebooks-kaya/ebook-wepayments-mercado-de-cannabis-no-brasil.webp', year: '2026', title: 'Mercado de Cannabis no Brasil', url: 'https://kayamind.com/ebook-wepayments-mercado-de-cannabis-no-brasil/', toc: ['Modelos de negócio mais comuns no setor', 'Desafios operacionais do mercado de CBD', 'Compliance financeiro na prática', 'Profissionalização e o futuro do setor'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-medicinal-e-sono.webp', year: '2026', title: 'Cannabis Medicinal e Sono', url: 'https://kayamind.com/ebook-cannabis-medicinal-e-sono/', toc: ['Por que os tratamentos convencionais nem sempre funcionam?', 'Sistema endocanabinoide e fisiologia do sono', 'Cannabis medicinal nos distúrbios do sono', 'Evidências científicas: o que os estudos mostram?'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-autismo.webp', year: '2026', title: 'Cannabis e Autismo', url: 'https://kayamind.com/ebook-cannabis-autismo/', toc: ['Principais estudos clínicos e revisões científicas', 'Segurança no uso da cannabis medicinal no TEA', 'Como acompanhar a resposta ao tratamento', 'Acesso e qualidade dos produtos'] },
+      { src: 'assets/ebooks-kaya/e-book-produtos-de-cannabis-medicinal-no-brasil.webp', year: '2026', title: 'Produtos de Cannabis Medicinal no Brasil', url: 'https://kayamind.com/e-book-produtos-de-cannabis-medicinal-no-brasil/', toc: ['O universo de produtos disponíveis', 'As vias de acesso', 'Formatos e composição', 'Análise de preços'] },
+      { src: 'assets/ebooks-kaya/e-book-abecmed.webp', year: '2026', title: 'Inflorescências e Uso Terapêutico', url: 'https://kayamind.com/e-book-abecmed/', toc: ['COMO PODEM FAZER PARTE DO TRATAMENTO?', 'REDUÇÃO DE DANOS', 'ACOMPANHAMENTO PROFISSIONAL', 'ASPECTOS LEGAIS'] },
+      { src: 'assets/ebooks-kaya/associacoes-cannabis-brasil-ebook.webp', year: '2026', title: 'Associações de Cannabis', url: 'https://kayamind.com/associacoes-cannabis-brasil-ebook/', toc: ['O que são as associações de pacientes', 'O panorama das associações brasileiras', 'Como funciona a produção dos medicamentos', 'O novo cenário regulatório'] },
+      { src: 'assets/ebooks-kaya/tabaco-alem-do-obvio.webp', year: '2025', title: 'Tabaco Além do Óbvio', url: 'https://kayamind.com/tabaco-alem-do-obvio/', toc: ['Tipos mais comuns de tabaco', 'A alquimia dos blends', 'Armazenamento: como manter o tabaco no ponto ideal', 'Universo roll-your-own'] },
+      { src: 'assets/ebooks-kaya/o-poder-do-canhamo-para-a-sustentabilidade.webp', year: '2025', title: 'O Poder do Cânhamo', url: 'https://kayamind.com/o-poder-do-canhamo-para-a-sustentabilidade/', toc: ['A relação entre cânhamo e sustentabilidade', 'O papel da planta na restauração do solo e biodiversidade', 'O impressionante case de Chernobyl', 'Como o cânhamo contribui para os Objetivos da Agenda 2030 da ONU'] },
+      { src: 'assets/ebooks-kaya/ebook-vozes-pela-cannabis.webp', year: '2025', title: 'Vozes pela Cannabis', url: 'https://kayamind.com/ebook-vozes-pela-cannabis/', toc: ['Artistas e personalidades como porta-vozes da mudança', 'Histórias reais que inspiram', 'Verdivita + Gilsons: uma parceria que ecoa', 'O futuro da cannabis: cultura, política e sociedade'] },
+      { src: 'assets/ebooks-kaya/ebook-smartgrow-canhamo-industrial-no-brasil.webp', year: '2025', title: 'Cânhamo Industrial no Brasil', url: 'https://kayamind.com/ebook-smartgrow-canhamo-industrial-no-brasil/', toc: ['Modalidades de cultivo do cânhamo', 'Etapas do cultivo industrial', 'Oportunidades e desafios no Brasil', 'O mercado do cânhamo e a bioeconomia'] },
+      { src: 'assets/ebooks-kaya/ebook-o-desafio-de-absorcao-do-cbd.webp', year: '2025', title: 'O Desafio de Absorção do CBD', url: 'https://kayamind.com/ebook-o-desafio-de-absorcao-do-cbd/', toc: ['Como o CBD atua no organismo e seus benefícios para o bem-estar', 'O problema da baixa absorção do CBD em formulações tradicionais', 'Como a tecnologia do CBD solúvel em água está transformando a indústria', 'O que é a tecnologia CannaSorb® CB-Active e por que ela é considerada uma inovação revolucionária'] },
+      { src: 'assets/ebooks-kaya/ebook-complysoft-como-montar-uma-associacao-canabica.webp', year: '2025', title: 'Como Montar uma Associação Canábica', url: 'https://kayamind.com/ebook-complysoft-como-montar-uma-associacao-canabica/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-feridas-de-dificil-cicatrizacao.webp', year: '2025', title: 'Cannabis e Feridas', url: 'https://kayamind.com/ebook-cannabis-e-feridas-de-dificil-cicatrizacao/', toc: ['Por que falar de feridas de difícil cicatrização', 'O que é o sistema endocanabinoide (SEC) na pele', 'Mecanismos: como os canabinoides podem ajudar na cicatrização', 'Evidências científicas por condição'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-dor-cronica.webp', year: '2025', title: 'Cannabis e Dor Crônica', url: 'https://kayamind.com/ebook-cannabis-e-dor-cronica/', toc: ['Por que é tão difícil tratar a dor crônica?', 'O que a cannabis tem a ver com a dor?', 'Tipos de dor e como os canabinoides podem ajudar', 'Desafios, riscos e o que considerar antes de iniciar um tratamento com canabinoides'] },
+      { src: 'assets/ebooks-kaya/ebook-canabinoides-menores.webp', year: '2025', title: 'Canabinoides Menores', url: 'https://kayamind.com/ebook-canabinoides-menores/', toc: ['Canabinoides menores: o que são e por que importam', 'Canabigerol (CBG)', 'Canabinol (CBN)', 'Tetraidrocanabivarina (THCV)'] },
+      { src: 'assets/ebooks-kaya/ebook-alma-lab-foco-e-concentracao.webp', year: '2025', title: 'Foco e Concentração', url: 'https://kayamind.com/ebook-alma-lab-foco-e-concentracao/', toc: ['Como o cérebro regula o foco e a concentração', 'Estratégias naturais para melhorar o foco', 'Produtos naturais com evidência científica para foco e concentração', 'Alma Lab: ciência e inovação em foco e bem-estar'] },
+      { src: 'assets/ebooks-kaya/ebook-a-piteira-headshops-tabacarias.webp', year: '2025', title: 'Headshops & Tabacarias', url: 'https://kayamind.com/ebook-a-piteira-headshops-tabacarias/', toc: ['Caminhos jurídicos e legais', 'Construção da equipe de trabalho', 'Imagem da associação e expansão sustentável', 'Fortalecimento da associação e impacto social'] },
+      { src: 'assets/ebooks-kaya/ebook-uso-topico-da-cannabis.webp', year: '2024', title: 'O Uso Tópico da Cannabis', url: 'https://kayamind.com/ebook-uso-topico-da-cannabis/', toc: ['A atuação dos compostos da cannabis e o uso tópico', 'O que a ciência destaca em relação ao uso tópico da cannabis', 'Principais formas farmacêuticas: HempVegan e a inovação', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-thcv-canabinoide.webp', year: '2024', title: 'THCv: Um Canabinoide Promissor', url: 'https://kayamind.com/ebook-thcv-canabinoide/', toc: ['A cannabis e suas múltiplas propriedades', 'O THCv e os processos motivacionais', 'O THCv e o parkinson', 'Evidências constatadas por outros estudos científicos'] },
+      { src: 'assets/ebooks-kaya/ebook-tecnologia-cannabis-medicinal.webp', year: '2024', title: 'O Futuro da Cannabis Medicinal', url: 'https://kayamind.com/ebook-tecnologia-cannabis-medicinal/', toc: ['Panorama Atual do Mercado da Cannabis para Médicos', 'Vantagens Competitivas para Médicos na Era Atual', 'Preparação para o futuro no atendimento médico da cannabis', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-o-mercado-do-thc.webp', year: '2024', title: 'O Mercado do THC', url: 'https://kayamind.com/ebook-o-mercado-do-thc/', toc: ['Os fitocanabinoides de cannabis', 'Potencial terapêutico do THC', 'O mercado de full spectrum THC no Uruguai', 'Pioneirismo da GrüneLabs no mercado do THC e Full Spectrum'] },
+      { src: 'assets/ebooks-kaya/ebook-muito-alem-da-fumaca-headshops.webp', year: '2024', title: 'Muito Além da Fumaça', url: 'https://kayamind.com/ebook-muito-alem-da-fumaca-headshops/', toc: ['A ASCENSÃO DAS TABACARIAS E HEADSHOPS', 'TABACARIAS E HEADSHOPS E A RELAÇÃO COM A SMOKING CULTURE', 'COMPONDO O PORTFÓLIO DE PRODUTOS DO SEU ESTABELECIMENTO', 'TRADE MARKETING PARA COMPOSIÇÃO DE PORTFÓLIO'] },
+      { src: 'assets/ebooks-kaya/ebook-marketing-de-influencia.webp', year: '2024', title: 'Marketing de Influência no Setor da Cannabis', url: 'https://kayamind.com/ebook-marketing-de-influencia/', toc: ['Marcas e Artistas', 'Marcas e Músicos', 'Marketing de Influência Entre Marcas', 'Espaços de Lazer e Entretenimento'] },
+      { src: 'assets/ebooks-kaya/ebook-farmacias-de-manipulacao.webp', year: '2024', title: 'Farmácias de Manipulação e Cannabis Medicinal', url: 'https://kayamind.com/ebook-farmacias-de-manipulacao/', toc: ['As farmácias de manipulação', 'A regulamentação da cannabis nas farmácias de manipulação', 'Diferenciais dos produtos manipulados', 'Combinação de canabinoides'] },
+      { src: 'assets/ebooks-kaya/ebook-estudos-cientificos-cannabis-medicinal.webp', year: '2024', title: 'Estudos Científicos sobre Cannabis Medicinal', url: 'https://kayamind.com/ebook-estudos-cientificos-cannabis-medicinal/', toc: ['Dor e tratamento da dor', 'Saúde mental e neuropsiquiátricos', 'Epilepsia e desordens neurológicas', 'Câncer e efeitos secundários da quimioterapia'] },
+      { src: 'assets/ebooks-kaya/ebook-cuidado-com-a-saude-mental.webp', year: '2024', title: 'A Importância do Cuidado com a Saúde Mental', url: 'https://kayamind.com/ebook-cuidado-com-a-saude-mental/', toc: ['Formas de cuidar da saúde mental', 'Importância da adesão ao tratamento', 'Benefícios da Cannabis Medicinal para a saúde mental', 'Segurança e eficácia do tratamento'] },
+      { src: 'assets/ebooks-kaya/ebook-cannabis-e-genetica.webp', year: '2024', title: 'Cannabis e Genética', url: 'https://kayamind.com/ebook-cannabis-e-genetica/', toc: ['Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-cadeia-produtiva-cannabis.webp', year: '2024', title: 'Cadeia Produtiva da Cannabis', url: 'https://kayamind.com/ebook-cadeia-produtiva-cannabis/', toc: ['Fabricação de produtos à base de cannabis', 'Garantindo a qualidade', 'Como é realizada a distribuição', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/ebook-30-perguntas-sobre-depressao.webp', year: '2024', title: '30 Perguntas sobre Depressão', url: 'https://kayamind.com/ebook-30-perguntas-sobre-depressao/', toc: ['O que é a depressão', 'Quais são os principais sintomas da depressão', 'Possíveis tratamentos e acompanhamentos', 'Tratamentos alternativos com psicodélicos'] },
+      { src: 'assets/ebooks-kaya/e-book-guia-de-cultivo.webp', year: '2024', title: 'Guia de Cultivo: da Semente à Flor', url: 'https://kayamind.com/e-book-guia-de-cultivo/', toc: ['Escolhendo o método de cultivo ideal', 'Germinação e fase vegetativa', 'Fase de floração e colheita', 'Cura, secagem e armazenamento'] },
+      { src: 'assets/ebooks-kaya/ebook-produtos-de-cannabis.webp', year: '2023', title: 'Produtos de Cannabis', url: 'https://kayamind.com/ebook-produtos-de-cannabis/', toc: ['A importância da formulação do produto', 'Formas farmacêuticas disponíveis no Brasil', 'Óleos de cannabis', 'Gummies canábicas'] },
+      { src: 'assets/ebooks-kaya/ebook-filtros-e-piteiras.webp', year: '2023', title: 'Guia de Filtros e Piteiras', url: 'https://kayamind.com/ebook-filtros-e-piteiras/', toc: ['Informações sobre a política de Redução de Danos', 'Diferenças entre filtros e piteiras', 'Marcas que possuem filtros e piteiras', 'Como utilizar filtros e piteiras no seu cigarro'] },
+      { src: 'assets/ebooks-kaya/ebook-as-strains-mais-famosas-da-internet.webp', year: '2023', title: 'As Strains Mais Famosas da Internet', url: 'https://kayamind.com/ebook-as-strains-mais-famosas-da-internet/', toc: ['O que são os terpenos e suas influências', 'Tipos de cannabis', 'Dicas para um consumo saudável de cannabis', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/e-book-tendencias-do-mercado-da-cannabis.webp', year: '2023', title: 'Tendências do Mercado da Cannabis', url: 'https://kayamind.com/e-book-tendencias-do-mercado-da-cannabis/', toc: ['Mercado global da cannabis: para onde vamos agora', 'O cânhamo: possibilidades e sua versatilidade', 'Cosméticos feitos com maconha', 'Cannabis e sexo'] },
+      { src: 'assets/ebooks-kaya/e-book-receitas-com-cannabis.webp', year: '2023', title: 'Receitas com Cannabis', url: 'https://kayamind.com/e-book-receitas-com-cannabis/', toc: ['Como realizar o processo de descarboxilação', 'Manteiga canábica: a base da culinária com cannabis', 'Diferentes sobremesas', 'Pratos para compartilhar'] },
+      { src: 'assets/ebooks-kaya/e-book-oleo-de-cbd.webp', year: '2023', title: 'Guia do Óleo da Cannabis no Brasil', url: 'https://kayamind.com/e-book-oleo-de-cbd/', toc: ['Tipos de canabinoides', 'Condições médicas que podem ser tratadas com o óleo', 'Onde comprar o óleo de cannabis no Brasil', 'Quanto custa o tratamento com cannabis'] },
+      { src: 'assets/ebooks-kaya/e-book-guia-das-sedas-para-bolar.webp', year: '2023', title: 'Guia de Sedas para Bolar', url: 'https://kayamind.com/e-book-guia-das-sedas-para-bolar/', toc: ['Tamanho das sedas', 'A melhor seda para fumar', 'Dicas para ter a melhor experiência', 'Sedas mais populares no mercado'] },
+      { src: 'assets/ebooks-kaya/e-book-dicas-de-mkt-e-vendas-para-tabacarias.webp', year: '2023', title: 'Dicas de Marketing e Vendas para Tabacarias', url: 'https://kayamind.com/e-book-dicas-de-mkt-e-vendas-para-tabacarias/', toc: ['Dicas para você conhecer melhor seus clientes no mercado da cannabis', 'Consumer Insights: como conhecer seu cliente ajuda no aumento das vendas', 'Customer Success: a satisfação do cliente no mercado da cannabis', 'Aprenda a impulsionar suas vendas no mercado da cannabis no Brasil'] },
+      { src: 'assets/ebooks-kaya/e-book-cannabis-medicinal-evidencias-cientificas.webp', year: '2023', title: 'Cannabis Medicinal: Evidências Científicas', url: 'https://kayamind.com/e-book-cannabis-medicinal-evidencias-cientificas/', toc: ['Transtorno do Espectro Autista (TEA)', 'Esclerose múltipla', 'Cannabis para Comunicadores'] },
+      { src: 'assets/ebooks-kaya/e-book-cannabis-e-sono.webp', year: '2023', title: 'Cannabis Medicinal e Estudos do Sono', url: 'https://kayamind.com/e-book-cannabis-e-sono/', toc: ['Entenda sobre o sistema endocanabinoide', 'O que é o óleo de CBD e como ele pode te ajudar', 'Por que o CBN pode ser revolucionário', 'Qual a relação da cannabis com o sono?'] },
+      { src: 'assets/ebooks-kaya/e-book-cenario-politico-brasileiro-e-cannabis.webp', year: '2022', title: 'Cenário Político Brasileiro e a Pauta da Cannabis', url: 'https://kayamind.com/e-book-cenario-politico-brasileiro-e-cannabis/', toc: ['Quantidade de menções à cannabis no twitter de determinados políticos', 'Dados que mostram o posicionamento dos partidos em relação ao PL 399/2015', 'Manifestações dos ministros do STF em torno da cannabis', 'Projetos de lei e seus autores que já foram criadas a respeito da planta'] },
     ],
   },
 ];
@@ -3234,17 +3221,17 @@ const YF_PALETTE = [
 ];
 
 const YF_LOGOS = [
-  { src: YF_BASE + 'logo-extenso.png', ratio: '4956/2460', featured: false,
+  { src: YF_BASE + 'logo-extenso.webp', ratio: '4956/2460', featured: false,
     pt: 'Versão horizontal', en: 'Horizontal version',
     tagPt: 'Web · banners', tagEn: 'Web · banners',
     descPt: 'O nome se abre em torno do bud. Lockup largo, feito para cabeçalhos de site, banners e qualquer espaço horizontal.',
     descEn: 'The name opens around the bud. A wide lockup made for website headers, banners and any horizontal space.' },
-  { src: YF_BASE + 'logo-simbolo-slogan.png', ratio: '1/1', featured: false,
+  { src: YF_BASE + 'logo-simbolo-slogan.webp', ratio: '1/1', featured: false,
     pt: 'Símbolo + slogan', en: 'Symbol + slogan',
     tagPt: 'Redes sociais', tagEn: 'Social media',
     descPt: 'O bud com o slogan “Explore seu meio” logo abaixo. Formato vertical e compacto, ideal para redes sociais, selos e adesivos.',
     descEn: 'The bud with the slogan “Explore your medium” beneath it. A compact vertical format, ideal for social media, seals and stickers.' },
-  { src: YF_BASE + 'logo-simbolo.png', ratio: '1/1', featured: false,
+  { src: YF_BASE + 'logo-simbolo.webp', ratio: '1/1', featured: false,
     pt: 'Símbolo', en: 'Symbol',
     tagPt: 'Ícone · favicon', tagEn: 'Icon · favicon',
     descPt: 'Só o bud. A redução máxima da marca: funciona como avatar, favicon, bug e marca d’água quando o espaço é mínimo.',
@@ -3267,14 +3254,14 @@ const YF_TYPE = [
 ];
 
 const YF_APPS_SQ = [
-  { src: YF_BASE + 'green-man.jpg', capPt: 'Campanha · Explore seu meio', capEn: 'Campaign · Explore your medium' },
-  { src: YF_BASE + 'skate-vista.jpg', capPt: 'Social · Vista cânhamo', capEn: 'Social · Wear hemp' },
-  { src: YF_BASE + 'rooftop.jpg', capPt: 'Outdoor · Tipografia', capEn: 'Outdoor · Typography' },
+  { src: YF_BASE + 'green-man.webp', capPt: 'Campanha · Explore seu meio', capEn: 'Campaign · Explore your medium' },
+  { src: YF_BASE + 'skate-vista.webp', capPt: 'Social · Vista cânhamo', capEn: 'Social · Wear hemp' },
+  { src: YF_BASE + 'rooftop.webp', capPt: 'Outdoor · Tipografia', capEn: 'Outdoor · Typography' },
 ];
 const YF_APPS_WIDE = [
-  { src: YF_BASE + 'app-skater.jpg', capPt: 'Vídeo · Pôr do sol', capEn: 'Video · Sunset' },
-  { src: YF_BASE + 'app-graffiti.jpg', capPt: 'Lifestyle · Grafite', capEn: 'Lifestyle · Graffiti' },
-  { src: YF_BASE + 'app-rain.jpg', capPt: 'Urbano · Cidade', capEn: 'Urban · City' },
+  { src: YF_BASE + 'app-skater.webp', capPt: 'Vídeo · Pôr do sol', capEn: 'Video · Sunset' },
+  { src: YF_BASE + 'app-graffiti.webp', capPt: 'Lifestyle · Grafite', capEn: 'Lifestyle · Graffiti' },
+  { src: YF_BASE + 'app-rain.webp', capPt: 'Urbano · Cidade', capEn: 'Urban · City' },
 ];
 
 const YERBA = {
@@ -3416,24 +3403,24 @@ const HERC_PALETTE = [
 ];
 
 const HERC_LOGOS = [
-  { src: HERC_BASE + 'logo-secundario.png', bg: '#FFFFFF',
+  { src: HERC_BASE + 'logo-secundario.webp', bg: '#FFFFFF',
     pt: 'Assinatura horizontal', en: 'Horizontal lockup', tagPt: 'Web · cabeçalhos', tagEn: 'Web · headers',
     descPt: 'O ícone à esquerda, o nome à direita, entre duas barras vermelhas. Pensada para cabeçalhos de site, rótulos e qualquer espaço largo.',
     descEn: 'Icon on the left, name on the right, framed by two red bars. Built for site headers, labels and any wide space.' },
-  { src: HERC_BASE + 'logo-icone.png', bg: '#FFFFFF',
+  { src: HERC_BASE + 'logo-icone.webp', bg: '#FFFFFF',
     pt: 'Ícone', en: 'Symbol', tagPt: 'Avatar · favicon', tagEn: 'Avatar · favicon',
     descPt: 'O halter que vira “H”. A redução máxima da marca: avatar, favicon, selo e marca d’água quando o espaço aperta.',
     descEn: 'The dumbbell that becomes an “H”. The brand at its smallest: avatar, favicon, seal and watermark when space is tight.' },
-  { src: HERC_BASE + 'logo-suplementos.jpg', bg: '#FFFFFF',
+  { src: HERC_BASE + 'logo-suplementos.webp', bg: '#FFFFFF',
     pt: 'Versão institucional', en: 'Institutional version', tagPt: 'Suplementos', tagEn: 'Supplements',
     descPt: 'Lockup vertical completo com a palavra “Suplementos”. A assinatura formal da empresa, fora da linha de produto.',
     descEn: 'Full vertical lockup with the word “Supplements”. The company’s formal signature, beyond the product line.' },
 ];
 
 const HERC_VARIANTS = [
-  { src: HERC_BASE + 'logo-sec-preto.png', bg: '#FFFFFF', pt: 'Positivo · preto', en: 'Positive · black' },
-  { src: HERC_BASE + 'logo-sec-branco.png', bg: '#101010', pt: 'Negativo · branco', en: 'Negative · white' },
-  { src: HERC_BASE + 'logo-sec-vermelho.png', bg: '#FFFFFF', pt: 'Monocromático · vermelho', en: 'Monochrome · red' },
+  { src: HERC_BASE + 'logo-sec-preto.webp', bg: '#FFFFFF', pt: 'Positivo · preto', en: 'Positive · black' },
+  { src: HERC_BASE + 'logo-sec-branco.webp', bg: '#101010', pt: 'Negativo · branco', en: 'Negative · white' },
+  { src: HERC_BASE + 'logo-sec-vermelho.webp', bg: '#FFFFFF', pt: 'Monocromático · vermelho', en: 'Monochrome · red' },
 ];
 
 const HERC_PRODUCTS = [
@@ -3452,25 +3439,25 @@ const HERC_PRODUCTS = [
 ];
 
 const HERC_MOCKUPS = [
-  { src: HERC_BASE + 'mockup-gym.jpg', ratio: '1350/900',
+  { src: HERC_BASE + 'mockup-gym.webp', ratio: '1350/900',
     pt: 'Marca aplicada · academia', en: 'Brand applied · gym',
     capPt: 'Sinalização · versão negativa sobre ambiente', capEn: 'Signage · negative version over environment' },
-  { src: HERC_BASE + 'mockup-wall.jpg', ratio: '1680/1120',
+  { src: HERC_BASE + 'mockup-wall.webp', ratio: '1680/1120',
     pt: 'Letreiro 3D · parede', en: '3D sign · wall',
     capPt: 'Fachada · relevo preto sobre concreto', capEn: 'Storefront · black relief on concrete' },
-  { src: HERC_BASE + 'mockup-grey.jpg', ratio: '1680/1120',
+  { src: HERC_BASE + 'mockup-grey.webp', ratio: '1680/1120',
     pt: 'Letreiro 3D · sala', en: '3D sign · interior',
     capPt: 'Recepção · versão branca sobre cimento', capEn: 'Reception · white version on cement' },
 ];
 
 const HERC_NEWS = [
-  { src: HERC_BASE + 'newsletter-1.jpg', ratio: '1414/2000', capPt: 'Capa · lançamento Colossus', capEn: 'Cover · Colossus launch' },
-  { src: HERC_BASE + 'newsletter-2.jpg', ratio: '1414/2000', capPt: 'Páginas internas · guia de suplementos', capEn: 'Inner pages · supplement guide' },
+  { src: HERC_BASE + 'newsletter-1.webp', ratio: '1414/2000', capPt: 'Capa · lançamento Colossus', capEn: 'Cover · Colossus launch' },
+  { src: HERC_BASE + 'newsletter-2.webp', ratio: '1414/2000', capPt: 'Páginas internas · guia de suplementos', capEn: 'Inner pages · supplement guide' },
 ];
 
 const HERC_SOCIAL = [
-  { src: HERC_BASE + 'build-your-body.jpg', ratio: '940/788', capPt: 'Feed · “Build Your Body”', capEn: 'Feed · “Build Your Body”' },
-  { src: HERC_BASE + 'whey-post.jpg', ratio: '1886/1490', capPt: 'Anúncio · 100% Whey', capEn: 'Ad · 100% Whey' },
+  { src: HERC_BASE + 'build-your-body.webp', ratio: '940/788', capPt: 'Feed · “Build Your Body”', capEn: 'Feed · “Build Your Body”' },
+  { src: HERC_BASE + 'whey-post.webp', ratio: '1886/1490', capPt: 'Anúncio · 100% Whey', capEn: 'Ad · 100% Whey' },
 ];
 
 const HERCULES = {
@@ -3613,30 +3600,30 @@ const HERCULES = {
 const JIMI_BASE = 'assets/cases/jimi-oliver/';
 
 const JIMI_DISC = [
-  { src: JIMI_BASE + 'vinyl-grey.jpg', ratio: '4/3', fit: 'cover',
+  { src: JIMI_BASE + 'vinyl-grey.webp', ratio: '4/3', fit: 'cover',
     capPt: 'Vinil + capa · “New Album Release”', capEn: 'Vinyl + sleeve · “New Album Release”' },
-  { src: JIMI_BASE + 'cd-label.jpg', ratio: '1/1', fit: 'contain',
+  { src: JIMI_BASE + 'cd-label.webp', ratio: '1/1', fit: 'contain',
     capPt: 'Bolacha do CD · faixas em arco + Salmos 126', capEn: 'CD label · tracks in an arc + Psalm 126' },
-  { src: JIMI_BASE + 'inner-spread.jpg', ratio: '2/1', fit: 'cover',
+  { src: JIMI_BASE + 'inner-spread.webp', ratio: '2/1', fit: 'cover',
     capPt: 'Encarte interno · tracklist e ficha técnica', capEn: 'Inner spread · tracklist and credits' },
 ];
 
 const JIMI_LIVE = [
-  { src: JIMI_BASE + 'live-1.jpg', ratio: '16/9', span: 1,
+  { src: JIMI_BASE + 'live-1.webp', ratio: '16/9', span: 1,
     capPt: 'Lançamento ao vivo · painel de LED “JIMI”', capEn: 'Live launch · “JIMI” LED panel' },
-  { src: JIMI_BASE + 'live-2.jpg', ratio: '16/9', span: 1,
+  { src: JIMI_BASE + 'live-2.webp', ratio: '16/9', span: 1,
     capPt: 'Cenário · retrato da capa em halftone gigante', capEn: 'Stage · giant halftone of the cover portrait' },
 ];
 
 const JIMI_PORTFOLIO = [
-  { src: JIMI_BASE + 'portfolio-1.jpg', capPt: 'Capa do portfólio', capEn: 'Portfolio cover' },
-  { src: JIMI_BASE + 'portfolio-2.jpg', capPt: 'Abertura · biografia', capEn: 'Opening · bio' },
-  { src: JIMI_BASE + 'portfolio-3.jpg', capPt: 'Projeto · Face to Face', capEn: 'Project · Face to Face' },
-  { src: JIMI_BASE + 'portfolio-4.jpg', capPt: 'Mosaico · registros do show', capEn: 'Mosaic · show stills' },
-  { src: JIMI_BASE + 'portfolio-5.jpg', capPt: 'Projeto · Brazilian Bossa Jazz', capEn: 'Project · Brazilian Bossa Jazz' },
-  { src: JIMI_BASE + 'portfolio-6.jpg', capPt: 'Mosaico · pôsteres e palco', capEn: 'Mosaic · posters and stage' },
-  { src: JIMI_BASE + 'portfolio-7.jpg', capPt: 'Currículo musical', capEn: 'Musical résumé' },
-  { src: JIMI_BASE + 'portfolio-8.jpg', capPt: 'Encerramento · contato', capEn: 'Closing · contact' },
+  { src: JIMI_BASE + 'portfolio-1.webp', capPt: 'Capa do portfólio', capEn: 'Portfolio cover' },
+  { src: JIMI_BASE + 'portfolio-2.webp', capPt: 'Abertura · biografia', capEn: 'Opening · bio' },
+  { src: JIMI_BASE + 'portfolio-3.webp', capPt: 'Projeto · Face to Face', capEn: 'Project · Face to Face' },
+  { src: JIMI_BASE + 'portfolio-4.webp', capPt: 'Mosaico · registros do show', capEn: 'Mosaic · show stills' },
+  { src: JIMI_BASE + 'portfolio-5.webp', capPt: 'Projeto · Brazilian Bossa Jazz', capEn: 'Project · Brazilian Bossa Jazz' },
+  { src: JIMI_BASE + 'portfolio-6.webp', capPt: 'Mosaico · pôsteres e palco', capEn: 'Mosaic · posters and stage' },
+  { src: JIMI_BASE + 'portfolio-7.webp', capPt: 'Currículo musical', capEn: 'Musical résumé' },
+  { src: JIMI_BASE + 'portfolio-8.webp', capPt: 'Encerramento · contato', capEn: 'Closing · contact' },
 ];
 
 const JIMI = {
@@ -3745,20 +3732,20 @@ const OTH_PALETTE = [
 ];
 
 const OTH_LOGOS = [
-  { src: OTH_BASE + 'logo-dark.png', bg: '#F4EFE6', pt: 'Principal', en: 'Primary', tagPt: 'Positivo', tagEn: 'Positive', descPt: 'Grafite sobre creme. Versão padrão.', descEn: 'Graphite on cream. Default version.' },
-  { src: OTH_BASE + 'logo-white.png', bg: '#1E1E1E', pt: 'Negativo', en: 'Negative', tagPt: 'Branco', tagEn: 'White', descPt: 'Branco sobre fundo escuro.', descEn: 'White on dark background.' },
-  { src: OTH_BASE + 'logo-terracota.png', bg: '#F4EFE6', pt: 'Terracota', en: 'Terracotta', tagPt: 'Laranja', tagEn: 'Orange', descPt: 'A marca toda em laranja Othelo.', descEn: 'The whole mark in Othelo orange.' },
-  { src: OTH_BASE + 'logo-negative.png', bg: '#1E1E1E', pt: 'Contorno', en: 'Outline', tagPt: 'Outline', tagEn: 'Outline', descPt: 'Só traço. Aplicações especiais.', descEn: 'Outline only. Special applications.' },
+  { src: OTH_BASE + 'logo-dark.webp', bg: '#F4EFE6', pt: 'Principal', en: 'Primary', tagPt: 'Positivo', tagEn: 'Positive', descPt: 'Grafite sobre creme. Versão padrão.', descEn: 'Graphite on cream. Default version.' },
+  { src: OTH_BASE + 'logo-white.webp', bg: '#1E1E1E', pt: 'Negativo', en: 'Negative', tagPt: 'Branco', tagEn: 'White', descPt: 'Branco sobre fundo escuro.', descEn: 'White on dark background.' },
+  { src: OTH_BASE + 'logo-terracota.webp', bg: '#F4EFE6', pt: 'Terracota', en: 'Terracotta', tagPt: 'Laranja', tagEn: 'Orange', descPt: 'A marca toda em laranja Othelo.', descEn: 'The whole mark in Othelo orange.' },
+  { src: OTH_BASE + 'logo-negative.webp', bg: '#1E1E1E', pt: 'Contorno', en: 'Outline', tagPt: 'Outline', tagEn: 'Outline', descPt: 'Só traço. Aplicações especiais.', descEn: 'Outline only. Special applications.' },
 ];
 
 const OTH_DISCS = [
-  { src: OTH_BASE + 'disc-dark.png', bg: '#F4EFE6', pt: 'Símbolo · positivo', en: 'Symbol · positive' },
-  { src: OTH_BASE + 'disc-white.png', bg: '#1E1E1E', pt: 'Símbolo · negativo', en: 'Symbol · negative' },
+  { src: OTH_BASE + 'disc-dark.webp', bg: '#F4EFE6', pt: 'Símbolo · positivo', en: 'Symbol · positive' },
+  { src: OTH_BASE + 'disc-white.webp', bg: '#1E1E1E', pt: 'Símbolo · negativo', en: 'Symbol · negative' },
 ];
 
 const OTH_APPS = [
-  { src: OTH_BASE + 'tee-black.jpg', ratio: '4/3', capPt: 'Camiseta · logo terracota sobre preto', capEn: 'Tee · terracotta logo on black' },
-  { src: OTH_BASE + 'tee-orange.jpg', ratio: '4/3', capPt: 'Camiseta · logo grafite sobre laranja', capEn: 'Tee · graphite logo on orange' },
+  { src: OTH_BASE + 'tee-black.webp', ratio: '4/3', capPt: 'Camiseta · logo terracota sobre preto', capEn: 'Tee · terracotta logo on black' },
+  { src: OTH_BASE + 'tee-orange.webp', ratio: '4/3', capPt: 'Camiseta · logo grafite sobre laranja', capEn: 'Tee · graphite logo on orange' },
 ];
 
 const OTHELO = {
@@ -3895,28 +3882,27 @@ const ANU_BASE = 'assets/anuarios/';
 const ANUARIOS = [
   {
     id: '2025', year: '2025', edicao: { pt: '4ª edição', en: '4th edition' }, accent: '#0079A4',
-    cover: ANU_BASE + '2025-cover.jpg',
+    cover: ANU_BASE + '2025-cover.webp',
+    link: 'https://kayamind.com/anuario-da-cannabis-medicinal-2025/',
     title: { pt: 'Anuário da Cannabis Medicinal', en: 'Medical Cannabis Yearbook' },
     tema: { pt: 'Consolidação e amadurecimento:\no mercado a um passo de R$ 1 bilhão.', en: 'Consolidation and maturity:\na market one step from R$ 1 billion.' },
     desc: {
       pt: [
-        'A 4ª edição retrata um mercado em consolidação: pelo segundo ano seguido a cannabis medicinal não cruzou a marca de R$ 1 bilhão, encerrando 2025 em R$ 970,9 milhões, um crescimento de 14%, em ritmo mais maduro e sustentável.',
-        'Mais de 873 mil pessoas já se tratam com cannabis (alta de 30% sobre 2024), e o acesso se capilarizou: 4.730 municípios (85% do país) já registraram ao menos um paciente desde 2019.',
-        'O ponto culminante do documento é a projeção de mercado: taxas de ~15% ao ano sustentam um setor próximo de R$ 1,28 bilhão até 2027.',
+        'Desde 2020, a Kaya Mind acompanha o avanço do mercado de cannabis medicinal no Brasil. Mesmo com desafios, o setor segue em expansão e impacta positivamente a vida de milhares de pessoas.',
+        'O anuário traz a evolução do número de pacientes, prescritores e produtos disponíveis, análises sobre o avanço regulatório e os desafios do setor, as principais tendências e oportunidades de crescimento, e dados de associações, farmácias e importações.',
       ],
       en: [
-        'The 4th edition portrays a consolidating market: for the second year running medical cannabis stayed below R$ 1 billion, closing 2025 at R$ 970.9 million, 14% growth at a more mature, sustainable pace.',
-        'Over 873k people now treat with cannabis (up 30% on 2024), and access has spread: 4,730 municipalities (85% of the country) have registered at least one patient since 2019.',
-        'The report culminates in a market projection: ~15% annual growth sustaining a sector close to R$ 1.28 billion by 2027.',
+        'Since 2020, Kaya Mind has tracked the progress of the medical cannabis market in Brazil. Despite the obstacles, the sector keeps expanding and changing thousands of lives for the better.',
+        'The yearbook covers the growth in patients, prescribers and available products, analysis of regulatory progress and the sector’s challenges, the main trends and growth opportunities, and data on associations, pharmacies and imports.',
       ],
     },
     ficha: [
       { k: { pt: 'Edição', en: 'Edition' }, v: { pt: '4ª · anual', en: '4th · annual' } },
-      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '147 páginas', en: '147 pages' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+100 páginas', en: '+100 pages' } },
       { k: { pt: 'Patrocinadores', en: 'Sponsors' }, v: { pt: '14 marcas', en: '14 brands' } },
       { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Maturidade do mercado', en: 'Market maturity' } },
       { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
-      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: 'Set. 2025 · Kaya', en: 'Sep 2025 · Kaya' } },
+      { k: { pt: 'Lançamento', en: 'Released' }, v: { pt: '25/11/2025 · Kaya', en: '25 Nov 2025 · Kaya' } },
     ],
     stats: [
       { num: 'R$ 970,9 mi', label: { pt: 'tamanho do mercado em 2025', en: 'market size in 2025' } },
@@ -3953,29 +3939,53 @@ const ANUARIOS = [
       },
     ],
     pages: [
-      { src: ANU_BASE + '2025-leaf.jpg', cap: { pt: 'Abertura de capítulo', en: 'Chapter opener' } },
-      { src: ANU_BASE + '2025-congresso.jpg', cap: { pt: 'Cenário regulatório', en: 'Regulatory landscape' } },
-      { src: ANU_BASE + '2025-plant.jpg', cap: { pt: 'Cultivo & associações', en: 'Cultivation & associations' } },
-      { src: ANU_BASE + '2025-wepayments.jpg', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' } },
-      { src: ANU_BASE + '2025-brasilia.jpg', cap: { pt: 'Macro cenário', en: 'Macro scenario' } },
-      { src: ANU_BASE + '2025-esplanada.jpg', cap: { pt: 'Políticas públicas', en: 'Public policy' } },
+      { src: ANU_BASE + '2025-leaf.webp', cap: { pt: 'Abertura de capítulo', en: 'Chapter opener' } },
+      { src: ANU_BASE + '2025-congresso.webp', cap: { pt: 'Cenário regulatório', en: 'Regulatory landscape' } },
+      { src: ANU_BASE + '2025-plant.webp', cap: { pt: 'Cultivo & associações', en: 'Cultivation & associations' } },
+      { src: ANU_BASE + '2025-wepayments.webp', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' } },
+      { src: ANU_BASE + '2025-brasilia.webp', cap: { pt: 'Macro cenário', en: 'Macro scenario' } },
+      { src: ANU_BASE + '2025-esplanada.webp', cap: { pt: 'Políticas públicas', en: 'Public policy' } },
     ],
   },
   {
-    id: '2024', year: '2024', edicao: { pt: '3ª edição', en: '3rd edition' }, accent: '#5D357C', coverPlate: true,
-    cover: null,
-    title: { pt: 'Anuário da Cannabis Medicinal', en: 'Medical Cannabis Yearbook' },
-    tema: { pt: 'Saúde pública e projeções inéditas sobre o tamanho do mercado.', en: 'Public health and first-ever market-size projections.' },
+    id: '2025-growshops', year: '2025', edicao: { pt: 'Anuário de mercado', en: 'Market yearbook' }, accent: '#5D357C',
+    cover: ANU_BASE + '2025gs-cover.webp',
+    link: 'https://kayamind.com/anuario-ghm-2025/',
+    title: { pt: 'Growshops, Headshops e Marcas', en: 'Growshops, Headshops and Brands' },
+    tema: { pt: 'Evolução de pontos de venda, portfólio,\ninovação e hábitos de compra.', en: 'Retail points, portfolio, innovation\nand buying habits.' },
     desc: {
       pt: [
-        'O 3º Anuário aprofunda o impacto da cannabis medicinal na saúde pública e apresenta projeções inéditas e exclusivas sobre o tamanho do mercado.',
-        'O setor cresceu 22% e chegou a R$ 852 milhões, ainda sem atingir o R$ 1 bilhão esperado. Os pacientes saltaram para mais de 672 mil (+56% sobre 2023), cerca de 10% do potencial de 6,9 milhões.',
-        'Foram mapeados 2.158 produtos únicos (+27%) e mais de 413 empresas exportando para o Brasil, hoje um dos maiores mercados do mundo.',
+        'O Anuário GHM é produzido pela Kaya Mind. Com metodologia própria e base em dados reais de mercado, o material é referência para empresas que buscam decisões mais assertivas, parcerias estratégicas e crescimento sustentável no setor.',
+        'Traz a evolução de pontos de venda, portfólio, inovação e hábitos de compra, análises de tabacarias, headshops e growshops em todas as regiões do país, o panorama das principais empresas e tendências do setor, e oportunidades e previsões para 2025 e os próximos anos.',
       ],
       en: [
-        'The 3rd Yearbook digs into cannabis\u2019s impact on public health and presents first-ever, exclusive projections of the market size.',
-        'The sector grew 22% to R$ 852 million, still short of the expected R$ 1 billion. Patients jumped past 672k (+56% over 2023), about 10% of the 6.9 million potential.',
-        '2,158 unique products were mapped (+27%), with 413+ companies exporting to Brazil, now one of the largest markets in the world.',
+        'The GHM Yearbook is produced by Kaya Mind. Built on its own methodology and real market data, it is a reference for companies after sharper decisions, strategic partnerships and sustainable growth in the sector.',
+        'It covers the evolution of retail points, portfolio, innovation and buying habits, analysis of tobacconists, headshops and growshops across every region of the country, an overview of the leading companies and sector trends, and opportunities and forecasts for 2025 and the years ahead.',
+      ],
+    },
+    ficha: [
+      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: 'Anuário de mercado', en: 'Market yearbook' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+100 páginas', en: '+100 pages' } },
+      { k: { pt: 'Recorte', en: 'Scope' }, v: { pt: 'Varejo canábico', en: 'Cannabis retail' } },
+      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Ponto de venda e marcas', en: 'Retail and brands' } },
+      { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
+      { k: { pt: 'Lançamento', en: 'Released' }, v: { pt: '12/11/2025 · Kaya', en: '12 Nov 2025 · Kaya' } },
+    ],
+  },
+  {
+    id: '2024', year: '2024', edicao: { pt: '3ª edição', en: '3rd edition' }, accent: '#5D357C',
+    cover: ANU_BASE + '2024-cover.webp',
+    link: 'https://kayamind.com/anuario-da-cannabis-medicinal-2024/',
+    title: { pt: 'Anuário da Cannabis Medicinal', en: 'Medical Cannabis Yearbook' },
+    tema: { pt: 'Saúde pública e projeções inéditas\nsobre o tamanho do mercado.', en: 'Public health and first-ever\nmarket-size projections.' },
+    desc: {
+      pt: [
+        'Dados e informações importantes sobre o setor da cannabis medicinal no Brasil.',
+        'A terceira edição é a mais extensa da série: 223 páginas em spread duplo, com regulamentação, pacientes, prescritores, empresas e produtos reunidos no mesmo documento.',
+      ],
+      en: [
+        'Key data and information on the medical cannabis sector in Brazil.',
+        'The third edition is the longest in the series: 223 pages in double spread, gathering regulation, patients, prescribers, companies and products in a single document.',
       ],
     },
     ficha: [
@@ -3984,7 +3994,7 @@ const ANUARIOS = [
       { k: { pt: 'Patrocinadores', en: 'Sponsors' }, v: { pt: '12 marcas', en: '12 brands' } },
       { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Saúde pública & mercado', en: 'Public health & market' } },
       { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'Spread duplo · digital', en: 'Double spread · digital' } },
-      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: '2024 · Kaya', en: '2024 · Kaya' } },
+      { k: { pt: 'Lançamento', en: 'Released' }, v: { pt: '26/11/2024 · Kaya', en: '26 Nov 2024 · Kaya' } },
     ],
     stats: [
       { num: 'R$ 852 mi', label: { pt: 'tamanho do mercado', en: 'market size' } },
@@ -4018,38 +4028,91 @@ const ANUARIOS = [
       },
     ],
     pages: [
-      { src: ANU_BASE + '2024-verdivita.jpg', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' }, fit: 'cover' },
-      { src: ANU_BASE + '2024-laptop.jpg', cap: { pt: 'Telemedicina & acesso', en: 'Telemedicine & access' }, fit: 'cover' },
-      { src: ANU_BASE + '2024-dropper.jpg', cap: { pt: 'Óleos & derivados', en: 'Oils & derivatives' }, fit: 'cover' },
-      { src: ANU_BASE + '2024-pill.jpg', cap: { pt: 'Formas farmacêuticas', en: 'Pharmaceutical forms' }, fit: 'cover' },
-      { src: ANU_BASE + '2024-cosmetics.jpg', cap: { pt: 'Tópicos & bem-estar', en: 'Topicals & wellness' }, fit: 'cover' },
-      { src: ANU_BASE + '2024-cbd.jpg', cap: { pt: 'Produtos disponíveis', en: 'Products available' }, fit: 'cover' },
+      { src: ANU_BASE + '2024-verdivita.webp', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' }, fit: 'cover' },
+      { src: ANU_BASE + '2024-laptop.webp', cap: { pt: 'Telemedicina & acesso', en: 'Telemedicine & access' }, fit: 'cover' },
+      { src: ANU_BASE + '2024-dropper.webp', cap: { pt: 'Óleos & derivados', en: 'Oils & derivatives' }, fit: 'cover' },
+      { src: ANU_BASE + '2024-pill.webp', cap: { pt: 'Formas farmacêuticas', en: 'Pharmaceutical forms' }, fit: 'cover' },
+      { src: ANU_BASE + '2024-cosmetics.webp', cap: { pt: 'Tópicos & bem-estar', en: 'Topicals & wellness' }, fit: 'cover' },
+      { src: ANU_BASE + '2024-cbd.webp', cap: { pt: 'Produtos disponíveis', en: 'Products available' }, fit: 'cover' },
+    ],
+  },
+  {
+    id: '2024-growshops', year: '2024', edicao: { pt: 'Anuário de mercado', en: 'Market yearbook' }, accent: '#2E7D4F',
+    cover: ANU_BASE + '2024gs-cover.webp',
+    link: 'https://kayamind.com/anuario-de-mercado-growshops-headshops-e-marcas-2024/',
+    title: { pt: 'Growshops, Headshops e Marcas', en: 'Growshops, Headshops and Brands' },
+    tema: { pt: 'O setor de tabacarias no Brasil,\nda loja física à marca.', en: 'Brazil’s tobacconist sector,\nfrom the shop floor to the brand.' },
+    desc: {
+      pt: [
+        'Dados e informações importantes sobre o setor de tabacarias no Brasil.',
+        'A segunda edição do anuário de mercado, com +190 páginas, mapeia os pontos de venda, os produtos e as marcas que abastecem o varejo canábico brasileiro.',
+      ],
+      en: [
+        'Key data and information on Brazil’s tobacconist sector.',
+        'The second edition of the market yearbook, at +190 pages, maps the retail points, products and brands supplying Brazilian cannabis retail.',
+      ],
+    },
+    ficha: [
+      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: 'Anuário de mercado', en: 'Market yearbook' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+190 páginas', en: '+190 pages' } },
+      { k: { pt: 'Recorte', en: 'Scope' }, v: { pt: 'Varejo canábico', en: 'Cannabis retail' } },
+      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Tabacarias e marcas', en: 'Tobacconists and brands' } },
+      { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
+      { k: { pt: 'Lançamento', en: 'Released' }, v: { pt: '13/11/2024 · Kaya', en: '13 Nov 2024 · Kaya' } },
+    ],
+  },
+  {
+    id: '2023-growshops', year: '2023', edicao: { pt: 'Anuário de mercado', en: 'Market yearbook' }, accent: '#5D357C',
+    cover: ANU_BASE + '2023gs-cover.webp',
+    link: 'https://kayamind.com/anuario-de-mercado-growshops-headshops-marcas-2023/',
+    title: { pt: 'Growshops, Headshops e Marcas', en: 'Growshops, Headshops and Brands' },
+    tema: { pt: 'O varejo canábico brasileiro,\ndo cultivo ao ponto de venda.', en: 'Brazilian cannabis retail,\nfrom cultivation to the shop floor.' },
+    desc: {
+      pt: [
+        'O anuário setorial é um registro publicado anualmente que abarca informações sobre o panorama de um determinado setor. Dentre os objetivos específicos, o anuário descreve e explora conteúdos, levantamentos, dados estatísticos e análises sobre os principais tópicos que compõe certo mercado.',
+        'A partir da divulgação desse estudo, os profissionais e interessados na área têm a possibilidade de adquirir conhecimentos, se informar a respeito dos aspectos que permeiam o segmento, e refletir sobre o seu impacto.',
+      ],
+      en: [
+        'A sector yearbook is a record published once a year covering the landscape of a given market. It describes and explores content, surveys, statistics and analysis of the main topics that make up that market.',
+        'Once published, professionals and anyone interested in the field can build knowledge, understand the aspects surrounding the segment, and consider its impact.',
+      ],
+    },
+    note: {
+      pt: 'Os dados de mercado, gráficos de crescimento/projeção e as páginas internas serão adicionados a partir do PDF completo do relatório. Envie o arquivo para eu replicar a mesma estrutura dos outros anuários.',
+      en: 'Market data, growth/projection charts and interior pages will be added from the full report PDF. Share the file and I’ll replicate the same structure as the other yearbooks.',
+    },
+    ficha: [
+      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: 'Anuário de mercado', en: 'Market yearbook' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+190 páginas', en: '+190 pages' } },
+      { k: { pt: 'Recorte', en: 'Scope' }, v: { pt: 'Varejo canábico', en: 'Cannabis retail' } },
+      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Do cultivo ao consumo', en: 'From growing to consumption' } },
+      { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
+      { k: { pt: 'Lançamento', en: 'Released' }, v: { pt: '05/12/2023 · Kaya', en: '5 Dec 2023 · Kaya' } },
     ],
   },
   {
     id: '2023', year: '2023', edicao: { pt: '2ª edição', en: '2nd edition' }, accent: '#0079A4',
-    cover: ANU_BASE + '2023-cover.jpg',
+    cover: ANU_BASE + '2023-cover.webp',
+    link: 'https://kayamind.com/anuario-da-cannabis-medicinal-no-brasil-2023/',
     title: { pt: 'Anuário da Cannabis Medicinal', en: 'Medical Cannabis Yearbook' },
-    tema: { pt: 'Os avanços legislativos e o impacto da regulamentação no mercado e na saúde.', en: 'Legislative advances and the impact of regulation on the market and health.' },
+    tema: { pt: 'Os avanços legislativos e o impacto da\nregulamentação no mercado e na saúde.', en: 'Legislative progress and the impact of\nregulation on the market and on health.' },
     desc: {
       pt: [
-        'A 2ª edição foca nos avanços legislativos e em como a regulamentação molda o acesso, a saúde e o mercado. O documento atualiza todos os cálculos internos e traz as projeções para os anos seguintes.',
-        'O mercado superou em 7% o valor esperado e chegou perto de R$ 700 milhões, um crescimento de 92% em relação a 2022. O número de pacientes saltou para cerca de 430 mil (+130%), distribuídos entre Anvisa (219 mil), farmácias (97 mil) e associações (114 mil).',
-        'Foram mapeados 2,7 mil produtos desde 2020 (1,7 mil disponíveis em 2023) e identificadas 1.034 empresas e associações atuando no país, com chances reais de o setor ultrapassar R$ 1 bilhão em 2024.',
+        'O segundo Anuário da Cannabis Medicinal no Brasil, lançado um ano após o primeiro, destaca o contínuo progresso do mercado, com um aumento notável no número de pacientes, profissionais de saúde, empresas e produtos.',
+        'O material aborda dados gerais, regulamentações, estudos científicos, participantes do mercado, pacientes beneficiados, prescritores, características dos produtos e grupos de interesse, contribuindo para uma compreensão mais profunda e promovendo o desenvolvimento da cannabis medicinal no país.',
       ],
       en: [
-        'The 2nd edition focuses on legislative advances and how regulation shapes access, health and the market. It refreshes every internal calculation and lays out projections for the following years.',
-        'The market beat expectations by 7%, nearing R$ 700 million, 92% growth over 2022. Patients jumped to ~430k (+130%), split across Anvisa (219k), pharmacies (97k) and associations (114k).',
-        '2,700 products were mapped since 2020 (1,700 available in 2023) and 1,034 companies and associations identified, with real odds of the sector crossing R$ 1 billion in 2024.',
+        'The second Medical Cannabis Yearbook in Brazil, published a year after the first, tracks the market’s continued progress, with a marked rise in patients, health professionals, companies and products.',
+        'It covers general data, regulation, scientific studies, market players, patients treated, prescribers, product characteristics and interest groups, building a deeper understanding and pushing medical cannabis forward in the country.',
       ],
     },
     ficha: [
       { k: { pt: 'Edição', en: 'Edition' }, v: { pt: '2ª · anual', en: '2nd · annual' } },
-      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '139 páginas', en: '139 pages' } },
-      { k: { pt: 'Patrocinadores', en: 'Sponsors' }, v: { pt: '11 marcas', en: '11 brands' } },
-      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Regulamentação & acesso', en: 'Regulation & access' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+110 páginas', en: '+110 pages' } },
+      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Regulamentação e saúde', en: 'Regulation and health' } },
       { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
-      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: '2023 · Kaya Mind', en: '2023 · Kaya Mind' } },
+      { k: { pt: 'Idioma', en: 'Language' }, v: { pt: 'Português (BR)', en: 'Portuguese (BR)' } },
+      { k: { pt: 'Lançamento', en: 'Released' }, v: { pt: '07/11/2023 · Kaya', en: '7 Nov 2023 · Kaya' } },
     ],
     stats: [
       { num: 'R$ 700 mi', label: { pt: 'tamanho do mercado em 2023', en: 'market size in 2023' } },
@@ -4081,69 +4144,37 @@ const ANUARIOS = [
       },
     ],
     pages: [
-      { src: ANU_BASE + '2023-leaf.jpg', cap: { pt: 'Abertura de capítulo', en: 'Chapter opener' }, fit: 'cover' },
-      { src: ANU_BASE + '2023-hempmeds.jpg', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' }, fit: 'cover' },
-      { src: ANU_BASE + '2023-dropper.jpg', cap: { pt: 'Produtos & derivados', en: 'Products & derivatives' }, fit: 'cover' },
-      { src: ANU_BASE + '2023-humora.jpg', cap: { pt: 'Marca patrocinadora', en: 'Sponsoring brand' }, fit: 'cover' },
-      { src: ANU_BASE + '2023-field.jpg', cap: { pt: 'Cultivo & cânhamo', en: 'Cultivation & hemp' }, fit: 'cover' },
-      { src: ANU_BASE + '2023-thronus.jpg', cap: { pt: 'Diretório de marcas', en: 'Brand directory' }, fit: 'cover' },
+      { src: ANU_BASE + '2023-leaf.webp', cap: { pt: 'Abertura de capítulo', en: 'Chapter opener' }, fit: 'cover' },
+      { src: ANU_BASE + '2023-hempmeds.webp', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' }, fit: 'cover' },
+      { src: ANU_BASE + '2023-dropper.webp', cap: { pt: 'Produtos & derivados', en: 'Products & derivatives' }, fit: 'cover' },
+      { src: ANU_BASE + '2023-humora.webp', cap: { pt: 'Marca patrocinadora', en: 'Sponsoring brand' }, fit: 'cover' },
+      { src: ANU_BASE + '2023-field.webp', cap: { pt: 'Cultivo & cânhamo', en: 'Cultivation & hemp' }, fit: 'cover' },
+      { src: ANU_BASE + '2023-thronus.webp', cap: { pt: 'Diretório de marcas', en: 'Brand directory' }, fit: 'cover' },
     ],
-  },
-  {
-    id: '2023-growshops', year: '2023', edicao: { pt: 'Anuário de mercado', en: 'Market yearbook' }, accent: '#5D357C',
-    cover: ANU_BASE + '2023gs-cover.jpg',
-    title: { pt: 'Growshops, Headshops & Marcas', en: 'Growshops, Headshops & Brands' },
-    tema: { pt: 'O varejo canábico brasileiro: growshops, headshops e as marcas que movimentam o setor.', en: 'Brazil’s cannabis retail: growshops, headshops and the brands driving the sector.' },
-    desc: {
-      pt: [
-        'Edição do Anuário de Mercado da Kaya Mind dedicada ao varejo canábico brasileiro. Diferente dos anuários medicinais, o foco aqui é o ecossistema de growshops, headshops e as marcas que abastecem esse segmento.',
-        'O relatório mapeia os produtos e acessórios (do cultivo aos artigos para consumo) junto aos principais players, perfis de loja e tendências que vêm impulsionando esse mercado em expansão no país.',
-      ],
-      en: [
-        'A Kaya Mind Market Yearbook edition dedicated to Brazil’s cannabis retail. Unlike the medical yearbooks, the focus here is the ecosystem of growshops, headshops and the brands that supply this segment.',
-        'The report maps products and accessories (from cultivation to consumption goods) alongside the main players, store profiles and trends driving this expanding market.',
-      ],
-    },
-    note: {
-      pt: 'Os dados de mercado, gráficos de crescimento/projeção e as páginas internas serão adicionados a partir do PDF completo do relatório. Envie o arquivo para eu replicar a mesma estrutura dos outros anuários.',
-      en: 'Market data, growth/projection charts and interior pages will be added from the full report PDF. Share the file and I’ll replicate the same structure as the other yearbooks.',
-    },
-    ficha: [
-      { k: { pt: 'Série', en: 'Series' }, v: { pt: 'Anuário de Mercado', en: 'Market Yearbook' } },
-      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '—', en: '—' } },
-      { k: { pt: 'Patrocinadores', en: 'Sponsors' }, v: { pt: '—', en: '—' } },
-      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Varejo canábico', en: 'Cannabis retail' } },
-      { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
-      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: '2023 · Kaya Mind', en: '2023 · Kaya Mind' } },
-    ],
-    stats: [],
-    charts: [],
-    pages: [],
   },
   {
     id: '2022', year: '2022', edicao: { pt: '1ª edição', en: '1st edition' }, accent: '#C33C29',
-    cover: ANU_BASE + '2022-cover.jpg',
+    cover: ANU_BASE + '2022-cover.webp',
+    link: 'https://kayamind.com/anuario-da-cannabis-no-brasil-2022/',
     title: { pt: 'Anuário da Cannabis no Brasil', en: 'Cannabis in Brazil Yearbook' },
-    tema: { pt: 'A regulamentação da cannabis no Brasil e seus desdobramentos no mercado.', en: 'Cannabis regulation in Brazil and its market ripple effects.' },
+    tema: { pt: 'A regulamentação da cannabis no Brasil\ne seus desdobramentos no mercado.', en: 'Cannabis regulation in Brazil\nand what it set off in the market.' },
     desc: {
       pt: [
-        'A 1ª edição inaugura o panorama completo do mercado brasileiro: regulamentação, pacientes, pesquisa científica, empresas e as primeiras projeções de futuro.',
-        'O país já contava com mais de 180 mil pacientes por todas as vias de acesso, diante de um potencial estimado de 6,9 milhões de brasileiros.',
-        'Se regulamentada nos três níveis (medicinal, recreativo e industrial), a planta poderia movimentar R$ 26,1 bilhões. O apoio popular ao uso medicinal já chegava a 54%.',
+        'A regulamentação da cannabis no Brasil e seus desdobramentos no mercado.',
+        'O cenário atual da cannabis no Brasil desenhado a partir da contextualização da situação social, econômica e política do país, perpassando pelos pacientes de cannabis medicinal, as brechas legais em relação à regulamentação da planta, o que a sociedade pensa a respeito do tema, as empresas e produtos em atuação nessa indústria, e projeções para o futuro.',
       ],
       en: [
-        'The 1st edition launches the full picture of the Brazilian market: regulation, patients, scientific research, companies and the first future projections.',
-        'The country already had over 180k patients across all access routes, against an estimated potential of 6.9 million Brazilians.',
-        'Regulated across all three levels (medical, recreational and industrial), the plant could move R$ 26.1 billion. Public support for medical use already reached 54%.',
+        'Cannabis regulation in Brazil and what it set off in the market.',
+        'The current cannabis landscape in Brazil, drawn from the country’s social, economic and political context, taking in medical cannabis patients, the legal gaps around regulating the plant, what society thinks of the subject, the companies and products operating in the industry, and projections for the future.',
       ],
     },
     ficha: [
-      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: '1ª · inaugural', en: '1st · inaugural' } },
-      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '119 páginas', en: '119 pages' } },
-      { k: { pt: 'Patrocinadores', en: 'Sponsors' }, v: { pt: '9 marcas', en: '9 brands' } },
-      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Regulamentação & mercado', en: 'Regulation & market' } },
+      { k: { pt: 'Edição', en: 'Edition' }, v: { pt: '1ª · anual', en: '1st · annual' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+90 páginas', en: '+90 pages' } },
+      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Regulamentação e mercado', en: 'Regulation and market' } },
       { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
-      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: '2022 · Kaya Mind', en: '2022 · Kaya Mind' } },
+      { k: { pt: 'Idioma', en: 'Language' }, v: { pt: 'Português (BR)', en: 'Portuguese (BR)' } },
+      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: '2022 · Kaya', en: '2022 · Kaya' } },
     ],
     stats: [
       { num: '180 mil', label: { pt: 'pacientes no Brasil', en: 'patients in Brazil' } },
@@ -4172,12 +4203,37 @@ const ANUARIOS = [
       },
     ],
     pages: [
-      { src: ANU_BASE + '2022-leaf.jpg', cap: { pt: 'Abertura de capítulo', en: 'Chapter opener' }, fit: 'cover' },
-      { src: ANU_BASE + '2022-justice.jpg', cap: { pt: 'Judicialização', en: 'Litigation' }, fit: 'contain', bg: '#101010' },
-      { src: ANU_BASE + '2022-elderly.jpg', cap: { pt: 'Perfil dos pacientes', en: 'Patient profile' }, fit: 'cover' },
-      { src: ANU_BASE + '2022-field.jpg', cap: { pt: 'Cultivo & cânhamo', en: 'Cultivation & hemp' }, fit: 'cover' },
-      { src: ANU_BASE + '2022-products.jpg', cap: { pt: 'Produtos disponíveis', en: 'Products available' }, fit: 'cover' },
-      { src: ANU_BASE + '2022-pangaia.jpg', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' }, fit: 'cover' },
+      { src: ANU_BASE + '2022-leaf.webp', cap: { pt: 'Abertura de capítulo', en: 'Chapter opener' }, fit: 'cover' },
+      { src: ANU_BASE + '2022-justice.webp', cap: { pt: 'Judicialização', en: 'Litigation' }, fit: 'contain', bg: '#101010' },
+      { src: ANU_BASE + '2022-elderly.webp', cap: { pt: 'Perfil dos pacientes', en: 'Patient profile' }, fit: 'cover' },
+      { src: ANU_BASE + '2022-field.webp', cap: { pt: 'Cultivo & cânhamo', en: 'Cultivation & hemp' }, fit: 'cover' },
+      { src: ANU_BASE + '2022-products.webp', cap: { pt: 'Produtos disponíveis', en: 'Products available' }, fit: 'cover' },
+      { src: ANU_BASE + '2022-pangaia.webp', cap: { pt: 'Página de patrocinador', en: 'Sponsor page' }, fit: 'cover' },
+    ],
+  },
+  {
+    id: '2022-pet', year: '2022', edicao: { pt: 'Relatório', en: 'Report' }, accent: '#2E7D4F',
+    cover: ANU_BASE + '2022pet-cover.webp',
+    link: 'https://kayamind.com/relatorio-cannabis-no-mercado-pet/',
+    title: { pt: 'Cannabis no Mercado Pet', en: 'Cannabis in the Pet Market' },
+    tema: { pt: 'O uso da cannabis para fins veterinários\ne seus impactos no Brasil.', en: 'Cannabis for veterinary use\nand its impact in Brazil.' },
+    desc: {
+      pt: [
+        'Neste relatório iremos entender qual a relação da cannabis com o mercado pet atualmente no Brasil.',
+        'O documento traz o panorama do mercado atual para descobrir novas oportunidades de negócio, a demanda por produtos à base de cannabis para pets, potencial terapêutico, dosagens recomendadas e condições atendidas, além do potencial de mercado no Brasil.',
+      ],
+      en: [
+        'This report sets out how cannabis relates to the pet market in Brazil today.',
+        'It covers the current market landscape for spotting new business opportunities, demand for cannabis-based products for pets, therapeutic potential, recommended dosages and conditions treated, along with the market potential in Brazil.',
+      ],
+    },
+    ficha: [
+      { k: { pt: 'Tipo', en: 'Type' }, v: { pt: 'Relatório temático', en: 'Thematic report' } },
+      { k: { pt: 'Páginas', en: 'Pages' }, v: { pt: '+80 páginas', en: '+80 pages' } },
+      { k: { pt: 'Recorte', en: 'Scope' }, v: { pt: 'Uso veterinário', en: 'Veterinary use' } },
+      { k: { pt: 'Tema central', en: 'Core theme' }, v: { pt: 'Cannabis para pets', en: 'Cannabis for pets' } },
+      { k: { pt: 'Formato', en: 'Format' }, v: { pt: 'A4 retrato · digital', en: 'A4 portrait · digital' } },
+      { k: { pt: 'Publicação', en: 'Published' }, v: { pt: '2022 · Kaya', en: '2022 · Kaya' } },
     ],
   },
 ];
@@ -4366,7 +4422,7 @@ class Component extends DCLogic {
       variants: HERC_VARIANTS.map((v) => ({ src: v.src, name: v[lang],
         boxStyle: `aspect-ratio:16/9; width:100%; background-color:${v.bg}; background-image:url("${v.src}"); background-size:contain; background-position:center; background-repeat:no-repeat` })),
       products: HERC_PRODUCTS.map((p) => ({ accent: p.accent, name: lang === 'pt' ? p.namePt : p.nameEn, sub: lang === 'pt' ? p.subPt : p.subEn, desc: lang === 'pt' ? p.descPt : p.descEn })),
-      lineStyle: hcImg(HERC_BASE + 'colossus-line.jpg', '1920/1200'),
+      lineStyle: hcImg(HERC_BASE + 'colossus-line.webp', '1920/1200'),
       mockupHero: { cap: lang === 'pt' ? HERC_MOCKUPS[0].capPt : HERC_MOCKUPS[0].capEn, imgStyle: hcImg(HERC_MOCKUPS[0].src, HERC_MOCKUPS[0].ratio) },
       mockupRest: HERC_MOCKUPS.slice(1).map((m) => ({ cap: lang === 'pt' ? m.capPt : m.capEn, imgStyle: hcImg(m.src, m.ratio) })),
       news: HERC_NEWS.map((n) => ({ src: n.src, cap: lang === 'pt' ? n.capPt : n.capEn, imgStyle: hcImg(n.src, n.ratio, 'cover', 'top center') })),
@@ -4379,7 +4435,7 @@ class Component extends DCLogic {
     const OT = OTHELO[lang];
     const od = {
       ...OT,
-      heroStyle: oImg(OTH_BASE + 'hero-studio.jpg', '3/2'),
+      heroStyle: oImg(OTH_BASE + 'hero-studio.webp', '3/2'),
       logoPrincipalStyle: `aspect-ratio:1920/1197; width:100%; max-width:560px; margin:0 auto; background-image:url("${OTH_BASE}logo-bg-orange.jpg"); background-size:contain; background-position:center; background-repeat:no-repeat`,
       palette: OTH_PALETTE.map((c) => ({ hex: c.hex, name: c[lang], role: lang === 'pt' ? c.rolePt : c.roleEn })),
       logos: OTH_LOGOS.map((l) => ({ name: l[lang], tag: lang === 'pt' ? l.tagPt : l.tagEn, desc: lang === 'pt' ? l.descPt : l.descEn,
@@ -4387,19 +4443,19 @@ class Component extends DCLogic {
       discs: OTH_DISCS.map((d) => ({ cap: d[lang],
         boxStyle: `aspect-ratio:16/10; width:100%; background-color:${d.bg}; background-image:url("${d.src}"); background-size:contain; background-position:center; background-repeat:no-repeat` })),
       typoCards: OT.typo.map((tp) => ({ name: tp.name, sample: tp.sample, tag: lang === 'pt' ? tp.tagPt : tp.tagEn, sampleStyle: `font-family:${tp.font}; font-weight:700; font-size:64px; line-height:.9; color:var(--ink)` })),
-      boardStyle: oImg(OTH_BASE + 'brand-board.jpg', '1920/3240', 'cover', 'top center'),
-      webStyle: oImg(OTH_BASE + 'web-home.jpg', '2872/4611', 'cover', 'top center'),
+      boardStyle: oImg(OTH_BASE + 'brand-board.webp', '1920/3240', 'cover', 'top center'),
+      webStyle: oImg(OTH_BASE + 'web-home.webp', '2872/4611', 'cover', 'top center'),
       apps: OTH_APPS.map((a) => ({ cap: lang === 'pt' ? a.capPt : a.capEn, imgStyle: oImg(a.src, a.ratio) })),
-      billboardStyle: oImg(OTH_BASE + 'billboard.jpg', '1920/1197'),
+      billboardStyle: oImg(OTH_BASE + 'billboard.webp', '1920/1197'),
     };
 
     const jImg = (src, ratio, fit, pos) => `aspect-ratio:${ratio}; width:100%; background-image:url("${src}"); background-size:${fit || 'cover'}; background-position:${pos || 'center'}; background-repeat:no-repeat`;
     const JM = JIMI[lang];
     const jd = {
       ...JM,
-      heroStyle: jImg(JIMI_BASE + 'vinyl-leather.jpg', '4/3'),
-      coverStyle: jImg(JIMI_BASE + 'cover-art.jpg', '1509/1345'),
-      portraitStyle: jImg(JIMI_BASE + 'live-jimi.jpg', '2268/4032'),
+      heroStyle: jImg(JIMI_BASE + 'vinyl-leather.webp', '4/3'),
+      coverStyle: jImg(JIMI_BASE + 'cover-art.webp', '1509/1345'),
+      portraitStyle: jImg(JIMI_BASE + 'live-jimi.webp', '2268/4032'),
       disc: JIMI_DISC.map((d) => ({ cap: lang === 'pt' ? d.capPt : d.capEn, imgStyle: jImg(d.src, d.ratio, d.fit) })),
       live: JIMI_LIVE.map((l) => ({ cap: lang === 'pt' ? l.capPt : l.capEn, imgStyle: jImg(l.src, l.ratio) })),
       portfolio: JIMI_PORTFOLIO.map((p) => ({ cap: lang === 'pt' ? p.capPt : p.capEn, imgStyle: jImg(p.src, '2599/3626') })),
@@ -4451,15 +4507,16 @@ class Component extends DCLogic {
     }));
 
     const anuarios = ANUARIOS.map((a) => ({
-      id: a.id, year: a.year, accent: a.accent, coverPlate: !!a.coverPlate, hasCover: !!a.cover,
+      id: a.id, year: a.year, accent: a.accent, hasCover: !!a.cover, link: a.link,
       cover: a.cover, note: a.note ? a.note[lang] : null,
-      hasStats: a.stats.length > 0, hasCharts: a.charts.length > 0, hasPages: a.pages.length > 0,
+      hasStats: (a.stats || []).length > 0, hasCharts: (a.charts || []).length > 0, hasPages: (a.pages || []).length > 0,
       edicao: pick(a.edicao), title: pick(a.title), tema: pick(a.tema),
+      verLink: lang === 'pt' ? 'Ver no site da Kaya' : 'View on the Kaya site',
       desc: a.desc[lang],
       coverStyle: a.cover ? `position:absolute; inset:0; width:100%; height:100%; object-fit:cover` : '',
       ficha: a.ficha.map((f) => ({ k: pick(f.k), v: pick(f.v) })),
-      stats: a.stats.map((s) => ({ num: s.num, label: pick(s.label) })),
-      charts: a.charts.map((c) => ({
+      stats: (a.stats || []).map((s) => ({ num: s.num, label: pick(s.label) })),
+      charts: (a.charts || []).map((c) => ({
         title: pick(c.title), src: pick(c.src),
         bars: c.bars.map((b) => ({
           label: pick(b.label), disp: b.disp,
@@ -4469,7 +4526,7 @@ class Component extends DCLogic {
           proj: !!b.proj,
         })),
       })),
-      pages: a.pages.map((p) => ({
+      pages: (a.pages || []).map((p) => ({
         cap: pick(p.cap),
         imgStyle: `position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:${p.bg || 'var(--paper-100)'}`,
         boxBg: p.bg || 'var(--paper-100)', src: p.src,
