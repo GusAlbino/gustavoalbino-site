@@ -347,8 +347,11 @@ preservada.
       Telas de Produto, Design System, Dataviz · Power BI e Experimentos.
       Podem voltar com imagem real. Para Dataviz existe
       `Website /Page - Web Design & UI Design/Dashboard design_PBI.jpg`.
-- [ ] **Vídeos:** os 3 MP4 do case Hercules somam 30,8 MB. Não há `ffmpeg`
-      nesta máquina; o HandBrake resolve.
+- [x] ~~**Vídeos**~~ feito. Os do case Hercules foram de 30,8 MB para 7,3 MB.
+      Um dos três não era usado em lugar nenhum e saiu. Os outros dois foram
+      recomprimidos por `tools/comprimir-video.swift`, que existe porque o
+      `avconvert` desta máquina mira qualidade e não tamanho: pelo
+      `Preset1280x720`, o vídeo de 15,9 MB saía com 25,9 MB.
 - [ ] **Corpo pré-renderizado.** O cabeçalho já sai correto por rota (ver
       *Cabeçalho servido* abaixo). O corpo continua vindo vazio, e não dá para
       resolver com injeção: o runtime do Claude Design **remove** o `<x-dc>` do
