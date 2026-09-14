@@ -1770,9 +1770,9 @@
       <!-- page header -->
       <div style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
         <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:26px">← {{ t.nav.galeria }}</button>
-        <span class="ga-kicker" style="color:var(--cerulean)">Editorial &amp; Dataviz · Kaya Mind</span>
-        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">Anuários e Relatórios</h1>
-        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Oito edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.</p>
+        <span class="ga-kicker" style="color:var(--cerulean)">{{ t.anuariosPage.kicker }}</span>
+        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">{{ t.anuariosPage.title }}</h1>
+        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">{{ t.anuariosPage.intro }}</p>
       </div>
 
       <sc-for list="{{ anuarios }}" as="a" hint-placeholder-count="3">
@@ -1803,7 +1803,7 @@
 
             <!-- FICHA TÉCNICA -->
             <div style="margin-top:24px; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
-              <div style="background:var(--ink); padding:9px 16px"><span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)">Ficha técnica</span></div>
+              <div style="background:var(--ink); padding:9px 16px"><span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)">{{ t.anuariosPage.ficha }}</span></div>
               <div style="display:grid; grid-template-columns:repeat(3,1fr)">
                 <sc-for list="{{ a.ficha }}" as="f" hint-placeholder-count="6">
                   <div style="padding:14px 16px; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400)">
@@ -1813,7 +1813,7 @@
                 </sc-for>
               </div>
             </div>
-            <a href="{{ a.link }}" target="_blank" rel="noopener noreferrer" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; text-decoration:none; display:inline-flex">{{ a.verLink }} ↗</a>
+            <a href="{{ a.link }}" target="_blank" rel="noopener noreferrer" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; text-decoration:none; display:inline-flex">{{ t.anuariosPage.verNaKaya }} ↗</a>
           </div>
         </div>
 
@@ -1826,11 +1826,11 @@
           <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.16; mix-blend-mode:screen"></div>
           <div style="position:relative; padding:48px 44px; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:center">
             <div>
-              <span class="ga-kicker ga-kicker--bare" style="color:var(--gold)">Editorial sob medida</span>
-              <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.95; font-size:clamp(26px,3.6vw,42px); margin:10px 0 0; color:var(--paper-100); max-width:22ch">Precisa transformar dados em um relatório que as pessoas leem?</h2>
+              <span class="ga-kicker ga-kicker--bare" style="color:var(--gold)">{{ t.anuariosPage.ctaKicker }}</span>
+              <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.95; font-size:clamp(26px,3.6vw,42px); margin:10px 0 0; color:var(--paper-100); max-width:22ch">{{ t.anuariosPage.ctaTitle }}</h2>
             </div>
             <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-              <button onClick="{{ toContato }}" class="ga-btn ga-btn--gold ga-btn--lg">Vamos conversar</button>
+              <button onClick="{{ toContato }}" class="ga-btn ga-btn--gold ga-btn--lg">{{ t.anuariosPage.ctaBtn }}</button>
               <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--lg" style="background:transparent; color:var(--paper-100); border:2px solid var(--paper-100)">← {{ t.nav.galeria }}</button>
             </div>
           </div>
@@ -2270,6 +2270,16 @@ const DICT = {
       title: 'Projetos',
       intro: 'Cinco acervos abertos: anuários e relatórios, ilustração autoral, e-books, marcas e projetos culturais. Material entregue, não amostra.',
     },
+    anuariosPage: {
+      kicker: 'Editorial & Dataviz · Kaya Mind',
+      title: 'Anuários e Relatórios',
+      intro: 'Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Oito edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.',
+      ficha: 'Ficha técnica',
+      verNaKaya: 'Ver no site da Kaya',
+      ctaKicker: 'Editorial sob medida',
+      ctaTitle: 'Precisa transformar dados em um relatório que as pessoas leem?',
+      ctaBtn: 'Vamos conversar',
+    },
     culturaisPage: {
       kicker: 'Projetos culturais · Betim, MG',
       title: 'Projetos culturais',
@@ -2437,6 +2447,16 @@ const DICT = {
       kicker: 'Proof of work',
       title: 'Projects',
       intro: 'Five open archives: yearbooks and reports, original illustration, e-books, brand marks and cultural projects. Delivered work, not samples.',
+    },
+    anuariosPage: {
+      kicker: 'Editorial & Dataviz · Kaya Mind',
+      title: 'Yearbooks and Reports',
+      intro: 'Market intelligence reports I produced for Kaya Mind, from 2022 to today. Eight editions across medical cannabis yearbooks, cannabis retail yearbooks and one thematic report. Each turns raw data into visual narrative: cover, growth and projection charts, and dozens of pages of dataviz.',
+      ficha: 'Technical sheet',
+      verNaKaya: 'View on the Kaya site',
+      ctaKicker: 'Editorial, made to measure',
+      ctaTitle: 'Need to turn data into a report people actually read?',
+      ctaBtn: "Let's talk",
     },
     culturaisPage: {
       kicker: 'Cultural projects · Betim, Brazil',
@@ -4675,7 +4695,6 @@ class Component extends DCLogic {
       cover: a.cover, note: a.note ? a.note[lang] : null,
       hasStats: (a.stats || []).length > 0, hasCharts: (a.charts || []).length > 0, hasPages: (a.pages || []).length > 0,
       edicao: pick(a.edicao), title: pick(a.title), tema: pick(a.tema),
-      verLink: lang === 'pt' ? 'Ver no site da Kaya' : 'View on the Kaya site',
       desc: a.desc[lang],
       coverStyle: a.cover ? `position:absolute; inset:0; width:100%; height:100%; object-fit:cover` : '',
       ficha: a.ficha.map((f) => ({ k: pick(f.k), v: pick(f.v) })),
