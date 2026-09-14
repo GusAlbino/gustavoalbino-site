@@ -179,6 +179,33 @@ diverge, e sitemap que anuncia página inexistente é erro registrado no Search
 Console. **Rode `python3 tools/gerar-sitemap.py` sempre que criar, renomear ou
 remover uma rota ou um case.**
 
+### Pré-renderização, e por que não
+
+O corpo do site é desenhado por JavaScript. O HTML servido não vem vazio: vem
+com o template, e nele há **890 chaves `{{ }}` não interpoladas**. Se o buscador
+não executasse o script, indexaria uma página cujo texto visível é
+`{{ t.hero.h1a }}`, o que é pior que página em branco.
+
+**Isso foi testado, não suposto.** Em 14/09/2026, no Search Console, URL
+Inspection → Test live URL em `/cases/hercules`: resultado *"URL is available to
+Google"*, *"Page can be indexed"*, e o Screenshot mostra **o case montado**, com
+o texto real. O Google executa o JavaScript antes de indexar.
+
+Um detalhe que engana no mesmo relatório: *"Video detected"* não prova
+renderização. As duas tags `<video>` estão literais no HTML servido, dentro do
+template. O que prova é o Screenshot.
+
+Com isso, pré-renderizar não se paga. E não seria barato:
+
+O runtime do Claude Design **remove** o `<x-dc>` do documento e cria um
+`<div id="dc-root">` no lugar. Conteúdo colocado dentro do `x-dc` corrompe a
+leitura do template; colocado fora, vira um segundo `dc-root` visível ao lado do
+verdadeiro. Não há ponto de injeção seguro sem trocar o runtime. A alternativa
+seria servir 36 documentos completos: 13 MB, e cada palavra alterada reescreve
+os 36 arquivos.
+
+Se um dia esse teste voltar a dar outro resultado, a conta muda e vale refazer.
+
 ### Cabeçalho servido
 
 O corpo do site é desenhado por JavaScript, e o cabeçalho também: `title`,
@@ -315,7 +342,7 @@ preservada.
 | Deploy servindo o site | ✅ no ar em gustavoalbino.com.br |
 | Domínio apontado | ✅ feito |
 | `www` redirecionando para o apex | ✅ Redirect Rule, 301 |
-| Branch `main` protegida | ⬜ falta |
+| Branch `main` protegida | ✅ ruleset ativo: PR obrigatório, sem force push, sem deleção |
 
 ## Pendências
 
@@ -352,14 +379,8 @@ preservada.
       recomprimidos por `tools/comprimir-video.swift`, que existe porque o
       `avconvert` desta máquina mira qualidade e não tamanho: pelo
       `Preset1280x720`, o vídeo de 15,9 MB saía com 25,9 MB.
-- [ ] **Corpo pré-renderizado.** O cabeçalho já sai correto por rota (ver
-      *Cabeçalho servido* abaixo). O corpo continua vindo vazio, e não dá para
-      resolver com injeção: o runtime do Claude Design **remove** o `<x-dc>` do
-      documento e cria um `<div id="dc-root">` no lugar. Conteúdo colocado no
-      `x-dc` corrompe a leitura do template; colocado fora, vira um segundo
-      `dc-root` visível ao lado do verdadeiro. Sairia só trocando o runtime, ou
-      servindo 36 documentos completos (13 MB, e todo texto alterado reescreve
-      os 36). O Google executa JavaScript, então o custo não se paga hoje.
+- [x] ~~**Corpo pré-renderizado**~~ descartado, e agora com teste. Ver
+      *Pré-renderização* abaixo.
 - [x] ~~**Imagens de compartilhamento por case**~~ feito. Cada case tem a sua,
       em `public/assets/og/`, gerada por `tools/gerar-og-cases.py`.
 - [ ] **Ruído no console:** o `_ds_bundle.js` embute um UI kit de demonstração
