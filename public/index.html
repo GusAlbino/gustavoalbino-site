@@ -949,8 +949,8 @@
             </div>
             <div style="padding:18px">
               <div style="font-family:'Anton', var(--font-display); text-transform:uppercase; font-size:18px; color:#FFFFFF; letter-spacing:.01em">Anton</div>
-              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">Display · wordmark</div>
-              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Condensada e pesada, toda em caixa-alta. Carrega o nome e as manchetes. Peso de letreiro de academia.</p>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">{{ hc.tipoAntonKicker }}</div>
+              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">{{ hc.tipoAntonDesc }}</p>
             </div>
           </div>
           <div style="border:2px solid #2A2A2A; border-radius:var(--radius-md); overflow:hidden; background:#161616; display:flex; flex-direction:column">
@@ -959,18 +959,18 @@
             </div>
             <div style="padding:18px">
               <div style="font-family:'Anton', var(--font-display); text-transform:uppercase; font-size:18px; color:#FFFFFF; letter-spacing:.01em">Saira Stencil</div>
-              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">Stencil · linha Colossus</div>
-              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Stencil militar, exclusivo da linha de produto. Dá ao COLOSSUS o ar de equipamento de quartel.</p>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">{{ hc.tipoStencilKicker }}</div>
+              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">{{ hc.tipoStencilDesc }}</p>
             </div>
           </div>
           <div style="border:2px solid #2A2A2A; border-radius:var(--radius-md); overflow:hidden; background:#161616; display:flex; flex-direction:column">
             <div style="height:140px; display:flex; align-items:center; justify-content:center; background:#0E0E0E; border-bottom:2px solid #2A2A2A">
-              <span style="font-family:var(--font-body); font-weight:500; font-size:26px; color:#ECECEC">Texto corrido</span>
+              <span style="font-family:var(--font-body); font-weight:500; font-size:26px; color:#ECECEC">{{ hc.tipoTextoAmostra }}</span>
             </div>
             <div style="padding:18px">
               <div style="font-family:'Anton', var(--font-display); text-transform:uppercase; font-size:18px; color:#FFFFFF; letter-spacing:.01em">Archivo</div>
-              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">Texto · interface</div>
-              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">Grotesca limpa e legível para textos longos, rótulos e web. A base do dia a dia da marca.</p>
+              <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#E1241C; margin:3px 0 8px">{{ hc.tipoTextoKicker }}</div>
+              <p style="font-family:var(--font-body); font-size:13px; line-height:1.55; color:#B0B0B0; margin:0">{{ hc.tipoTextoDesc }}</p>
             </div>
           </div>
         </div>
@@ -3526,6 +3526,13 @@ const HERCULES = {
     paletaNote: 'Três tintas chapadas e uma de apoio. O vermelho é o grito; o preto é a base; o branco é o respiro. O aço entra só na linha Colossus, para o brilho metálico dos rótulos.',
     tipoKicker: 'Tipografia',
     tipoTitle: 'Condensada, stencil e leitura.',
+    tipoAntonKicker: 'Display · wordmark',
+    tipoAntonDesc: 'Condensada e pesada, toda em caixa-alta. Carrega o nome e as manchetes. Peso de letreiro de academia.',
+    tipoStencilKicker: 'Stencil · linha Colossus',
+    tipoStencilDesc: 'Stencil militar, exclusivo da linha de produto. Dá ao COLOSSUS o ar de equipamento de quartel.',
+    tipoTextoAmostra: 'Texto corrido',
+    tipoTextoKicker: 'Texto · interface',
+    tipoTextoDesc: 'Grotesca limpa e legível para textos longos, rótulos e web. A base do dia a dia da marca.',
     tipoNote: 'Uma família pesada e condensada carrega o nome; um stencil militar assina a linha Colossus; uma grotesca limpa segura os textos longos.',
     produtoKicker: 'A linha de produto',
     produtoTitle: 'Colossus: quatro armas.',
@@ -3593,6 +3600,13 @@ const HERCULES = {
     paletaNote: 'Three flat inks and one support. Red is the shout; black is the base; white is the breath. Steel appears only in the Colossus line, for the metallic shine of the labels.',
     tipoKicker: 'Typography',
     tipoTitle: 'Condensed, stencil and reading.',
+    tipoAntonKicker: 'Display · wordmark',
+    tipoAntonDesc: 'Condensed and heavy, all caps. It carries the name and the headlines. The weight of a gym sign.',
+    tipoStencilKicker: 'Stencil · Colossus line',
+    tipoStencilDesc: 'Military stencil, exclusive to the product line. It gives COLOSSUS the look of barracks kit.',
+    tipoTextoAmostra: 'Body text',
+    tipoTextoKicker: 'Text · interface',
+    tipoTextoDesc: 'A clean, readable grotesque for long copy, labels and web. The brand\'s everyday base.',
     tipoNote: 'A heavy condensed family carries the name; a military stencil signs the Colossus line; a clean grotesque holds the long copy.',
     produtoKicker: 'The product line',
     produtoTitle: 'Colossus: four weapons.',
