@@ -158,30 +158,57 @@ Guardado para referência caso seja preciso reverter:
 | MX | @ | *(nenhum — domínio não tem e-mail)* |
 | TXT | @ | *(nenhum)* |
 
+## Redirect do `www`
+
+O `www` e o domínio raiz serviam o mesmo site em dois endereços, o que para
+busca é conteúdo duplicado. A correção não está neste repositório: é uma
+**Redirect Rule** no painel da Cloudflare, em Rules → Redirect Rules.
+
+| campo | valor |
+|---|---|
+| Nome | `www para apex` |
+| If | Hostname equals `www.gustavoalbino.com.br` |
+| Then | Dynamic redirect |
+| Expressão | `concat("https://gustavoalbino.com.br", http.request.uri.path)` |
+| Status | 301 |
+| Preserve query string | ligado |
+
+Três decisões dentro dela. **Dynamic** e não Static, senão todo endereço do
+`www` cairia na home em vez do caminho equivalente. **301** e não 302, porque
+só o permanente transfere autoridade de busca. E fica na borda, não no Worker:
+o `wrangler.jsonc` é de propósito sem `main`, e um script de redirect ali
+viraria o handler de todas as requisições, trocando uma regra de painel por um
+ponto único de falha no site inteiro.
+
+Conferido: `https://www.gustavoalbino.com.br/assets/anuarios/2025-cover.webp`
+devolve 301 para o mesmo caminho no apex, em um salto, com query string
+preservada.
+
 ## Estado atual
 
 | Item | Situação |
 |---|---|
 | Site importado do canvas | ✅ feito |
-| Assets otimizados | ✅ 365,4 MB → 76,2 MB |
+| Assets otimizados | ✅ 365,4 MB → 64 MB (imagem toda em WebP) |
 | Roda fora do Claude Design | ✅ verificado |
 | Publicado no GitHub | ✅ público |
 | Configuração da Cloudflare no repo | ✅ `wrangler.jsonc` |
-| Deploy servindo o site | ⬜ ainda sai "Hello World!" |
+| Deploy servindo o site | ✅ no ar em gustavoalbino.com.br |
+| Domínio apontado | ✅ feito |
+| `www` redirecionando para o apex | ✅ Redirect Rule, 301 |
 | Branch `main` protegida | ⬜ falta |
-| Domínio apontado | ⬜ falta |
 
 ## Pendências
 
 **Para publicar:**
 
 - [ ] Proteger a `main` (Require a pull request before merging, **0 aprovações**)
-- [ ] Confirmar na Cloudflare que o projeto está ligado a este repositório
-- [ ] Mergear o PR #1 e ver o site substituir o `Hello World!`
+- [x] ~~Confirmar na Cloudflare que o projeto está ligado a este repositório~~
+- [x] ~~Mergear o PR #1 e ver o site substituir o `Hello World!`~~
 - [x] ~~Conformidade dos assets da Kaya Mind~~ — resolvido: nenhuma tela do
       produto é reproduzida. O case descreve processo, sistema e decisões, e a
       página traz nota explícita de propriedade da Kaya Mind.
-- [ ] Apontar `gustavoalbino.com.br` para a Cloudflare (por último)
+- [x] ~~Apontar `gustavoalbino.com.br` para a Cloudflare~~
 
 **Qualidade, depois de estar no ar:**
 
@@ -207,5 +234,7 @@ Guardado para referência caso seja preciso reverter:
       title, description e Open Graph, mas o corpo servido vem vazio.
 - [ ] **Ruído no console:** o `_ds_bundle.js` embute um UI kit de demonstração
       que registra 2 erros React #299. Inofensivo.
-- [ ] **WebP:** o `sips` desta máquina não gera WebP. Alternativa sem instalar
-      nada: ligar o Polish da Cloudflare.
+- [x] ~~**WebP**~~ feito. As 228 imagens de `anuarios`, `cases`, `ebooks` e
+      `ebooks-kaya` viraram WebP: 42,1 MB → 15,3 MB. O `sips` desta máquina
+      recusa o formato e não há `cwebp` nem Homebrew, então a conversão roda
+      pelo encoder do próprio Chrome, via `tools/para-webp.py`.
