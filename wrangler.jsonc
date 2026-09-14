@@ -24,7 +24,18 @@
 
     // O binding e o que deixa o script devolver o asset em vez de
     // reimplementar um servidor de arquivo.
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+
+    // Sem isto o worker nao roda quando o caminho existe como arquivo: a
+    // Cloudflare entrega da borda e pula o script. Era o que acontecia na raiz.
+    // "/" resolve para index.html, que existe, entao a home saia sem os
+    // hreflang e sem o JSON-LD enquanto as outras 35 rotas saiam certas, porque
+    // nenhuma delas existe como arquivo.
+    //
+    // O custo e o worker ser chamado em toda requisicao, inclusive de imagem.
+    // Para este site e irrelevante, e o script devolve o asset intacto quando o
+    // caminho nao e rota: a primeira coisa que ele faz e checar isso.
+    "run_worker_first": true
 
     // "not_found_handling" continua no padrao, que e 404 de verdade. O modo
     // "single-page-application" resolveria as rotas em uma linha, e foi
