@@ -14,8 +14,16 @@ este script apenas le.
 Cada endereco sai com os alternates de idioma (hreflang), que e o que diz ao
 buscador que /cases/runpace e /en/cases/runpace sao a mesma pagina em duas
 linguas, e nao conteudo duplicado.
+
+Nao ha <priority> nem <changefreq>. O Google confirma que ignora os dois, e
+foram ignorados porque quase todo mundo marcava tudo como prioridade maxima.
+Escrever os dois so aumenta o arquivo.
+
+<lastmod> fica, mas com data de verdade, tirada do git. Se o sitemap disser que
+tudo mudou hoje, todo dia, o buscador aprende que a data e ruido e para de ler
+o campo no site inteiro.
 """
-import io, os, re, sys
+import io, os, re, subprocess, sys
 from datetime import date
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,7 +46,22 @@ cases = [cid for cid, resto in re.findall(r"id: '([a-z-]+)', cat: '[^']*', detai
 pares = [(pt, en) for pt, en in rotas]
 pares += [('cases/' + c, 'cases/' + c) for c in cases]
 
-hoje = date.today().isoformat()
+# lastmod tem que ser honesto. Sitemap que diz "tudo mudou hoje" ensina o
+# buscador a ignorar o campo no site inteiro, e ai ele perde a unica funcao que
+# tem: decidir se vale revisitar uma URL conhecida. Entao a data vem do git,
+# do ultimo commit que tocou o index.html, que e onde todo o conteudo mora.
+def ultima_alteracao():
+    try:
+        r = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', 'public/index.html'],
+                           cwd=RAIZ, capture_output=True, text=True, timeout=10)
+        d = r.stdout.strip()
+        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', d):
+            return d
+    except Exception:
+        pass
+    return date.today().isoformat()
+
+hoje = ultima_alteracao()
 
 def url(pt, en):
     # Precisa bater exatamente com o que o canonical da pagina escreve, senao o

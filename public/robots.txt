@@ -1,7 +1,52 @@
 # gustavoalbino.com.br
-# Site aberto. Nao ha area privada, entao nao ha o que bloquear.
+#
+# Site aberto. Nao ha area privada, entao nao ha o que esconder de buscador.
+#
+# A divisao abaixo separa duas coisas que costumam ser confundidas: robo que
+# le a pagina para responder alguem agora, e robo que coleta texto para treinar
+# modelo. O primeiro traz visita e citacao; o segundo nao devolve nada.
 
 User-agent: *
 Allow: /
+
+# Busca por IA e leitura sob demanda: liberados, e de proposito. E por onde
+# aparece citacao com link, que hoje e canal de descoberta como o buscador.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Coleta para treinamento: bloqueada. O trabalho autoral deste site (cases,
+# textos e imagens) nao entra em base de treino sem acordo.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
 
 Sitemap: https://gustavoalbino.com.br/sitemap.xml

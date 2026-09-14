@@ -173,6 +173,20 @@ O que está feito:
 | Imagem de compartilhamento | uma por case, gerada por `tools/gerar-og-cases.py` |
 | Cabeçalho servido por rota | `public/cabecalhos.json` + `src/worker.js` |
 
+**Não há `priority` nem `changefreq` no sitemap.** O Google confirma que ignora
+os dois, e ignora porque quase todo site marcava tudo como prioridade máxima. E
+o `lastmod` vem do git, do último commit que tocou o `index.html`, não da data
+em que o arquivo foi gerado: sitemap que diz "tudo mudou hoje" ensina o buscador
+a tratar o campo como ruído no site inteiro, e aí ele perde a única função que
+tem, que é decidir se vale revisitar.
+
+**O `robots.txt` separa dois tipos de robô de IA.** Busca e leitura sob demanda
+(`OAI-SearchBot`, `Claude-SearchBot`, `PerplexityBot` e os agentes de usuário)
+ficam liberados, porque é por onde aparece citação com link. Coleta para
+treinamento (`GPTBot`, `ClaudeBot`, `Google-Extended`, `CCBot`,
+`Applebot-Extended`) fica bloqueada. Não há `llms.txt`: em 2026 nenhum
+assistente o consome em produção, então seria arquivo decorativo.
+
 **O sitemap é gerado, não escrito à mão.** Ele lê `ROTAS` e `CASES` do próprio
 `index.html`, pelo mesmo motivo da tabela de rotas ser uma só: lista repetida
 diverge, e sitemap que anuncia página inexistente é erro registrado no Search
@@ -205,6 +219,29 @@ seria servir 36 documentos completos: 13 MB, e cada palavra alterada reescreve
 os 36 arquivos.
 
 Se um dia esse teste voltar a dar outro resultado, a conta muda e vale refazer.
+
+### Peso da página
+
+A home baixava **9.599 KB**, dos quais **7.482 KB eram os dois vídeos do case
+Hercules**, que nela nunca aparecem. O motivo é o *preload scanner*: o navegador
+lê o HTML cru e busca todo `src` que encontra, antes de o JavaScript existir.
+Como o documento é único e carrega o template de todas as páginas, os vídeos e
+quatro imagens de case eram buscados sempre.
+
+Hoje são **1.146 KB**, e nenhum byte de vídeo.
+
+O que resolve é caminho que o scanner não enxerga. Imagem vinda de dado entra
+como `background-image` num `<div role="img">`, nunca como `<img src>`, porque
+`src="{{ x }}"` é pior que o literal: o scanner pede a chave como se fosse
+endereço e recebe o `index.html` inteiro de volta, 371 KB por imagem. Isso foi
+medido, não deduzido.
+
+Vídeo fica com `preload="none"` e o caminho vindo de dado. Numa página de case é
+o visitante que decide quando assistir.
+
+**Toda imagem do site é WebP**, com duas exceções de propósito: `og-card.png` e
+`assets/og/*.jpg`, que são as imagens de compartilhamento. LinkedIn e Facebook
+não geram preview de WebP. `tools/para-webp.py` conhece essa lista e as pula.
 
 ### Cabeçalho servido
 

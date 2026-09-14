@@ -28,9 +28,20 @@ exibicao antes de trocar as referencias.
 import http.server, json, os, sys, urllib.parse
 
 RAIZ = sys.argv[1]
+
+# Imagem de compartilhamento nao entra. LinkedIn e Facebook nao geram preview
+# de WebP, entao converter estas quebraria o card de todo link publicado.
+POUPAR = ('og-card.png',)
+POUPAR_PASTA = ('og',)
+
 ARQS = []
 for pasta, _, arquivos in os.walk(RAIZ):
+    rel = os.path.relpath(pasta, RAIZ)
+    if rel.split(os.sep)[0] in POUPAR_PASTA:
+        continue
     for a in arquivos:
+        if a in POUPAR:
+            continue
         if a.lower().endswith(('.jpg', '.jpeg', '.png')):
             ARQS.append(os.path.relpath(os.path.join(pasta, a), RAIZ))
 ARQS.sort()
