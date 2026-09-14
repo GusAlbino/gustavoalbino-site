@@ -158,6 +158,40 @@ Guardado para referência caso seja preciso reverter:
 | MX | @ | *(nenhum — domínio não tem e-mail)* |
 | TXT | @ | *(nenhum)* |
 
+## SEO
+
+O que está feito:
+
+| peça | onde |
+|---|---|
+| `robots.txt` | `public/robots.txt`, aponta para o sitemap |
+| `sitemap.xml` | gerado por `tools/gerar-sitemap.py`, 36 endereços |
+| title, description, canonical | por rota, em `escreverCabecalho()` |
+| `hreflang` pt-BR / en / x-default | por rota, nas duas direções |
+| Open Graph e Twitter card | no `<head>`, com `og:url` e `og:title` por rota |
+| JSON-LD | `Person` e `WebSite` em toda página, mais `CreativeWork` nos cases |
+| Imagem de compartilhamento | uma por case, gerada por `tools/gerar-og-cases.py` |
+
+**O sitemap é gerado, não escrito à mão.** Ele lê `ROTAS` e `CASES` do próprio
+`index.html`, pelo mesmo motivo da tabela de rotas ser uma só: lista repetida
+diverge, e sitemap que anuncia página inexistente é erro registrado no Search
+Console. **Rode `python3 tools/gerar-sitemap.py` sempre que criar, renomear ou
+remover uma rota ou um case.**
+
+**As imagens de compartilhamento também são geradas.** Um card 1200x630 por
+case, com a capa à esquerda e tipo, nome e a frase do case à direita. Saem em
+JPEG de propósito: as capas do site são WebP, e LinkedIn e Facebook não geram
+preview desse formato, então apontar `og:image` direto para elas quebraria o
+preview de todo link compartilhado. **Rode `python3 tools/gerar-og-cases.py`
+com o servidor local no ar quando mudar a capa, o nome ou a frase de um case.**
+
+O endereço da home sai como `https://gustavoalbino.com.br/`, com barra, para
+bater exatamente com o que o canonical escreve. Sem isso o buscador vê dois
+endereços para a mesma página.
+
+O que falta é o corpo, e está nas pendências: o HTML servido continua vindo
+sem conteúdo até o JavaScript rodar.
+
 ## Rotas
 
 Cada página e cada case têm endereço próprio. O mapa vive em uma tabela só,
@@ -277,12 +311,14 @@ preservada.
       `Website /Page - Web Design & UI Design/Dashboard design_PBI.jpg`.
 - [ ] **Vídeos:** os 3 MP4 do case Hercules somam 30,8 MB. Não há `ffmpeg`
       nesta máquina; o HandBrake resolve.
-- [ ] **SEO do corpo:** o conteúdo continua sendo renderizado por JavaScript.
-      Com as rotas, cada endereço já tem title, description, canonical e
-      hreflang próprios, escritos a cada troca de página. O que falta é o
-      corpo: o HTML servido vem vazio, e quem lê sem executar JavaScript não
-      vê texto nenhum. A correção é pré-renderizar, o que é trabalho de outra
-      ordem.
+- [ ] **Pré-renderização.** É o que falta de SEO, e é decisão de arquitetura,
+      não tarefa. O HTML servido vem sem conteúdo: quem lê sem executar
+      JavaScript não vê texto. Gerar os 36 endereços em arquivo estático
+      resolveria, mas cria um passo de build que alguém precisa lembrar de
+      rodar, e prerender desatualizado é pior que nenhum, porque o buscador
+      indexa a cópia velha. Ver *SEO* abaixo.
+- [x] ~~**Imagens de compartilhamento por case**~~ feito. Cada case tem a sua,
+      em `public/assets/og/`, gerada por `tools/gerar-og-cases.py`.
 - [ ] **Ruído no console:** o `_ds_bundle.js` embute um UI kit de demonstração
       que registra 2 erros React #299. Inofensivo.
 - [x] ~~**WebP**~~ feito. As 228 imagens de `anuarios`, `cases`, `ebooks` e
