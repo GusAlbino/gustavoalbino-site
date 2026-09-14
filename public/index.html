@@ -1770,9 +1770,9 @@
       <!-- page header -->
       <div style="max-width:1180px; margin:0 auto; padding:40px 24px 8px">
         <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-bottom:26px">← {{ t.nav.galeria }}</button>
-        <span class="ga-kicker" style="color:var(--cerulean)">Editorial &amp; Dataviz · Kaya Mind</span>
-        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">Anuários e Relatórios</h1>
-        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Oito edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.</p>
+        <span class="ga-kicker" style="color:var(--cerulean)">{{ t.anuariosPage.kicker }}</span>
+        <h1 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(40px,6vw,76px); line-height:.9; margin:12px 0 14px; color:var(--ink)">{{ t.anuariosPage.title }}</h1>
+        <p style="font-family:var(--font-body); font-size:17px; line-height:1.6; color:var(--text-body); max-width:64ch; margin:0">{{ t.anuariosPage.intro }}</p>
       </div>
 
       <sc-for list="{{ anuarios }}" as="a" hint-placeholder-count="3">
@@ -1803,7 +1803,7 @@
 
             <!-- FICHA TÉCNICA -->
             <div style="margin-top:24px; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-sm); background:var(--paper-100)">
-              <div style="background:var(--ink); padding:9px 16px"><span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)">Ficha técnica</span></div>
+              <div style="background:var(--ink); padding:9px 16px"><span style="font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)">{{ t.anuariosPage.ficha }}</span></div>
               <div style="display:grid; grid-template-columns:repeat(3,1fr)">
                 <sc-for list="{{ a.ficha }}" as="f" hint-placeholder-count="6">
                   <div style="padding:14px 16px; border-right:2px solid var(--paper-400); border-bottom:2px solid var(--paper-400)">
@@ -1813,7 +1813,7 @@
                 </sc-for>
               </div>
             </div>
-            <a href="{{ a.link }}" target="_blank" rel="noopener noreferrer" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; text-decoration:none; display:inline-flex">{{ a.verLink }} ↗</a>
+            <a href="{{ a.link }}" target="_blank" rel="noopener noreferrer" class="ga-btn ga-btn--ghost ga-btn--sm" style="margin-top:18px; text-decoration:none; display:inline-flex">{{ t.anuariosPage.verNaKaya }} ↗</a>
           </div>
         </div>
 
@@ -1826,11 +1826,11 @@
           <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.16; mix-blend-mode:screen"></div>
           <div style="position:relative; padding:48px 44px; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:center">
             <div>
-              <span class="ga-kicker ga-kicker--bare" style="color:var(--gold)">Editorial sob medida</span>
-              <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.95; font-size:clamp(26px,3.6vw,42px); margin:10px 0 0; color:var(--paper-100); max-width:22ch">Precisa transformar dados em um relatório que as pessoas leem?</h2>
+              <span class="ga-kicker ga-kicker--bare" style="color:var(--gold)">{{ t.anuariosPage.ctaKicker }}</span>
+              <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.95; font-size:clamp(26px,3.6vw,42px); margin:10px 0 0; color:var(--paper-100); max-width:22ch">{{ t.anuariosPage.ctaTitle }}</h2>
             </div>
             <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-              <button onClick="{{ toContato }}" class="ga-btn ga-btn--gold ga-btn--lg">Vamos conversar</button>
+              <button onClick="{{ toContato }}" class="ga-btn ga-btn--gold ga-btn--lg">{{ t.anuariosPage.ctaBtn }}</button>
               <button onClick="{{ toGaleria }}" class="ga-btn ga-btn--lg" style="background:transparent; color:var(--paper-100); border:2px solid var(--paper-100)">← {{ t.nav.galeria }}</button>
             </div>
           </div>
@@ -2181,7 +2181,7 @@ const DICT = {
         'Comecei em 2018, na Suíça, fazendo trilha a pé. No início era só caminhada, um jeito de respirar entre um projeto e outro. Mas em 2019 resolvi experimentar correr na montanha, e nunca mais parei. Em 2025 encarei minha primeira competição de trilha. Em 2026 decidi ir além: mais provas, conhecendo de perto os atletas, as marcas, as assessorias e o público que move esse esporte.',
         'Como designer, são mais de 10 anos criando marcas, produtos digitais e experiências visuais. Boa parte deles fora do Brasil, entre Austrália e Suíça. Em algum momento percebi que minhas duas paixões podiam ser a mesma coisa.',
         'É aí que está a minha vantagem: eu não olho o mundo outdoor de fora. Eu treino, eu compito, eu sei o que é furar a hidratação numa subida e aprender na prática o que funciona.',
-        'Meu propósito é unir essas duas frentes: trazer soluções de verdade para quem pratica o esporte, somando a vivência na montanha a uma década de design estratégico. Bonito é o mínimo. O que conta é fazer junto com quem está dentro.',
+        'As duas coisas entram no mesmo trabalho: dez anos de design estratégico e a vivência de quem treina e compete. Bonito é o mínimo. O que conta é fazer junto com quem está dentro.',
       ],
     },
     entrega: {
@@ -2194,7 +2194,7 @@ const DICT = {
         { num: '04', title: 'Direção Criativa', desc: 'Marcas, campanhas e eventos com direção de arte coesa.' },
       ],
     },
-    marcas: { kicker: 'Confiaram no trabalho', title: 'Marcas parceiras', note: '+ clientes de freelancer no Brasil e no exterior' },
+    marcas: { kicker: 'Onde o trabalho rodou', title: 'Marcas parceiras', note: '+ clientes de freelancer no Brasil e no exterior' },
     cv: {
       kicker: 'Trajetória · 10+ anos',
       title: 'Currículo',
@@ -2249,8 +2249,8 @@ const DICT = {
     },
     cta: {
       kicker: 'Novos projetos',
-      title: 'Vamos criar algo juntos?',
-      text: 'Conte sobre o projeto, o prazo e a ideia. Respondo rápido.',
+      title: 'Marca que precisa crescer, ou projeto do mundo outdoor?',
+      text: 'Conte sobre o projeto, o prazo e a ideia. Respondo em até 2 dias úteis.',
       btn: 'Ir para Contato',
       whatsapp: 'WhatsApp',
       availability: 'Resposta em até 2 dias úteis',
@@ -2269,6 +2269,16 @@ const DICT = {
       kicker: 'Prova de trabalho',
       title: 'Projetos',
       intro: 'Cinco acervos abertos: anuários e relatórios, ilustração autoral, e-books, marcas e projetos culturais. Material entregue, não amostra.',
+    },
+    anuariosPage: {
+      kicker: 'Editorial & Dataviz · Kaya Mind',
+      title: 'Anuários e Relatórios',
+      intro: 'Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Oito edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.',
+      ficha: 'Ficha técnica',
+      verNaKaya: 'Ver no site da Kaya',
+      ctaKicker: 'Editorial sob medida',
+      ctaTitle: 'Precisa transformar dados em um relatório que as pessoas leem?',
+      ctaBtn: 'Vamos conversar',
     },
     culturaisPage: {
       kicker: 'Projetos culturais · Betim, MG',
@@ -2291,7 +2301,7 @@ const DICT = {
     servPage: {
       kicker: 'O que ofereço',
       title: 'Serviços',
-      intro: 'Da estratégia ao pixel. Cada serviço pode vir isolado ou combinado, conforme o momento da sua marca.',
+      intro: 'Cada serviço pode vir isolado ou combinado, conforme o momento da sua marca. Do primeiro rascunho ao manual que o time usa depois que eu saio.',
       cta: 'Solicitar',
     },
     contatoPage: {
@@ -2349,7 +2359,7 @@ const DICT = {
         "It started in 2018, in Switzerland, hiking the trails. At first it was just walking, a way to breathe between one project and the next. But in 2019 I decided to try running in the mountains, and I never stopped. In 2025 I took on my first trail race. In 2026 I decided to go further: more races, getting to know the athletes, the brands, the coaching teams and the community that drives this sport.",
         'As a designer, it has been over 10 years creating brands, digital products and visual experiences. Much of it abroad, between Australia and Switzerland. At some point I realised my two passions could be one and the same.',
         "That's my edge: I don't look at the outdoor world from the outside. I train, I race, I know what it's like to get my fuelling wrong on a climb and learn first-hand what works.",
-        "My purpose is to bring those two sides together: real solutions for the people who practise the sport I love, backed by a decade of strategic design. Looking good is the floor. What counts is building it with the people who are in it.",
+        "Both sides go into the same work: ten years of strategic design and the experience of someone who trains and races. Looking good is the floor. What counts is building it with the people who are in it.",
       ],
     },
     entrega: {
@@ -2362,7 +2372,7 @@ const DICT = {
         { num: '04', title: 'Creative Direction', desc: 'Brands, campaigns and events with cohesive art direction.' },
       ],
     },
-    marcas: { kicker: 'They trusted the work', title: 'Partner brands', note: '+ freelance clients in Brazil and abroad' },
+    marcas: { kicker: 'Where the work shipped', title: 'Partner brands', note: '+ freelance clients in Brazil and abroad' },
     cv: {
       kicker: 'Résumé',
       title: 'Digital CV',
@@ -2417,8 +2427,8 @@ const DICT = {
     },
     cta: {
       kicker: 'New projects',
-      title: "Let's build something together?",
-      text: "Tell me about the project, the timeline and the idea. I reply fast.",
+      title: 'A brand that has to grow, or something from the outdoor world?',
+      text: 'Tell me about the project, the timeline and the idea. I reply within 2 business days.',
       btn: 'Go to Contact',
       whatsapp: 'WhatsApp',
       availability: 'Replies within 2 business days',
@@ -2437,6 +2447,16 @@ const DICT = {
       kicker: 'Proof of work',
       title: 'Projects',
       intro: 'Five open archives: yearbooks and reports, original illustration, e-books, brand marks and cultural projects. Delivered work, not samples.',
+    },
+    anuariosPage: {
+      kicker: 'Editorial & Dataviz · Kaya Mind',
+      title: 'Yearbooks and Reports',
+      intro: 'Market intelligence reports I produced for Kaya Mind, from 2022 to today. Eight editions across medical cannabis yearbooks, cannabis retail yearbooks and one thematic report. Each turns raw data into visual narrative: cover, growth and projection charts, and dozens of pages of dataviz.',
+      ficha: 'Technical sheet',
+      verNaKaya: 'View on the Kaya site',
+      ctaKicker: 'Editorial, made to measure',
+      ctaTitle: 'Need to turn data into a report people actually read?',
+      ctaBtn: "Let's talk",
     },
     culturaisPage: {
       kicker: 'Cultural projects · Betim, Brazil',
@@ -2459,7 +2479,7 @@ const DICT = {
     servPage: {
       kicker: 'What I offer',
       title: 'Services',
-      intro: 'From strategy to pixel. Each service can come alone or combined, depending on where your brand is.',
+      intro: 'Each service can come alone or combined, depending on where your brand is. From the first sketch to the manual the team uses after I leave.',
       cta: 'Request',
     },
     contatoPage: {
@@ -4675,7 +4695,6 @@ class Component extends DCLogic {
       cover: a.cover, note: a.note ? a.note[lang] : null,
       hasStats: (a.stats || []).length > 0, hasCharts: (a.charts || []).length > 0, hasPages: (a.pages || []).length > 0,
       edicao: pick(a.edicao), title: pick(a.title), tema: pick(a.tema),
-      verLink: lang === 'pt' ? 'Ver no site da Kaya' : 'View on the Kaya site',
       desc: a.desc[lang],
       coverStyle: a.cover ? `position:absolute; inset:0; width:100%; height:100%; object-fit:cover` : '',
       ficha: a.ficha.map((f) => ({ k: pick(f.k), v: pick(f.v) })),
