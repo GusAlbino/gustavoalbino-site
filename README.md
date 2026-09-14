@@ -158,6 +158,53 @@ Guardado para referência caso seja preciso reverter:
 | MX | @ | *(nenhum — domínio não tem e-mail)* |
 | TXT | @ | *(nenhum)* |
 
+## Rotas
+
+Cada página e cada case têm endereço próprio. O mapa vive em uma tabela só,
+`ROTAS` em `public/index.html`, lida nos dois sentidos por `caminhoDe()` e
+`rotaDe()`. Uma tabela lida nos dois sentidos evita o erro clássico de duas
+listas que divergem com o tempo.
+
+| estado | endereço | em inglês |
+|---|---|---|
+| `home` | `/` | `/en` |
+| `sobre` | `/sobre` | `/en/about` |
+| `cases` | `/cases` | `/en/cases` |
+| `case` | `/cases/<id>` | `/en/cases/<id>` |
+| `galeria` | `/projetos` | `/en/projects` |
+| `anuarios` | `/projetos/relatorios` | `/en/projects/reports` |
+| `ebooks` | `/projetos/ebooks` | `/en/projects/ebooks` |
+| `culturais` | `/projetos/culturais` | `/en/projects/cultural` |
+| `logos` | `/projetos/logos` | `/en/projects/logos` |
+| `ilustracao` | `/projetos/ilustracao` | `/en/projects/illustration` |
+| `servicos` | `/servicos` | `/en/services` |
+| `contato` | `/contato` | `/en/contact` |
+
+O inglês ganhou prefixo de caminho em vez de um parâmetro porque caminho
+separado é o sinal que o buscador entende como outra página. Endereço
+desconhecido cai na home e se corrige sozinho com `replaceState`, para que link
+velho compartilhado continue abrindo o site.
+
+Três peças fazem isso funcionar, e as três são necessárias:
+
+**`<base href="/">` no `<head>`.** O mesmo `index.html` é servido em
+`/cases/runpace`, então todo caminho relativo resolveria contra `/cases/`.
+Sem o `base`, `support.js`, o CSS e as imagens dão 404 e o site abre em branco
+em qualquer endereço fora da raiz. Esse defeito apareceu no teste.
+
+**`src/worker.js`.** Caminho de rota não é arquivo, e o Workers devolvia 404 em
+toda recarga fora da raiz. O script devolve o `index.html` apenas em caminho
+sem extensão; `/assets/x.webp` que não existe continua 404 de verdade.
+
+**`escreverCabecalho()`.** Como o corpo é desenhado por JavaScript, title,
+description, canonical, `og:*` e `hreflang` também precisam ser escritos a cada
+troca de página. Sem isso, as doze rotas herdavam o título da home.
+
+Uma folga conhecida: endereço inventado responde 200 antes de se corrigir para
+a home, o que para o buscador é um *soft 404*. Fechar isso exigiria repetir a
+tabela de rotas dentro do worker, que é justamente a duplicação que o desenho
+evita.
+
 ## Redirect do `www`
 
 O `www` e o domínio raiz serviam o mesmo site em dois endereços, o que para
@@ -221,17 +268,21 @@ preservada.
       `stat-canhamo.jpg` e `hero-explore.jpg` (581 KB, do case Yerba Fina)
       ainda carregam na home. A correção é arquitetural: `loading="lazy"` nas
       imagens fora da dobra, ou separar as páginas em arquivos.
-- [ ] **Roteamento por URL.** Navegação e idioma são só `setState`. Nenhum case
-      é linkável, o botão "voltar" do navegador sai do site, e o inglês —
-      100% traduzido — é invisível para busca.
+- [x] ~~**Roteamento por URL**~~ feito. Cada página e cada case têm endereço
+      próprio (`/cases/runpace`), o inglês vive em `/en/...`, e voltar e
+      avançar do navegador funcionam. Detalhe abaixo, em *Rotas*.
 - [ ] **Cards da galeria removidos por falta de material:** Identidade A,
       Telas de Produto, Design System, Dataviz · Power BI e Experimentos.
       Podem voltar com imagem real. Para Dataviz existe
       `Website /Page - Web Design & UI Design/Dashboard design_PBI.jpg`.
 - [ ] **Vídeos:** os 3 MP4 do case Hercules somam 30,8 MB. Não há `ffmpeg`
       nesta máquina; o HandBrake resolve.
-- [ ] **SEO:** o conteúdo é renderizado por JavaScript. O `<head>` já tem
-      title, description e Open Graph, mas o corpo servido vem vazio.
+- [ ] **SEO do corpo:** o conteúdo continua sendo renderizado por JavaScript.
+      Com as rotas, cada endereço já tem title, description, canonical e
+      hreflang próprios, escritos a cada troca de página. O que falta é o
+      corpo: o HTML servido vem vazio, e quem lê sem executar JavaScript não
+      vê texto nenhum. A correção é pré-renderizar, o que é trabalho de outra
+      ordem.
 - [ ] **Ruído no console:** o `_ds_bundle.js` embute um UI kit de demonstração
       que registra 2 erros React #299. Inofensivo.
 - [x] ~~**WebP**~~ feito. As 228 imagens de `anuarios`, `cases`, `ebooks` e
