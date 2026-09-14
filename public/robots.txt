@@ -1,0 +1,7 @@
+# gustavoalbino.com.br
+# Site aberto. Nao ha area privada, entao nao ha o que bloquear.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://gustavoalbino.com.br/sitemap.xml

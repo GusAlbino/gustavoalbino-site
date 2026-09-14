@@ -23,6 +23,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gustavoalbino.com.br/assets/og-card.png">
 <link rel="stylesheet" href="responsivo.css?v=6b62580d">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
@@ -4441,11 +4442,18 @@ class Component extends DCLogic {
     let titulo = D.seoHome || (marca + ' · Lead Designer');
     let descricao = D.seoDesc || '';
 
+    // Imagem de compartilhamento. O padrao serve para o site; cada case tem a
+    // sua, em JPEG, porque LinkedIn e Facebook nao geram preview de WebP e as
+    // capas do site sao todas WebP. Os cards saem em 1200x630, que e o tamanho
+    // ja declarado no <head>, entao og:image:width e height continuam valendo.
+    let imagem = SITE + '/assets/og-card.png';
+
     if (page === 'case' && caseId) {
       const c = CASES.find((x) => x.id === caseId);
       if (c) {
         titulo = c.title[lang] + ' · ' + (eng ? 'Case' : 'Case') + ' · ' + marca;
         descricao = c.blurb ? c.blurb[lang] : descricao;
+        imagem = SITE + '/assets/og/' + c.id + '.jpg';
       }
     } else if (page !== 'home') {
       const nomes = Object.assign({}, D.nav, {
@@ -4469,12 +4477,64 @@ class Component extends DCLogic {
     meta('link[rel="canonical"]', url);
     meta('meta[property="og:url"]', url);
     meta('meta[property="og:title"]', titulo);
+    meta('meta[property="og:image"]', imagem);
+    meta('meta[name="twitter:image"]', imagem);
     meta('meta[property="og:locale"]', eng ? 'en_US' : 'pt_BR');
     meta('meta[property="og:locale:alternate"]', eng ? 'pt_BR' : 'en_US');
     if (descricao) {
       meta('meta[name="description"]', descricao);
       meta('meta[property="og:description"]', descricao);
     }
+
+    // Dado estruturado. Sem ele o buscador tem que adivinhar quem e o dono do
+    // site a partir do texto; com ele, a identidade e as redes vem declaradas.
+    // O bloco e reescrito a cada rota porque o case muda o que esta sendo
+    // descrito: a pagina deixa de ser "perfil" e passa a ser "trabalho".
+    const pessoa = {
+      '@type': 'Person',
+      '@id': SITE + '/#gustavo',
+      name: 'Gustavo Albino',
+      jobTitle: eng ? 'Lead Designer' : 'Lead Designer',
+      url: SITE + '/',
+      email: 'mailto:gustavorsalbino@gmail.com',
+      image: SITE + '/assets/og-card.png',
+      description: D.seoDesc,
+      knowsLanguage: ['pt-BR', 'en', 'fr', 'es'],
+      address: { '@type': 'PostalAddress', addressRegion: 'Minas Gerais', addressCountry: 'BR' },
+      worksFor: { '@type': 'Organization', name: 'Kaya Mind' },
+      sameAs: [LINKS.linkedin, LINKS.instagram].filter(Boolean),
+    };
+    const grafo = [pessoa, {
+      '@type': 'WebSite',
+      '@id': SITE + '/#site',
+      url: SITE + '/',
+      name: 'Gustavo Albino',
+      inLanguage: eng ? 'en' : 'pt-BR',
+      publisher: { '@id': SITE + '/#gustavo' },
+    }];
+    if (page === 'case' && caseId) {
+      const c = CASES.find((x) => x.id === caseId);
+      if (c) grafo.push({
+        '@type': 'CreativeWork',
+        '@id': url + '#trabalho',
+        name: c.title[lang],
+        headline: c.title[lang],
+        description: c.blurb ? c.blurb[lang] : descricao,
+        url: url,
+        inLanguage: eng ? 'en' : 'pt-BR',
+        dateCreated: String(c.year || '').slice(0, 4),
+        creator: { '@id': SITE + '/#gustavo' },
+        image: SITE + '/' + (c.bgImage || 'assets/og-card.png'),
+      });
+    }
+    let ld = document.head.querySelector('script[type="application/ld+json"][data-rota]');
+    if (!ld) {
+      ld = document.createElement('script');
+      ld.setAttribute('type', 'application/ld+json');
+      ld.setAttribute('data-rota', '1');
+      document.head.appendChild(ld);
+    }
+    ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': grafo });
 
     // hreflang diz ao buscador que as duas versoes sao a mesma pagina em
     // idiomas diferentes, e nao conteudo duplicado.
