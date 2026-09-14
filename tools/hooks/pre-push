@@ -62,3 +62,25 @@ while read -r local_ref _local_sha remote_ref _remote_sha; do
   esac
 done
 exit 0
+
+# O manifesto de cabecalhos precisa corresponder ao index.html. Se o index
+# mudou e ninguem regerou, o site passa a anunciar para robo um titulo, uma
+# descricao ou uma imagem que a pagina nao tem mais. E invisivel no navegador,
+# porque ali o JavaScript reescreve tudo; so o robo ve o errado.
+#
+# Para empurrar mesmo assim (mudanca que nao toca em texto nem em rota):
+#   PERMITIR_CABECALHO_VELHO=1 git push
+if [ -f tools/conferir-cabecalhos.py ]; then
+  if ! python3 tools/conferir-cabecalhos.py >/dev/null 2>&1; then
+    if [ "$PERMITIR_CABECALHO_VELHO" = "1" ]; then
+      echo "pre-push: cabecalho velho liberado por PERMITIR_CABECALHO_VELHO=1." >&2
+    else
+      echo "" >&2
+      echo "  BLOQUEADO: public/cabecalhos.json nao corresponde ao index.html." >&2
+      echo "" >&2
+      python3 tools/conferir-cabecalhos.py >&2
+      echo "" >&2
+      exit 1
+    fi
+  fi
+fi

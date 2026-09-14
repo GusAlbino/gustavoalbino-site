@@ -171,12 +171,42 @@ O que está feito:
 | Open Graph e Twitter card | no `<head>`, com `og:url` e `og:title` por rota |
 | JSON-LD | `Person` e `WebSite` em toda página, mais `CreativeWork` nos cases |
 | Imagem de compartilhamento | uma por case, gerada por `tools/gerar-og-cases.py` |
+| Cabeçalho servido por rota | `public/cabecalhos.json` + `src/worker.js` |
 
 **O sitemap é gerado, não escrito à mão.** Ele lê `ROTAS` e `CASES` do próprio
 `index.html`, pelo mesmo motivo da tabela de rotas ser uma só: lista repetida
 diverge, e sitemap que anuncia página inexistente é erro registrado no Search
 Console. **Rode `python3 tools/gerar-sitemap.py` sempre que criar, renomear ou
 remover uma rota ou um case.**
+
+### Cabeçalho servido
+
+O corpo do site é desenhado por JavaScript, e o cabeçalho também: `title`,
+`canonical`, `og:*` e `hreflang` eram escritos por `escreverCabecalho()` a cada
+rota. Quem lê o HTML servido sem executar nada via **sempre o cabeçalho da
+home**, nas 36 rotas: mesmo título, mesma `og:image`, e `canonical` apontando
+para `/`.
+
+Esse canonical era o pior dos três, porque afirma que todo case é a home. E
+LinkedIn, WhatsApp e Slack não executam JavaScript, então os cards de
+compartilhamento por case eram invisíveis para eles.
+
+A correção tem duas peças. `tools/gerar-cabecalhos.py` abre cada rota num
+navegador de verdade e grava o cabeçalho que o app escreveria em
+`public/cabecalhos.json`, 74 KB. `src/worker.js` costura esses valores na
+resposta com HTMLRewriter, que trabalha em fluxo. Qualquer erro ali cai no
+arquivo original: cabeçalho errado é ruim, site fora do ar é pior.
+
+O gerador usa o navegador, e não o Chrome de linha de comando, porque o
+`--dump-dom` depende de *virtual time* fechar e nesta página ele nunca fecha: a
+parede de marcas tem animação CSS infinita. Trava até com orçamento de 3
+segundos.
+
+**O manifesto guarda o sha256 do `index.html`.** `tools/conferir-cabecalhos.py`
+compara, e o hook de pre-push recusa o push se o index mudou sem regerar.
+Cabeçalho velho é pior que nenhum: passa a anunciar título que a página não tem,
+e é invisível no navegador, onde o JavaScript reescreve tudo. Só o robô vê o
+errado. Para empurrar mesmo assim, `PERMITIR_CABECALHO_VELHO=1 git push`.
 
 **As imagens de compartilhamento também são geradas.** Um card 1200x630 por
 case, com a capa à esquerda e tipo, nome e a frase do case à direita. Saem em
@@ -311,12 +341,14 @@ preservada.
       `Website /Page - Web Design & UI Design/Dashboard design_PBI.jpg`.
 - [ ] **Vídeos:** os 3 MP4 do case Hercules somam 30,8 MB. Não há `ffmpeg`
       nesta máquina; o HandBrake resolve.
-- [ ] **Pré-renderização.** É o que falta de SEO, e é decisão de arquitetura,
-      não tarefa. O HTML servido vem sem conteúdo: quem lê sem executar
-      JavaScript não vê texto. Gerar os 36 endereços em arquivo estático
-      resolveria, mas cria um passo de build que alguém precisa lembrar de
-      rodar, e prerender desatualizado é pior que nenhum, porque o buscador
-      indexa a cópia velha. Ver *SEO* abaixo.
+- [ ] **Corpo pré-renderizado.** O cabeçalho já sai correto por rota (ver
+      *Cabeçalho servido* abaixo). O corpo continua vindo vazio, e não dá para
+      resolver com injeção: o runtime do Claude Design **remove** o `<x-dc>` do
+      documento e cria um `<div id="dc-root">` no lugar. Conteúdo colocado no
+      `x-dc` corrompe a leitura do template; colocado fora, vira um segundo
+      `dc-root` visível ao lado do verdadeiro. Sairia só trocando o runtime, ou
+      servindo 36 documentos completos (13 MB, e todo texto alterado reescreve
+      os 36). O Google executa JavaScript, então o custo não se paga hoje.
 - [x] ~~**Imagens de compartilhamento por case**~~ feito. Cada case tem a sua,
       em `public/assets/og/`, gerada por `tools/gerar-og-cases.py`.
 - [ ] **Ruído no console:** o `_ds_bundle.js` embute um UI kit de demonstração
