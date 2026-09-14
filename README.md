@@ -202,6 +202,14 @@ O gerador usa o navegador, e não o Chrome de linha de comando, porque o
 parede de marcas tem animação CSS infinita. Trava até com orçamento de 3
 segundos.
 
+Uma armadilha que custou dois deploys: **por padrão a Cloudflare serve arquivo
+que existe direto da borda, sem invocar o worker.** Como `/` resolve para
+`index.html`, que existe, a home saía sem `hreflang` e sem JSON-LD enquanto as
+outras 35 rotas saíam certas, porque nenhuma delas existe como arquivo. O que
+liga o worker em toda requisição é `run_worker_first: true` no `wrangler.jsonc`.
+O sintoma engana porque na home o título correto é o título padrão, então só a
+contagem das tags acrescentadas denuncia.
+
 **O manifesto guarda o sha256 do `index.html`.** `tools/conferir-cabecalhos.py`
 compara, e o hook de pre-push recusa o push se o index mudou sem regerar.
 Cabeçalho velho é pior que nenhum: passa a anunciar título que a página não tem,
