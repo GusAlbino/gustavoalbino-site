@@ -294,6 +294,33 @@ endereços para a mesma página.
 O que falta é o corpo, e está nas pendências: o HTML servido continua vindo
 sem conteúdo até o JavaScript rodar.
 
+## Credencial do terminal
+
+O `git` da linha de comando tem um Personal Access Token guardado no chaveiro
+do macOS, sob `github.com`, com o helper `osxkeychain`. É o que permite dar push
+sem o GitHub Desktop.
+
+**Expira em 13 de dezembro de 2026.** Quando expirar, todo push pela linha de
+comando volta a falhar com `403`, e a mensagem não diz que o motivo é validade.
+Se esse erro aparecer, comece por aí.
+
+O token é *fine-grained*, limitado a este repositório, com duas permissões:
+`Metadata: Read-only`, que vem sozinha, e `Contents: Read and write`, que é a
+que autoriza escrita. Com `Repository access` em "Public repositories" ele lê e
+não escreve, o que produz o mesmo `403` e foi o que aconteceu na primeira
+tentativa.
+
+Para revogar o acesso da linha de comando sem mexer no GitHub Desktop, que tem
+armazenamento próprio:
+
+```
+printf 'protocol=https\nhost=github.com\n' | git credential-osxkeychain erase
+```
+
+Abrir pull request continua fora daqui: precisa do token num cabeçalho de API, e
+o token não sai do chaveiro para isso. O ciclo é push pela linha de comando, PR
+pelo navegador.
+
 ## Rotas
 
 Cada página e cada case têm endereço próprio. O mapa vive em uma tabela só,
