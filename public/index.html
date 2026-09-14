@@ -1978,9 +1978,9 @@
             <h2 style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:clamp(22px,3vw,30px); margin:0; color:var(--ink)">{{ b.name }}</h2>
             <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted)">{{ b.tag }}</span>
           </div>
-          <div style="display:grid; grid-template-columns:1.06fr .94fr; gap:24px; align-items:start">
-            <figure style="margin:0; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-lg); background:#FFFFFF">
-              <div style="display:flex; align-items:center; justify-content:center; padding:44px 40px; background:{{ b.tint }}; min-height:260px">
+          <div style="display:grid; grid-template-columns:1.06fr .94fr; gap:24px; align-items:stretch">
+            <figure style="margin:0; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop-lg); background:#FFFFFF; display:flex; flex-direction:column">
+              <div style="display:flex; align-items:center; justify-content:center; padding:44px 40px; background:{{ b.tint }}; min-height:260px; flex:1">
                 <img src="{{ b.big }}" alt="{{ b.name }}" loading="lazy" style="display:block; width:100%; max-width:360px; height:auto">
               </div>
               <figcaption style="border-top:2px solid var(--ink); padding:11px 16px; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted)">{{ b.bigCap }}</figcaption>
@@ -3111,7 +3111,7 @@ const LOGO_BRANDS = [
     big: 'assets/logos/rfyl-prime.png', bigCapPt: 'logo primário com assinatura', bigCapEn: 'primary logo with tagline',
     smalls: [
       { src: 'assets/logos/rfyl-simple.png', capPt: 'logo reduzido, sem assinatura', capEn: 'short logo, no tagline' },
-      { src: 'assets/logos/rfyl-icon.png', capPt: 'monograma RFYL', capEn: 'RFYL monogram' },
+      { src: 'assets/logos/rfyl-avatar.jpg', capPt: 'monograma RFYL · avatar', capEn: 'RFYL monogram · avatar', narrow: true },
     ],
     posts: [
       { src: 'assets/logos/rfyl-posts/post-1.jpg' }, { src: 'assets/logos/rfyl-posts/post-2.jpg' },
@@ -4520,7 +4520,7 @@ class Component extends DCLogic {
         big: b.big, bigCap: lang === 'pt' ? b.bigCapPt : b.bigCapEn,
         smalls: b.smalls.map((s) => ({
           src: s.src, cap: lang === 'pt' ? s.capPt : s.capEn,
-          imgStyle: s.narrow ? 'display:block; width:160px; max-width:52%; height:auto' : 'display:block; width:100%; height:auto',
+          imgStyle: s.narrow ? 'display:block; width:186px; max-width:60%; height:auto; border-radius:14px' : 'display:block; width:100%; height:auto',
         })),
         hasPosts: !!b.posts, posts: b.posts || [],
         postsNota: b.posts ? (lang === 'pt' ? b.postsNotaPt : b.postsNotaEn) : '',
