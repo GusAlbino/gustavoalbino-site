@@ -2,6 +2,11 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- Com rota por URL, o mesmo index.html e servido em /cases/runpace e em
+     /en/projects/reports. Sem este <base>, todo caminho relativo resolveria
+     contra a pasta da rota: support.js, o CSS e as imagens dariam 404 e o
+     site abriria em branco em qualquer endereco fora da raiz. -->
+<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gustavo Albino · Lead Designer | Branding, produto e direção criativa</title>
 <meta name="description" content="Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.">
@@ -2145,6 +2150,8 @@ const DICT = {
     destaques: { kicker: 'Em destaque', title: 'O que eu faço, em três frentes.', intro: 'As mesmas competências que entrego como serviço são as que formam o portfólio. Comece por aqui.' },
     baixarCV: 'Baixar CV',
     menuLabel: 'Abrir menu', menuLabelFechar: 'Fechar menu',
+    seoHome: 'Gustavo Albino · Lead Designer | Branding, produto e direção criativa',
+    seoDesc: 'Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.',
     nav: { home: 'Home', sobre: 'Sobre', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
     hero: {
       kicker: 'Lead Designer · Brasil · Atendendo Brasil e exterior',
@@ -2311,6 +2318,8 @@ const DICT = {
     destaques: { kicker: 'Featured', title: 'What I do, in three fronts.', intro: 'The same skills I deliver as a service are the ones that make up the portfolio. Start here.' },
     baixarCV: 'Download CV',
     menuLabel: 'Open menu', menuLabelFechar: 'Close menu',
+    seoHome: 'Gustavo Albino · Lead Designer | Branding, digital product and art direction',
+    seoDesc: 'Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.',
     nav: { home: 'Home', sobre: 'About', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
     hero: {
       kicker: 'Lead Designer · Brazil · Working with Brazil and abroad',
@@ -4238,8 +4247,67 @@ const ANUARIOS = [
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Roteamento por URL
+//
+// Ate aqui a navegacao era so setState: nenhum case tinha endereco proprio, o
+// botao voltar do navegador saia do site, e a versao em ingles, traduzida por
+// inteiro, nao existia para busca porque vivia no mesmo endereco da portuguesa.
+//
+// O mapa e bidirecional de proposito. Uma tabela so, lida nos dois sentidos,
+// evita o erro classico de duas listas que divergem com o tempo.
+// ---------------------------------------------------------------------------
+const ROTAS = [
+  { page: 'home',       caminho: '' },
+  { page: 'sobre',      caminho: 'sobre',              en: 'about' },
+  { page: 'cases',      caminho: 'cases' },
+  { page: 'galeria',    caminho: 'projetos',           en: 'projects' },
+  { page: 'anuarios',   caminho: 'projetos/relatorios', en: 'projects/reports' },
+  { page: 'ebooks',     caminho: 'projetos/ebooks',    en: 'projects/ebooks' },
+  { page: 'culturais',  caminho: 'projetos/culturais', en: 'projects/cultural' },
+  { page: 'logos',      caminho: 'projetos/logos',     en: 'projects/logos' },
+  { page: 'ilustracao', caminho: 'projetos/ilustracao', en: 'projects/illustration' },
+  { page: 'servicos',   caminho: 'servicos',           en: 'services' },
+  { page: 'contato',    caminho: 'contato',            en: 'contact' },
+];
+
+const trecho = (r, lang) => (lang === 'en' ? (r.en || r.caminho) : r.caminho);
+
+// Estado -> endereco. O ingles ganha prefixo /en/ em vez de um parametro
+// porque caminho separado e o sinal que o buscador entende como outra pagina.
+const caminhoDe = (page, caseId, lang) => {
+  const pre = lang === 'en' ? '/en' : '';
+  if (page === 'case') return pre + '/cases/' + (caseId || '');
+  const r = ROTAS.find((x) => x.page === page);
+  const t = r ? trecho(r, lang) : '';
+  return (pre + '/' + t).replace(/\/$/, '') || '/';
+};
+
+// Endereco -> estado. Endereco desconhecido cai na home em vez de quebrar:
+// link velho compartilhado continua abrindo o site.
+const rotaDe = (pathname) => {
+  let p = (pathname || '/').replace(/\/+$/, '');
+  let lang = 'pt';
+  if (p === '/en' || p.indexOf('/en/') === 0) { lang = 'en'; p = p.slice(3); }
+  p = p.replace(/^\//, '');
+  if (!p) return { page: 'home', caseId: null, lang };
+  const emCases = p === 'cases' ? null : (p.indexOf('cases/') === 0 ? p.slice(6) : undefined);
+  if (emCases !== undefined && emCases) {
+    const c = CASES.find((x) => x.id === emCases && x.detail);
+    if (c) return { page: 'case', caseId: c.id, lang };
+    return { page: 'cases', caseId: null, lang };
+  }
+  const r = ROTAS.find((x) => trecho(x, lang) === p);
+  return r ? { page: r.page, caseId: null, lang } : { page: 'home', caseId: null, lang };
+};
+
+const SITE = 'https://gustavoalbino.com.br';
+
 class Component extends DCLogic {
-  state = { page: 'home', lang: 'pt', caseFilter: 'all', galFilter: 'all', sent: false, caseId: null, menuOpen: false };
+  state = Object.assign(
+    { caseFilter: 'all', galFilter: 'all', sent: false, menuOpen: false },
+    rotaDe(typeof location === 'undefined' ? '/' : location.pathname)
+  );
 
   // O CSS responsivo poe overflow-x nos elementos de raiz, e isso faz do <body>
   // o elemento que rola — window.scrollTo passa a nao ter efeito nenhum. Sem
@@ -4259,10 +4327,29 @@ class Component extends DCLogic {
   // hamburguer e tem teclado.
   onKey = (e) => { if (e.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false }); };
 
-  go = (p) => { this.setState({ page: p, sent: false, menuOpen: false }); this.scrollTop(); };
-  openCase = (c) => { if (!c || !c.detail) return; this.setState({ page: 'case', caseId: c.id, sent: false, menuOpen: false }); this.scrollTop(); };
+  // Empurra o endereco novo antes de desenhar. Se o navegador recusar o
+  // pushState (file://, por exemplo), a navegacao continua funcionando: o
+  // endereco e enfeite do estado, nao a fonte dele.
+  empurrar = (page, caseId, lang) => {
+    if (typeof history === 'undefined') return;
+    const destino = caminhoDe(page, caseId, lang);
+    try { if (destino !== location.pathname) history.pushState({ page, caseId, lang }, '', destino); } catch (e) {}
+  };
+
+  go = (p) => { this.empurrar(p, null, this.state.lang); this.setState({ page: p, caseId: null, sent: false, menuOpen: false }); this.scrollTop(); };
+  openCase = (c) => { if (!c || !c.detail) return; this.empurrar('case', c.id, this.state.lang); this.setState({ page: 'case', caseId: c.id, sent: false, menuOpen: false }); this.scrollTop(); };
   toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
-  setLang = (l) => this.setState({ lang: l });
+  // Trocar de idioma troca de endereco, e nao so de texto: e o que faz a
+  // versao em ingles existir como pagina propria para o buscador.
+  setLang = (l) => { this.empurrar(this.state.page, this.state.caseId, l); this.setState({ lang: l, menuOpen: false }); };
+
+  // Voltar e avancar do navegador. Le do endereco, nunca do historico interno,
+  // porque o visitante pode ter editado a barra na mao.
+  aoVoltar = () => {
+    const r = rotaDe(location.pathname);
+    this.setState({ page: r.page, caseId: r.caseId, lang: r.lang, menuOpen: false });
+    this.scrollTop();
+  };
   downloadCV = () => {
       const en = this.state.lang === 'en';
       const a = document.createElement('a');
@@ -4289,11 +4376,88 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this.bindVideos();
+    this.escreverCabecalho();
     if (typeof document !== 'undefined') document.addEventListener('keydown', this.onKey);
+    if (typeof window !== 'undefined') window.addEventListener('popstate', this.aoVoltar);
+    // O endereco de entrada pode estar fora do mapa, ou vir com barra no fim.
+    // Normaliza sem empilhar historico, senao o primeiro "voltar" do visitante
+    // cai no endereco torto que ele digitou.
+    if (typeof history !== 'undefined') {
+      const certo = caminhoDe(this.state.page, this.state.caseId, this.state.lang);
+      try { if (certo !== location.pathname) history.replaceState(null, '', certo); } catch (e) {}
+    }
   }
-  componentDidUpdate() { this.bindVideos(); }
+  componentDidUpdate() { this.bindVideos(); this.escreverCabecalho(); }
   componentWillUnmount() {
     if (typeof document !== 'undefined') document.removeEventListener('keydown', this.onKey);
+    if (typeof window !== 'undefined') window.removeEventListener('popstate', this.aoVoltar);
+  }
+
+  // O corpo da pagina e desenhado por JavaScript, entao title, description e
+  // canonical tambem precisam ser escritos a cada troca de pagina. Sem isto,
+  // toda rota herdava o titulo da home e o buscador via doze enderecos com a
+  // mesma cara.
+  escreverCabecalho() {
+    if (typeof document === 'undefined') return;
+    const { page, caseId, lang } = this.state;
+    const D = DICT[lang];
+    const eng = lang === 'en';
+    const marca = 'Gustavo Albino';
+
+    let titulo = D.seoHome || (marca + ' · Lead Designer');
+    let descricao = D.seoDesc || '';
+
+    if (page === 'case' && caseId) {
+      const c = CASES.find((x) => x.id === caseId);
+      if (c) {
+        titulo = c.title[lang] + ' · ' + (eng ? 'Case' : 'Case') + ' · ' + marca;
+        descricao = c.blurb ? c.blurb[lang] : descricao;
+      }
+    } else if (page !== 'home') {
+      const nomes = Object.assign({}, D.nav, {
+        anuarios: eng ? 'Yearbooks and reports' : 'Anuários e relatórios',
+        ebooks: 'E-books',
+        culturais: eng ? 'Cultural projects' : 'Projetos culturais',
+        logos: eng ? 'Logos and brands' : 'Logo e marca',
+        ilustracao: eng ? 'Illustration' : 'Ilustração',
+      });
+      if (nomes[page]) titulo = nomes[page] + ' · ' + marca;
+    }
+
+    document.title = titulo;
+    document.documentElement.setAttribute('lang', eng ? 'en' : 'pt-BR');
+
+    const meta = (sel, valor) => {
+      const el = document.head.querySelector(sel);
+      if (el && valor) el.setAttribute(el.hasAttribute('content') ? 'content' : 'href', valor);
+    };
+    const url = SITE + caminhoDe(page, caseId, lang);
+    meta('link[rel="canonical"]', url);
+    meta('meta[property="og:url"]', url);
+    meta('meta[property="og:title"]', titulo);
+    meta('meta[property="og:locale"]', eng ? 'en_US' : 'pt_BR');
+    meta('meta[property="og:locale:alternate"]', eng ? 'pt_BR' : 'en_US');
+    if (descricao) {
+      meta('meta[name="description"]', descricao);
+      meta('meta[property="og:description"]', descricao);
+    }
+
+    // hreflang diz ao buscador que as duas versoes sao a mesma pagina em
+    // idiomas diferentes, e nao conteudo duplicado.
+    const alternativas = [
+      { hreflang: 'pt-BR', href: SITE + caminhoDe(page, caseId, 'pt') },
+      { hreflang: 'en', href: SITE + caminhoDe(page, caseId, 'en') },
+      { hreflang: 'x-default', href: SITE + caminhoDe(page, caseId, 'pt') },
+    ];
+    document.head.querySelectorAll('link[rel="alternate"][data-rota]').forEach((el) => el.remove());
+    alternativas.forEach((a) => {
+      const el = document.createElement('link');
+      el.setAttribute('rel', 'alternate');
+      el.setAttribute('hreflang', a.hreflang);
+      el.setAttribute('href', a.href);
+      el.setAttribute('data-rota', '1');
+      document.head.appendChild(el);
+    });
   }
   bindVideos() {
     if (typeof document === 'undefined') return;

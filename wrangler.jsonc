@@ -1,26 +1,36 @@
 {
-  // Configuracao do Cloudflare Workers para um site estatico.
+  // Configuracao do Cloudflare Workers para um site estatico com rotas.
   //
   // Diferente do Cloudflare Pages, o Workers NAO descobre sozinho o que
   // servir: sem este arquivo ele publica o script padrao "Hello World!".
   //
-  // Nao ha campo "main" de proposito. Sem script, o Worker apenas serve os
-  // arquivos de "assets.directory" — que e exatamente o que um site
-  // estatico precisa.
   // Precisa bater exatamente com o nome do projeto criado na Cloudflare. Se
   // divergir, o deploy vai para outro Worker e a URL em uso continua servindo
-  // o conteudo antigo — ja aconteceu uma vez neste projeto.
+  // o conteudo antigo. Ja aconteceu uma vez neste projeto.
   "name": "gustavoalbino-site",
   "compatibility_date": "2026-09-07",
+
+  // Houve um tempo sem script aqui, e era o certo enquanto o site nao tinha
+  // endereco por pagina. Com o roteamento por URL, caminho como
+  // /cases/runpace nao e arquivo nenhum e o Workers devolvia 404 em toda
+  // recarga fora da raiz. O script resolve isso, e so isso: o motivo completo
+  // esta escrito em src/worker.js.
+  "main": "src/worker.js",
+
   "assets": {
     // Somente o conteudo publicado. README, docs/ e tools/ ficam de fora
     // justamente para nao irem para a web.
-    "directory": "./public"
-    //
-    // "not_found_handling" fica no padrao (404 de verdade) porque o site
-    // nao usa roteamento por URL — a navegacao entre Home, Cases, Projetos,
-    // Servicos e Contato acontece em memoria, sem mudar o endereco. Servir
-    // o index.html em caminhos inexistentes so mascararia imagem faltando,
-    // devolvendo 200 para arquivo que nao existe.
+    "directory": "./public",
+
+    // O binding e o que deixa o script devolver o asset em vez de
+    // reimplementar um servidor de arquivo.
+    "binding": "ASSETS"
+
+    // "not_found_handling" continua no padrao, que e 404 de verdade. O modo
+    // "single-page-application" resolveria as rotas em uma linha, e foi
+    // recusado: ele serve o index.html para TODO 404, inclusive imagem que
+    // faltou. Asset com nome errado passaria a responder 200 com HTML dentro,
+    // e o defeito so apareceria na tela do visitante. O worker faz o recorte
+    // estreito, devolvendo o app apenas em caminho sem extensao.
   }
 }
