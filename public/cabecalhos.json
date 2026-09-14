@@ -1,0 +1,941 @@
+{
+ "fonte": "7fa196ddf96eafcff8335a175290804f5d9fd307eda70af6f1fd63285254f3bf",
+ "rotas": {
+  "/": {
+   "title": "Gustavo Albino · Lead Designer | Branding, produto e direção criativa",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/",
+   "ogTitle": "Gustavo Albino · Lead Designer | Branding, produto e direção criativa",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en": {
+   "title": "Gustavo Albino · Lead Designer | Branding, digital product and art direction",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en",
+   "ogTitle": "Gustavo Albino · Lead Designer | Branding, digital product and art direction",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/sobre": {
+   "title": "Sobre · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/sobre",
+   "ogTitle": "Sobre · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/sobre",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/sobre"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/about"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/sobre"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/about": {
+   "title": "About · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/about",
+   "ogTitle": "About · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/about",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/sobre"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/about"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/sobre"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/cases": {
+   "title": "Cases · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/cases",
+   "ogTitle": "Cases · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/cases",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/cases": {
+   "title": "Cases · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/cases",
+   "ogTitle": "Cases · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/projetos": {
+   "title": "Projetos · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/projetos",
+   "ogTitle": "Projetos · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/projetos",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/projects": {
+   "title": "Projects · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/projects",
+   "ogTitle": "Projects · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/projects",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/projetos/relatorios": {
+   "title": "Anuários e relatórios · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/projetos/relatorios",
+   "ogTitle": "Anuários e relatórios · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/projetos/relatorios",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/relatorios"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/reports"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/relatorios"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/projects/reports": {
+   "title": "Yearbooks and reports · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/projects/reports",
+   "ogTitle": "Yearbooks and reports · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/projects/reports",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/relatorios"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/reports"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/relatorios"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/projetos/ebooks": {
+   "title": "E-books · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/projetos/ebooks",
+   "ogTitle": "E-books · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/projetos/ebooks",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/ebooks"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/ebooks"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/ebooks"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/projects/ebooks": {
+   "title": "E-books · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/projects/ebooks",
+   "ogTitle": "E-books · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/projects/ebooks",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/ebooks"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/ebooks"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/ebooks"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/projetos/culturais": {
+   "title": "Projetos culturais · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/projetos/culturais",
+   "ogTitle": "Projetos culturais · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/projetos/culturais",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/culturais"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/cultural"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/culturais"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/projects/cultural": {
+   "title": "Cultural projects · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/projects/cultural",
+   "ogTitle": "Cultural projects · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/projects/cultural",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/culturais"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/cultural"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/culturais"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/projetos/logos": {
+   "title": "Logo e marca · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/projetos/logos",
+   "ogTitle": "Logo e marca · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/projetos/logos",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/logos"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/logos"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/logos"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/projects/logos": {
+   "title": "Logos and brands · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/projects/logos",
+   "ogTitle": "Logos and brands · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/projects/logos",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/logos"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/logos"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/logos"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/projetos/ilustracao": {
+   "title": "Ilustração · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/projetos/ilustracao",
+   "ogTitle": "Ilustração · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/projetos/ilustracao",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/ilustracao"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/illustration"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/ilustracao"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/projects/illustration": {
+   "title": "Illustration · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/projects/illustration",
+   "ogTitle": "Illustration · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/projects/illustration",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/projetos/ilustracao"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/projects/illustration"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/projetos/ilustracao"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/servicos": {
+   "title": "Serviços · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/servicos",
+   "ogTitle": "Serviços · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/servicos",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/servicos"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/services"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/servicos"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/services": {
+   "title": "Services · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/services",
+   "ogTitle": "Services · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/services",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/servicos"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/services"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/servicos"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/contato": {
+   "title": "Contato · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "canonical": "https://gustavoalbino.com.br/contato",
+   "ogTitle": "Contato · Gustavo Albino",
+   "ogDesc": "Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.",
+   "ogUrl": "https://gustavoalbino.com.br/contato",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/contato"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/contact"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/contato"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/en/contact": {
+   "title": "Contact · Gustavo Albino",
+   "lang": "en",
+   "desc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "canonical": "https://gustavoalbino.com.br/en/contact",
+   "ogTitle": "Contact · Gustavo Albino",
+   "ogDesc": "Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.",
+   "ogUrl": "https://gustavoalbino.com.br/en/contact",
+   "ogImage": "https://gustavoalbino.com.br/assets/og-card.png",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/contato"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/contact"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/contato"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}}]}"
+  },
+  "/cases/runpace": {
+   "title": "Runpace · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
+   "canonical": "https://gustavoalbino.com.br/cases/runpace",
+   "ogTitle": "Runpace · Case · Gustavo Albino",
+   "ogDesc": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/runpace",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/runpace.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/runpace"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/runpace"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/runpace"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/runpace#trabalho\",\"name\":\"Runpace\",\"headline\":\"Runpace\",\"description\":\"Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.\",\"url\":\"https://gustavoalbino.com.br/cases/runpace\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2026\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/runpace/capa-3x2.webp\"}]}"
+  },
+  "/en/cases/runpace": {
+   "title": "Runpace · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/runpace",
+   "ogTitle": "Runpace · Case · Gustavo Albino",
+   "ogDesc": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/runpace",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/runpace.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/runpace"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/runpace"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/runpace"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/runpace#trabalho\",\"name\":\"Runpace\",\"headline\":\"Runpace\",\"description\":\"Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in.\",\"url\":\"https://gustavoalbino.com.br/en/cases/runpace\",\"inLanguage\":\"en\",\"dateCreated\":\"2026\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/runpace/capa-3x2.webp\"}]}"
+  },
+  "/cases/kaya-doc": {
+   "title": "Kaya Doc · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "SaaS B2B de cannabis medicinal. Design system e IA.",
+   "canonical": "https://gustavoalbino.com.br/cases/kaya-doc",
+   "ogTitle": "Kaya Doc · Case · Gustavo Albino",
+   "ogDesc": "SaaS B2B de cannabis medicinal. Design system e IA.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/kaya-doc",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/kaya-doc.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/kaya-doc"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/kaya-doc"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/kaya-doc"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/kaya-doc#trabalho\",\"name\":\"Kaya Doc\",\"headline\":\"Kaya Doc\",\"description\":\"SaaS B2B de cannabis medicinal. Design system e IA.\",\"url\":\"https://gustavoalbino.com.br/cases/kaya-doc\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2022\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/kaya-doc/capa-dark-3x2.webp\"}]}"
+  },
+  "/en/cases/kaya-doc": {
+   "title": "Kaya Doc · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "B2B medical-cannabis SaaS. Design system and AI.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/kaya-doc",
+   "ogTitle": "Kaya Doc · Case · Gustavo Albino",
+   "ogDesc": "B2B medical-cannabis SaaS. Design system and AI.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/kaya-doc",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/kaya-doc.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/kaya-doc"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/kaya-doc"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/kaya-doc"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/kaya-doc#trabalho\",\"name\":\"Kaya Doc\",\"headline\":\"Kaya Doc\",\"description\":\"B2B medical-cannabis SaaS. Design system and AI.\",\"url\":\"https://gustavoalbino.com.br/en/cases/kaya-doc\",\"inLanguage\":\"en\",\"dateCreated\":\"2022\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/kaya-doc/capa-dark-3x2.webp\"}]}"
+  },
+  "/cases/othelo": {
+   "title": "Othelo · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Produtora de eventos culturais que cofundei, em Betim. Marca de vinis, papelaria e site institucional.",
+   "canonical": "https://gustavoalbino.com.br/cases/othelo",
+   "ogTitle": "Othelo · Case · Gustavo Albino",
+   "ogDesc": "Produtora de eventos culturais que cofundei, em Betim. Marca de vinis, papelaria e site institucional.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/othelo",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/othelo.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/othelo"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/othelo"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/othelo"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/othelo#trabalho\",\"name\":\"Othelo\",\"headline\":\"Othelo\",\"description\":\"Produtora de eventos culturais que cofundei, em Betim. Marca de vinis, papelaria e site institucional.\",\"url\":\"https://gustavoalbino.com.br/cases/othelo\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/othelo/logo-bg-orange.webp\"}]}"
+  },
+  "/en/cases/othelo": {
+   "title": "Othelo · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "Cultural events producer I co-founded, in Betim. Vinyl brand, stationery and institutional site.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/othelo",
+   "ogTitle": "Othelo · Case · Gustavo Albino",
+   "ogDesc": "Cultural events producer I co-founded, in Betim. Vinyl brand, stationery and institutional site.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/othelo",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/othelo.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/othelo"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/othelo"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/othelo"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/othelo#trabalho\",\"name\":\"Othelo\",\"headline\":\"Othelo\",\"description\":\"Cultural events producer I co-founded, in Betim. Vinyl brand, stationery and institutional site.\",\"url\":\"https://gustavoalbino.com.br/en/cases/othelo\",\"inLanguage\":\"en\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/othelo/logo-bg-orange.webp\"}]}"
+  },
+  "/cases/jimi-oliver": {
+   "title": "Jimi Oliver · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.",
+   "canonical": "https://gustavoalbino.com.br/cases/jimi-oliver",
+   "ogTitle": "Jimi Oliver · Case · Gustavo Albino",
+   "ogDesc": "Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/jimi-oliver",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/jimi-oliver.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/jimi-oliver"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/jimi-oliver"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/jimi-oliver"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/jimi-oliver#trabalho\",\"name\":\"Jimi Oliver\",\"headline\":\"Jimi Oliver\",\"description\":\"Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.\",\"url\":\"https://gustavoalbino.com.br/cases/jimi-oliver\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/jimi-oliver/cover-art.webp\"}]}"
+  },
+  "/en/cases/jimi-oliver": {
+   "title": "Jimi Oliver · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/jimi-oliver",
+   "ogTitle": "Jimi Oliver · Case · Gustavo Albino",
+   "ogDesc": "Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/jimi-oliver",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/jimi-oliver.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/jimi-oliver"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/jimi-oliver"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/jimi-oliver"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/jimi-oliver#trabalho\",\"name\":\"Jimi Oliver\",\"headline\":\"Jimi Oliver\",\"description\":\"Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio.\",\"url\":\"https://gustavoalbino.com.br/en/cases/jimi-oliver\",\"inLanguage\":\"en\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/jimi-oliver/cover-art.webp\"}]}"
+  },
+  "/cases/yerba-fina": {
+   "title": "Yerba Fina · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Moda sustentável brasileira. Identidade completa, do bud ao manual.",
+   "canonical": "https://gustavoalbino.com.br/cases/yerba-fina",
+   "ogTitle": "Yerba Fina · Case · Gustavo Albino",
+   "ogDesc": "Moda sustentável brasileira. Identidade completa, do bud ao manual.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/yerba-fina",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/yerba-fina.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/yerba-fina"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/yerba-fina"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/yerba-fina"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/yerba-fina#trabalho\",\"name\":\"Yerba Fina\",\"headline\":\"Yerba Fina\",\"description\":\"Moda sustentável brasileira. Identidade completa, do bud ao manual.\",\"url\":\"https://gustavoalbino.com.br/cases/yerba-fina\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/yerba-fina/card-cover.webp\"}]}"
+  },
+  "/en/cases/yerba-fina": {
+   "title": "Yerba Fina · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "Brazilian sustainable fashion. Full identity, from the bud to the guidelines.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/yerba-fina",
+   "ogTitle": "Yerba Fina · Case · Gustavo Albino",
+   "ogDesc": "Brazilian sustainable fashion. Full identity, from the bud to the guidelines.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/yerba-fina",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/yerba-fina.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/yerba-fina"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/yerba-fina"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/yerba-fina"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/yerba-fina#trabalho\",\"name\":\"Yerba Fina\",\"headline\":\"Yerba Fina\",\"description\":\"Brazilian sustainable fashion. Full identity, from the bud to the guidelines.\",\"url\":\"https://gustavoalbino.com.br/en/cases/yerba-fina\",\"inLanguage\":\"en\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/yerba-fina/card-cover.webp\"}]}"
+  },
+  "/cases/gustavo-albino": {
+   "title": "Gustavo Albino · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.",
+   "canonical": "https://gustavoalbino.com.br/cases/gustavo-albino",
+   "ogTitle": "Gustavo Albino · Case · Gustavo Albino",
+   "ogDesc": "Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/gustavo-albino",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/gustavo-albino.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/gustavo-albino"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/gustavo-albino"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/gustavo-albino"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/gustavo-albino#trabalho\",\"name\":\"Gustavo Albino\",\"headline\":\"Gustavo Albino\",\"description\":\"Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.\",\"url\":\"https://gustavoalbino.com.br/cases/gustavo-albino\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2023\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/gustavo-albino/capa-3x2.webp\"}]}"
+  },
+  "/en/cases/gustavo-albino": {
+   "title": "Gustavo Albino · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/gustavo-albino",
+   "ogTitle": "Gustavo Albino · Case · Gustavo Albino",
+   "ogDesc": "My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/gustavo-albino",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/gustavo-albino.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/gustavo-albino"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/gustavo-albino"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/gustavo-albino"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/gustavo-albino#trabalho\",\"name\":\"Gustavo Albino\",\"headline\":\"Gustavo Albino\",\"description\":\"My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.\",\"url\":\"https://gustavoalbino.com.br/en/cases/gustavo-albino\",\"inLanguage\":\"en\",\"dateCreated\":\"2023\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/gustavo-albino/capa-3x2.webp\"}]}"
+  },
+  "/cases/hercules": {
+   "title": "Hercules · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Marca de suplementos com energia RUN-DMC, do logo aos vídeos.",
+   "canonical": "https://gustavoalbino.com.br/cases/hercules",
+   "ogTitle": "Hercules · Case · Gustavo Albino",
+   "ogDesc": "Marca de suplementos com energia RUN-DMC, do logo aos vídeos.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/hercules",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/hercules.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/hercules"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/hercules"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/hercules"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/hercules#trabalho\",\"name\":\"Hercules\",\"headline\":\"Hercules\",\"description\":\"Marca de suplementos com energia RUN-DMC, do logo aos vídeos.\",\"url\":\"https://gustavoalbino.com.br/cases/hercules\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2022\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/hercules/card-cover.webp\"}]}"
+  },
+  "/en/cases/hercules": {
+   "title": "Hercules · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "A supplements brand with RUN-DMC energy, from logo to films.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/hercules",
+   "ogTitle": "Hercules · Case · Gustavo Albino",
+   "ogDesc": "A supplements brand with RUN-DMC energy, from logo to films.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/hercules",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/hercules.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/hercules"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/hercules"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/hercules"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gustavoalbino\",\"https://instagram.com/gustavo.albino\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/hercules#trabalho\",\"name\":\"Hercules\",\"headline\":\"Hercules\",\"description\":\"A supplements brand with RUN-DMC energy, from logo to films.\",\"url\":\"https://gustavoalbino.com.br/en/cases/hercules\",\"inLanguage\":\"en\",\"dateCreated\":\"2022\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/hercules/card-cover.webp\"}]}"
+  }
+ }
+}
