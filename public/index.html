@@ -24,7 +24,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://gustavoalbino.com.br/assets/og-card.png">
-<link rel="stylesheet" href="responsivo.css?v=c632fc53">
+<link rel="stylesheet" href="responsivo.css?v=84ce6e0d">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
@@ -53,18 +53,22 @@
 </helmet>
 <div style="background:var(--paper-300); min-height:100vh; font-family:var(--font-body); color:var(--text-body)">
 
+  <!-- Primeiro no focavel da pagina: sem ele, chegar ao texto custa o logo
+       mais todos os controles do cabecalho, em toda rota. -->
+  <a href="#conteudo" class="ga-pular">{{ t.pularLabel }}</a>
+
   <!-- ░░░ HEADER ░░░ -->
   <header style="position:sticky; top:0; z-index:40; background:var(--paper-300); border-bottom:2px solid var(--ink)">
     <div style="max-width:1180px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px">
-      <button onClick="{{ toHome }}" class="ga-logo" style="display:flex; align-items:center; gap:11px; background:none; border:none; cursor:pointer; padding:0">
+      <a href="{{ irHome.href }}" onClick="{{ irHome.onClick }}" class="ga-logo" style="display:flex; align-items:center; gap:11px; cursor:pointer; padding:0; text-decoration:none">
         <img src="assets/logo-seal-black.webp" alt="Gustavo Albino" width="44" height="44" style="display:block">
         <span style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; font-size:17px; line-height:.95; color:var(--ink); text-align:left">Gustavo<br>Albino</span>
-      </button>
+      </a>
 
       <!-- Navegacao completa — some abaixo de 900px, onde entra o hamburguer -->
       <nav class="ga-nav" style="display:flex; align-items:center; gap:6px">
         <sc-for list="{{ navMain }}" as="item" hint-placeholder-count="5">
-          <button onClick="{{ item.onClick }}" class="{{ item.cls }}">{{ item.label }}</button>
+          <a href="{{ item.href }}" onClick="{{ item.onClick }}" class="{{ item.cls }}">{{ item.label }}</a>
         </sc-for>
         <div class="ga-lang" style="display:inline-flex; border:2px solid var(--ink); border-radius:var(--radius-pill); overflow:hidden; margin-left:6px; box-shadow:var(--shadow-pop-sm)">
           <sc-for list="{{ langBtns }}" as="lb" hint-placeholder-count="2">
@@ -86,9 +90,9 @@
 
     <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
       <div class="ga-menu__veu" onClick="{{ closeMenu }}" aria-hidden="true"></div>
-      <div id="ga-menu" class="ga-menu">
+      <div id="ga-menu" class="ga-menu" role="dialog" aria-modal="true" aria-label="{{ menuNome }}">
         <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
-          <button onClick="{{ item.onClick }}" class="{{ item.menuCls }}">{{ item.label }}</button>
+          <a href="{{ item.href }}" onClick="{{ item.onClick }}" class="{{ item.menuCls }}">{{ item.label }}</a>
         </sc-for>
         <div class="ga-menu__foot">
           <div class="ga-lang" style="display:inline-flex; border:2px solid var(--ink); border-radius:var(--radius-pill); overflow:hidden; box-shadow:var(--shadow-pop-sm)">
@@ -102,7 +106,7 @@
     </sc-if>
   </header>
 
-  <main>
+  <main id="conteudo">
 
     <!-- ═══════════════ HOME ═══════════════ -->
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
@@ -123,8 +127,8 @@
             <div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><p style="font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; font-size: clamp(17px,1.9vw,22px); line-height: 1.15; color: var(--ink); margin: 24px 0 8px; max-width: none; white-space: pre-line">{{ t.hero.taglineBold }}</p></div>
             <p style="font-family:var(--font-body); font-style:italic; font-size:17px; line-height:1.5; color:var(--text-body); margin:0 0 28px; max-width:40ch">{{ t.hero.taglineItalic }}</p>
             <div style="display:flex; gap:14px; flex-wrap:wrap">
-              <button onClick="{{ toCases }}" class="ga-btn ga-btn--primary ga-btn--lg">{{ t.hero.ctaCases }}</button>
-              <button onClick="{{ toContato }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ t.hero.ctaTalk }}</button>
+              <a href="{{ irCases.href }}" onClick="{{ irCases.onClick }}" class="ga-btn ga-btn--primary ga-btn--lg">{{ t.hero.ctaCases }}</a>
+              <a href="{{ irContato.href }}" onClick="{{ irContato.onClick }}" class="ga-btn ga-btn--ghost ga-btn--lg">{{ t.hero.ctaTalk }}</a>
             </div>
             </div>
           </div>
@@ -156,7 +160,7 @@
         <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); max-width:58ch; margin:0 0 28px">{{ t.destaques.intro }}</p>
         <div class="ga-destaques" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px">
           <sc-for list="{{ destaques }}" as="d" hint-placeholder-count="3">
-            <div onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer">
+            <a href="{{ d.href }}" onClick="{{ d.onClick }}" class="{{ d.cls }}" style="cursor:pointer; display:block; text-decoration:none; color:inherit">
               <div class="ga-midia ga-midia--destaque" style="position:relative; aspect-ratio:{{ d.ratio }}; background:{{ d.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:20px">
                 <sc-if value="{{ d.hasBg }}" hint-placeholder-val="{{ false }}">
                   <div class="ga-capa" style="{{ d.bgStyle }}"></div>
@@ -176,7 +180,7 @@
                 <p style="font-family:var(--font-body); font-size:14px; line-height:1.6; color:var(--text-body); margin:0 0 14px">{{ d.blurb }}</p>
                 <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--vermilion)">{{ d.cta }} →</span>
               </div>
-            </div>
+            </a>
           </sc-for>
         </div>
       </section>
@@ -184,7 +188,7 @@
       <!-- BLOCO 2 — SOBRE MIM -->
       <section style="max-width:1180px; margin:0 auto; padding:80px 24px; display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:start">
         <div class="ga-coluna-fixa" style="position:relative; aspect-ratio:4/5; border:2px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-pop); display:flex; flex-direction:column; justify-content:space-between; padding:20px; position:sticky; top:96px">
-          <img width="1600" height="1067" src="assets/sobre-suica.webp" alt="Gustavo Albino em trilha na neve, Suíça" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
+          <img width="900" height="1200" loading="lazy" decoding="async" src="assets/sobre-suica.webp" alt="Gustavo Albino em trilha na neve, Suíça" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% center">
           <span class="ga-badge" style="position:relative; align-self:flex-start; background:var(--paper-100); color:var(--ink); border-color:var(--ink)">{{ t.sobre.imgTag }}</span>
         </div>
         <div>
@@ -332,7 +336,7 @@
       <section style="max-width:1180px; margin:0 auto; padding:80px 24px">
         <div class="ga-card ga-card--bold" style="background:var(--vermilion); position:relative; overflow:hidden; padding:0">
           <div class="ga-halftone-lg" style="position:absolute; inset:0; opacity:.4; mix-blend-mode:multiply"></div>
-          <img width="512" height="512" src="assets/monogram-white.webp" alt="" style="position:absolute; right:-40px; top:-40px; width:240px; opacity:.16">
+          <img width="512" height="512" loading="lazy" decoding="async" src="assets/monogram-white.webp" alt="" style="position:absolute; right:-40px; top:-40px; width:240px; opacity:.16">
           <div style="position:relative; padding:56px 44px; display:flex; flex-direction:column; align-items:flex-start; gap:18px">
             <span class="ga-kicker ga-kicker--bare" style="color:var(--gold)">{{ t.cta.kicker }}</span>
             <h2 style="font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:.95; font-size:clamp(34px,5vw,60px); margin:0; color:var(--paper-100); max-width:16ch">{{ t.cta.title }}</h2>
@@ -388,7 +392,7 @@
       </div>
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px">
         <sc-for list="{{ casesList }}" as="c" hint-placeholder-count="4">
-          <div onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer">
+          <a href="{{ c.href }}" onClick="{{ c.onClick }}" class="{{ c.cls }}" style="cursor:pointer; display:block; text-decoration:none; color:inherit">
             <div class="ga-midia ga-midia--case" style="position:relative; aspect-ratio:3/2; background:{{ c.color }}; overflow:hidden; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:22px">
               <sc-if value="{{ c.hasBg }}" hint-placeholder-val="{{ false }}">
                 <div class="ga-capa" style="{{ c.bgStyle }}"></div>
@@ -406,7 +410,7 @@
               <p style="font-family:var(--font-body); font-size:14px; line-height:1.5; color:var(--text-body); margin:0">{{ c.blurb }}</p>
               <span style="font-family:var(--font-mono); font-weight:700; font-size:18px; color:var(--ink)">→</span>
             </div>
-          </div>
+          </a>
         </sc-for>
       </div>
       
@@ -1695,7 +1699,7 @@
       </div>
       <div class="ga-galeria" style="columns:3; column-gap:20px">
         <sc-for list="{{ galItems }}" as="g" hint-placeholder-count="9">
-          <div onClick="{{ g.onClick }}" class="ga-card ga-card--lift" style="break-inside:avoid; margin-bottom:20px; cursor:pointer; padding:0">
+          <a href="{{ g.href }}" onClick="{{ g.onClick }}" class="ga-card ga-card--lift" style="break-inside:avoid; margin-bottom:20px; cursor:pointer; padding:0; display:block; text-decoration:none; color:inherit">
             <div style="position:relative; height:{{ g.h }}; background:{{ g.color }}; overflow:hidden; display:flex; align-items:flex-end; padding:16px">
               <sc-if value="{{ g.hasCover }}" hint-placeholder-val="{{ false }}">
                 <div style="{{ g.coverStyle }}"></div>
@@ -1706,7 +1710,7 @@
             <div style="padding:12px 14px; display:flex; justify-content:space-between; align-items:center">
               <span style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted)">{{ g.cat }}</span>
             </div>
-          </div>
+          </a>
         </sc-for>
       </div>
     </div>
@@ -2031,7 +2035,7 @@
               <div style="width:12px; background:{{ s.color }}; flex:none"></div>
               <div style="padding:26px; display:flex; flex-direction:column; gap:10px; flex:1">
                 <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.12em; color:{{ s.color }}">{{ s.num }}</span>
-                <h3 style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:24px; line-height:1; margin:0; color:var(--ink)">{{ s.title }}</h3>
+                <h2 style="font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:-.01em; font-size:24px; line-height:1; margin:0; color:var(--ink)">{{ s.title }}</h2>
                 <p style="font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--text-body); margin:0">{{ s.desc }}</p>
                 <button onClick="{{ toContato }}" class="ga-btn ga-btn--ghost ga-btn--sm" style="align-self:flex-start; margin-top:6px">{{ t.servPage.cta }}</button>
               </div>
@@ -2112,7 +2116,7 @@
   <footer style="background:var(--ink); color:var(--paper-300); border-top:2px solid var(--ink)">
     <div style="max-width:1180px; margin:0 auto; padding:56px 24px; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between">
       <div style="max-width:340px">
-        <img src="assets/logo-seal-white.webp" alt="Gustavo Albino" width="64" height="64" style="display:block">
+        <img src="assets/logo-seal-white.webp" alt="Gustavo Albino" width="64" height="64" loading="lazy" decoding="async" style="display:block">
         <p style="font-family:var(--font-body); font-size:14px; line-height:1.6; color:var(--paper-400); margin:16px 0 18px">{{ t.footer.tagline }}</p>
         <button onClick="{{ toContato }}" class="ga-btn ga-btn--gold ga-btn--sm">{{ t.footer.ctaBtn }}</button>
       </div>
@@ -2120,7 +2124,7 @@
         <div>
           <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px">{{ t.footer.navTitle }}</div>
           <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
-            <button onClick="{{ item.onClick }}" class="ga-footer-link" style="background:none; border:none; color:var(--paper-300); font-family:var(--font-body); font-size:15px; padding:4px 0; cursor:pointer; text-align:left">{{ item.label }}</button>
+            <a href="{{ item.href }}" onClick="{{ item.onClick }}" class="ga-footer-link" style="color:var(--paper-300); font-family:var(--font-body); font-size:15px; padding:4px 0; text-decoration:none">{{ item.label }}</a>
           </sc-for>
         </div>
         <div>
@@ -2150,7 +2154,8 @@ const DICT = {
   pt: {
     destaques: { kicker: 'Em destaque', title: 'O que eu faço, em três frentes.', intro: 'As mesmas competências que entrego como serviço são as que formam o portfólio. Comece por aqui.' },
     baixarCV: 'Baixar CV',
-    menuLabel: 'Abrir menu', menuLabelFechar: 'Fechar menu',
+    menuLabel: 'Abrir menu', menuLabelFechar: 'Fechar menu', menuNome: 'Menu de navegação',
+    pularLabel: 'Pular para o conteúdo',
     seoHome: 'Gustavo Albino · Lead Designer | Branding, produto e direção criativa',
     seoDesc: 'Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.',
     nav: { home: 'Home', sobre: 'Sobre', cases: 'Cases', galeria: 'Projetos', servicos: 'Serviços', contato: 'Contato' },
@@ -2262,7 +2267,7 @@ const DICT = {
       credit: '© 2026 Gustavo Albino · gustavoalbino.com.br',
     },
     casesPage: {
-      kicker: 'Acervo · 5 cases',
+      kicker: 'Acervo · 7 cases',
       title: 'Cases',
       intro: 'Projetos de marca, produto e cultura, todos com a mesma exigência gráfica.',
     },
@@ -2328,7 +2333,8 @@ const DICT = {
   en: {
     destaques: { kicker: 'Featured', title: 'What I do, in three fronts.', intro: 'The same skills I deliver as a service are the ones that make up the portfolio. Start here.' },
     baixarCV: 'Download CV',
-    menuLabel: 'Open menu', menuLabelFechar: 'Close menu',
+    menuLabel: 'Open menu', menuLabelFechar: 'Close menu', menuNome: 'Navigation menu',
+    pularLabel: 'Skip to content',
     seoHome: 'Gustavo Albino · Lead Designer | Branding, digital product and art direction',
     seoDesc: 'Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.',
     nav: { home: 'Home', sobre: 'About', cases: 'Cases', galeria: 'Projects', servicos: 'Services', contato: 'Contact' },
@@ -2440,7 +2446,7 @@ const DICT = {
       credit: '© 2026 Gustavo Albino · gustavoalbino.com.br',
     },
     casesPage: {
-      kicker: 'Archive · 5 cases',
+      kicker: 'Archive · 7 cases',
       title: 'Cases',
       intro: 'Brand, product and culture projects, all held to the same graphic bar.',
     },
@@ -4358,9 +4364,65 @@ class Component extends DCLogic {
     [document.documentElement, document.body].forEach((el) => { if (el) el.scrollTop = 0; });
   };
 
-  // Esc fecha o menu. Vale para tablet e notebook estreito, que tambem caem no
-  // hamburguer e tem teclado.
-  onKey = (e) => { if (e.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false }); };
+  // O painel do celular e um dialogo, e dialogo prende o foco. Sem a
+  // armadilha, o Tab depois do ultimo item do menu ia para "VER CASES" atras
+  // do veu, com o menu ainda aberto na tela: o foco sumia da vista e o
+  // visitante de teclado ficava navegando uma pagina que nao podia ver.
+  //
+  // Vale para tablet e notebook estreito tambem, que caem no hamburguer e tem
+  // teclado. E a lista de focaveis e lida na hora, nao guardada: o painel
+  // muda de conteudo quando o idioma troca.
+  focaveisDoMenu = () => {
+    if (typeof document === 'undefined') return [];
+    const m = document.getElementById('ga-menu');
+    if (!m) return [];
+    const sel = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    return Array.prototype.slice.call(m.querySelectorAll(sel))
+      .filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0);
+  };
+
+  onKey = (e) => {
+    if (!this.state.menuOpen) return;
+    if (e.key === 'Escape') { this.setState({ menuOpen: false }); return; }
+    if (e.key !== 'Tab') return;
+    const f = this.focaveisDoMenu();
+    if (!f.length) return;
+    const primeiro = f[0];
+    const ultimo = f[f.length - 1];
+    const menu = document.getElementById('ga-menu');
+    const atual = document.activeElement;
+    // Foco que esta fora do painel volta para dentro. Acontece no primeiro
+    // Tab depois de abrir pelo toque, quando o foco ainda esta no body.
+    if (!menu || !menu.contains(atual)) {
+      e.preventDefault();
+      (e.shiftKey ? ultimo : primeiro).focus();
+      return;
+    }
+    if (!e.shiftKey && atual === ultimo) { e.preventDefault(); primeiro.focus(); }
+    else if (e.shiftKey && atual === primeiro) { e.preventDefault(); ultimo.focus(); }
+  };
+
+  // Guarda o estado anterior aqui em vez de ler o prevState do ciclo: assim
+  // o ajuste nao depende da assinatura que a classe base repassa.
+  _menuAntes = false;
+
+  // Abrir leva o foco para dentro e desliga o conteudo de tras; fechar
+  // devolve o foco ao hamburguer, que e de onde ele saiu. O `inert` entra
+  // pelo DOM e nao pelo template porque o React 18 nao conhece o atributo,
+  // e o que ele nao conhece ele nao disputa.
+  ajustarMenu = () => {
+    if (typeof document === 'undefined') return;
+    const principal = document.getElementById('conteudo');
+    if (this.state.menuOpen) {
+      if (principal) principal.setAttribute('inert', '');
+      const f = this.focaveisDoMenu();
+      if (f.length) f[0].focus();
+    } else {
+      if (principal) principal.removeAttribute('inert');
+      const b = document.querySelector('.ga-burger');
+      if (b && document.activeElement === document.body) b.focus();
+    }
+  };
 
   // Empurra o endereco novo antes de desenhar. Se o navegador recusar o
   // pushState (file://, por exemplo), a navegacao continua funcionando: o
@@ -4422,7 +4484,14 @@ class Component extends DCLogic {
       try { if (certo !== location.pathname) history.replaceState(null, '', certo); } catch (e) {}
     }
   }
-  componentDidUpdate() { this.bindVideos(); this.escreverCabecalho(); }
+  componentDidUpdate() {
+    this.bindVideos();
+    this.escreverCabecalho();
+    if (this.state.menuOpen !== this._menuAntes) {
+      this._menuAntes = this.state.menuOpen;
+      this.ajustarMenu();
+    }
+  }
   componentWillUnmount() {
     if (typeof document !== 'undefined') document.removeEventListener('keydown', this.onKey);
     if (typeof window !== 'undefined') window.removeEventListener('popstate', this.aoVoltar);
@@ -4577,6 +4646,21 @@ class Component extends DCLogic {
     const D = DICT[lang];
     const go = this.go;
 
+    // Card de portfolio e link, nao div com onClick. Com href de verdade o
+    // cmd-clique abre em outra aba, o botao direito oferece copiar endereco,
+    // e o buscador enxerga um link da home para cada case. O clique simples
+    // continua interceptado para navegar sem recarregar; as teclas de
+    // modificador passam direto e deixam o navegador fazer o que ele faz.
+    const ligar = (pagina, caseId, acao) => ({
+      href: caminhoDe(pagina, caseId, lang),
+      onClick: (e) => {
+        if (e && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)) return;
+        if (e && e.preventDefault) e.preventDefault();
+        acao();
+      },
+    });
+
+
     const heroLayout = this.props.heroLayout ?? 'comic';
     const contourColor = this.props.contourColor ?? '#FFFFFF';
     const contourWidth = this.props.contourWidth ?? 6;
@@ -4590,7 +4674,7 @@ class Component extends DCLogic {
         id, label: D.nav[id],
         cls: 'ga-tab' + (active ? ' ga-tab--active' : ''),
         menuCls: 'ga-menu__link' + (active ? ' ga-menu__link--active' : ''),
-        onClick: () => go(id),
+        ...ligar(id, null, () => go(id)),
       };
     });
     // No desktop o Contato sai da fileira de links: ele e o botao de acao.
@@ -4622,7 +4706,7 @@ class Component extends DCLogic {
       hasBg: !!c.bgImage, showTitle: !c.hideTitle,
       cls: 'ga-card ga-card--lift' + (c.id === 'kaya-doc' ? ' ga-card--wide' : ''),
       bgStyle: c.bgImage ? `position:absolute; inset:0; --capa:url("${c.bgImage}"); --capa-1x1:url("${c.bgSquare || c.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
-      onClick: () => this.openCase(c),
+      ...ligar('case', c.id, () => this.openCase(c)),
     }));
 
     const goCases = (f) => { this.setState({ caseFilter: f || 'all' }); go('cases'); };
@@ -4636,8 +4720,11 @@ class Component extends DCLogic {
       cls: 'ga-card ga-card--lift' + (d.id === 'kaya-doc' ? ' ga-card--wide ga-card--colagem' : ''),
       ratio: d.id === 'kaya-doc' ? '1/1' : '4/3',
       bgStyle: d.bgImage ? `position:absolute; inset:0; --capa:url("${d.bgImage}"); --capa-1x1:url("${d.bgSquare || d.bgImage}"); background-image:var(--capa); background-size:cover; background-position:center` : '',
-      onClick: () => (d.id === 'kaya-doc' ? this.openCase({ id: 'kaya-doc', detail: true })
-                    : d.id === 'entregaveis' ? go('galeria') : goCases(d.cat)),
+      ...(d.id === 'kaya-doc'
+            ? ligar('case', 'kaya-doc', () => this.openCase({ id: 'kaya-doc', detail: true }))
+            : d.id === 'entregaveis'
+            ? ligar('galeria', null, () => go('galeria'))
+            : ligar('cases', null, () => goCases(d.cat))),
     }));
 
     const KDL = KAYA_DOC[lang];
@@ -4724,7 +4811,9 @@ class Component extends DCLogic {
     };
     const gal = (this.state.galFilter === 'all' ? GAL : GAL.filter((g) => g.cat === this.state.galFilter)).map((g) => ({
       ...g, title: g[lang], cat: GAL_FILTERS.find((f) => f.key === g.cat)[lang],
-      onClick: g.route ? () => go(g.route) : null,
+      // Item sem rota nao vira link: <a> sem href nao entra na tabulacao,
+      // que e exatamente o certo para um card que nao navega.
+      ...(g.route ? ligar(g.route, null, () => go(g.route)) : { href: null, onClick: null }),
       hasCover: !!g.img,
       coverStyle: g.img ? `position:absolute; inset:0; background-image:url("${g.img}"); background-size:${g.imgFit || 'cover'}; background-position:${g.imgPos || 'center'}; background-repeat:no-repeat; background-color:${g.imgBg || 'transparent'}` : '',
     }));
@@ -4805,11 +4894,15 @@ class Component extends DCLogic {
       menuOpen: this.state.menuOpen,
       menuOpenStr: this.state.menuOpen ? 'true' : 'false',
       menuLabel: this.state.menuOpen ? D.menuLabelFechar : D.menuLabel,
+      menuNome: D.menuNome,
       burgerCls: 'ga-burger' + (this.state.menuOpen ? ' ga-burger--open' : ''),
       toggleMenu: this.toggleMenu,
       closeMenu: () => this.setState({ menuOpen: false }),
       downloadCV: this.downloadCV,
       toHome: () => go('home'),
+      irHome: ligar('home', null, () => go('home')),
+      irCases: ligar('cases', null, () => go('cases')),
+      irContato: ligar('contato', null, () => go('contato')),
       toCases: () => go('cases'),
       toContato: () => go('contato'),
 
@@ -4818,6 +4911,7 @@ class Component extends DCLogic {
       frameStyle,
 
       isHome: page === 'home', isSobre: page === 'sobre', toSobre: () => go('sobre'),
+      irSobre: ligar('sobre', null, () => go('sobre')),
       isCases: page === 'cases',
       isCaseYerba: page === 'case' && this.state.caseId === 'yerba-fina',
       isCaseHercules: page === 'case' && this.state.caseId === 'hercules',

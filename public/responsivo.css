@@ -52,6 +52,43 @@ html, body { overflow-x: hidden; }
   .ga-navbar-sm { display: flex; }
 }
 
+/* ---------- Alvo de toque ----------
+   O mínimo acessível é 44px, e a regra morava dentro do bloco de 720px. Mas
+   o hamburguer aparece em 1039px, e a razão está escrita três comentários
+   acima: tablet em paisagem é tela de toque. Entre 721px e 1039px o alvo
+   ficava em 32px de altura na nav e 40px no rodapé — medido em 768 e 1024,
+   doze elementos abaixo do piso. O piso agora termina onde o toque termina.
+
+   Acima de 1040px é cursor, e lá o mínimo que vale é o de 24px da WCAG
+   2.5.8, que os tabs de 33px já cumprem. */
+@media (max-width: 1039px) {
+  header a, header button,
+  .ga-btn, .ga-tag, .ga-tab {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .ga-logo { min-height: 0 !important; }
+
+  /* Os chips de filtro de Cases e Projetos não têm classe de botão, então a
+     regra acima nunca os alcançou: ficaram em 32px de altura. */
+  .ga-chip {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 16px !important;
+  }
+
+  /* O rodapé fica fora da regra de cima porque ela força inline-flex, e os
+     links do rodapé são block: as duas listas viravam uma linha só de
+     palavras coladas. Aqui eles seguem empilhados E ganham os 44px. */
+  .ga-footer-link { min-height: 44px !important; }
+
+  /* PT e EN media 43px de largura: um pixel abaixo do piso, e o piso e
+     quadrado. Os dois botoes nao tem classe, so estilo inline. */
+  .ga-lang button { min-width: 44px !important; justify-content: center !important; }
+}
+
 /* No celular o wordmark encolhe para o selo, o nome, o CTA e o hamburguer
    caberem numa linha de 375px — mas continua ali: o nome é a marca. */
 @media (max-width: 720px) {
@@ -191,25 +228,8 @@ html, body { overflow-x: hidden; }
   /* 5. O que era imagem lateral da hero não pode virar tira vertical. */
   [style*="grid-template-columns:1.05fr"] > * { min-width: 0 !important; }
 
-  /* 6. Alvo de toque: o mínimo acessível é 44px. A nav, o seletor de
-        idioma e os links de rodapé estavam entre 18 e 33px. O rodapé fica
-        de fora desta regra porque ela força inline-flex — ver adiante. */
-  header a, header button,
-  .ga-btn, .ga-tag, .ga-tab {
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-  }
-  .ga-logo { min-height: 0 !important; }
-
-  /* Os chips de filtro de Cases e Projetos não tinham classe nenhuma, então
-     a regra acima nunca os alcançou: ficaram em 32px de altura. */
-  .ga-chip {
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    padding: 6px 16px !important;
-  }
+  /* 6. O alvo de toque saiu daqui: ele pertence a toda largura de toque, e
+        toque começa em 1039px, não em 720px. Ver "Alvo de toque" acima. */
 
   /* 7. Texto longo não pode estourar o contêiner. */
   h1, h2, h3, p, a, span { overflow-wrap: anywhere; }
@@ -240,7 +260,6 @@ html, body { overflow-x: hidden; }
   width: 100%;
 }
 @media (max-width: 720px) {
-  .ga-footer-link { min-height: 44px; }
   /* As duas colunas do rodapé lado a lado: 56px de gap não cabem. */
   .ga-footer-cols { gap: 28px !important; }
   .ga-footer-cols > * { flex: 1 1 40%; min-width: 130px; }
@@ -284,6 +303,15 @@ html, body { overflow-x: hidden; }
     gap: 14px !important;
     padding-bottom: 10px;
     scrollbar-width: thin;
+
+    /* O respiro lateral tem que vir do scroller, nao do pai: com padding
+       zero, cada card encosta na borda da faixa e some a leitura de "tem
+       mais coisa aqui". O scroll-padding alinha o encaixe no mesmo lugar. */
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    scroll-padding-left: 20px;
   }
   .ga-destaques > * {
     flex: 0 0 84%;
@@ -593,3 +621,112 @@ html, body { overflow-x: hidden; }
     top: auto !important;
   }
 }
+
+
+/* ---------------------------------------------------------------------------
+   ANEL DE FOCO
+   O sistema declara o anel: cerulean, 3px, com 3px de afastamento. O token
+   existe e o DESIGN.md o nomeia, mas a regra `:focus-visible` so estava
+   escrita para quatro componentes: .ga-btn, .ga-iconbtn, .ga-check e
+   .ga-switch. Todo o resto caia no anel padrao do navegador, que num passeio
+   de Tab pela home aparecia como `auto 1px` laranja: 1px e exatamente a
+   espessura que o DESIGN.md proibe, e a cor nao e a do sistema.
+
+   A regra aqui e por elemento e nao por classe, de proposito. Classe nova
+   aparece a cada bloco reexportado do canvas, e o anel nao pode depender de
+   alguem lembrar de incluir. #0079A4 sobre a tinta do rodape mede 3,50:1,
+   acima do minimo de 3:1 para indicador.
+--------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring, #0079A4);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   MOVIMENTO REDUZIDO
+   Havia uma regra so, para a animacao do selo. Ficavam de fora a tira de
+   disciplinas, que roda sozinha em laco infinito, e as transicoes de card e
+   botao, que usam --ease-snap. O cubic-bezier(.2,.9,.3,1.2) passa de 1 no
+   eixo y: ele ultrapassa o destino e volta. Quem pediu menos movimento esta
+   pedindo exatamente para isso nao acontecer.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [style*="ga-marquee"] { animation: none !important; }
+
+  /* Sem transicao de transform e de sombra: o estado novo entra direto.
+     A cor continua transicionando, porque ela nao desloca nada na tela. */
+  .ga-card--lift,
+  .ga-btn,
+  .ga-iconbtn,
+  .ga-tab,
+  .ga-chip {
+    transition-property: background-color, color, border-color !important;
+  }
+  .ga-card--lift:hover,
+  .ga-btn:hover,
+  .ga-btn:active {
+    transform: none !important;
+  }
+  html { scroll-behavior: auto !important; }
+}
+
+
+/* ---------------------------------------------------------------------------
+   LINK QUE PARECE BOTAO
+   Nav, painel do celular, rodape, logo e os cards de portfolio deixaram de
+   ser <button> e <div> e viraram <a> com href de verdade. O ganho e duplo:
+   cmd-clique abre em outra aba, e o buscador passa a ver o grafo de links
+   interno do site, que antes nao existia (a home nao tinha uma unica
+   ancora para um case). O que falta agora e tirar o sublinhado e devolver
+   o alinhamento que o <button> dava de graca.
+--------------------------------------------------------------------------- */
+a.ga-tab {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+a.ga-menu__link { text-decoration: none; }
+a.ga-logo { color: inherit; }
+
+/* O card e um link de bloco: o sublinhado nao pode pegar o texto dentro
+   dele, e a cor do texto segue sendo a do conteudo, nao a de link. */
+a.ga-card { text-decoration: none; color: inherit; }
+a.ga-card:hover { text-decoration: none; }
+
+/* ---------------------------------------------------------------------------
+   PULAR PARA O CONTEUDO
+   Nao existia. Cada pagina comecava com o logo mais os controles do
+   cabecalho para tabular, em toda rota, antes de chegar no texto. Fica
+   fora da tela ate receber foco.
+--------------------------------------------------------------------------- */
+.ga-pular {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 60;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  background: var(--ink);
+  color: var(--paper-100);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill, 999px);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: var(--shadow-pop-sm);
+
+  /* Fora da tela por transform, nao por `left: -9999px`. O deslocamento
+     gigante e a tecnica antiga, e ela cria area de rolagem lateral em alguns
+     navegadores: posicao fixa com transform sai do fluxo sem deslocar nada.
+     Sem transicao de proposito, para nao precisar de regra de movimento. */
+  transform: translateY(-200%);
+}
+.ga-pular:focus { transform: translateY(0); }
