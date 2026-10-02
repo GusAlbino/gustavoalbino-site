@@ -55,6 +55,16 @@ typography:
     fontSize: "0.8125rem"
     fontWeight: 700
     letterSpacing: "0.14em"
+  case-display-hercules:
+    fontFamily: "Anton, Montserrat, system-ui, sans-serif"
+    fontWeight: 400
+    letterSpacing: "0.005em"
+  case-stencil-hercules:
+    fontFamily: "Saira Stencil One, Montserrat, system-ui, sans-serif"
+    fontWeight: 400
+  case-script-othelo:
+    fontFamily: "Permanent Marker, cursive"
+    fontWeight: 400
 rounded:
   sm: "4px"
   md: "8px"
@@ -141,7 +151,7 @@ Três famílias, cada uma com trabalho declarado. Nenhuma decorativa.
 - **Archivo** carrega texto corrido, rótulo e interface. Grotesca limpa, legível em bloco longo.
 - **Space Mono** carrega kicker, ficha técnica e metadado. Caixa alta com `0.14em` de espaçamento. É a marca de prova, o carimbo.
 
-Fontes de case entram só dentro do case: Anton e Saira Stencil One no Hercules, Permanent Marker e Oswald em uso pontual. Não sobem para o sistema.
+Fontes de case entram só dentro do case: Anton e Saira Stencil One no Hercules, Permanent Marker e Oswald em uso pontual. **Não sobem para o sistema**, e por isso estão declaradas no frontmatter com prefixo `case-`: o detector precisa saber que existem, e o sistema precisa saber que não são dele.
 
 Escala: `3.5rem` a `6.5rem` no display com `clamp`, depois `3rem`, `2.25rem`, `1.625rem`, `1.25rem`. Corpo em `1rem`, apoio em `0.875rem` e `0.75rem`.
 
