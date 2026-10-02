@@ -4753,7 +4753,7 @@ class Component extends DCLogic {
         src: l.src, name: l[lang], tag: lang === 'pt' ? l.tagPt : l.tagEn, desc: lang === 'pt' ? l.descPt : l.descEn,
         boxStyle: `aspect-ratio:${l.ratio}; width:100%; background-image:url("${l.src}"); background-size:contain; background-position:center; background-repeat:no-repeat`,
       })),
-      logoPrincipalStyle: `aspect-ratio:3194/2460; width:100%; max-width:520px; margin:0 auto; background-image:url("${YF_BASE}logo-principal.png"); background-size:contain; background-position:center; background-repeat:no-repeat`,
+      logoPrincipalStyle: `aspect-ratio:3194/2460; width:100%; max-width:520px; margin:0 auto; background-image:url("${YF_BASE}logo-principal.webp"); background-size:contain; background-position:center; background-repeat:no-repeat`,
     };
     const palette = YF_PALETTE.map((c) => ({ hex: c.hex, name: c[lang], role: lang === 'pt' ? c.rolePt : c.roleEn }));
     const typo = YF_TYPE.map((t) => ({ name: t.name, sample: t.sample, sampleStyle: t.sampleStyle, tag: lang === 'pt' ? t.tagPt : t.tagEn, role: t[lang] }));
@@ -4765,7 +4765,7 @@ class Component extends DCLogic {
     const hc = {
       ...HC,
       palette: HERC_PALETTE.map((c) => ({ hex: c.hex, name: c[lang], role: lang === 'pt' ? c.rolePt : c.roleEn })),
-      logoPrincipalStyle: `aspect-ratio:1/1; width:100%; max-width:440px; margin:0 auto; background-image:url("${HERC_BASE}logo-primario.png"); background-size:contain; background-position:center; background-repeat:no-repeat`,
+      logoPrincipalStyle: `aspect-ratio:1/1; width:100%; max-width:440px; margin:0 auto; background-image:url("${HERC_BASE}logo-primario.webp"); background-size:contain; background-position:center; background-repeat:no-repeat`,
       logos: HERC_LOGOS.map((l) => ({ src: l.src, name: l[lang], tag: lang === 'pt' ? l.tagPt : l.tagEn, desc: lang === 'pt' ? l.descPt : l.descEn,
         boxStyle: `aspect-ratio:16/10; width:100%; background-color:${l.bg}; background-image:url("${l.src}"); background-size:contain; background-position:center; background-repeat:no-repeat` })),
       variants: HERC_VARIANTS.map((v) => ({ src: v.src, name: v[lang],
@@ -4785,7 +4785,7 @@ class Component extends DCLogic {
     const od = {
       ...OT,
       heroStyle: oImg(OTH_BASE + 'hero-studio.webp', '3/2'),
-      logoPrincipalStyle: `aspect-ratio:1920/1197; width:100%; max-width:560px; margin:0 auto; background-image:url("${OTH_BASE}logo-bg-orange.jpg"); background-size:contain; background-position:center; background-repeat:no-repeat`,
+      logoPrincipalStyle: `aspect-ratio:1920/1197; width:100%; max-width:560px; margin:0 auto; background-image:url("${OTH_BASE}logo-bg-orange.webp"); background-size:contain; background-position:center; background-repeat:no-repeat`,
       palette: OTH_PALETTE.map((c) => ({ hex: c.hex, name: c[lang], role: lang === 'pt' ? c.rolePt : c.roleEn })),
       logos: OTH_LOGOS.map((l) => ({ name: l[lang], tag: lang === 'pt' ? l.tagPt : l.tagEn, desc: lang === 'pt' ? l.descPt : l.descEn,
         boxStyle: `aspect-ratio:16/10; width:100%; background-color:${l.bg}; background-image:url("${l.src}"); background-size:contain; background-position:center; background-repeat:no-repeat` })),
