@@ -139,6 +139,10 @@ arquivo declarando `assets.directory`, ele publica o script padrão
 - Otimizar assets novos → `tools/otimizar-assets.py`
 - **Depois de editar `public/responsivo.css` → `python3 tools/versionar-css.py`**
   (carimba o link com o hash do conteúdo, para o navegador buscar a versão nova)
+  **E o carimbo é gravado dentro do `index.html`**, então ele invalida a guarda
+  do `cabecalhos.json`. A ordem é esta, e não a inversa: carimbe o CSS primeiro,
+  gere os cabeçalhos depois. Na ordem trocada o portão reclama e você regera
+  duas vezes, que são dois minutos de navegador cada.
 - Regerar o card de compartilhamento → `tools/og-card/README.md`
 
 ## Rollback

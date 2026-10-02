@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
 """Converte uma arvore de JPEG/PNG para WebP usando o encoder do Chrome.
 
-    python3 tools/para-webp.py public/assets/<pasta>
+    python3 tools/para-webp.py public/assets/<pasta> [qualidade]
     (abra http://127.0.0.1:4400/ no navegador; a pagina converte e grava)
+
+A qualidade e opcional e vale para todos os arquivos da rodada, sobrepondo
+os padroes por formato. Serve para quando o padrao de PNG (0.92, pensado
+para logo e arte chapada) cair numa foto.
+
+Medido em sobre-suica.webp, 900x1200, foto de neve e mata: 445KB no
+arquivo publicado, 368KB a 0.76, 205KB a 0.74 depois de reduzir para
+700px de largura. Ou seja, nesta foto a qualidade quase nao move o peso,
+e quem move e a resolucao. O encoder do canvas do Chrome e bem menos
+eficiente que o cwebp da libwebp, e e o unico que esta maquina tem: nao
+espere o peso que uma tabela de cwebp promete.
 
 Por que existe
 --------------
@@ -28,6 +39,9 @@ exibicao antes de trocar as referencias.
 import http.server, json, os, sys, urllib.parse
 
 RAIZ = sys.argv[1]
+# Qualidade fixa para a rodada inteira, quando informada. Sem ela, cada
+# formato segue o proprio padrao: PNG 0.92, JPEG 0.82.
+Q = float(sys.argv[2]) if len(sys.argv) > 2 else None
 
 # Imagem de compartilhamento nao entra. LinkedIn e Facebook nao geram preview
 # de WebP, entao converter estas quebraria o card de todo link publicado.
@@ -50,11 +64,12 @@ feitos = {}
 PAGINA = """<!doctype html><meta charset="utf-8"><title>webp</title>
 <body><pre id="log"></pre><script>
 const ARQS = %s;
+const Q_FIXA = %s;
 const log = (t) => document.getElementById('log').textContent += t + '\\n';
 (async () => {
   let n = 0;
   for (const nome of ARQS) {
-    const q = /\\.png$/i.test(nome) ? 0.92 : 0.82;
+    const q = Q_FIXA !== null ? Q_FIXA : (/\\.png$/i.test(nome) ? 0.92 : 0.82);
     const img = await createImageBitmap(await fetch('/img/' + nome.split('/').map(encodeURIComponent).join('/')).then(r => r.blob()));
     const c = new OffscreenCanvas(img.width, img.height);
     c.getContext('2d').drawImage(img, 0, 0);
@@ -66,7 +81,7 @@ const log = (t) => document.getElementById('log').textContent += t + '\\n';
   document.title = 'PRONTO';
   log('PRONTO ' + n);
 })();
-</script></body>""" % json.dumps(ARQS)
+</script></body>""" % (json.dumps(ARQS), json.dumps(Q))
 
 
 class H(http.server.BaseHTTPRequestHandler):
