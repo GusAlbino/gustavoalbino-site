@@ -839,8 +839,8 @@
    "fg": "var(--paper-100)",
    "mono": "assets/monogram-white.webp",
    "year": "2022 a hoje",
-   "bgImage": "assets/cases/kaya-doc/capa-dark-3x2.webp",
-   "bgSquare": "assets/cases/kaya-doc/capa-dark.webp",
+   "bgImage": "assets/cases/kaya-doc/capa-mockup-3x2.webp",
+   "bgSquare": "assets/cases/kaya-doc/capa-mockup.webp",
    "title": {
     "pt": "Kaya Doc",
     "en": "Kaya Doc"
@@ -4294,8 +4294,7 @@
     "v2-log-06_guia_prescricao_passo1_paciente.webp"
    ],
    "detalhe": [
-    "v2-log-08_comparador_selecao_de_2_produtos.webp",
-    "v2-log-09_comparador_comparacao_topo.webp"
+    "v2-log-08_comparador_selecao_de_2_produtos.webp"
    ],
    "papel": [
     "v2-log-11_educacao.webp"
