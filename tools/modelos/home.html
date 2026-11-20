@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--HEAD-->
+<link rel="stylesheet" href="/ds-v2/tokens.css">
+<link rel="stylesheet" href="/ds-v2/componentes.css">
+<style>
+  /* Home: uma dobra em desktop. Destaque rotativo à esquerda, chamada e competências à direita. */
+  .stage{height:100svh;min-height:820px;padding:var(--gap);display:grid;gap:var(--gap);
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    grid-template-rows:84px minmax(0,1.32fr) 22px minmax(0,.82fr);
+    grid-template-areas:
+      "logo nav nav nav nav nav"
+      "feat feat feat hero hero hero"
+      "feat feat feat label label label"
+      "feat feat feat comp comp comp"}
+  .logo{grid-area:logo}.navbar{grid-area:nav}.rotulo{grid-area:label}
+
+  /* destaque rotativo: os três últimos trabalhos */
+  .feat{grid-area:feat}
+  .feat .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateX(106%);z-index:0;
+    transition:transform .75s var(--ease),filter .75s var(--ease)}
+  .feat .slide.on{transform:none;z-index:2}
+  .feat .slide.sai{transform:translateX(-8%) scale(.9);filter:brightness(.45);z-index:1}
+  .feat .esticar{position:absolute;inset:0;z-index:1}
+  .feat .chip{position:absolute;z-index:2;top:16px;left:16px;display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border-radius:var(--r-tag);background:rgba(0,0,0,.58);color:var(--fg);border:2px solid rgba(248,239,232,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .feat .chip::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--hl);border:2px solid var(--tinta)}
+  .feat::after{display:none}
+  .feat .ctrl{position:absolute;z-index:3;right:16px;bottom:26px;display:flex;gap:8px}
+  .feat .seta{width:42px;height:42px;display:grid;place-items:center;border-radius:var(--r-seta);cursor:pointer;font:700 16px/1 var(--font-mono);color:var(--fg);background:var(--escuro);border:2px solid var(--tinta);box-shadow:var(--sombra-btn);transition:transform .12s,box-shadow .12s,background .12s}
+  .feat .seta:hover,.feat .seta:focus-visible{background:var(--ouro);color:#000;transform:translate(-2px,-2px);box-shadow:var(--sombra-btn-h)}
+  .feat .prog{position:absolute;z-index:3;left:16px;right:16px;bottom:14px;display:flex;gap:6px;pointer-events:none}
+  .feat .prog span{flex:1;height:8px;border:2px solid var(--tinta);border-radius:4px;background:rgba(248,239,232,.35);overflow:hidden}
+  .feat .prog i{display:block;height:100%;width:0;background:var(--ouro)}
+  .feat .prog span.feito i{width:100%}
+  .feat .prog span.ativo i{animation:prog 7s linear forwards}
+  .feat:hover .prog span.ativo i,.feat:focus-within .prog span.ativo i{animation-play-state:paused}
+  @keyframes prog{to{width:100%}}
+  @media (prefers-reduced-motion:reduce){.feat .prog span.ativo i{width:100%}}
+
+  /* chamada: o nome em branco, quase tocando a foto */
+  .hero{grid-area:hero;position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:clamp(18px,3cqw,32px);padding-right:calc(38% + 12px)}
+  .hero .foto{position:absolute;top:12px;right:12px;bottom:12px;width:38%;height:calc(100% - 24px);object-fit:cover;object-position:center 12%;border:var(--bw) solid var(--tinta);border-radius:var(--r-tag);box-shadow:4px 4px 0 var(--tinta)}
+  .hero h1{font-size:clamp(44px,19.8cqw,175px);line-height:.88;letter-spacing:-.035em;color:#FFFFFF;margin:clamp(8px,1.6cqw,16px) 0 0}
+  .hero .lead{margin:0;font-size:clamp(13px,2cqw,16px);max-width:46ch;color:var(--hl-text);font-weight:600}
+  .acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+
+  /* competências */
+  .comp{grid-area:comp;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:var(--gap);min-height:0}
+  .comp .card>.rot{display:block;padding:8px 11px}
+  .comp .rot .n{display:inline;margin-right:7px;font-size:9px}
+  .comp .rot b{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;display:inline;font-size:clamp(11px,4.4cqw,14px);line-height:1.1}
+  .comp .rot span.d{display:none;margin-top:4px;font-size:clamp(10px,3.3cqw,11.5px);line-height:1.3}
+
+  /* entrada em sequência: cada quadro sobe e aparece (fill backwards, para o hover continuar livre depois) */
+  .stage>:not(.comp),.comp>.card{animation:entra .8s var(--ease) backwards;animation-delay:calc(var(--i,0) * 90ms + 80ms)}
+  .stage>:nth-child(1){--i:0}.stage>:nth-child(2){--i:1}.stage>:nth-child(3){--i:2}.stage>:nth-child(4){--i:3}.stage>:nth-child(5){--i:4}
+  .comp>.card:nth-child(1){--i:5}.comp>.card:nth-child(2){--i:6}.comp>.card:nth-child(3){--i:7}.comp>.card:nth-child(4){--i:8}
+  .rodape.vis .col{animation:entra .8s var(--ease) backwards;animation-delay:calc(var(--c,0) * 90ms + 150ms)}
+  .rodape .col:nth-child(2){--c:1}.rodape .col:nth-child(3){--c:2}.rodape .col:nth-child(4){--c:3}.rodape .col:nth-child(5){--c:4}
+
+  @media (max-width:960px){
+    .stage{height:auto;min-height:100svh;grid-template-columns:1fr;grid-template-rows:72px 56px auto auto 22px auto;
+      grid-template-areas:"logo" "nav" "feat" "hero" "label" "comp"}
+    .navbar{padding:0 8px 0 18px;overflow-x:auto;scrollbar-width:none}.navbar::-webkit-scrollbar{display:none}
+    .navbar ul{gap:18px;white-space:nowrap}.navbar .dir{margin-left:18px}
+    .feat{min-height:min(520px,70svh)}
+    .hero{padding-right:clamp(18px,3cqw,32px)}
+    .hero .foto{position:static;order:-1;width:100%;height:240px;object-position:center 8%}
+    .comp{grid-template-rows:none;grid-auto-rows:minmax(150px,1fr)}
+    .comp .rot span.d{display:block}
+  }
+</style>
+</head>
+<body id="topo-pagina">
+<div class="fundo" aria-hidden="true"></div>
+
+<main class="stage" id="stage">
+  <a class="card logo" href="/" aria-label="Gustavo Albino, página inicial"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
+
+  <nav class="card navbar" aria-label="Principal">
+    <ul class="mono">
+      <li><a href="/cases">Cases</a></li><li><a href="/projetos">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/sobre">Sobre</a></li><li><a href="/cv">CV</a></li>
+    </ul>
+    <div class="dir">
+      <span class="idioma" role="group" aria-label="Idioma"><a href="/" aria-current="true">PT</a><a href="/en">EN</a></span>
+      <a class="btn" href="/contato">Contato</a>
+    </div>
+  </nav>
+
+  <div class="card card--img feat" id="feat" role="group" aria-roledescription="carrossel" aria-label="Últimos trabalhos">
+    <img class="slide on" src="/assets/cases/runpace/capa.webp" alt="" width="1080" height="1080">
+    <img class="slide" src="/assets/cases/kaya-doc/capa-dark.webp" alt="" width="1080" height="1080">
+    <img class="slide" src="/assets/cases/yerba-fina/hero-explore.webp" alt="" width="1080" height="1080">
+    <a class="esticar" id="fLink" href="/cases/runpace" aria-label="Abrir o case Runpace"></a>
+    <span class="chip mono" id="fTag">Runpace · Design system</span>
+    <div class="ctrl"><button class="seta" type="button" data-d="-1" aria-label="Trabalho anterior">←</button><button class="seta" type="button" data-d="1" aria-label="Próximo trabalho">→</button></div>
+    <div class="prog" aria-hidden="true"><span class="ativo"><i></i></span><span><i></i></span><span><i></i></span></div>
+  </div>
+
+  <section class="card hero" aria-label="Apresentação">
+    <img class="foto" src="/assets/gustavo-hero.webp" alt="Gustavo Albino" width="1080" height="1080">
+    <div>
+      <span class="mono tag-ouro">Senior Designer · Lead Designer</span>
+      <h1 class="disp">Gustavo<br>Albino</h1>
+    </div>
+    <div>
+      <p class="lead">Mais de 10 anos de design. Hoje, mais de 3.000 profissionais de saúde usam o que eu desenho.</p>
+      <div class="acoes"><a class="btn btn--ouro" href="/cases">Ver trabalhos</a><a class="btn btn--ghost" href="/contato">Vamos conversar</a></div>
+    </div>
+  </section>
+
+  <div class="rotulo"><b>Competências</b><hr><a class="mono" href="/servicos">Ver serviços →</a></div>
+
+  <div class="comp">
+    <a class="card card--img" href="/projetos/logos"><img src="/assets/cases/hercules/card-cover.webp" alt="" width="1350" height="900"><span class="rot"><span class="mono n">01</span><b>Branding e identidade</b><span class="d">Marcas, logos, sistema visual e manual.</span></span></a>
+    <a class="card card--img" href="/cases/kaya-doc"><img src="/assets/cases/kaya-doc/capa-3x2.webp" alt="" width="1200" height="800"><span class="rot"><span class="mono n">02</span><b>Produto digital</b><span class="d">UI, UX, apps e design systems.</span></span></a>
+    <a class="card card--img" href="/projetos/relatorios"><img src="/assets/anuarios/2022-cover.webp" alt="" width="900" height="900"><span class="rot"><span class="mono n">03</span><b>Editorial e dataviz</b><span class="d">Anuários, relatórios e Power BI.</span></span></a>
+    <a class="card card--img" href="/servicos"><img src="/assets/cases/othelo/hero-studio.webp" alt="" width="1350" height="900"><span class="rot"><span class="mono n">04</span><b>Direção criativa</b><span class="d">Marcas, campanhas e eventos.</span></span></a>
+  </div>
+</main>
+
+<footer class="card rodape" aria-label="Rodapé">
+  <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="40" height="40"><p>Senior Designer e Lead Designer do Kaya Doc. Marca, produto e editorial, de Betim para quem trabalha remoto.</p><span class="mono">Betim · Minas Gerais</span></div>
+  <nav class="col f-cases" aria-label="Cases"><h2 class="mono">Cases</h2><ul><li><a href="/cases/runpace">Runpace</a></li><li><a href="/cases/kaya-doc">Kaya Doc</a></li><li><a href="/cases/othelo">Othelo</a></li><li><a href="/cases/jimi-oliver">Jimi Oliver</a></li><li><a href="/cases/yerba-fina">Yerba Fina</a></li><li><a href="/cases/gustavo-albino">Gustavo Albino</a></li><li><a href="/cases/hercules">Hercules</a></li></ul></nav>
+  <nav class="col f-proj" aria-label="Projetos"><h2 class="mono">Projetos</h2><ul><li><a href="/projetos/logos">Logos</a></li><li><a href="/projetos/relatorios">Relatórios</a></li><li><a href="/projetos/ebooks">E-books</a></li><li><a href="/projetos/culturais">Culturais</a></li><li><a href="/projetos/ilustracao">Ilustração</a></li></ul></nav>
+  <nav class="col f-site" aria-label="Site"><h2 class="mono">Site</h2><ul><li><a href="/">Início</a></li><li><a href="/cases">Cases</a></li><li><a href="/projetos">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/sobre">Sobre</a></li><li><a href="/cv">CV</a></li><li><a href="/contato">Contato</a></li></ul></nav>
+  <div class="col f-fale card--hl"><div><p class="grande">Vamos conversar</p></div><div>
+    <a class="mail" href="mailto:gustavorsalbino@gmail.com">gustavorsalbino@gmail.com</a>
+    <ul style="margin-top:6px"><li><a href="https://wa.me/5531971422346" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.linkedin.com/in/gusalbino/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/gustavoalbinodesign/" target="_blank" rel="noopener">Instagram</a></li></ul>
+    <p class="mono" style="margin:8px 0 0;opacity:.85;font-size:10px">Resposta em até 2 dias úteis</p></div></div>
+  <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">Voltar ao topo ↑</a></div>
+</footer>
+
+<script>
+(function(){
+  var reduz=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* destaque rotativo: troca a cada 7s, pausa com o mouse em cima, parado se o sistema pedir menos movimento */
+  var T=[
+    {tag:"Runpace · Design system",href:"/cases/runpace",nome:"Runpace"},
+    {tag:"Kaya Doc · Produto digital",href:"/cases/kaya-doc",nome:"Kaya Doc"},
+    {tag:"Yerba Fina · Branding",href:"/cases/yerba-fina",nome:"Yerba Fina"}
+  ];
+  var feat=document.getElementById("feat"),slides=[].slice.call(feat.querySelectorAll(".slide")),segs=[].slice.call(feat.querySelectorAll(".prog span")),at=0;
+  function ir(k,dir){
+    var nx=(k+T.length)%T.length;if(nx===at)return;dir=dir||1;
+    var velho=slides[at],novo=slides[nx];
+    slides.forEach(function(s){if(s!==velho&&s!==novo){s.style.transition="none";s.classList.remove("sai","on");s.style.transform=""}});
+    /* o novo parte de fora do quadro, do lado de onde a pessoa vai */
+    novo.style.transition="none";novo.classList.remove("sai","on");novo.style.transform="translateX("+(dir>0?106:-106)+"%)";void novo.offsetWidth;
+    novo.style.transition="";novo.style.transform="";novo.classList.add("on");
+    velho.classList.remove("on");velho.classList.add("sai");
+    setTimeout(function(){if(!velho.classList.contains("on")){velho.style.transition="none";velho.classList.remove("sai");void velho.offsetWidth;velho.style.transition=""}},800);
+    at=nx;var x=T[at];
+    segs.forEach(function(g,i){g.classList.remove("ativo","feito");void g.offsetWidth;if(i<at)g.classList.add("feito");if(i===at)g.classList.add("ativo")});
+    document.getElementById("fTag").textContent=x.tag;
+    var l=document.getElementById("fLink");l.href=x.href;l.setAttribute("aria-label","Abrir o case "+x.nome);
+  }
+  /* a barra do trabalho atual enche em 7s e, ao terminar, passa para o próximo; o mouse em cima pausa */
+  segs.forEach(function(g){g.querySelector("i").addEventListener("animationend",function(){if(g.classList.contains("ativo"))ir(at+1,1)})});
+  [].forEach.call(feat.querySelectorAll(".seta"),function(b){b.addEventListener("click",function(){var d=+b.getAttribute("data-d");ir(at+d,d)})});
+
+  /* rodapé aparece quando entra na tela */
+  var rod=document.querySelector(".rodape");
+  if(rod&&"IntersectionObserver" in window){
+    rod.classList.add("rev");
+    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){rod.classList.add("vis");o.disconnect()}})},{threshold:.15}).observe(rod);
+  }
+
+})();
+</script>
+</body>
+</html>

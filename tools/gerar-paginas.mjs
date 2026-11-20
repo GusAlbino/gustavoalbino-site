@@ -1,0 +1,334 @@
+// Gera o site inteiro (PT e EN) em public/, no estilo Quadrinhos escuro (D.S. v3).
+// O conteúdo vem dos dados de public/index.html (tools/dados-site.mjs); o desenho vem de public/ds-v2/*.css.
+// Uso: node tools/gerar-paginas.mjs   (gera também o sitemap.xml)
+import fs from 'node:fs';
+import { carregarDados } from './dados-site.mjs';
+
+const D = carregarDados();
+const SAIDA = new URL('../public/', import.meta.url);
+const CAB = JSON.parse(fs.readFileSync(new URL('./dados/cabecalhos.json', import.meta.url), 'utf8')).rotas;
+const SITE = 'https://gustavoalbino.com.br';
+const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const NAV = {
+  pt: { cases: 'Cases', projetos: 'Projetos', servicos: 'Serviços', sobre: 'Sobre', cv: 'CV', contato: 'Contato' },
+  en: { cases: 'Cases', projetos: 'Projects', servicos: 'Services', sobre: 'About', cv: 'CV', contato: 'Contact' },
+};
+const FOOT = {
+  pt: { marca: 'Senior Designer e Lead Designer do Kaya Doc. Marca, produto e editorial, de Betim para quem trabalha remoto.', cases: 'Cases', proj: 'Projetos', site: 'Site', fale: 'Vamos conversar', resp: 'Resposta em até 2 dias úteis', topo: 'Voltar ao topo ↑', inicio: 'Início' },
+  en: { marca: 'Senior Designer and Lead Designer of Kaya Doc. Brand, product and editorial, from Betim to remote teams.', cases: 'Cases', proj: 'Projects', site: 'Site', fale: "Let's talk", resp: 'Reply within 2 business days', topo: 'Back to top ↑', inicio: 'Home' },
+};
+// rota de cada página: caminho sem barra inicial. A home PT é "" e a EN é "en".
+const ROTA = {
+  home: ['', 'en'], cases: ['cases', 'en/cases'], projetos: ['projetos', 'en/projects'], servicos: ['servicos', 'en/services'],
+  sobre: ['sobre', 'en/about'], cv: ['cv', 'en/cv'], contato: ['contato', 'en/contact'],
+  relatorios: ['projetos/relatorios', 'en/projects/reports'], ebooks: ['projetos/ebooks', 'en/projects/ebooks'],
+  culturais: ['projetos/culturais', 'en/projects/cultural'], logos: ['projetos/logos', 'en/projects/logos'], ilustracao: ['projetos/ilustracao', 'en/projects/illustration'],
+};
+const caminho = (lang, chave, caseId) => (chave === 'caso' ? (lang === 'en' ? 'en/cases/' : 'cases/') + caseId : ROTA[chave][lang === 'en' ? 1 : 0]);
+const href = (lang, chave, caseId) => '/' + caminho(lang, chave, caseId);
+const caseHref = (lang, id) => href(lang, 'caso', id);
+const arquivoDe = (rota) => (rota === '' ? 'index.html' : rota + '.html');
+let ctx = { chave: 'home' };
+
+function cabecalho(lang) {
+  const rota = '/' + caminho(lang, ctx.chave, ctx.caseId);
+  let c = CAB[rota === '/' ? '/' : rota];
+  const par = (l) => SITE + '/' + caminho(l, ctx.chave, ctx.caseId);
+  if (!c) { // página nova, sem entrada no manifesto antigo (ex.: CV)
+    const T = D.DICT[lang].cv;
+    c = { title: `${T.title} · Gustavo Albino`, lang: lang === 'en' ? 'en' : 'pt-BR', desc: lang === 'en' ? 'Résumé of Gustavo Albino: Senior Designer and Lead Designer of Kaya Doc. 10+ years in design, product, brand and editorial.' : 'Currículo de Gustavo Albino: Senior Designer e Lead Designer do Kaya Doc. Mais de 10 anos de design, produto, marca e editorial.',
+      canonical: par(lang), ogUrl: par(lang), ogImage: SITE + '/assets/og-card.png', ogLocale: lang === 'en' ? 'en_US' : 'pt_BR',
+      alternates: [['pt-BR', par('pt')], ['en', par('en')], ['x-default', par('pt')]] };
+    c.ogTitle = c.title; c.ogDesc = c.desc;
+  }
+  return `<title>${esc(c.title)}</title>
+<meta name="description" content="${esc(c.desc)}">
+<link rel="canonical" href="${esc(c.canonical)}">
+<link rel="icon" href="/assets/logo-seal-black.webp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gustavo Albino">
+<meta property="og:title" content="${esc(c.ogTitle)}">
+<meta property="og:description" content="${esc(c.ogDesc)}">
+<meta property="og:url" content="${esc(c.ogUrl)}">
+<meta property="og:image" content="${esc(c.ogImage)}">
+<meta property="og:locale" content="${esc(c.ogLocale)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${esc(c.ogImage)}">
+${(c.alternates || []).map(([l, u]) => `<link rel="alternate" hreflang="${esc(l)}" href="${esc(u)}">`).join('\n')}
+${c.ld ? `<script type="application/ld+json">${c.ld}</script>` : ''}`;
+}
+
+function casca(lang, ativo, titulo, corpo, extra = '') {
+  const t = DICTL(lang), n = NAV[lang], f = FOOT[lang];
+  const outro = lang === 'pt' ? 'en' : 'pt';
+  const link = (k) => `<li><a href="${href(lang, k)}"${k === ativo ? ' aria-current="page"' : ''}>${n[k]}</a></li>`;
+  return `<!doctype html>
+<html lang="${lang === 'pt' ? 'pt-BR' : 'en'}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+${cabecalho(lang)}
+<link rel="stylesheet" href="/ds-v2/tokens.css">
+<link rel="stylesheet" href="/ds-v2/componentes.css">
+<link rel="stylesheet" href="/ds-v2/paginas.css">
+<script src="/analytics.js" defer></script>
+</head>
+<body>
+<div class="fundo" aria-hidden="true"></div>
+<div class="pagina">
+  <header class="topo">
+    <a class="card logo" href="${href(lang, 'home')}" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
+    <nav class="card navbar" aria-label="${lang === 'pt' ? 'Principal' : 'Main'}">
+      <ul class="mono">${['cases', 'projetos', 'servicos', 'sobre', 'cv'].map(link).join('')}</ul>
+      <div class="dir">
+        <span class="idioma" role="group" aria-label="Idioma"><a href="${href('pt', ctx.chave, ctx.caseId)}" ${lang === 'pt' ? 'aria-current="true"' : ''}>PT</a><a href="${href('en', ctx.chave, ctx.caseId)}" ${lang === 'en' ? 'aria-current="true"' : ''}>EN</a></span>
+        <a class="btn" href="${href(lang, 'contato')}">${n.contato}</a>
+      </div>
+    </nav>
+  </header>
+${corpo}
+</div>
+<footer class="card rodape" aria-label="${lang === 'pt' ? 'Rodapé' : 'Footer'}">
+  <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="40" height="40"><p>${esc(f.marca)}</p><span class="mono">Betim · Minas Gerais</span></div>
+  <nav class="col f-cases" aria-label="Cases"><h2 class="mono">${f.cases}</h2><ul>${D.CASES.map((c) => `<li><a href="${caseHref(lang, c.id)}">${esc(c.title[lang])}</a></li>`).join('')}</ul></nav>
+  <nav class="col f-proj" aria-label="${f.proj}"><h2 class="mono">${f.proj}</h2><ul>${['logos', 'relatorios', 'ebooks', 'culturais', 'ilustracao'].map((k) => `<li><a href="${href(lang, k)}">${esc(projNome(lang, k))}</a></li>`).join('')}</ul></nav>
+  <nav class="col f-site" aria-label="${f.site}"><h2 class="mono">${f.site}</h2><ul><li><a href="${href(lang, 'home')}">${f.inicio}</a></li>${['cases', 'projetos', 'servicos', 'sobre', 'cv', 'contato'].map((k) => `<li><a href="${href(lang, k)}">${n[k]}</a></li>`).join('')}</ul></nav>
+  <div class="col f-fale card--hl"><div><p class="grande">${f.fale}</p></div><div>
+    <a class="mail" href="mailto:${D.LINKS.email}">${D.LINKS.email}</a>
+    <ul style="margin-top:6px"><li><a href="${D.LINKS.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="${D.LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${D.LINKS.instagram}" target="_blank" rel="noopener">Instagram</a></li></ul>
+    <p class="mono" style="margin:8px 0 0;opacity:.85;font-size:10px">${f.resp}</p></div></div>
+  <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">${f.topo}</a></div>
+</footer>
+${extra}
+</body>
+</html>
+`;
+}
+const DICTL = (lang) => D.DICT[lang];
+function projNome(lang, k) {
+  const m = { logos: { pt: 'Logos', en: 'Logos' }, relatorios: { pt: 'Relatórios', en: 'Reports' }, ebooks: { pt: 'E-books', en: 'E-books' }, culturais: { pt: 'Culturais', en: 'Cultural' }, ilustracao: { pt: 'Ilustração', en: 'Illustration' } };
+  return m[k][lang];
+}
+const cab = (kicker, titulo, intro, acoes = '') => `  <section class="card cab" id="topo"><span class="mono tag-ouro">${esc(kicker)}</span><h1 class="disp">${esc(titulo)}</h1>${intro ? `<p class="intro">${esc(intro)}</p>` : ''}${acoes ? `<div class="acoes">${acoes}</div>` : ''}</section>`;
+
+const paginas = {};
+
+// ---------- CASES ----------
+paginas.cases = (lang) => {
+  const p = DICTL(lang).casesPage;
+  const filtros = D.CASE_FILTERS.map((f, i) => `<button type="button" data-f="${f.key}" aria-pressed="${i === 0}">${esc(f[lang])}</button>`).join('');
+  const cards = D.CASES.map((c) => `<a class="card card--img item" data-cat="${c.cat}" href="${caseHref(lang, c.id)}"><img src="/${c.bgImage}" alt="" loading="lazy"><span class="mono ano">${esc(c.year)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.typeLabel[lang])}</span><p>${esc(c.blurb[lang])}</p></span></a>`).join('\n    ');
+  const corpo = `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro)}
+  <div class="filtros" role="group" aria-label="${lang === 'pt' ? 'Filtrar' : 'Filter'}">${filtros}</div>
+  <div class="g3" id="lista">
+    ${cards}
+  </div>`;
+  const js = `<script>(function(){var b=[].slice.call(document.querySelectorAll('.filtros button')),c=[].slice.call(document.querySelectorAll('#lista [data-cat]'));b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});var k=x.dataset.f;c.forEach(function(e){e.style.display=(k==='all'||e.dataset.cat===k)?'':'none'})})})})();</script>`;
+  return casca(lang, 'cases', p.title, corpo, js);
+};
+
+// ---------- PROJETOS ----------
+paginas.projetos = (lang) => {
+  const p = DICTL(lang).galPage;
+  const rota = { reports: 'relatorios', ilustracao: 'ilustracao', ebooks: 'ebooks', culturais: 'culturais', grafico: 'logos' };
+  const cards = D.GAL.map((g) => `<a class="card card--img item${g.cat === 'grafico' ? ' item--img-contida' : ''}" href="${href(lang, rota[g.cat])}"><img src="/${g.img}" alt="" loading="lazy"><span class="rot"><b>${esc(g[lang])}</b></span></a>`).join('\n    ');
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${cards}\n  </div>`);
+};
+
+// ---------- SERVIÇOS ----------
+paginas.servicos = (lang) => {
+  const T = DICTL(lang), p = T.servPage;
+  const cards = T.services.map((s) => `<article class="card bloco servico"><span class="num">${esc(s.num)}</span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
+  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${cards}\n  </div>`);
+};
+
+// ---------- SOBRE ----------
+paginas.sobre = (lang) => {
+  const T = DICTL(lang), s = T.sobre;
+  const corpo = `${cab(s.kicker, s.title, '')}
+  <div class="g2" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)">
+    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-pedra-grande.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
+    <div class="card bloco"><div class="texto-longo">${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div>
+  </div>
+  <div class="g4 mantem">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></article>`).join('')}</div>`;
+  return casca(lang, 'sobre', s.kicker, corpo);
+};
+
+// ---------- CV ----------
+paginas.cv = (lang) => {
+  const T = DICTL(lang), c = T.cv;
+  const cargoKaya = lang === 'pt' ? 'Senior Designer · Lead Designer do Kaya Doc' : 'Senior Designer · Lead Designer of Kaya Doc';
+  const barras = (arr) => `<ul class="barras">${arr.map((x) => `<li><span>${esc(x.label)}<em class="mono" style="font-style:normal;color:var(--muted)">${x.level}/5</em></span><i><b style="width:${x.level * 20}%"></b></i></li>`).join('')}</ul>`;
+  const corpo = `${cab(c.kicker, c.title, '', `<a class="btn btn--ouro" href="/assets/gustavo-albino-cv-${lang}.pdf" download>${esc(c.downloadEN)}</a>`)}
+  <div class="g4 mantem">${c.stats.map((s) => `<div class="card bloco stat"><b>${esc(s.num)}</b><span class="mono">${esc(s.label)}</span></div>`).join('')}</div>
+  <div class="g2" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
+    <section class="card bloco"><h2 class="mono">${esc(c.expTitle)}</h2>${c.timeline.map((e) => `<div class="linha"><span class="mono">${esc(e.period)}</span><div><h3>${esc(e.company)}</h3><span class="mono" style="color:var(--ouro)">${esc(e.company === 'Kaya Mind' ? cargoKaya : e.role)} · ${esc(e.place)}</span><p style="margin-top:8px;color:var(--fg2)">${esc(e.desc)}</p></div></div>`).join('')}</section>
+    <div style="display:grid;gap:var(--gap);align-content:start">
+      <section class="card bloco"><h2 class="mono">${esc(c.skillsTitle)}</h2>${barras(c.skills)}</section>
+      <section class="card bloco"><h2 class="mono">${esc(c.langTitle)}</h2>${barras(c.languages)}</section>
+      <section class="card bloco"><h2 class="mono">${esc(c.toolsTitle)}</h2><ul class="etiquetas">${c.tools.map((x) => `<li>${esc(x.label)}</li>`).join('')}</ul><h2 class="mono" style="margin-top:10px">${esc(c.aiTitle)}</h2><ul class="etiquetas">${c.aiTools.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+    </div>
+  </div>`;
+  return casca(lang, 'cv', c.title, corpo);
+};
+
+// ---------- CONTATO ----------
+paginas.contato = (lang) => {
+  const T = DICTL(lang), p = T.contatoPage;
+  const opts = T.projectTypes.map((x) => `<option>${esc(x)}</option>`).join('');
+  const corpo = `${cab(p.kicker, p.title, p.text)}
+  <div class="g2" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)">
+    <form class="card bloco form" id="form" novalidate>
+      <label><span class="mono">${esc(p.fName)}</span><input name="nome" autocomplete="name" placeholder="${esc(p.phName)}" required></label>
+      <label><span class="mono">${esc(p.fEmail)}</span><input name="email" type="email" autocomplete="email" required></label>
+      <label><span class="mono">${esc(p.fType)}</span><select name="tipo">${opts}</select></label>
+      <label><span class="mono">${esc(p.fMsg)}</span><textarea name="msg" placeholder="${esc(p.phMsg)}"></textarea></label>
+      <button class="btn btn--ouro" type="submit" style="justify-self:start">${esc(p.send)}</button>
+    </form>
+    <div style="display:grid;gap:var(--gap);align-content:start">
+      <div class="card bloco aviso" id="aviso" role="status"><h3 class="mono tag-ouro">${esc(p.sentTitle)}</h3><p>${esc(p.sentText)}</p></div>
+      <div class="card bloco"><h2 class="mono tag-ouro">${esc(p.availTitle)}</h2><p>${esc(p.availText)}</p>
+        <ul class="canais"><li><a href="mailto:${D.LINKS.email}">${D.LINKS.email}</a></li><li><a href="${D.LINKS.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="${D.LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${D.LINKS.instagram}" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+  </div>`;
+  const js = `<script>(function(){var f=document.getElementById('form');f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f),t=${JSON.stringify(lang === 'pt' ? 'Oi Gustavo, sou ' : "Hi Gustavo, I'm ")}+d.get('nome')+'. '+${JSON.stringify(lang === 'pt' ? 'Projeto: ' : 'Project: ')}+d.get('tipo')+'. '+d.get('msg')+' ('+d.get('email')+')';window.open('https://wa.me/5531971422346?text='+encodeURIComponent(t),'_blank','noopener');document.getElementById('aviso').classList.add('on')})})();</script>`;
+  return casca(lang, 'contato', p.title, corpo, js);
+};
+
+// ---------- SUBPÁGINAS DE PROJETOS ----------
+paginas.relatorios = (lang) => {
+  const p = DICTL(lang).anuariosPage;
+  const itens = D.ANUARIOS.map((a) => `<article class="ficha"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro">${esc(a.edicao[lang])} · ${esc(a.year)}</span><h3>${esc(a.title[lang])}</h3><p class="tema">${esc(a.tema[lang])}</p><p>${esc((a.desc[lang] || [])[0] || '')}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`).join('\n  ');
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
+};
+paginas.ebooks = (lang) => {
+  const s = D.EBOOK_SERIES[0], L = lang === 'pt' ? 'Pt' : 'En';
+  const itens = s.items.map((b) => `<a class="card card--img item item--alto" href="${esc(b.url)}" target="_blank" rel="noopener"><img src="/${b.src}" alt="" loading="lazy"><span class="mono ano">${esc(b.year)}</span><span class="rot"><b>${esc(b.title)}</b></span></a>`).join('\n    ');
+  return casca(lang, 'projetos', 'E-books', `${cab('E-books · Kaya Mind', s.name, s['desc' + L], `<a class="btn btn--ouro" href="${esc(s.site)}" target="_blank" rel="noopener">${esc(s['siteLabel' + L])}</a>`)}\n  <div class="g4">\n    ${itens}\n  </div>`);
+};
+paginas.culturais = (lang) => {
+  const p = DICTL(lang).culturaisPage;
+  const itens = D.CULTURAIS.map((c) => `<article class="ficha"><a class="card card--img capa" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="/${c.poster}" alt="" loading="lazy"></a><div class="card bloco"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h3>${esc(c.title[lang])}</h3><p class="tema">${esc(c.tema[lang])}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)}</a></div></article>`).join('\n  ');
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
+};
+paginas.logos = (lang) => {
+  const p = DICTL(lang).logosPage, L = lang === 'pt' ? 'Pt' : 'En';
+  const marcas = D.LOGO_BRANDS.map((b) => `<article class="card card--img item item--img-contida" style="background:${b.tint}"><img src="/${b.big}" alt="${esc(b.name)}" loading="lazy" style="background:${b.tint}"><span class="rot"><b>${esc(b.name)}</b><span class="mono">${esc(b['tag' + L])}</span></span></article>`);
+  const solos = D.LOGO_SOLOS.map((b) => `<article class="card card--img item item--img-contida"><img src="/${b.src}" alt="${esc(b.name)}" loading="lazy" style="background:${b.tint}"><span class="rot"><b>${esc(b.name)}</b><span class="mono">${esc(b['tag' + L])}</span></span></article>`);
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${[...marcas, ...solos].join('\n    ')}\n  </div>`);
+};
+paginas.ilustracao = (lang) => {
+  const imgs = D.ILUSTRA.map((i) => `<figure><img src="/${i.src}" alt="" loading="lazy" style="aspect-ratio:${i.r}"></figure>`).join('');
+  return casca(lang, 'projetos', lang === 'pt' ? 'Ilustração' : 'Illustration', `${cab(lang === 'pt' ? 'Ilustração autoral' : 'Original illustration', lang === 'pt' ? 'Ilustração' : 'Illustration', '')}\n  <div class="galeria">${imgs}</div>`);
+};
+
+
+// ---------- CASES (página de cada case) ----------
+const DADOS_CASE = { runpace: D.RUNPACE, 'kaya-doc': D.KAYA_DOC, 'yerba-fina': D.YERBA, hercules: D.HERCULES, 'jimi-oliver': D.JIMI, othelo: D.OTHELO, 'gustavo-albino': D.GA_MARCA };
+function imagensDoCase(id) {
+  const raiz = new URL('../public/assets/cases/' + id + '/', import.meta.url);
+  const lista = [];
+  const ler = (dir, pre) => { for (const e of fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name, 'en', { numeric: true }))) {
+    if (e.isDirectory()) ler(new URL(e.name + '/', dir), pre + e.name + '/');
+    else if (/\.(webp|png|jpg|mp4)$/.test(e.name) && !/^(capa|card-cover|hero)/.test(e.name)) lista.push('assets/cases/' + id + '/' + pre + e.name); } };
+  ler(raiz, '');
+  return lista;
+}
+function secoes(t) {
+  const out = [];
+  for (const k of Object.keys(t)) {
+    if (!k.endsWith('Title') || k === 'principioTitle' && false) continue;
+    const p = k.slice(0, -5), v = t[k];
+    const paras = [];
+    if (typeof t[p] === 'string') paras.push(t[p]);
+    for (const suf of ['Paras', 'Note', 'Desc']) { const x = t[p + suf]; if (Array.isArray(x)) paras.push(...x); else if (typeof x === 'string') paras.push(x); }
+    out.push({ kicker: t[p + 'Kicker'], title: v, paras, items: t[p + 'Items'] });
+  }
+  // Kaya Doc: as versões 1 e 2 contam a história do produto e ficam no fim, antes do papel
+  const fim = out.filter((x) => /^v[12]/.test(x.kicker || '') && false);
+  return out;
+}
+paginas.casos = (lang, id) => {
+  const c = D.CASES.find((x) => x.id === id), dados = DADOS_CASE[id], t = dados[lang];
+  const tag = t.tag || t.tipo || c.typeLabel[lang];
+  const titulo = t.title || c.title[lang];
+  const ficha = (t.ficha || []).map((f) => `<div class="card bloco"><span class="mono">${esc(f.k)}</span><b style="color:var(--fg);font-weight:600">${esc(f.v)}</b></div>`).join('');
+  const sec = secoes(t).map((s) => `<section class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2 class="disp" style="font-size:clamp(26px,3.4vw,48px);line-height:.95">${esc(s.title)}</h2>${s.paras.map((x) => `<p style="max-width:70ch;color:var(--fg2)">${esc(x)}</p>`).join('')}${(s.items || []).map((i) => `<p style="max-width:70ch"><b style="color:var(--fg)">${esc(i.t)}.</b> <span style="color:var(--fg2)">${esc(i.d)}</span></p>`).join('')}</section>`).join('\n  ');
+  const cores = (dados.cores || []).filter((x) => x.hex).map((x) => `<div class="card bloco" style="padding:0"><span style="display:block;height:84px;background:${x.hex};border-bottom:var(--bw) solid var(--tinta)"></span><div style="padding:10px 14px"><b style="color:var(--fg)">${esc(x.nome || '')}</b><br><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div></div>`).join('');
+  const imgs = imagensDoCase(id).map((src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline style="width:100%"></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`)).join('');
+  const rot = lang === 'pt' ? { img: 'Imagens do projeto', cor: 'Paleta', ficha: 'Ficha', back: 'Voltar aos cases' } : { img: 'Project images', cor: 'Palette', ficha: 'Details', back: 'Back to cases' };
+  const corpo = `<section class="card cab" id="topo" style="position:relative"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes"><a class="btn btn--ghost" href="${href(lang, 'cases')}">← ${rot.back}</a>${t.site || t.linkLabel ? '' : ''}</div></section>
+  <div class="g4 mantem">${ficha}</div>
+  ${sec}
+  ${cores ? `<div class="rotulo"><b>${rot.cor}</b><hr></div><div class="g4 mantem">${cores}</div>` : ''}
+  ${imgs ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${imgs}</div>` : ''}
+  <section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(24px,3vw,44px)">${esc(t.cta || (lang === 'pt' ? 'Vamos conversar?' : "Let's talk?"))}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(t.ctaBtn || (lang === 'pt' ? 'Vamos conversar' : "Let's talk"))}</a></section>`;
+  return casca(lang, 'cases', titulo, corpo);
+};
+
+function gravar(rota, html) {
+  const arq = new URL(arquivoDe(rota), SAIDA);
+  fs.mkdirSync(new URL('./', arq), { recursive: true });
+  fs.writeFileSync(arq, html);
+}
+for (const lang of ['pt', 'en']) {
+  for (const [nome, fn] of Object.entries(paginas)) {
+    if (nome === 'casos') continue;
+    ctx = { chave: nome };
+    gravar(caminho(lang, nome), fn(lang));
+  }
+  for (const c of D.CASES) { ctx = { chave: 'caso', caseId: c.id }; gravar(caminho(lang, 'caso', c.id), paginas.casos(lang, c.id)); }
+}
+
+// ---------- HOME: modelo em tools/modelos/home.html; EN derivada do PT ----------
+{
+  const rodape = (lang) => { ctx = { chave: 'cases' }; return paginas.cases(lang).match(/<footer[\s\S]*?<\/footer>/)[0]; };
+  const modelo = fs.readFileSync(new URL('./modelos/home.html', import.meta.url), 'utf8');
+  const montar = (lang, html) => { ctx = { chave: 'home' }; return html.replace('<!--HEAD-->', cabecalho(lang)).replace('</head>', '<script src="/analytics.js" defer></script>\n</head>'); };
+  const pt = montar('pt', modelo.replace(/<footer[\s\S]*?<\/footer>/, rodape('pt')));
+  gravar('', pt);
+  const E = D.DICT.en;
+  const trocar = (m, p) => p === '/' ? '/en' : (Object.values(ROTA).find((r) => '/' + r[0] === p) ? '/' + Object.values(ROTA).find((r) => '/' + r[0] === p)[1] : p.startsWith('/cases/') ? '/en' + p : p);
+  let en = modelo.replace(/<footer[\s\S]*?<\/footer>/, rodape('en'))
+    .replace('lang="pt-BR"', 'lang="en"')
+    .replace(/(href=|href:)"(\/[^"]*)"/g, (m, a, p) => (/^\/(ds-v2|assets)/.test(p) ? m : `${a}"${trocar(m, p)}"`))
+    .replace('<a href="/en" aria-current="true">PT</a><a href="/en">EN</a>', '<a href="/">PT</a><a href="/en" aria-current="true">EN</a>')
+    .replace('<a href="/">PT</a><a href="/en">EN</a>', '<a href="/">PT</a><a href="/en" aria-current="true">EN</a>')
+    .replace('>Projetos</a></li><li><a href="/en/services">Serviços</a></li><li><a href="/en/about">Sobre</a>', '>Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/about">About</a>')
+    .replace('>Contato</a>\n    </div>', '>Contact</a>\n    </div>')
+    .replace('Gustavo Albino, página inicial', 'Gustavo Albino, home')
+    .replace('aria-label="Principal"', 'aria-label="Main"').replace('aria-label="Idioma"', 'aria-label="Language"')
+    .replace('aria-label="Últimos trabalhos"', 'aria-label="Latest work"').replace('aria-label="Apresentação"', 'aria-label="Introduction"')
+    .replace('Mais de 10 anos de design. Hoje, mais de 3.000 profissionais de saúde usam o que eu desenho.', 'Over 10 years in design. Today, more than 3,000 health professionals use what I design.')
+    .replace('>Ver trabalhos<', '>View work<').replace('>Vamos conversar<', ">Let's talk<")
+    .replace('<b>Competências</b>', '<b>Expertise</b>').replace('Ver serviços →', 'View services →')
+    .replace('Kaya Doc · Produto digital', 'Kaya Doc · Digital product')
+    .replace('<b>Branding e identidade</b>', '<b>Branding & Identity</b>').replace('<b>Produto digital</b>', '<b>Digital Product</b>').replace('<b>Editorial e dataviz</b>', '<b>Editorial & Dataviz</b>').replace('<b>Direção criativa</b>', '<b>Creative Direction</b>')
+    .replace('Marcas, logos, sistema visual e manual.', 'Brands, logos, visual systems and guidelines.').replace('UI, UX, apps e design systems.', 'UI, UX, apps and design systems.').replace('Anuários, relatórios e Power BI.', 'Yearbooks, reports and Power BI.').replace('Marcas, campanhas e eventos.', 'Brands, campaigns and events.');
+  gravar('en', montar('en', en));
+}
+
+// ---------- sitemap.xml ----------
+{
+  const hoje = new Date().toISOString().slice(0, 10);
+  const chaves = [...Object.keys(ROTA).map((k) => [k]), ...D.CASES.map((c) => ['caso', c.id])];
+  const url = (l, [k, id]) => SITE + '/' + caminho(l, k, id);
+  const itens = [];
+  for (const par of chaves) for (const l of ['pt', 'en']) {
+    itens.push(`  <url>
+    <loc>${url(l, par)}</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="${url('pt', par)}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${url('en', par)}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${url('pt', par)}"/>
+    <lastmod>${hoje}</lastmod>
+  </url>`);
+  }
+  fs.writeFileSync(new URL('sitemap.xml', SAIDA), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${itens.join('\n')}
+</urlset>
+`);
+}
+console.log('páginas geradas');

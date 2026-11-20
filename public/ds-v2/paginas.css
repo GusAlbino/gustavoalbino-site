@@ -1,0 +1,97 @@
+/* Gustavo Albino · D.S. v3 · padrões das páginas internas.
+   Carrega depois de tokens.css e componentes.css. Home tem layout próprio (dobra única); estas são as demais páginas. */
+
+.pagina{padding:var(--gap);display:grid;gap:var(--gap);max-width:1680px;margin:0 auto}
+.topo{display:grid;grid-template-columns:minmax(200px,1fr) 5fr;gap:var(--gap);height:84px}
+
+/* ---------- cabeçalho de página: tag amarela, título grande branco, introdução ---------- */
+.cab{padding:clamp(22px,3.2vw,44px);display:grid;gap:14px;align-content:end;min-height:240px}
+.cab h1{font-size:clamp(44px,8.4vw,132px);line-height:.88;letter-spacing:-.035em;color:#FFFFFF}
+.cab .intro{margin:0;max-width:64ch;font-size:clamp(15px,1.3vw,18px);color:var(--fg2)}
+.cab .acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+/* ---------- grades ---------- */
+.g2,.g3,.g4{display:grid;gap:var(--gap);min-width:0}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bloco{padding:clamp(18px,2.2vw,30px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.bloco h2,.bloco h3{margin:0;color:var(--fg)}
+.bloco p{margin:0}
+.bloco .mono{color:var(--muted)}
+
+/* ---------- card de imagem com legenda (cases, projetos) ---------- */
+.item{aspect-ratio:4/3}
+.item .rot{display:block;padding:10px 13px}
+.item .rot b{display:block;font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(15px,1.5vw,21px);line-height:1.05}
+.item .rot .mono{display:block;margin-top:4px;font-size:10px;color:var(--fg2)}
+.item .rot p{margin:6px 0 0;font-size:13px;line-height:1.35;color:var(--fg2)}
+.item .ano{position:absolute;z-index:2;top:12px;right:12px;padding:5px 9px;border-radius:var(--r-tag);background:rgba(0,0,0,.58);color:var(--ouro);border:2px solid rgba(248,239,232,.55)}
+.item--alto{aspect-ratio:3/4}
+.item--img-contida>img{object-fit:contain;background:#000;padding:8%}
+
+/* ---------- filtros ---------- */
+.filtros{display:flex;gap:10px;flex-wrap:wrap}
+.filtros button{font:700 11px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg);background:var(--escuro);border:var(--bw) solid var(--tinta);border-radius:var(--r-btn);padding:11px 14px;cursor:pointer;box-shadow:var(--sombra-btn);transition:transform .12s,box-shadow .12s}
+.filtros button:hover{transform:translate(-2px,-2px);box-shadow:var(--sombra-btn-h)}
+.filtros button[aria-pressed="true"]{background:var(--ouro);color:#000}
+
+/* ---------- serviços ---------- */
+.servico .num{font-family:var(--font-display);font-weight:900;font-size:clamp(44px,5vw,72px);line-height:.9;color:var(--hl-text);letter-spacing:-.04em}
+.servico h3{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(18px,1.7vw,24px);line-height:1.05}
+.servico .btn{align-self:flex-start;margin-top:auto}
+.servico p{color:var(--fg2)}
+
+/* ---------- contato ---------- */
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:6px}
+.form input,.form select,.form textarea{width:100%;font:500 15px/1.4 var(--font-body);color:var(--fg);background:var(--bg);border:var(--bw) solid var(--tinta);border-radius:var(--r-tag);padding:12px 14px}
+.form textarea{min-height:150px;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--ouro);outline-offset:2px}
+.canais{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.canais a{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg);font-weight:600;transition:transform .2s,color .2s}
+.canais a::after{content:"→";color:var(--hl-text)}
+.canais a:hover{transform:translateX(8px);color:var(--hl-text)}
+.aviso{display:none;border-color:var(--ouro)}
+.aviso.on{display:flex}
+
+/* ---------- sobre ---------- */
+.sobre-foto{min-height:420px}
+.texto-longo{display:grid;gap:16px;font-size:clamp(15px,1.25vw,18px);line-height:1.6}
+.texto-longo p{margin:0;max-width:68ch}
+.texto-longo p:first-child{font-family:var(--font-display);font-weight:800;color:var(--fg);font-size:clamp(20px,2.2vw,32px);line-height:1.15;text-transform:none;letter-spacing:-.01em}
+
+/* ---------- currículo ---------- */
+.stat b{display:block;font-family:var(--font-display);font-weight:900;font-size:clamp(40px,5vw,72px);line-height:.9;color:var(--ouro)}
+.linha{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.linha:last-child{border-bottom:0}
+.linha h3{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:18px;letter-spacing:-.01em;color:var(--fg)}
+.linha .mono{color:var(--hl-text)}
+.barras{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.barras li{display:grid;gap:6px}
+.barras span{display:flex;justify-content:space-between;font-size:14px;color:var(--fg)}
+.barras i{display:block;height:10px;border:2px solid var(--tinta);border-radius:3px;background:rgba(248,239,232,.12);overflow:hidden}
+.barras i b{display:block;height:100%;background:var(--ouro)}
+.etiquetas{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.etiquetas li{padding:7px 11px;border:2px solid var(--tinta);border-radius:var(--r-tag);background:var(--bg);color:var(--fg);font-size:13px;font-weight:600}
+
+/* ---------- galerias ---------- */
+.galeria{columns:3 260px;column-gap:var(--gap)}
+.galeria figure{margin:0 0 var(--gap);break-inside:avoid;border:var(--bw) solid var(--tinta);border-radius:var(--r-card);box-shadow:var(--sombra);overflow:hidden;background:var(--tinta)}
+.galeria img{width:100%;height:auto}
+.ficha{display:grid;grid-template-columns:minmax(180px,.55fr) 1.45fr;gap:var(--gap)}
+.ficha .capa{min-height:300px}
+.ficha h3{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(20px,2.2vw,32px);line-height:1}
+.ficha .tema{white-space:pre-line;color:var(--hl-text);font-weight:600}
+
+@media (max-width:960px){
+  .topo{grid-template-columns:1fr;height:auto;grid-template-rows:72px 56px}
+  .topo .navbar{padding:0 8px 0 18px;overflow-x:auto;scrollbar-width:none}.topo .navbar::-webkit-scrollbar{display:none}
+  .topo .navbar ul{gap:18px;white-space:nowrap}.topo .navbar .dir{margin-left:18px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .g4.mantem{grid-template-columns:1fr 1fr}
+  .linha{grid-template-columns:1fr;gap:6px}
+  .ficha{grid-template-columns:1fr}
+  .cab{min-height:180px}
+}
+@media (min-width:961px) and (max-width:1200px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}

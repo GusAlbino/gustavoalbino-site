@@ -1,0 +1,55 @@
+/* Gustavo Albino · D.S. v3 · componentes compartilhados por todas as páginas.
+   Carrega depois de tokens.css. Cada página usa: .logo + .navbar (topo), .rotulo (título de seção) e .rodape. */
+
+/* ---------- logo e navegação ---------- */
+.logo{display:flex;align-items:center;gap:12px;padding:0 18px}
+.logo img{width:52px;height:52px;flex:none}
+.logo span{font-size:clamp(10px,6cqw,14px);white-space:nowrap}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 14px 0 26px;overflow:visible}
+.navbar ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(14px,2.4vw,34px)}
+.navbar ul a{text-decoration:none;color:var(--fg);padding:8px 0;border-bottom:3px solid transparent;transition:border-color .2s,color .2s}
+.navbar ul a:hover,.navbar ul a:focus-visible,.navbar ul a[aria-current="page"]{border-color:var(--hl);color:var(--hl-text)}
+.navbar .dir{display:flex;align-items:center;gap:10px}
+.navbar .btn{padding:12px 16px}
+/* seletor de idioma (PT/EN) no lugar do antigo botão de modo */
+.idioma{display:inline-flex;border:var(--bw) solid var(--tinta);border-radius:var(--r-btn);overflow:hidden;box-shadow:var(--sombra-btn)}
+.idioma a{font:700 11px/1 var(--font-mono);letter-spacing:.12em;text-decoration:none;color:var(--fg);padding:11px 12px;background:var(--escuro)}
+.idioma a[aria-current="true"]{background:var(--ouro);color:#000}
+
+/* ---------- rótulo de seção: ponto + título branco + linha tracejada + link em vermilion ---------- */
+.rotulo{display:flex;align-items:center;gap:14px;color:var(--fg);padding:0 4px}
+.rotulo b{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;font-size:13px;display:inline-flex;align-items:center;gap:8px;color:var(--fg)}
+.rotulo b::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--fg)}
+.rotulo hr{flex:1;border:0;height:0;border-top:3px dashed var(--muted);opacity:.7;margin:0}
+.rotulo a{text-decoration:none;color:var(--hl-text);font-weight:700}
+.rotulo a:hover{color:var(--ouro)}
+
+/* ---------- rodapé: um quadro escuro; o contato é o único bloco em destaque ---------- */
+.rodape{margin:0 var(--gap) var(--gap);padding:clamp(18px,2vw,28px);display:grid;gap:22px 28px;grid-template-columns:1.1fr 1fr 1fr .8fr 1.9fr;grid-template-areas:"marca cases proj site fale" "base base base base base"}
+.rodape .col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.f-marca{grid-area:marca;justify-content:space-between}
+.f-marca img{width:40px;height:40px}
+.f-marca p{margin:0;font-size:13px;line-height:1.4;color:var(--fg2);max-width:34ch}
+.f-cases{grid-area:cases}.f-proj{grid-area:proj}.f-site{grid-area:site}
+.rodape h2{margin:0 0 4px;color:var(--muted)}
+.rodape ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
+.rodape ul a{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg);font-size:13px;transition:transform .2s,color .2s}
+.rodape ul a::after{content:"→";color:var(--hl-text);opacity:0;transition:opacity .2s}
+.rodape ul a:hover{transform:translateX(6px);color:var(--hl-text)}.rodape ul a:hover::after{opacity:1}
+.f-fale{grid-area:fale;background:var(--hl);color:#000;border:var(--bw) solid var(--tinta);border-radius:var(--r-tag);box-shadow:4px 4px 0 var(--tinta);padding:16px 18px;justify-content:space-between}
+.f-fale h2,.f-fale a,.f-fale p{color:#000}
+.f-fale a{text-decoration:none}
+.f-fale .grande{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(18px,1.7vw,26px);line-height:1;margin:0;white-space:nowrap}
+.f-fale .mail{font-family:var(--font-mono);font-weight:700;font-size:clamp(15px,1.25vw,18px);line-height:1.2;text-transform:lowercase;overflow-wrap:anywhere}
+.f-fale ul a{border-color:rgba(0,0,0,.3);font-size:15px;padding:6px 0}
+.f-fale ul a::after,.f-fale ul a:hover{color:#000}
+.f-base{grid-area:base;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:14px;border-top:3px dashed var(--line);color:var(--muted)}
+.f-base a{text-decoration:none}.f-base a:hover{color:var(--hl-text)}
+@media (max-width:960px){
+  .rodape{grid-template-columns:1fr 1fr;grid-template-areas:"marca marca" "cases proj" "site site" "fale fale" "base base"}
+}
+
+/* ---------- entrada em sequência ---------- */
+@keyframes entra{from{opacity:0;transform:translateY(26px) scale(.97)}}
+.rodape.rev{opacity:0;transform:translateY(32px)}
+.rodape.rev.vis{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease)}
