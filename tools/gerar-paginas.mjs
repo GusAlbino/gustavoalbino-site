@@ -229,8 +229,25 @@ paginas.logos = (lang) => {
   const solos = D.LOGO_SOLOS.map((b) => `<article class="card card--img item item--img-contida"><img src="/${b.src}" alt="${esc(b.name)}" loading="lazy" style="background:${b.tint}"><span class="rot"><b>${esc(b.name)}</b><span class="mono">${esc(b['tag' + L])}</span></span></article>`);
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${[...marcas, ...solos].join('\n    ')}\n  </div>`);
 };
+// proporção de uma imagem WebP, lida do cabeçalho do arquivo; a galeria usa para fechar cada linha sem buraco
+function proporcao(src) {
+  if (src.endsWith('.mp4')) return 16 / 9;
+  try {
+    const f = fs.openSync(new URL(src, SAIDA), 'r'), b = Buffer.alloc(32); fs.readSync(f, b, 0, 32, 0); fs.closeSync(f);
+    const t = b.toString('ascii', 12, 16); let w, h;
+    if (t === 'VP8 ') { w = b.readUInt16LE(26) & 0x3fff; h = b.readUInt16LE(28) & 0x3fff; }
+    else if (t === 'VP8L') { w = 1 + (b[21] | ((b[22] & 0x3f) << 8)); h = 1 + ((b[22] >> 6) | (b[23] << 2) | ((b[24] & 0xf) << 10)); }
+    else if (t === 'VP8X') { w = 1 + b.readUIntLE(24, 3); h = 1 + b.readUIntLE(27, 3); }
+    return w && h ? w / h : 1.5;
+  } catch { return 1.5; }
+}
+const fig = (src, extra = '') => {
+  const r = proporcao(src).toFixed(3);
+  const m = src.endsWith('.mp4') ? `<video src="/${src}" controls preload="none" playsinline></video>` : `<img src="/${src}" alt="" loading="lazy"${extra}>`;
+  return `<figure style="--r:${r}">${m}</figure>`;
+};
 paginas.ilustracao = (lang) => {
-  const imgs = D.ILUSTRA.map((i) => `<figure><img src="/${i.src}" alt="" loading="lazy" style="aspect-ratio:${i.r}"></figure>`).join('');
+  const imgs = D.ILUSTRA.map((i) => fig(i.src)).join('');
   return casca(lang, 'projetos', lang === 'pt' ? 'Ilustração' : 'Illustration', `${cab(lang === 'pt' ? 'Ilustração autoral' : 'Original illustration', lang === 'pt' ? 'Ilustração' : 'Illustration', '')}\n  <div class="galeria">${imgs}</div>`);
 };
 
@@ -296,7 +313,7 @@ paginas.casos = (lang, id) => {
   const todas = imagensDoCase(id);
   const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
   const { por, sobra } = distribuir(secs, todas.filter((s) => !telasExt.includes(s) && !telasLog.includes(s)));
-  const galeria = (srcs) => `<div class="galeria">${srcs.map((src) => `<figure><img src="/${src}" alt="" loading="lazy"></figure>`).join('')}</div>`;
+  const galeria = (srcs) => `<div class="galeria">${srcs.map((src) => fig(src)).join('')}</div>`;
   const telas = (telasExt.length ? `<div class="rotulo" id="telas"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
   const blocos = secs.map((s, i) => {
     const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}</div>`;
@@ -312,7 +329,7 @@ paginas.casos = (lang, id) => {
   ${blocos}
   ${telas}
   ${cores ? `<div class="rotulo"><b>${rot.cor}</b><hr></div><div class="g4 mantem">${cores}</div>` : ''}
-  ${sobra.length ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${sobra.map((src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline style="width:100%"></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`)).join('')}</div>` : ''}
+  ${sobra.length ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${sobra.map((src) => fig(src)).join('')}</div>` : ''}
   <section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(t.cta || (lang === 'pt' ? 'Vamos conversar?' : "Let's talk?"))}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(t.ctaBtn || (lang === 'pt' ? 'Vamos conversar' : "Let's talk"))}</a></section>`;
   return casca(lang, 'cases', titulo, corpo);
 };

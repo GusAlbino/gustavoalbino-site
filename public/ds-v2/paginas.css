@@ -80,9 +80,11 @@
 .etiquetas li{padding:7px 11px;border:2px solid var(--tinta);border-radius:var(--r-tag);background:var(--bg);color:var(--fg);font-size:13px;font-weight:600}
 
 /* ---------- galerias ---------- */
-.galeria{columns:3 260px;column-gap:var(--gap)}
-.galeria figure{margin:0 0 var(--gap);break-inside:avoid;border:var(--bw) solid var(--tinta);border-radius:var(--r-card);box-shadow:var(--sombra);overflow:hidden;background:var(--tinta)}
-.galeria img{width:100%;height:auto}
+/* linhas justificadas: cada imagem cresce pela sua proporção, então a linha fecha sem buraco e sem corte */
+.galeria{display:flex;flex-wrap:wrap;gap:var(--gap)}
+.galeria::after{content:"";flex-grow:1000}
+.galeria figure{margin:0;flex:var(--r,1.5) 1 calc(var(--r,1.5) * 230px);min-width:0;border:var(--bw) solid var(--tinta);border-radius:var(--r-card);box-shadow:var(--sombra);overflow:hidden;background:var(--tinta)}
+.galeria img,.galeria video{width:100%;height:auto;display:block}
 .ficha{display:grid;grid-template-columns:clamp(180px,20vw,280px) minmax(0,1fr);gap:var(--gap);align-items:start}
 .ficha .capa{aspect-ratio:5/7;min-height:0}
 .ficha h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(18px,1.6vw,24px);line-height:1.05}
