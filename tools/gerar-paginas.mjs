@@ -142,7 +142,7 @@ paginas.projetos = (lang) => {
 paginas.servicos = (lang) => {
   const T = DICTL(lang), p = T.servPage;
   const f = chips(lang, [{ key: 'all', rot: lang === 'pt' ? 'Tudo' : 'All' }, ...T.services.map((s) => ({ key: s.num, rot: s.title }))], '#lista');
-  const cards = T.services.map((s) => `<article class="card bloco servico" data-cat="${s.num}"><span class="num">${esc(s.num)}</span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
+  const cards = T.services.map((s) => `<article class="card bloco servico" data-cat="${s.num}"><span class="num">${esc(s.num)}</span><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
   return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro, '', f)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
@@ -156,7 +156,7 @@ paginas.sobre = (lang) => {
     <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-pedra-grande.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
     <div class="card bloco"><div class="texto-longo">${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div>
   </div>
-  <div class="g4 mantem" data-cat="entrega">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></article>`).join('')}</div>
+  <div class="g4 mantem" data-cat="entrega">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h2>${esc(x.title)}</h2><p>${esc(x.desc)}</p></article>`).join('')}</div>
   </div>`;
   return casca(lang, 'sobre', s.kicker, corpo);
 };
@@ -193,7 +193,7 @@ paginas.contato = (lang) => {
       <button class="btn btn--ouro" type="submit" style="justify-self:start">${esc(p.send)}</button>
     </form>
     <div style="display:grid;gap:var(--gap);align-content:start">
-      <div class="card bloco aviso" id="aviso" role="status"><h3 class="mono tag-ouro">${esc(p.sentTitle)}</h3><p>${esc(p.sentText)}</p></div>
+      <div class="card bloco aviso" id="aviso" role="status"><h2 class="mono tag-ouro">${esc(p.sentTitle)}</h2><p>${esc(p.sentText)}</p></div>
       <div class="card bloco"><h2 class="mono tag-ouro">${esc(p.availTitle)}</h2><p>${esc(p.availText)}</p>
         <ul class="canais"><li><a href="mailto:${D.LINKS.email}">${D.LINKS.email}</a></li><li><a href="${D.LINKS.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="${D.LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${D.LINKS.instagram}" target="_blank" rel="noopener">Instagram</a></li></ul></div>
     </div>
@@ -209,7 +209,7 @@ paginas.relatorios = (lang) => {
     const fichaHtml = (a.ficha || []).length ? `<div class="ficha-mini">${a.ficha.map((f) => `<div><span class="mono">${esc(f.k[lang])}</span><b>${esc(f.v[lang])}</b></div>`).join('')}</div>` : '';
     const statsHtml = (a.stats || []).length ? `<div class="stats-mini">${a.stats.map((s) => `<div><b>${esc(s.num)}</b><span>${esc(s.label[lang])}</span></div>`).join('')}</div>` : '';
     const imgsHtml = (a.imgs || []).length ? `<div class="thumbs">${a.imgs.map((i) => `<figure><img src="/${i.src}" alt="${esc(i.alt[lang])}" loading="lazy"></figure>`).join('')}</div>` : '';
-    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro">${esc(a.edicao[lang])} · ${esc(a.year)}</span><h3>${esc(a.title[lang])}</h3><p class="tema">${esc(a.tema[lang])}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
+    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro">${esc(a.edicao[lang])} · ${esc(a.year)}</span><h2>${esc(a.title[lang])}</h2><p class="tema">${esc(a.tema[lang])}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
   }).join('\n  ');
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
 };
@@ -220,7 +220,7 @@ paginas.ebooks = (lang) => {
 };
 paginas.culturais = (lang) => {
   const p = DICTL(lang).culturaisPage;
-  const itens = D.CULTURAIS.map((c) => `<article class="ficha"><a class="card card--img capa" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="/${c.poster}" alt="" loading="lazy"></a><div class="card bloco"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h3>${esc(c.title[lang])}</h3><p class="tema">${esc(c.tema[lang])}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)}</a></div></article>`).join('\n  ');
+  const itens = D.CULTURAIS.map((c) => `<article class="ficha"><a class="card card--img capa" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="/${c.poster}" alt="" loading="lazy"></a><div class="card bloco"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h2>${esc(c.title[lang])}</h2><p class="tema">${esc(c.tema[lang])}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)}</a></div></article>`).join('\n  ');
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
 };
 paginas.logos = (lang) => {
