@@ -108,13 +108,14 @@
   </nav>
 
   <div class="card card--img feat" id="feat" role="group" aria-roledescription="carrossel" aria-label="Últimos trabalhos">
-    <img class="slide on" src="/assets/cases/runpace/capa.webp" alt="" width="1080" height="1080">
+    <img class="slide on" src="/assets/anuarios/2026-cover.webp" alt="" width="1600" height="2264" style="object-position:center 58%">
+    <img class="slide" src="/assets/cases/runpace/capa.webp" alt="" width="1080" height="1080">
     <img class="slide" src="/assets/cases/kaya-doc/capa-dark.webp" alt="" width="1080" height="1080">
     <img class="slide" src="/assets/cases/yerba-fina/hero-explore.webp" alt="" width="1080" height="1080">
-    <a class="esticar" id="fLink" href="/cases/runpace" aria-label="Abrir o case Runpace"></a>
-    <span class="chip mono" id="fTag">Runpace · Design system</span>
+    <a class="esticar" id="fLink" href="/projetos/relatorios#2026" aria-label="Abrir o relatório Anuário 2026"></a>
+    <span class="chip mono" id="fTag">Anuário 2026 · Relatório</span>
     <div class="ctrl"><button class="seta" type="button" data-d="-1" aria-label="Trabalho anterior">←</button><button class="seta" type="button" data-d="1" aria-label="Próximo trabalho">→</button></div>
-    <div class="prog" aria-hidden="true"><span class="ativo"><i></i></span><span><i></i></span><span><i></i></span></div>
+    <div class="prog" aria-hidden="true"><span class="ativo"><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
   </div>
 
   <section class="card hero" aria-label="Apresentação">
@@ -156,6 +157,7 @@
   var reduz=matchMedia("(prefers-reduced-motion: reduce)").matches;
   /* destaque rotativo: troca a cada 7s, pausa com o mouse em cima, parado se o sistema pedir menos movimento */
   var T=[
+    {tag:"Anuário 2026 · Relatório",href:"/projetos/relatorios#2026",nome:"Anuário 2026",rot:"o relatório"},
     {tag:"Runpace · Design system",href:"/cases/runpace",nome:"Runpace"},
     {tag:"Kaya Doc · Produto digital",href:"/cases/kaya-doc",nome:"Kaya Doc"},
     {tag:"Yerba Fina · Branding",href:"/cases/yerba-fina",nome:"Yerba Fina"}
@@ -173,7 +175,7 @@
     at=nx;var x=T[at];
     segs.forEach(function(g,i){g.classList.remove("ativo","feito");void g.offsetWidth;if(i<at)g.classList.add("feito");if(i===at)g.classList.add("ativo")});
     document.getElementById("fTag").textContent=x.tag;
-    var l=document.getElementById("fLink");l.href=x.href;l.setAttribute("aria-label","Abrir o case "+x.nome);
+    var l=document.getElementById("fLink");l.href=x.href;l.setAttribute("aria-label","Abrir "+(x.rot||"o case")+" "+x.nome);
   }
   /* a barra do trabalho atual enche em 7s e, ao terminar, passa para o próximo; o mouse em cima pausa */
   segs.forEach(function(g){g.querySelector("i").addEventListener("animationend",function(){if(g.classList.contains("ativo"))ir(at+1,1)})});

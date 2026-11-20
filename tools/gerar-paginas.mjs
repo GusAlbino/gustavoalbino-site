@@ -205,7 +205,12 @@ paginas.contato = (lang) => {
 // ---------- SUBPÁGINAS DE PROJETOS ----------
 paginas.relatorios = (lang) => {
   const p = DICTL(lang).anuariosPage;
-  const itens = D.ANUARIOS.map((a) => `<article class="ficha"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro">${esc(a.edicao[lang])} · ${esc(a.year)}</span><h3>${esc(a.title[lang])}</h3><p class="tema">${esc(a.tema[lang])}</p><p>${esc((a.desc[lang] || [])[0] || '')}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`).join('\n  ');
+  const itens = D.ANUARIOS.map((a) => {
+    const fichaHtml = (a.ficha || []).length ? `<div class="ficha-mini">${a.ficha.map((f) => `<div><span class="mono">${esc(f.k[lang])}</span><b>${esc(f.v[lang])}</b></div>`).join('')}</div>` : '';
+    const statsHtml = (a.stats || []).length ? `<div class="stats-mini">${a.stats.map((s) => `<div><b>${esc(s.num)}</b><span>${esc(s.label[lang])}</span></div>`).join('')}</div>` : '';
+    const imgsHtml = (a.imgs || []).length ? `<div class="thumbs">${a.imgs.map((i) => `<figure><img src="/${i.src}" alt="${esc(i.alt[lang])}" loading="lazy"></figure>`).join('')}</div>` : '';
+    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro">${esc(a.edicao[lang])} · ${esc(a.year)}</span><h3>${esc(a.title[lang])}</h3><p class="tema">${esc(a.tema[lang])}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
+  }).join('\n  ');
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
 };
 paginas.ebooks = (lang) => {
@@ -288,7 +293,11 @@ paginas.casos = (lang, id) => {
   const rot = lang === 'pt' ? { img: 'Mais imagens', cor: 'Paleta', back: 'Voltar aos cases' } : { img: 'More images', cor: 'Palette', back: 'Back to cases' };
   const ficha = (t.ficha || []).map((f) => `<div><span class="mono">${esc(f.k)}</span><b>${esc(f.v)}</b></div>`).join('');
   const secs = secoes(t);
-  const { por, sobra } = distribuir(secs, imagensDoCase(id));
+  const todas = imagensDoCase(id);
+  const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
+  const { por, sobra } = distribuir(secs, todas.filter((s) => !telasExt.includes(s) && !telasLog.includes(s)));
+  const galeria = (srcs) => `<div class="galeria">${srcs.map((src) => `<figure><img src="/${src}" alt="" loading="lazy"></figure>`).join('')}</div>`;
+  const telas = (telasExt.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
   const blocos = secs.map((s, i) => {
     const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}</div>`;
     const m = midiaHtml(por[i]);
@@ -301,6 +310,7 @@ paginas.casos = (lang, id) => {
   </div>
   <div class="card ficha-linha">${ficha}</div>
   ${blocos}
+  ${telas}
   ${cores ? `<div class="rotulo"><b>${rot.cor}</b><hr></div><div class="g4 mantem">${cores}</div>` : ''}
   ${sobra.length ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${sobra.map((src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline style="width:100%"></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`)).join('')}</div>` : ''}
   <section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(t.cta || (lang === 'pt' ? 'Vamos conversar?' : "Let's talk?"))}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(t.ctaBtn || (lang === 'pt' ? 'Vamos conversar' : "Let's talk"))}</a></section>`;
@@ -343,7 +353,7 @@ for (const lang of ['pt', 'en']) {
     .replace('Mais de 10 anos de design. Hoje, mais de 3.000 profissionais de saúde usam o que eu desenho.', 'Over 10 years in design. Today, more than 3,000 health professionals use what I design.')
     .replace('>Ver trabalhos<', '>View work<').replace('>Vamos conversar<', ">Let's talk<")
     .replace('<b>Competências</b>', '<b>Expertise</b>').replace('Ver serviços →', 'View services →')
-    .replace('Kaya Doc · Produto digital', 'Kaya Doc · Digital product')
+    .replace('Kaya Doc · Produto digital', 'Kaya Doc · Digital product').replace('Anuário 2026 · Relatório', '2026 Yearbook · Report').replaceAll('/projetos/relatorios#2026', '/en/projects/reports#2026').replace('Abrir "+(x.rot||"o case")+" "', 'Open "+(x.rot==="o relatório"?"the report":"the case")+" "').replace('Abrir o relatório Anuário 2026', 'Open the 2026 Yearbook report')
     .replace('<b>Branding e identidade</b>', '<b>Branding & Identity</b>').replace('<b>Produto digital</b>', '<b>Digital Product</b>').replace('<b>Editorial e dataviz</b>', '<b>Editorial & Dataviz</b>').replace('<b>Direção criativa</b>', '<b>Creative Direction</b>')
     .replace('Marcas, logos, sistema visual e manual.', 'Brands, logos, visual systems and guidelines.').replace('UI, UX, apps e design systems.', 'UI, UX, apps and design systems.').replace('Anuários, relatórios e Power BI.', 'Yearbooks, reports and Power BI.').replace('Marcas, campanhas e eventos.', 'Brands, campaigns and events.');
   gravar('en', montar('en', en));

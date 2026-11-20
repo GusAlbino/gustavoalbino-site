@@ -99,6 +99,16 @@
 }
 @media (min-width:961px) and (max-width:1200px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* ---------- ficha de anuário: números, ficha curta e páginas do livro ---------- */
+.stats-mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:6px}
+.stats-mini b{display:block;font-family:var(--font-display);font-weight:900;font-size:clamp(24px,2.6vw,38px);line-height:.95;color:var(--ouro);letter-spacing:-.03em}
+.stats-mini span{display:block;margin-top:4px;font-size:12px;line-height:1.3;color:var(--fg2)}
+.ficha-mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding-top:12px;border-top:3px dashed var(--line)}
+.ficha-mini>div{display:grid;gap:3px}.ficha-mini .mono{color:var(--muted)}.ficha-mini b{color:var(--fg);font-weight:600;font-size:13px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.thumbs figure{margin:0;border:var(--bw) solid var(--tinta);border-radius:var(--r-tag);box-shadow:4px 4px 0 var(--tinta);overflow:hidden;background:var(--tinta)}
+.thumbs img{width:100%;height:auto;display:block}
+
 /* ---------- página de case ---------- */
 .caso-topo{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}
 .caso-capa{min-height:260px}

@@ -295,7 +295,7 @@
    "anuariosPage": {
     "kicker": "Editorial & Dataviz · Kaya Mind",
     "title": "Anuários e Relatórios",
-    "intro": "Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Oito edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.",
+    "intro": "Relatórios de inteligência de mercado que produzi para a Kaya Mind, de 2022 até hoje. Nove edições entre anuários da cannabis medicinal, anuários de varejo canábico e um relatório temático. Cada uma transforma dado bruto em narrativa visual: capa, gráficos de crescimento e projeção, e dezenas de páginas de dataviz.",
     "ficha": "Ficha técnica",
     "verNaKaya": "Ver no site da Kaya",
     "ctaKicker": "Editorial sob medida",
@@ -677,7 +677,7 @@
    "anuariosPage": {
     "kicker": "Editorial & Dataviz · Kaya Mind",
     "title": "Yearbooks and Reports",
-    "intro": "Market intelligence reports I produced for Kaya Mind, from 2022 to today. Eight editions across medical cannabis yearbooks, cannabis retail yearbooks and one thematic report. Each turns raw data into visual narrative: cover, growth and projection charts, and dozens of pages of dataviz.",
+    "intro": "Market intelligence reports I produced for Kaya Mind, from 2022 to today. Nine editions across medical cannabis yearbooks, cannabis retail yearbooks and one thematic report. Each turns raw data into visual narrative: cover, growth and projection charts, and dozens of pages of dataviz.",
     "ficha": "Technical sheet",
     "verNaKaya": "View on the Kaya site",
     "ctaKicker": "Editorial, made to measure",
@@ -1174,6 +1174,137 @@
   }
  ],
  "ANUARIOS": [
+  {
+   "id": "2026",
+   "year": "2026",
+   "edicao": {
+    "pt": "5ª edição",
+    "en": "5th edition"
+   },
+   "accent": "#E8604C",
+   "cover": "assets/anuarios/2026-cover.webp",
+   "link": "https://kayamind.com/anuario-da-cannabis-medicinal-2026/",
+   "title": {
+    "pt": "Anuário da Cannabis Medicinal",
+    "en": "Medical Cannabis Yearbook"
+   },
+   "tema": {
+    "pt": "Raiz Brasileira:\no mercado passa de R$ 1 bilhão\ne ganha base nacional.",
+    "en": "Brazilian Roots:\nthe market passes R$ 1 billion\nand grows a national base."
+   },
+   "desc": {
+    "pt": [
+     "A quinta edição fecha o ano em que o setor passou de R$ 1 bilhão e chegou a R$ 1,14 bilhão, com mais de 1,1 milhão de pacientes. O fio condutor é a Raiz Brasileira: cultivo nacional, pesquisa e a indústria que começa a se formar dentro do país.",
+     "São 161 páginas sobre as novas regras da Anvisa, prescritores, pacientes, farmácias, importação, associações e o diretório de empresas. Fiz a direção de arte, a diagramação e os gráficos."
+    ],
+    "en": [
+     "The fifth edition closes the year the sector passed R$ 1 billion and reached R$ 1.14 billion, with over 1.1 million patients. The thread is Brazilian Roots: national cultivation, research and an industry starting to take shape inside the country.",
+     "It runs 161 pages on the new Anvisa rules, prescribers, patients, pharmacies, imports, patient associations and the company directory. I did the art direction, layout and charts."
+    ]
+   },
+   "ficha": [
+    {
+     "k": {
+      "pt": "Edição",
+      "en": "Edition"
+     },
+     "v": {
+      "pt": "5ª · anual",
+      "en": "5th · annual"
+     }
+    },
+    {
+     "k": {
+      "pt": "Páginas",
+      "en": "Pages"
+     },
+     "v": {
+      "pt": "161 páginas",
+      "en": "161 pages"
+     }
+    },
+    {
+     "k": {
+      "pt": "Tema central",
+      "en": "Core theme"
+     },
+     "v": {
+      "pt": "Raiz Brasileira",
+      "en": "Brazilian Roots"
+     }
+    },
+    {
+     "k": {
+      "pt": "Formato",
+      "en": "Format"
+     },
+     "v": {
+      "pt": "A4 retrato · digital",
+      "en": "A4 portrait · digital"
+     }
+    }
+   ],
+   "stats": [
+    {
+     "num": "R$ 1,14 bi",
+     "label": {
+      "pt": "tamanho do mercado em 2026 (+17%)",
+      "en": "market size in 2026 (+17%)"
+     }
+    },
+    {
+     "num": "1,1 mi",
+     "label": {
+      "pt": "pacientes no Brasil (+27%)",
+      "en": "patients in Brazil (+27%)"
+     }
+    },
+    {
+     "num": "248 mil",
+     "label": {
+      "pt": "pacientes atendidos por associações",
+      "en": "patients served by associations"
+     }
+    },
+    {
+     "num": "92%",
+     "label": {
+      "pt": "dos municípios já importaram",
+      "en": "of municipalities have imported"
+     }
+    }
+   ],
+   "imgs": [
+    {
+     "src": "assets/anuarios/2026-capitulo.webp",
+     "alt": {
+      "pt": "Abertura de capítulo",
+      "en": "Chapter opener"
+     }
+    },
+    {
+     "src": "assets/anuarios/2026-grafico.webp",
+     "alt": {
+      "pt": "Gráfico por porte de município",
+      "en": "Chart by municipality size"
+     }
+    },
+    {
+     "src": "assets/anuarios/2026-numeros.webp",
+     "alt": {
+      "pt": "Números em destaque",
+      "en": "Key numbers"
+     }
+    },
+    {
+     "src": "assets/anuarios/2026-numeros2.webp",
+     "alt": {
+      "pt": "Números em destaque, parte 2",
+      "en": "Key numbers, part 2"
+     }
+    }
+   ]
+  },
   {
    "id": "2025",
    "year": "2025",
