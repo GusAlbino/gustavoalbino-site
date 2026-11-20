@@ -4182,7 +4182,29 @@
    ],
    "nota": "O Kaya Doc é propriedade da Kaya Mind. As telas mostradas são do produto em uso, com dados de exemplo e conteúdo desfocado.",
    "cta": "Quer um sistema assim no seu produto?",
-   "ctaBtn": "Vamos conversar"
+   "ctaBtn": "Vamos conversar",
+   "bigNumbers": [
+    {
+     "num": "3.000+",
+     "label": "profissionais de saúde"
+    },
+    {
+     "num": "1.500+",
+     "label": "produtos catalogados"
+    },
+    {
+     "num": "200+",
+     "label": "marcas integradas"
+    },
+    {
+     "num": "250+",
+     "label": "estudos científicos"
+    },
+    {
+     "num": "100+",
+     "label": "condições médicas"
+    }
+   ]
   },
   "en": {
    "v1Kicker": "Version 1",
@@ -4273,7 +4295,29 @@
    ],
    "nota": "Kaya Doc is owned by Kaya Mind. The screens shown come from the live product, with sample data and blurred content.",
    "cta": "Want a system like this in your product?",
-   "ctaBtn": "Let's talk"
+   "ctaBtn": "Let's talk",
+   "bigNumbers": [
+    {
+     "num": "3,000+",
+     "label": "health professionals"
+    },
+    {
+     "num": "1,500+",
+     "label": "products catalogued"
+    },
+    {
+     "num": "200+",
+     "label": "brands integrated"
+    },
+    {
+     "num": "250+",
+     "label": "scientific studies"
+    },
+    {
+     "num": "100+",
+     "label": "medical conditions"
+    }
+   ]
   },
   "mapaImagens": {
    "v1": [

@@ -334,8 +334,9 @@ paginas.casos = (lang, id) => {
   }).join('\n  ');
   const cores = (dados.cores || []).filter((x) => x.hex).map((x) => `<div class="card bloco" style="padding:0"><span style="display:block;height:84px;background:${x.hex};border-bottom:var(--bw) solid var(--tinta)"></span><div style="padding:10px 14px"><b style="color:var(--fg)">${esc(x.nome || '')}</b><br><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div></div>`).join('');
   const textoTopo = `<div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1></div></div>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes">${(telasExt.length || telasLog.length) ? `<a class="btn btn--ouro" href="#telas">${lang === 'pt' ? 'Ver as telas ↓' : 'See the screens ↓'}</a>` : ''}<a class="btn btn--ghost" href="${href(lang, 'cases')}">← ${rot.back}</a></div>`;
+  const numeros = (t.bigNumbers && c.heroImage) ? `<div class="stats-mini">${t.bigNumbers.map((n) => `<div><b>${esc(n.num)}</b><span>${esc(n.label)}</span></div>`).join('')}</div>` : '';
   const topo = c.heroImage
-    ? `<section class="card caso-hero" id="topo"><div class="cab">${textoTopo}</div><img src="/${c.heroImage}" alt=""></section>`
+    ? `<section class="card caso-hero" id="topo"><div class="cab">${textoTopo}${numeros}</div><img src="/${c.heroImage}" alt=""></section>`
     : `<div class="g2 caso-topo" id="topo"><section class="card cab">${textoTopo}</section><div class="card card--img caso-capa"><img src="/${c.bgImage}" alt=""></div></div>`;
   const corpo = `${topo}
     <div class="card ficha-linha">${ficha}</div>
