@@ -150,7 +150,7 @@ const ICONES_SERVICO = [
 ];
 paginas.servicos = (lang) => {
   const T = DICTL(lang), p = T.servPage;
-  const cards = T.services.map((s, i) => `<article class="card bloco servico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
+  const cards = T.services.map((s, i) => `<article class="card bloco servico"><div class="servico-topo"><h2>${esc(s.title)}</h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg></div><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
   return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
