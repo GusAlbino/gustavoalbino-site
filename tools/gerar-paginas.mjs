@@ -166,7 +166,7 @@ paginas.cv = (lang) => {
   const T = DICTL(lang), c = T.cv;
   const cargoKaya = lang === 'pt' ? 'Senior Designer · Lead Designer do Kaya Doc' : 'Senior Designer · Lead Designer of Kaya Doc';
   const barras = (arr) => `<ul class="barras">${arr.map((x) => `<li><span>${esc(x.label)}<em class="mono" style="font-style:normal;color:var(--muted)">${x.level}/5</em></span><i><b style="width:${x.level * 20}%"></b></i></li>`).join('')}</ul>`;
-  const corpo = `${cab(c.kicker, c.title, '', `<a class="btn btn--ouro" href="/assets/gustavo-albino-cv-${lang}.pdf" download>${esc(c.downloadEN)}</a>`)}
+  const corpo = `<section class="card cab cv-intro"><span class="mono tag-ouro">${esc(c.kicker)}</span><div class="cv-linha"><div class="cv-btns"><a class="btn btn--ouro" href="/assets/gustavo-albino-cv-pt.pdf" download>${esc(c.btnPT)}</a><a class="btn btn--ghost" href="/assets/gustavo-albino-cv-en.pdf" download>${esc(c.btnEN)}</a></div><p class="intro">${esc(c.intro)}</p></div></section>
   <div class="g4 mantem">${c.stats.map((s) => `<div class="card bloco stat"><b>${esc(s.num)}</b><span class="mono">${esc(s.label)}</span></div>`).join('')}</div>
   <div class="g2" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
     <section class="card bloco"><h2 class="mono">${esc(c.expTitle)}</h2>${c.timeline.map((e) => `<div class="linha"><span class="mono">${esc(e.period)}</span><div><h3>${esc(e.company)}</h3><span class="mono" style="color:var(--ouro)">${esc(e.company === 'Kaya Mind' ? cargoKaya : e.role)} · ${esc(e.place)}</span><p style="margin-top:8px;color:var(--fg2)">${esc(e.desc)}</p></div></div>`).join('')}</section>

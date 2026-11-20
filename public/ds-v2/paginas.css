@@ -133,3 +133,10 @@
 .midia--3,.midia--4{grid-template-columns:1fr 1fr}
 .midia--3 figure:first-child{grid-column:1/-1}
 @media (max-width:960px){.caso-topo,.secao-par,.secao-par.inv{grid-template-columns:1fr}.secao-par.inv>.secao{order:0}.cab .filtros{justify-content:flex-start}}
+
+/* CV: botões à esquerda, texto introdutório ocupando o resto do quadro */
+.cv-linha{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px clamp(20px,3vw,44px);align-items:center}
+.cv-btns{display:grid;gap:10px}
+.cv-btns .btn{justify-content:center;white-space:nowrap}
+.cv-intro .intro{font-size:clamp(14px,1.08vw,16px)}
+@media (max-width:960px){.cv-linha{grid-template-columns:1fr}.cv-btns{grid-template-columns:1fr 1fr}}

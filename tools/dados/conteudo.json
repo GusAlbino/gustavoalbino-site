@@ -97,8 +97,8 @@
     "note": "+ clientes de freelancer no Brasil e no exterior"
    },
    "cv": {
-    "kicker": "Trajetória · 10+ anos",
-    "title": "Currículo",
+    "kicker": "CV · 10+ anos de design",
+    "title": "CV",
     "expTitle": "Experiência",
     "skillsTitle": "Skills",
     "langTitle": "Idiomas",
@@ -265,7 +265,10 @@
      "Lovable",
      "Manus",
      "NotebookLM"
-    ]
+    ],
+    "intro": "Designer com dez anos em branding, produto digital e editorial. Lidero o design do Kaya Doc, plataforma SaaS para prescritores de cannabis medicinal, onde respondo por um design system de 353 componentes-mestre e por um fluxo de produção que roda sobre IA. Oito anos em Sydney, quatro e meio em Lausanne, e trabalho em quatro idiomas.",
+    "btnPT": "Baixar CV em PT",
+    "btnEN": "Baixar CV em EN"
    },
    "cta": {
     "kicker": "Novos projetos",
@@ -479,8 +482,8 @@
     "note": "+ freelance clients in Brazil and abroad"
    },
    "cv": {
-    "kicker": "Résumé",
-    "title": "Digital CV",
+    "kicker": "CV · 10+ years in design",
+    "title": "CV",
     "expTitle": "Experience",
     "skillsTitle": "Skills",
     "langTitle": "Languages",
@@ -647,7 +650,10 @@
      "Lovable",
      "Manus",
      "NotebookLM"
-    ]
+    ],
+    "intro": "Designer with ten years across branding, digital product and editorial. I lead design on Kaya Doc, a SaaS platform for medical cannabis prescribers, where I own a design system of 353 master components and run an AI-first production pipeline. Eight years in Sydney, four and a half in Lausanne, and I work in four languages.",
+    "btnPT": "Download CV in PT",
+    "btnEN": "Download CV in EN"
    },
    "cta": {
     "kicker": "New projects",
