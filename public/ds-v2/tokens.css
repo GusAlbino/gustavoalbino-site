@@ -49,12 +49,10 @@
 a.card:hover,a.card:focus-visible{transform:translate(-3px,-3px);box-shadow:var(--sombra-h)}
 a.card:active{transform:none;box-shadow:2px 2px 0 var(--tinta)}
 .card--hl{background:var(--hl);color:var(--on-hl)}
-/* quadro de imagem: borda a borda, sem degradê; meio-tom no canto e uma etiqueta transparente na base */
+/* quadro de imagem: borda a borda, sem degradê e sem pontos (o meio-tom fica só no fundo da página); etiqueta transparente na base */
 .card--img{padding:0;background:var(--tinta)}
 .card--img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 a.card--img:hover>img{transform:scale(1.05)}
-.card--img::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(0,0,0,.55) 24%,transparent 27%);background-size:9px 9px;
-  -webkit-mask:linear-gradient(200deg,transparent 55%,#000 100%);mask:linear-gradient(200deg,transparent 55%,#000 100%)}
 .card--img>.rot{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;
   padding:9px 12px;border-radius:var(--r-tag);background:rgba(0,0,0,.58);color:var(--fg);border:2px solid rgba(248,239,232,.55);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}

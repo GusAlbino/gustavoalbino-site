@@ -72,7 +72,7 @@ As famílias (Montserrat para display, Archivo para texto, Space Mono para rótu
 
 O fundo é `#232020` e não preto puro de propósito: contorno e sombra pretos precisam de uma superfície mais clara que eles para aparecer. Contraste de texto sobre `#141212`: `#F8EFE8` 15:1, `#E8604C` 5,4:1, `#EEBD23` 10,7:1.
 
-**Sem degradê.** Nem no fundo, nem sobre imagem, nem em quadro. Profundidade vem de sombra dura e de meio-tom.
+**Sem degradê.** Nem no fundo, nem sobre imagem, nem em quadro. Profundidade vem de sombra dura. O meio-tom (pontos) vive só no fundo da página, nunca sobre imagem ou print.
 
 ## Fundo
 
@@ -85,7 +85,7 @@ Cor chapada `--bg` com uma trama de pontos de meio-tom (`radial-gradient` repeti
 Variantes:
 
 - `card--hl`: chapado em vermilion, texto preto. Uso: bloco de contato do rodapé.
-- `card--img`: imagem de borda a borda, sem degradê. Meio-tom escuro no canto inferior direito. Etiqueta (`.rot`) transparente na base: preto a 58%, desfoque de 8px, borda de 2px creme a 55%, raio 4px.
+- `card--img`: imagem de borda a borda, sem degradê e sem pontos de meio-tom. Os pontos existem só no fundo da página. Etiqueta (`.rot`) transparente na base: preto a 58%, desfoque de 8px, borda de 2px creme a 55%, raio 4px.
 
 ## Tipo
 
