@@ -101,6 +101,7 @@ ${corpo}
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">${f.topo}</a></div>
 </footer>
 ${extra}
+${SCRIPT_FILTROS}
 </body>
 </html>
 `;
@@ -110,48 +111,53 @@ function projNome(lang, k) {
   const m = { logos: { pt: 'Logos', en: 'Logos' }, relatorios: { pt: 'Relatórios', en: 'Reports' }, ebooks: { pt: 'E-books', en: 'E-books' }, culturais: { pt: 'Culturais', en: 'Cultural' }, ilustracao: { pt: 'Ilustração', en: 'Illustration' } };
   return m[k][lang];
 }
-const cab = (kicker, titulo, intro, acoes = '') => `  <section class="card cab" id="topo"><span class="mono tag-ouro">${esc(kicker)}</span><h1 class="disp">${esc(titulo)}</h1>${intro ? `<p class="intro">${esc(intro)}</p>` : ''}${acoes ? `<div class="acoes">${acoes}</div>` : ''}</section>`;
+const cab = (kicker, titulo, intro, acoes = '', filtros = '') => `  <section class="card cab" id="topo"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(kicker)}</span><h1 class="disp">${esc(titulo)}</h1></div>${filtros}</div>${intro ? `<p class="intro">${esc(intro)}</p>` : ''}${acoes ? `<div class="acoes">${acoes}</div>` : ''}</section>`;
+// filtros: botões ao lado do título. `alvo` é o seletor da lista; cada item da lista leva data-cat.
+const chips = (lang, itens, alvo) => `<div class="filtros" role="group" aria-label="${lang === 'pt' ? 'Filtrar' : 'Filter'}" data-alvo="${alvo}">${itens.map((f, i) => `<button type="button" data-f="${esc(f.key)}" aria-pressed="${i === 0}">${esc(f.rot)}</button>`).join('')}</div>`;
+const SCRIPT_FILTROS = `<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>`;
 
 const paginas = {};
 
 // ---------- CASES ----------
 paginas.cases = (lang) => {
   const p = DICTL(lang).casesPage;
-  const filtros = D.CASE_FILTERS.map((f, i) => `<button type="button" data-f="${f.key}" aria-pressed="${i === 0}">${esc(f[lang])}</button>`).join('');
+  const f = chips(lang, D.CASE_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
   const cards = D.CASES.map((c) => `<a class="card card--img item" data-cat="${c.cat}" href="${caseHref(lang, c.id)}"><img src="/${c.bgImage}" alt="" loading="lazy"><span class="mono ano">${esc(c.year)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.typeLabel[lang])}</span><p>${esc(c.blurb[lang])}</p></span></a>`).join('\n    ');
-  const corpo = `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro)}
-  <div class="filtros" role="group" aria-label="${lang === 'pt' ? 'Filtrar' : 'Filter'}">${filtros}</div>
+  return casca(lang, 'cases', p.title, `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro, '', f)}
   <div class="g3" id="lista">
     ${cards}
-  </div>`;
-  const js = `<script>(function(){var b=[].slice.call(document.querySelectorAll('.filtros button')),c=[].slice.call(document.querySelectorAll('#lista [data-cat]'));b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});var k=x.dataset.f;c.forEach(function(e){e.style.display=(k==='all'||e.dataset.cat===k)?'':'none'})})})})();</script>`;
-  return casca(lang, 'cases', p.title, corpo, js);
+  </div>`);
 };
 
 // ---------- PROJETOS ----------
 paginas.projetos = (lang) => {
   const p = DICTL(lang).galPage;
   const rota = { reports: 'relatorios', ilustracao: 'ilustracao', ebooks: 'ebooks', culturais: 'culturais', grafico: 'logos' };
-  const cards = D.GAL.map((g) => `<a class="card card--img item${g.cat === 'grafico' ? ' item--img-contida' : ''}" href="${href(lang, rota[g.cat])}"><img src="/${g.img}" alt="" loading="lazy"><span class="rot"><b>${esc(g[lang])}</b></span></a>`).join('\n    ');
-  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${cards}\n  </div>`);
+  const f = chips(lang, D.GAL_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
+  const cards = D.GAL.map((g) => `<a class="card card--img item${g.cat === 'grafico' ? ' item--img-contida' : ''}" data-cat="${g.cat}" href="${href(lang, rota[g.cat])}"><img src="/${g.img}" alt="" loading="lazy"><span class="rot"><b>${esc(g[lang])}</b></span></a>`).join('\n    ');
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro, '', f)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
 // ---------- SERVIÇOS ----------
 paginas.servicos = (lang) => {
   const T = DICTL(lang), p = T.servPage;
-  const cards = T.services.map((s) => `<article class="card bloco servico"><span class="num">${esc(s.num)}</span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
-  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${cards}\n  </div>`);
+  const f = chips(lang, [{ key: 'all', rot: lang === 'pt' ? 'Tudo' : 'All' }, ...T.services.map((s) => ({ key: s.num, rot: s.title }))], '#lista');
+  const cards = T.services.map((s) => `<article class="card bloco servico" data-cat="${s.num}"><span class="num">${esc(s.num)}</span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
+  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro, '', f)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
 // ---------- SOBRE ----------
 paginas.sobre = (lang) => {
   const T = DICTL(lang), s = T.sobre;
-  const corpo = `${cab(s.kicker, s.title, '')}
-  <div class="g2" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)">
+  const f = chips(lang, [{ key: 'all', rot: lang === 'pt' ? 'Tudo' : 'All' }, { key: 'quem', rot: lang === 'pt' ? 'Quem sou' : 'About' }, { key: 'entrega', rot: lang === 'pt' ? 'O que entrego' : 'What I deliver' }], '#lista');
+  const corpo = `${cab(s.kicker, s.title, '', '', f)}
+  <div id="lista" style="display:grid;gap:var(--gap)">
+  <div class="g2" data-cat="quem" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)">
     <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-pedra-grande.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
     <div class="card bloco"><div class="texto-longo">${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div>
   </div>
-  <div class="g4 mantem">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></article>`).join('')}</div>`;
+  <div class="g4 mantem" data-cat="entrega">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></article>`).join('')}</div>
+  </div>`;
   return casca(lang, 'sobre', s.kicker, corpo);
 };
 
@@ -243,27 +249,61 @@ function secoes(t) {
     const paras = [];
     if (typeof t[p] === 'string') paras.push(t[p]);
     for (const suf of ['Paras', 'Note', 'Desc']) { const x = t[p + suf]; if (Array.isArray(x)) paras.push(...x); else if (typeof x === 'string') paras.push(x); }
-    out.push({ kicker: t[p + 'Kicker'], title: v, paras, items: t[p + 'Items'] });
+    out.push({ prefixo: p, kicker: t[p + 'Kicker'], title: v, paras, items: t[p + 'Items'] });
   }
   // Kaya Doc: as versões 1 e 2 contam a história do produto e ficam no fim, antes do papel
   const fim = out.filter((x) => /^v[12]/.test(x.kicker || '') && false);
   return out;
 }
+const PALAVRAS = [ // prefixo da seção (parte do nome) -> trechos do nome do arquivo que a ilustram
+  ['logosys', ['logo-ext', 'variant', 'versao', 'versoes', 'lockup']], ['logo', ['logo', 'wm-', 'ic-', 'simbolo', 'tag-bud']], ['pale', ['palet', 'paleta', 'cor']], ['cor', ['palet', 'paleta', 'board']],
+  ['tipo', ['type', 'tipo', 'font']], ['aplic', ['app', 'aplic', 'ap-']], ['mockup', ['mock']], ['news', ['news']], ['social', ['social', 'post']], ['video', ['video']],
+  ['v1', ['v1-']], ['v2', ['v2-']], ['disco', ['disc', 'vinil', 'cd-']], ['aoVivo', ['live', 'show']], ['portfolio', ['portfolio']], ['produto', ['prod', 'line']],
+  ['web', ['site', 'web', 'home']], ['capa', ['capa', 'cover']], ['nome', ['nome']], ['desafio', ['green', 'rooftop', 'train']], ['sistema', ['sistema']], ['campanha', ['campanha']],
+];
+function distribuir(secs, imgs) {
+  const por = secs.map(() => []);
+  const sobra = [];
+  for (const src of imgs) {
+    const n = src.toLowerCase();
+    let alvo = -1;
+    for (const [pre, ks] of PALAVRAS) {
+      if (!ks.some((k) => n.includes(k))) continue;
+      const idx = secs.findIndex((s) => s.prefixo.toLowerCase().includes(pre.toLowerCase()));
+      if (idx >= 0) { alvo = idx; break; }
+    }
+    (alvo >= 0 && por[alvo].length < 6 ? por[alvo] : sobra).push(src);
+  }
+  return { por, sobra };
+}
+function midiaHtml(srcs) {
+  if (!srcs.length) return '';
+  const fig = (src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`);
+  return `<div class="midia midia--${Math.min(srcs.length, 4)}">${srcs.map(fig).join('')}</div>`;
+}
 paginas.casos = (lang, id) => {
   const c = D.CASES.find((x) => x.id === id), dados = DADOS_CASE[id], t = dados[lang];
   const tag = t.tag || t.tipo || c.typeLabel[lang];
   const titulo = t.title || c.title[lang];
-  const ficha = (t.ficha || []).map((f) => `<div class="card bloco"><span class="mono">${esc(f.k)}</span><b style="color:var(--fg);font-weight:600">${esc(f.v)}</b></div>`).join('');
-  const sec = secoes(t).map((s) => `<section class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2 class="disp" style="font-size:clamp(26px,3.4vw,48px);line-height:.95">${esc(s.title)}</h2>${s.paras.map((x) => `<p style="max-width:70ch;color:var(--fg2)">${esc(x)}</p>`).join('')}${(s.items || []).map((i) => `<p style="max-width:70ch"><b style="color:var(--fg)">${esc(i.t)}.</b> <span style="color:var(--fg2)">${esc(i.d)}</span></p>`).join('')}</section>`).join('\n  ');
+  const rot = lang === 'pt' ? { img: 'Mais imagens', cor: 'Paleta', back: 'Voltar aos cases' } : { img: 'More images', cor: 'Palette', back: 'Back to cases' };
+  const ficha = (t.ficha || []).map((f) => `<div><span class="mono">${esc(f.k)}</span><b>${esc(f.v)}</b></div>`).join('');
+  const secs = secoes(t);
+  const { por, sobra } = distribuir(secs, imagensDoCase(id));
+  const blocos = secs.map((s, i) => {
+    const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}</div>`;
+    const m = midiaHtml(por[i]);
+    return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}">${texto}${m}</section>` : `<section>${texto}</section>`;
+  }).join('\n  ');
   const cores = (dados.cores || []).filter((x) => x.hex).map((x) => `<div class="card bloco" style="padding:0"><span style="display:block;height:84px;background:${x.hex};border-bottom:var(--bw) solid var(--tinta)"></span><div style="padding:10px 14px"><b style="color:var(--fg)">${esc(x.nome || '')}</b><br><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div></div>`).join('');
-  const imgs = imagensDoCase(id).map((src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline style="width:100%"></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`)).join('');
-  const rot = lang === 'pt' ? { img: 'Imagens do projeto', cor: 'Paleta', ficha: 'Ficha', back: 'Voltar aos cases' } : { img: 'Project images', cor: 'Palette', ficha: 'Details', back: 'Back to cases' };
-  const corpo = `<section class="card cab" id="topo" style="position:relative"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes"><a class="btn btn--ghost" href="${href(lang, 'cases')}">← ${rot.back}</a>${t.site || t.linkLabel ? '' : ''}</div></section>
-  <div class="g4 mantem">${ficha}</div>
-  ${sec}
+  const corpo = `<div class="g2 caso-topo" id="topo">
+    <section class="card cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1></div></div>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes"><a class="btn btn--ghost" href="${href(lang, 'cases')}">← ${rot.back}</a></div></section>
+    <div class="card card--img caso-capa"><img src="/${c.bgImage}" alt=""></div>
+  </div>
+  <div class="card ficha-linha">${ficha}</div>
+  ${blocos}
   ${cores ? `<div class="rotulo"><b>${rot.cor}</b><hr></div><div class="g4 mantem">${cores}</div>` : ''}
-  ${imgs ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${imgs}</div>` : ''}
-  <section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(24px,3vw,44px)">${esc(t.cta || (lang === 'pt' ? 'Vamos conversar?' : "Let's talk?"))}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(t.ctaBtn || (lang === 'pt' ? 'Vamos conversar' : "Let's talk"))}</a></section>`;
+  ${sobra.length ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${sobra.map((src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline style="width:100%"></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`)).join('')}</div>` : ''}
+  <section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(t.cta || (lang === 'pt' ? 'Vamos conversar?' : "Let's talk?"))}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(t.ctaBtn || (lang === 'pt' ? 'Vamos conversar' : "Let's talk"))}</a></section>`;
   return casca(lang, 'cases', titulo, corpo);
 };
 

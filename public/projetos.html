@@ -38,13 +38,13 @@
       </div>
     </nav>
   </header>
-  <section class="card cab" id="topo"><span class="mono tag-ouro">Prova de trabalho</span><h1 class="disp">Projetos</h1><p class="intro">Cinco acervos abertos: anuários e relatórios, ilustração autoral, e-books, marcas e projetos culturais. Material entregue, não amostra.</p></section>
-  <div class="g3">
-    <a class="card card--img item" href="/projetos/relatorios"><img src="/assets/anuarios/2025-cover.webp" alt="" loading="lazy"><span class="rot"><b>Anuários da Cannabis</b></span></a>
-    <a class="card card--img item" href="/projetos/ilustracao"><img src="/assets/ilustracao/amazon.webp" alt="" loading="lazy"><span class="rot"><b>Ilustração Autoral</b></span></a>
-    <a class="card card--img item" href="/projetos/ebooks"><img src="/assets/ebooks/tendencias.webp" alt="" loading="lazy"><span class="rot"><b>E-books · Série</b></span></a>
-    <a class="card card--img item" href="/projetos/culturais"><img src="/assets/culturais/muros/logo-evento.webp" alt="" loading="lazy"><span class="rot"><b>Projetos Culturais</b></span></a>
-    <a class="card card--img item item--img-contida" href="/projetos/logos"><img src="/assets/logo-seal-black.webp" alt="" loading="lazy"><span class="rot"><b>Logo &amp; Marca</b></span></a>
+  <section class="card cab" id="topo"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Prova de trabalho</span><h1 class="disp">Projetos</h1></div><div class="filtros" role="group" aria-label="Filtrar" data-alvo="#lista"><button type="button" data-f="all" aria-pressed="true">Tudo</button><button type="button" data-f="grafico" aria-pressed="false">Gráfico</button><button type="button" data-f="ilustracao" aria-pressed="false">Ilustração</button><button type="button" data-f="reports" aria-pressed="false">Reports</button><button type="button" data-f="ebooks" aria-pressed="false">E-books</button><button type="button" data-f="culturais" aria-pressed="false">Projetos culturais</button></div></div><p class="intro">Cinco acervos abertos: anuários e relatórios, ilustração autoral, e-books, marcas e projetos culturais. Material entregue, não amostra.</p></section>
+  <div class="g3" id="lista">
+    <a class="card card--img item" data-cat="reports" href="/projetos/relatorios"><img src="/assets/anuarios/2025-cover.webp" alt="" loading="lazy"><span class="rot"><b>Anuários da Cannabis</b></span></a>
+    <a class="card card--img item" data-cat="ilustracao" href="/projetos/ilustracao"><img src="/assets/ilustracao/amazon.webp" alt="" loading="lazy"><span class="rot"><b>Ilustração Autoral</b></span></a>
+    <a class="card card--img item" data-cat="ebooks" href="/projetos/ebooks"><img src="/assets/ebooks/tendencias.webp" alt="" loading="lazy"><span class="rot"><b>E-books · Série</b></span></a>
+    <a class="card card--img item" data-cat="culturais" href="/projetos/culturais"><img src="/assets/culturais/muros/logo-evento.webp" alt="" loading="lazy"><span class="rot"><b>Projetos Culturais</b></span></a>
+    <a class="card card--img item item--img-contida" data-cat="grafico" href="/projetos/logos"><img src="/assets/logo-seal-black.webp" alt="" loading="lazy"><span class="rot"><b>Logo &amp; Marca</b></span></a>
   </div>
 </div>
 <footer class="card rodape" aria-label="Rodapé">
@@ -59,5 +59,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">Voltar ao topo ↑</a></div>
 </footer>
 
+<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
 </body>
 </html>

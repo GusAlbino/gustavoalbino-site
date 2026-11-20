@@ -38,7 +38,7 @@
       </div>
     </nav>
   </header>
-  <section class="card cab" id="topo"><span class="mono tag-ouro">Contato</span><h1 class="disp">Vamos conversar.</h1><p class="intro">Conte sobre o projeto, o prazo e a verba aproximada. Quanto mais contexto, melhor a resposta.</p></section>
+  <section class="card cab" id="topo"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Contato</span><h1 class="disp">Vamos conversar.</h1></div></div><p class="intro">Conte sobre o projeto, o prazo e a verba aproximada. Quanto mais contexto, melhor a resposta.</p></section>
   <div class="g2" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)">
     <form class="card bloco form" id="form" novalidate>
       <label><span class="mono">Nome</span><input name="nome" autocomplete="name" placeholder="Seu nome" required></label>
@@ -66,5 +66,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">Voltar ao topo ↑</a></div>
 </footer>
 <script>(function(){var f=document.getElementById('form');f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f),t="Oi Gustavo, sou "+d.get('nome')+'. '+"Projeto: "+d.get('tipo')+'. '+d.get('msg')+' ('+d.get('email')+')';window.open('https://wa.me/5531971422346?text='+encodeURIComponent(t),'_blank','noopener');document.getElementById('aviso').classList.add('on')})})();</script>
+<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
 </body>
 </html>

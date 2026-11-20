@@ -38,8 +38,7 @@
       </div>
     </nav>
   </header>
-  <section class="card cab" id="topo"><span class="mono tag-ouro">Acervo · 7 cases</span><h1 class="disp">Cases</h1><p class="intro">Projetos de marca, produto e cultura, todos com a mesma exigência gráfica.</p></section>
-  <div class="filtros" role="group" aria-label="Filtrar"><button type="button" data-f="all" aria-pressed="true">Tudo</button><button type="button" data-f="branding" aria-pressed="false">Branding</button><button type="button" data-f="uiux" aria-pressed="false">UI/UX</button><button type="button" data-f="identidade" aria-pressed="false">Identidade Visual</button></div>
+  <section class="card cab" id="topo"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Acervo · 7 cases</span><h1 class="disp">Cases</h1></div><div class="filtros" role="group" aria-label="Filtrar" data-alvo="#lista"><button type="button" data-f="all" aria-pressed="true">Tudo</button><button type="button" data-f="branding" aria-pressed="false">Branding</button><button type="button" data-f="uiux" aria-pressed="false">UI/UX</button><button type="button" data-f="identidade" aria-pressed="false">Identidade Visual</button></div></div><p class="intro">Projetos de marca, produto e cultura, todos com a mesma exigência gráfica.</p></section>
   <div class="g3" id="lista">
     <a class="card card--img item" data-cat="branding" href="/cases/runpace"><img src="/assets/cases/runpace/capa-3x2.webp" alt="" loading="lazy"><span class="mono ano">2026</span><span class="rot"><b>Runpace</b><span class="mono">Branding + Sistema</span><p>Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.</p></span></a>
     <a class="card card--img item" data-cat="uiux" href="/cases/kaya-doc"><img src="/assets/cases/kaya-doc/capa-dark-3x2.webp" alt="" loading="lazy"><span class="mono ano">2022 a hoje</span><span class="rot"><b>Kaya Doc</b><span class="mono">Produto Digital</span><p>SaaS B2B de cannabis medicinal. Design system e IA.</p></span></a>
@@ -61,6 +60,7 @@
     <p class="mono" style="margin:8px 0 0;opacity:.85;font-size:10px">Resposta em até 2 dias úteis</p></div></div>
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">Voltar ao topo ↑</a></div>
 </footer>
-<script>(function(){var b=[].slice.call(document.querySelectorAll('.filtros button')),c=[].slice.call(document.querySelectorAll('#lista [data-cat]'));b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});var k=x.dataset.f;c.forEach(function(e){e.style.display=(k==='all'||e.dataset.cat===k)?'':'none'})})})})();</script>
+
+<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
 </body>
 </html>

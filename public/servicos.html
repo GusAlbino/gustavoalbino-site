@@ -38,14 +38,14 @@
       </div>
     </nav>
   </header>
-  <section class="card cab" id="topo"><span class="mono tag-ouro">O que ofereço</span><h1 class="disp">Serviços</h1><p class="intro">Cada serviço pode vir isolado ou combinado, conforme o momento da sua marca. Do primeiro rascunho ao manual que o time usa depois que eu saio.</p></section>
-  <div class="g3">
-    <article class="card bloco servico"><span class="num">01</span><h3>Branding</h3><p>Criação e reposicionamento de marcas: identidade visual, logo, sistema visual e manual. Direção de arte que dá personalidade e consistência.</p><a class="btn" href="/contato">Solicitar</a></article>
-    <article class="card bloco servico"><span class="num">02</span><h3>Produto Digital / App</h3><p>Design de aplicativos do conceito à entrega: UX research, fluxo, UI, protótipo navegável e design system. Foco em usabilidade e escala.</p><a class="btn" href="/contato">Solicitar</a></article>
-    <article class="card bloco servico"><span class="num">03</span><h3>Website</h3><p>Sites institucionais e de produto: arquitetura, design das telas, protótipo e handoff. Responsivo e pensado para conversão.</p><a class="btn" href="/contato">Solicitar</a></article>
-    <article class="card bloco servico"><span class="num">04</span><h3>Landing Page</h3><p>Páginas focadas em conversão para campanhas, eventos e lançamentos. Mensagem clara, hierarquia forte e CTA que funciona.</p><a class="btn" href="/contato">Solicitar</a></article>
-    <article class="card bloco servico"><span class="num">05</span><h3>Estratégia de Marca</h3><p>Posicionamento, arquitetura e estratégia visual: a camada estratégica por trás do design, para a marca crescer consistente.</p><a class="btn" href="/contato">Solicitar</a></article>
-    <article class="card bloco servico"><span class="num">06</span><h3>Planejamento de Marketing</h3><p>Visão de uso metódico e expansão da marca e dos produtos, conectando design, comunicação e objetivos de negócio.</p><a class="btn" href="/contato">Solicitar</a></article>
+  <section class="card cab" id="topo"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">O que ofereço</span><h1 class="disp">Serviços</h1></div><div class="filtros" role="group" aria-label="Filtrar" data-alvo="#lista"><button type="button" data-f="all" aria-pressed="true">Tudo</button><button type="button" data-f="01" aria-pressed="false">Branding</button><button type="button" data-f="02" aria-pressed="false">Produto Digital / App</button><button type="button" data-f="03" aria-pressed="false">Website</button><button type="button" data-f="04" aria-pressed="false">Landing Page</button><button type="button" data-f="05" aria-pressed="false">Estratégia de Marca</button><button type="button" data-f="06" aria-pressed="false">Planejamento de Marketing</button></div></div><p class="intro">Cada serviço pode vir isolado ou combinado, conforme o momento da sua marca. Do primeiro rascunho ao manual que o time usa depois que eu saio.</p></section>
+  <div class="g3" id="lista">
+    <article class="card bloco servico" data-cat="01"><span class="num">01</span><h3>Branding</h3><p>Criação e reposicionamento de marcas: identidade visual, logo, sistema visual e manual. Direção de arte que dá personalidade e consistência.</p><a class="btn" href="/contato">Solicitar</a></article>
+    <article class="card bloco servico" data-cat="02"><span class="num">02</span><h3>Produto Digital / App</h3><p>Design de aplicativos do conceito à entrega: UX research, fluxo, UI, protótipo navegável e design system. Foco em usabilidade e escala.</p><a class="btn" href="/contato">Solicitar</a></article>
+    <article class="card bloco servico" data-cat="03"><span class="num">03</span><h3>Website</h3><p>Sites institucionais e de produto: arquitetura, design das telas, protótipo e handoff. Responsivo e pensado para conversão.</p><a class="btn" href="/contato">Solicitar</a></article>
+    <article class="card bloco servico" data-cat="04"><span class="num">04</span><h3>Landing Page</h3><p>Páginas focadas em conversão para campanhas, eventos e lançamentos. Mensagem clara, hierarquia forte e CTA que funciona.</p><a class="btn" href="/contato">Solicitar</a></article>
+    <article class="card bloco servico" data-cat="05"><span class="num">05</span><h3>Estratégia de Marca</h3><p>Posicionamento, arquitetura e estratégia visual: a camada estratégica por trás do design, para a marca crescer consistente.</p><a class="btn" href="/contato">Solicitar</a></article>
+    <article class="card bloco servico" data-cat="06"><span class="num">06</span><h3>Planejamento de Marketing</h3><p>Visão de uso metódico e expansão da marca e dos produtos, conectando design, comunicação e objetivos de negócio.</p><a class="btn" href="/contato">Solicitar</a></article>
   </div>
 </div>
 <footer class="card rodape" aria-label="Rodapé">
@@ -60,5 +60,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>gustavoalbino.com.br</span><a href="#topo">Voltar ao topo ↑</a></div>
 </footer>
 
+<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
 </body>
 </html>
