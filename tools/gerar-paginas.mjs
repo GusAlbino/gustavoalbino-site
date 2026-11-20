@@ -209,7 +209,7 @@ paginas.relatorios = (lang) => {
     const fichaHtml = (a.ficha || []).length ? `<div class="ficha-mini">${a.ficha.map((f) => `<div><span class="mono">${esc(f.k[lang])}</span><b>${esc(f.v[lang])}</b></div>`).join('')}</div>` : '';
     const statsHtml = (a.stats || []).length ? `<div class="stats-mini">${a.stats.map((s) => `<div><b>${esc(s.num)}</b><span>${esc(s.label[lang])}</span></div>`).join('')}</div>` : '';
     const imgsHtml = (a.imgs || []).length ? `<div class="thumbs">${a.imgs.map((i) => `<figure><img src="/${i.src}" alt="${esc(i.alt[lang])}" loading="lazy"></figure>`).join('')}</div>` : '';
-    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro tag-edicao">${esc(a.edicao[lang])}</span><h2>${esc(a.title[lang])} ${esc(a.year)}</h2><p class="tema">${esc(a.tema[lang])}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
+    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro tag-edicao">${esc(a.edicao[lang])}</span><h2>${esc(a.title[lang])} ${esc(a.year)}</h2><p class="tema" style="white-space:normal">${esc(a.tema[lang].replace(/\n/g, " "))}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
   }).join('\n  ');
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
 };
@@ -220,7 +220,7 @@ paginas.ebooks = (lang) => {
 };
 paginas.culturais = (lang) => {
   const p = DICTL(lang).culturaisPage;
-  const itens = D.CULTURAIS.map((c) => `<article class="ficha"><a class="card card--img capa" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="/${c.poster}" alt="" loading="lazy"></a><div class="card bloco"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h2>${esc(c.title[lang])}</h2><p class="tema">${esc(c.tema[lang])}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)}</a></div></article>`).join('\n  ');
+  const itens = D.CULTURAIS.map((c) => `<article class="ficha"><a class="card card--img capa" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="/${c.poster}" alt="" loading="lazy"></a><div class="card bloco"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h2>${esc(c.title[lang])}</h2><p class="tema" style="white-space:normal">${esc(c.tema[lang].replace(/\n/g, " "))}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)}</a></div></article>`).join('\n  ');
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
 };
 paginas.logos = (lang) => {
