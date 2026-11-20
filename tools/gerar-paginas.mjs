@@ -312,7 +312,11 @@ paginas.casos = (lang, id) => {
   const secs = secoes(t);
   const todas = imagensDoCase(id);
   const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
-  const { por, sobra } = distribuir(secs, todas.filter((s) => !telasExt.includes(s) && !telasLog.includes(s)));
+  const mapa = dados.mapaImagens;
+  const { por, sobra } = mapa
+    ? { por: secs.map((s) => (mapa[s.prefixo] || []).map((f) => 'assets/cases/' + id + '/' + f)), sobra: [] }
+    : distribuir(secs, todas.filter((s) => !telasExt.includes(s) && !telasLog.includes(s)));
+  if (mapa) { telasExt.length = 0; telasLog.length = 0; }
   const galeria = (srcs) => `<div class="galeria">${srcs.map((src) => fig(src)).join('')}</div>`;
   const telas = (telasExt.length ? `<div class="rotulo" id="telas"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
   const blocos = secs.map((s, i) => {

@@ -4179,7 +4179,7 @@
     "Conduzo o design de produto do Kaya Doc ponta a ponta: interface, experiência, pesquisa com usuário, construção e manutenção do design system, prototipagem avançada em Figma e integração de ferramentas de IA no próprio fluxo de trabalho da equipe.",
     "Trabalho direto com stakeholders, tecnologia e engenharia, que é onde um design system deixa de ser uma biblioteca bonita e passa a ser infraestrutura."
    ],
-   "nota": "As telas do produto não são reproduzidas aqui. O Kaya Doc é propriedade da Kaya Mind, e este case descreve processo, sistema e decisões. Não redistribui a interface.",
+   "nota": "O Kaya Doc é propriedade da Kaya Mind. As telas mostradas são do produto em uso, com dados de exemplo e conteúdo desfocado.",
    "cta": "Quer um sistema assim no seu produto?",
    "ctaBtn": "Vamos conversar"
   },
@@ -4270,9 +4270,36 @@
     "I drive product design for Kaya Doc end to end: interface, experience, user research, building and maintaining the design system, advanced Figma prototyping, and bringing AI tools into the team workflow itself.",
     "I work directly with stakeholders, technology and engineering, which is where a design system stops being a pretty library and becomes infrastructure."
    ],
-   "nota": "Product screens are not reproduced here. Kaya Doc is owned by Kaya Mind, and this case describes process, system and decisions. It does not redistribute the interface.",
+   "nota": "Kaya Doc is owned by Kaya Mind. The screens shown come from the live product, with sample data and blurred content.",
    "cta": "Want a system like this in your product?",
    "ctaBtn": "Let's talk"
+  },
+  "mapaImagens": {
+   "v1": [
+    "v2-log-07_comparador_lista.webp"
+   ],
+   "v2": [
+    "v2-log-01_home_topo_e_menu_lateral.webp"
+   ],
+   "produto": [
+    "v2-log-04_central_de_prescricoes.webp"
+   ],
+   "sistema": [
+    "v2-log-10_comparador_comparacao_detalhes.webp"
+   ],
+   "hierarquia": [
+    "v2-log-05_guia_prescricao_boas_vindas.webp"
+   ],
+   "fluxo": [
+    "v2-log-06_guia_prescricao_passo1_paciente.webp"
+   ],
+   "detalhe": [
+    "v2-log-08_comparador_selecao_de_2_produtos.webp",
+    "v2-log-09_comparador_comparacao_topo.webp"
+   ],
+   "papel": [
+    "v2-log-11_educacao.webp"
+   ]
   }
  },
  "YERBA": {
