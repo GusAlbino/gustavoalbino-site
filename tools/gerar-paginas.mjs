@@ -253,7 +253,7 @@ paginas.ilustracao = (lang) => {
 
 
 // ---------- CASES (página de cada case) ----------
-const DADOS_CASE = { runpace: D.RUNPACE, 'kaya-doc': D.KAYA_DOC, 'yerba-fina': D.YERBA, hercules: D.HERCULES, 'jimi-oliver': D.JIMI, othelo: D.OTHELO, 'gustavo-albino': D.GA_MARCA };
+const DADOS_CASE = { runpace: D.RUNPACE, 'kaya-doc': D.KAYA_DOC, 'yerba-fina': D.YERBA, hercules: D.HERCULES, 'jimi-oliver': D.JIMI, othelo: D.OTHELO, 'gustavo-albino': D.GA_MARCA, 'elos-saber': D.ELOS };
 function imagensDoCase(id) {
   const raiz = new URL('../public/assets/cases/' + id + '/', import.meta.url);
   const lista = [];

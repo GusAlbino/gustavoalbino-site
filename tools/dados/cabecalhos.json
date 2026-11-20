@@ -936,6 +936,58 @@
     ]
    ],
    "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gusalbino/\",\"https://www.instagram.com/gustavoalbinodesign/\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/hercules#trabalho\",\"name\":\"Hercules\",\"headline\":\"Hercules\",\"description\":\"A supplements brand with RUN-DMC energy, from logo to films.\",\"url\":\"https://gustavoalbino.com.br/en/cases/hercules\",\"inLanguage\":\"en\",\"dateCreated\":\"2022\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/hercules/card-cover.webp\"}]}"
+  },
+  "/cases/elos-saber": {
+   "title": "Elos Saber · Case · Gustavo Albino",
+   "lang": "pt-BR",
+   "desc": "Site da Elos Saber, de formação e consultoria: do Lovable e WordPress ao código próprio, no GitHub e na Cloudflare.",
+   "canonical": "https://gustavoalbino.com.br/cases/elos-saber",
+   "ogTitle": "Elos Saber · Case · Gustavo Albino",
+   "ogDesc": "Site da Elos Saber, de formação e consultoria: do Lovable e WordPress ao código próprio, no GitHub e na Cloudflare.",
+   "ogUrl": "https://gustavoalbino.com.br/cases/elos-saber",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/elos-saber.jpg",
+   "ogLocale": "pt_BR",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/elos-saber"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/elos-saber"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/elos-saber"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gusalbino/\",\"https://www.instagram.com/gustavoalbinodesign/\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/elos-saber#trabalho\",\"name\":\"Elos Saber\",\"headline\":\"Elos Saber\",\"description\":\"Site da Elos Saber, de formação e consultoria: do Lovable e WordPress ao código próprio, no GitHub e na Cloudflare.\",\"url\":\"https://gustavoalbino.com.br/cases/elos-saber\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2026\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/elos-saber/card-cover.webp\"}]}"
+  },
+  "/en/cases/elos-saber": {
+   "title": "Elos Saber · Case · Gustavo Albino",
+   "lang": "en",
+   "desc": "Website for Elos Saber, a training and consulting practice: from Lovable and WordPress to code of its own, on GitHub and Cloudflare.",
+   "canonical": "https://gustavoalbino.com.br/en/cases/elos-saber",
+   "ogTitle": "Elos Saber · Case · Gustavo Albino",
+   "ogDesc": "Website for Elos Saber, a training and consulting practice: from Lovable and WordPress to code of its own, on GitHub and Cloudflare.",
+   "ogUrl": "https://gustavoalbino.com.br/en/cases/elos-saber",
+   "ogImage": "https://gustavoalbino.com.br/assets/og/elos-saber.jpg",
+   "ogLocale": "en_US",
+   "alternates": [
+    [
+     "pt-BR",
+     "https://gustavoalbino.com.br/cases/elos-saber"
+    ],
+    [
+     "en",
+     "https://gustavoalbino.com.br/en/cases/elos-saber"
+    ],
+    [
+     "x-default",
+     "https://gustavoalbino.com.br/cases/elos-saber"
+    ]
+   ],
+   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gusalbino/\",\"https://www.instagram.com/gustavoalbinodesign/\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/elos-saber#trabalho\",\"name\":\"Elos Saber\",\"headline\":\"Elos Saber\",\"description\":\"Website for Elos Saber, a training and consulting practice: from Lovable and WordPress to code of its own, on GitHub and Cloudflare.\",\"url\":\"https://gustavoalbino.com.br/en/cases/elos-saber\",\"inLanguage\":\"en\",\"dateCreated\":\"2026\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/elos-saber/card-cover.webp\"}]}"
   }
  }
 }

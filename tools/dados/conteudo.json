@@ -872,6 +872,29 @@
    }
   },
   {
+   "id": "elos-saber",
+   "cat": "uiux",
+   "detail": true,
+   "color": "#2F2E7F",
+   "fg": "#F8EFE8",
+   "mono": "assets/monogram-white.webp",
+   "year": "2026",
+   "bgImage": "assets/cases/elos-saber/card-cover.webp",
+   "bgSquare": "assets/cases/elos-saber/card-cover.webp",
+   "title": {
+    "pt": "Elos Saber",
+    "en": "Elos Saber"
+   },
+   "typeLabel": {
+    "pt": "Website · Design e código",
+    "en": "Website · Design and code"
+   },
+   "blurb": {
+    "pt": "Site de formação, consultoria e desenvolvimento profissional da Profa. Dra. Carolina Galdino, do Lovable e WordPress ao código próprio.",
+    "en": "Website for the training, consulting and professional development practice of Prof. Dr. Carolina Galdino, rebuilt from Lovable and WordPress into code."
+   }
+  },
+  {
    "id": "othelo",
    "cat": "branding",
    "detail": true,
@@ -5114,6 +5137,230 @@
     "2023 campaign",
     "site token",
     "today"
+   ]
+  }
+ },
+ "ELOS": {
+  "pt": {
+   "back": "Voltar aos cases",
+   "tag": "Website",
+   "role": "Design de interface · Design system · Código",
+   "title": "Elos Saber",
+   "slogan": "elossaber.com.br",
+   "lede": "Site da Elos Saber, ecossistema de formação, consultoria e desenvolvimento da Profa. Dra. Carolina Galdino, doutora em Relações Internacionais. Quatro programas, uma voz de marca e um site que a própria equipe consegue manter.",
+   "ficha": [
+    {
+     "k": "Cliente",
+     "v": "Carolina Galdino · Elos Saber"
+    },
+    {
+     "k": "Entregas",
+     "v": "Design system, logo em vetor, manual de marca, site de 10 páginas"
+    },
+    {
+     "k": "Ano",
+     "v": "2026"
+    },
+    {
+     "k": "Papel",
+     "v": "Design, front-end e publicação"
+    },
+    {
+     "k": "No ar",
+     "v": "elossaber.com.br"
+    }
+   ],
+   "sobreKicker": "Sobre o site",
+   "sobreTitle": "Quatro programas, um ponto de entrada.",
+   "sobreParas": [
+    "A Elos Saber reúne formação acadêmica, estratégia profissional e desenvolvimento humano. O site apresenta os quatro programas: EOS (docência no ensino superior), AURIS (relações internacionais), PROSPERA (setor público) e ALÁFIA (liderança consciente).",
+    "A home abre com a promessa da marca, “Somos ponte”, e leva para a conversa no WhatsApp, que é o caminho de venda. Cada programa tem página própria com ficha, público e contato. Há ainda as páginas da Carolina, do código de ética e de contato.",
+    "O site tem tema escuro e tema claro, escolhidos pelo visitante, e funciona do celular ao monitor grande."
+   ],
+   "mockupKicker": "Em tela",
+   "mockupTitle": "Do monitor ao celular.",
+   "mockupParas": [
+    "O mesmo sistema em três tamanhos: desktop, laptop e celular. No celular o menu vira botão e as fichas dos programas empilham em uma coluna, sem perder a hierarquia."
+   ],
+   "fluxoKicker": "Como foi feito",
+   "fluxoTitle": "O fluxo, resumido.",
+   "fluxoItems": [
+    {
+     "t": "Conversa",
+     "d": "Entender a Carolina, o público e o que o site precisa vender."
+    },
+    {
+     "t": "Marca e sistema",
+     "d": "Redesenho do logo em vetor, manual de marca de 36 páginas e tokens de cor e tipo."
+    },
+    {
+     "t": "Layout",
+     "d": "Três modelos de página apresentados a ela. A Carolina escolheu o Editorial."
+    },
+    {
+     "t": "Código",
+     "d": "Páginas em HTML e CSS, geradas a partir de um conjunto único de dados e de componentes."
+    },
+    {
+     "t": "Revisão",
+     "d": "Duas rodadas de correções dela, com conferência automática e teste manual dos controles."
+    },
+    {
+     "t": "Publicação",
+     "d": "Código no GitHub e site no ar na Cloudflare, no domínio dela."
+    }
+   ],
+   "transicaoKicker": "A virada",
+   "transicaoTitle": "Do Lovable e do WordPress para código próprio.",
+   "transicaoParas": [
+    "O endereço elossaber.com.br rodava em um WordPress antigo, em hospedagem compartilhada. Em paralelo, existia uma versão feita no Lovable, que gerava as telas mas deixava o projeto preso à plataforma e difícil de ajustar com precisão.",
+    "Reconstruí o site em código. As páginas saem de um gerador estático, sem banco de dados nem painel para atualizar. Cada texto e cada cor vive em um arquivo, e o resultado é um site leve, rápido e sem plugin para quebrar.",
+    "O código mora em um repositório no GitHub, que serve de histórico e de cópia de segurança. A publicação é feita na Cloudflare: o site roda em Workers, o DNS do domínio também está lá, e o e-mail do domínio é encaminhado pelo Email Routing.",
+    "O Lovable e o WordPress deixaram de ser a fonte do site. O repositório e o gerador passaram a ser."
+   ],
+   "sistemaKicker": "Design system",
+   "sistemaTitle": "Púrpura, dourado e uma serifa de acento.",
+   "sistemaParas": [
+    "Quatro cores fixas, com o púrpura como principal e o dourado como acento, a cor do logo. O texto usa Host Grotesk e, em uma palavra por título, Instrument Serif em itálico.",
+    "A marca virou imagotipo: logo, assinatura e símbolo. Redesenhei os anéis em vetor, com linhas contínuas que afinam quando passam por trás do outro anel."
+   ],
+   "webKicker": "Telas",
+   "webTitle": "Home e páginas internas.",
+   "webNote": "Capturas do site no ar, em laptop e em celular.",
+   "cta": "Precisa de um site que sua equipe consiga manter?",
+   "ctaBtn": "Vamos conversar",
+   "cores": [
+    {
+     "nome": "Preto",
+     "hex": "#0B0A14",
+     "share": "Base escura"
+    },
+    {
+     "nome": "Púrpura",
+     "hex": "#2F2E7F",
+     "share": "Principal"
+    },
+    {
+     "nome": "Dourado",
+     "hex": "#EABB53",
+     "share": "Acento"
+    },
+    {
+     "nome": "Branco",
+     "hex": "#FFFFFF",
+     "share": "Texto e respiro"
+    }
+   ]
+  },
+  "en": {
+   "back": "Back to cases",
+   "tag": "Website",
+   "role": "Interface design · Design system · Code",
+   "title": "Elos Saber",
+   "slogan": "elossaber.com.br",
+   "lede": "Website for Elos Saber, the training, consulting and development practice of Prof. Dr. Carolina Galdino, a doctor in International Relations. Four programmes, one brand voice, and a site her own team can keep up.",
+   "ficha": [
+    {
+     "k": "Client",
+     "v": "Carolina Galdino · Elos Saber"
+    },
+    {
+     "k": "Deliverables",
+     "v": "Design system, vector logo, brand manual, 10-page website"
+    },
+    {
+     "k": "Year",
+     "v": "2026"
+    },
+    {
+     "k": "Role",
+     "v": "Design, front-end and publishing"
+    },
+    {
+     "k": "Live",
+     "v": "elossaber.com.br"
+    }
+   ],
+   "sobreKicker": "About the site",
+   "sobreTitle": "Four programmes, one way in.",
+   "sobreParas": [
+    "Elos Saber brings together academic training, professional strategy and human development. The site presents four programmes: EOS (teaching in higher education), AURIS (international relations), PROSPERA (public sector) and ALÁFIA (conscious leadership).",
+    "The home page opens with the brand promise, “Somos ponte” (we are a bridge), and leads to a WhatsApp conversation, which is where sales happen. Each programme has its own page with a fact sheet, audience and contact. There are also pages for Carolina, the code of ethics and contact.",
+    "The site has a dark and a light theme, chosen by the visitor, and works from a phone to a large monitor."
+   ],
+   "mockupKicker": "On screen",
+   "mockupTitle": "From monitor to phone.",
+   "mockupParas": [
+    "One system at three sizes: desktop, laptop and phone. On the phone the menu becomes a button and the programme sheets stack into one column, with the hierarchy intact."
+   ],
+   "fluxoKicker": "How it was made",
+   "fluxoTitle": "The workflow, short version.",
+   "fluxoItems": [
+    {
+     "t": "Conversation",
+     "d": "Understanding Carolina, her audience and what the site has to sell."
+    },
+    {
+     "t": "Brand and system",
+     "d": "Vector redraw of the logo, a 36-page brand manual and colour and type tokens."
+    },
+    {
+     "t": "Layout",
+     "d": "Three page models shown to her. Carolina chose the Editorial one."
+    },
+    {
+     "t": "Code",
+     "d": "Pages in HTML and CSS, generated from a single set of data and components."
+    },
+    {
+     "t": "Review",
+     "d": "Two rounds of her corrections, with automated checks and manual testing of the controls."
+    },
+    {
+     "t": "Publishing",
+     "d": "Code on GitHub and the site live on Cloudflare, on her own domain."
+    }
+   ],
+   "transicaoKicker": "The switch",
+   "transicaoTitle": "From Lovable and WordPress to code of its own.",
+   "transicaoParas": [
+    "The elossaber.com.br address was running an old WordPress site on shared hosting. In parallel there was a version built in Lovable, which produced screens but tied the project to the platform and made precise changes hard.",
+    "I rebuilt the site in code. The pages come out of a static generator, with no database and no admin panel to maintain. Every text and every colour lives in a file, so the result is light, fast and has no plugin to break.",
+    "The code lives in a GitHub repository, which works as history and backup. Publishing happens on Cloudflare: the site runs on Workers, the domain's DNS is there too, and the domain's email is forwarded through Email Routing.",
+    "Lovable and WordPress stopped being the source of the site. The repository and the generator took over."
+   ],
+   "sistemaKicker": "Design system",
+   "sistemaTitle": "Purple, gold and a serif accent.",
+   "sistemaParas": [
+    "Four fixed colours, purple as the main one and gold as the accent, the colour of the logo. Text is set in Host Grotesk and, in one word per headline, Instrument Serif italic.",
+    "The brand became a combined mark: logo, signature and symbol. I redrew the rings as vectors, with continuous lines that thin out where they pass behind the other ring."
+   ],
+   "webKicker": "Screens",
+   "webTitle": "Home and inner pages.",
+   "webNote": "Captures of the live site, on laptop and phone.",
+   "cta": "Need a site your team can keep up?",
+   "ctaBtn": "Let's talk",
+   "cores": [
+    {
+     "nome": "Black",
+     "hex": "#0B0A14",
+     "share": "Dark base"
+    },
+    {
+     "nome": "Purple",
+     "hex": "#2F2E7F",
+     "share": "Main"
+    },
+    {
+     "nome": "Gold",
+     "hex": "#EABB53",
+     "share": "Accent"
+    },
+    {
+     "nome": "White",
+     "hex": "#FFFFFF",
+     "share": "Text and air"
+    }
    ]
   }
  }
