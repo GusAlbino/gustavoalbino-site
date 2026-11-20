@@ -297,7 +297,7 @@ paginas.casos = (lang, id) => {
   const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
   const { por, sobra } = distribuir(secs, todas.filter((s) => !telasExt.includes(s) && !telasLog.includes(s)));
   const galeria = (srcs) => `<div class="galeria">${srcs.map((src) => `<figure><img src="/${src}" alt="" loading="lazy"></figure>`).join('')}</div>`;
-  const telas = (telasExt.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
+  const telas = (telasExt.length ? `<div class="rotulo" id="telas"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
   const blocos = secs.map((s, i) => {
     const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}</div>`;
     const m = midiaHtml(por[i]);
@@ -305,7 +305,7 @@ paginas.casos = (lang, id) => {
   }).join('\n  ');
   const cores = (dados.cores || []).filter((x) => x.hex).map((x) => `<div class="card bloco" style="padding:0"><span style="display:block;height:84px;background:${x.hex};border-bottom:var(--bw) solid var(--tinta)"></span><div style="padding:10px 14px"><b style="color:var(--fg)">${esc(x.nome || '')}</b><br><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div></div>`).join('');
   const corpo = `<div class="g2 caso-topo" id="topo">
-    <section class="card cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1></div></div>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes"><a class="btn btn--ghost" href="${href(lang, 'cases')}">← ${rot.back}</a></div></section>
+    <section class="card cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1></div></div>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes">${(telasExt.length || telasLog.length) ? `<a class="btn btn--ouro" href="#telas">${lang === 'pt' ? 'Ver as telas ↓' : 'See the screens ↓'}</a>` : ''}<a class="btn btn--ghost" href="${href(lang, 'cases')}">← ${rot.back}</a></div></section>
     <div class="card card--img caso-capa"><img src="/${c.bgImage}" alt=""></div>
   </div>
   <div class="card ficha-linha">${ficha}</div>
