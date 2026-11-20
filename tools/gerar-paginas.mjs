@@ -203,13 +203,20 @@ paginas.contato = (lang) => {
 };
 
 // ---------- SUBPÁGINAS DE PROJETOS ----------
+// número da edição em destaque (1ª, 2ª...); sem número, o ano ocupa o lugar
+const edicaoHtml = (a, lang) => {
+  const m = a.edicao[lang].match(/^(\d+)\s?(ª|st|nd|rd|th)\s+(.*)$/);
+  const grande = m ? m[1] + m[2] : a.year;
+  const rot = m ? `${m[3]} · ${a.year}` : a.edicao[lang];
+  return `<div class="edicao"><b class="edicao-num">${esc(grande)}</b><span class="mono">${esc(rot)}</span></div>`;
+};
 paginas.relatorios = (lang) => {
   const p = DICTL(lang).anuariosPage;
   const itens = D.ANUARIOS.map((a) => {
     const fichaHtml = (a.ficha || []).length ? `<div class="ficha-mini">${a.ficha.map((f) => `<div><span class="mono">${esc(f.k[lang])}</span><b>${esc(f.v[lang])}</b></div>`).join('')}</div>` : '';
     const statsHtml = (a.stats || []).length ? `<div class="stats-mini">${a.stats.map((s) => `<div><b>${esc(s.num)}</b><span>${esc(s.label[lang])}</span></div>`).join('')}</div>` : '';
     const imgsHtml = (a.imgs || []).length ? `<div class="thumbs">${a.imgs.map((i) => `<figure><img src="/${i.src}" alt="${esc(i.alt[lang])}" loading="lazy"></figure>`).join('')}</div>` : '';
-    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco"><span class="mono tag-ouro">${esc(a.edicao[lang])} · ${esc(a.year)}</span><h2>${esc(a.title[lang])}</h2><p class="tema">${esc(a.tema[lang])}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
+    return `<article class="ficha" id="${esc(a.id)}"><a class="card card--img capa" href="${esc(a.link)}" target="_blank" rel="noopener"><img src="/${a.cover}" alt="" loading="lazy" style="object-position:center top"></a><div class="card bloco">${edicaoHtml(a, lang)}<h2>${esc(a.title[lang])}</h2><p class="tema">${esc(a.tema[lang])}</p>${(a.desc[lang] || []).map((x) => `<p>${esc(x)}</p>`).join('')}${statsHtml}${fichaHtml}${imgsHtml}<a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(p.verNaKaya)}</a></div></article>`;
   }).join('\n  ');
   return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
 };
