@@ -139,11 +139,19 @@ paginas.projetos = (lang) => {
 };
 
 // ---------- SERVIÇOS ----------
+// ícones dos serviços: traço em preto AMOLED, só um leve contraste com o fundo do quadro
+const ICONES_SERVICO = [
+  '<path d="M12 3l2.4 5.6L20 9l-4.2 3.8L17 19l-5-3-5 3 1.2-6.2L4 9l5.6-.4z"/>', // branding
+  '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>', // produto digital
+  '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>', // website
+  '<path d="M4 4h16v7H4zM4 15h9M4 19h6"/><path d="M17 15l3 2-3 2z"/>', // landing page
+  '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".8"/>', // estratégia
+  '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>', // planejamento
+];
 paginas.servicos = (lang) => {
   const T = DICTL(lang), p = T.servPage;
-  const f = chips(lang, [{ key: 'all', rot: lang === 'pt' ? 'Tudo' : 'All' }, ...T.services.map((s) => ({ key: s.num, rot: s.title }))], '#lista');
-  const cards = T.services.map((s) => `<article class="card bloco servico" data-cat="${s.num}"><span class="num">${esc(s.num)}</span><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
-  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro, '', f)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
+  const cards = T.services.map((s, i) => `<article class="card bloco servico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
+  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
 // ---------- SOBRE ----------
