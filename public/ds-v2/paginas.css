@@ -99,10 +99,8 @@
 }
 @media (min-width:961px) and (max-width:1200px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* número da edição em destaque */
-.edicao{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.edicao-num{font-family:var(--font-display);font-weight:900;font-size:clamp(56px,6vw,92px);line-height:.85;letter-spacing:-.05em;color:var(--ouro)}
-.edicao .mono{color:var(--fg);font-size:13px}
+/* tag da edição: o amarelo de sempre, um passo maior */
+.tag-edicao{font-size:17px;letter-spacing:.14em}
 
 /* ---------- ficha de anuário: números, ficha curta e páginas do livro ---------- */
 .stats-mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:6px}

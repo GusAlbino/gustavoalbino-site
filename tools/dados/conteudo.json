@@ -1536,15 +1536,15 @@
    "id": "2025-growshops",
    "year": "2025",
    "edicao": {
-    "pt": "Anuário de mercado",
-    "en": "Market yearbook"
+    "pt": "3ª edição",
+    "en": "3rd edition"
    },
    "accent": "#5D357C",
    "cover": "assets/anuarios/2025gs-cover.webp",
    "link": "https://kayamind.com/anuario-ghm-2025/",
    "title": {
-    "pt": "Growshops, Headshops e Marcas",
-    "en": "Growshops, Headshops and Brands"
+    "pt": "Anuário de Growshops, Headshops e Marcas",
+    "en": "Growshops, Headshops and Brands Yearbook"
    },
    "tema": {
     "pt": "Evolução de pontos de venda, portfólio,\ninovação e hábitos de compra.",
@@ -1567,8 +1567,8 @@
       "en": "Edition"
      },
      "v": {
-      "pt": "Anuário de mercado",
-      "en": "Market yearbook"
+      "pt": "3ª · anual",
+      "en": "3rd · annual"
      }
     },
     {
@@ -1874,15 +1874,15 @@
    "id": "2024-growshops",
    "year": "2024",
    "edicao": {
-    "pt": "Anuário de mercado",
-    "en": "Market yearbook"
+    "pt": "2ª edição",
+    "en": "2nd edition"
    },
    "accent": "#2E7D4F",
    "cover": "assets/anuarios/2024gs-cover.webp",
    "link": "https://kayamind.com/anuario-de-mercado-growshops-headshops-e-marcas-2024/",
    "title": {
-    "pt": "Growshops, Headshops e Marcas",
-    "en": "Growshops, Headshops and Brands"
+    "pt": "Anuário de Growshops, Headshops e Marcas",
+    "en": "Growshops, Headshops and Brands Yearbook"
    },
    "tema": {
     "pt": "O setor de tabacarias no Brasil,\nda loja física à marca.",
@@ -1905,8 +1905,8 @@
       "en": "Edition"
      },
      "v": {
-      "pt": "Anuário de mercado",
-      "en": "Market yearbook"
+      "pt": "2ª · anual",
+      "en": "2nd · annual"
      }
     },
     {
@@ -1965,15 +1965,15 @@
    "id": "2023-growshops",
    "year": "2023",
    "edicao": {
-    "pt": "Anuário de mercado",
-    "en": "Market yearbook"
+    "pt": "1ª edição",
+    "en": "1st edition"
    },
    "accent": "#5D357C",
    "cover": "assets/anuarios/2023gs-cover.webp",
    "link": "https://kayamind.com/anuario-de-mercado-growshops-headshops-marcas-2023/",
    "title": {
-    "pt": "Growshops, Headshops e Marcas",
-    "en": "Growshops, Headshops and Brands"
+    "pt": "Anuário de Growshops, Headshops e Marcas",
+    "en": "Growshops, Headshops and Brands Yearbook"
    },
    "tema": {
     "pt": "O varejo canábico brasileiro,\ndo cultivo ao ponto de venda.",
@@ -2000,8 +2000,8 @@
       "en": "Edition"
      },
      "v": {
-      "pt": "Anuário de mercado",
-      "en": "Market yearbook"
+      "pt": "1ª · anual",
+      "en": "1st · annual"
      }
     },
     {
