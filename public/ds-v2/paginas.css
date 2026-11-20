@@ -154,3 +154,6 @@
 .caso-hero .stats-mini span{font-size:13px}
 .caso-hero>img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-left:var(--bw) solid var(--tinta)}
 @media (max-width:960px){.caso-hero{grid-template-columns:1fr}.caso-hero>img{border-left:0;border-top:var(--bw) solid var(--tinta)}}
+
+/* "Voltar aos cases" fora do topo do case, logo abaixo do logo */
+.voltar{display:flex;justify-content:flex-start}
