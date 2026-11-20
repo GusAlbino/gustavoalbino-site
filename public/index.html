@@ -108,14 +108,13 @@
   </nav>
 
   <div class="card card--img feat" id="feat" role="group" aria-roledescription="carrossel" aria-label="Últimos trabalhos">
-    <img class="slide on" src="/assets/anuarios/2026-cover.webp" alt="" width="1600" height="2264" style="object-position:center 58%">
-    <img class="slide" src="/assets/cases/runpace/capa.webp" alt="" width="1080" height="1080">
-    <img class="slide" src="/assets/cases/kaya-doc/capa-dark.webp" alt="" width="1080" height="1080">
-    <img class="slide" src="/assets/cases/yerba-fina/hero-explore.webp" alt="" width="1080" height="1080">
+    <img class="slide on" src="/assets/destaques/anuario-2026.webp" alt="" width="2000" height="1400">
+    <img class="slide" src="/assets/destaques/kaya-doc-home.webp" alt="" width="1200" height="1200">
+    <img class="slide" src="/assets/destaques/elos-saber-home.webp" alt="" width="1400" height="1400">
     <a class="esticar" id="fLink" href="/projetos/relatorios#2026" aria-label="Abrir o relatório Anuário 2026"></a>
     <span class="chip mono" id="fTag">Anuário 2026 · Relatório</span>
     <div class="ctrl"><button class="seta" type="button" data-d="-1" aria-label="Trabalho anterior">←</button><button class="seta" type="button" data-d="1" aria-label="Próximo trabalho">→</button></div>
-    <div class="prog" aria-hidden="true"><span class="ativo"><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+    <div class="prog" aria-hidden="true"><span class="ativo"><i></i></span><span><i></i></span><span><i></i></span></div>
   </div>
 
   <section class="card hero" aria-label="Apresentação">
@@ -158,9 +157,8 @@
   /* destaque rotativo: troca a cada 7s, pausa com o mouse em cima, parado se o sistema pedir menos movimento */
   var T=[
     {tag:"Anuário 2026 · Relatório",href:"/projetos/relatorios#2026",nome:"Anuário 2026",rot:"o relatório"},
-    {tag:"Runpace · Design system",href:"/cases/runpace",nome:"Runpace"},
     {tag:"Kaya Doc · Produto digital",href:"/cases/kaya-doc",nome:"Kaya Doc"},
-    {tag:"Yerba Fina · Branding",href:"/cases/yerba-fina",nome:"Yerba Fina"}
+    {tag:"Elos Saber · Website",href:"/cases/elos-saber",nome:"Elos Saber"}
   ];
   var feat=document.getElementById("feat"),slides=[].slice.call(feat.querySelectorAll(".slide")),segs=[].slice.call(feat.querySelectorAll(".prog span")),at=0;
   function ir(k,dir){
