@@ -876,7 +876,8 @@
    "blurb": {
     "pt": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
     "en": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in."
-   }
+   },
+   "heroImage": "assets/cases/runpace/hero-mockup.webp"
   },
   {
    "id": "elos-saber",
@@ -899,7 +900,8 @@
    "blurb": {
     "pt": "Site de formação, consultoria e desenvolvimento profissional da Profa. Dra. Carolina Galdino, do Lovable e WordPress ao código próprio.",
     "en": "Website for the training, consulting and professional development practice of Prof. Dr. Carolina Galdino, rebuilt from Lovable and WordPress into code."
-   }
+   },
+   "heroImage": "assets/cases/elos-saber/hero-mockup.webp"
   },
   {
    "id": "othelo",
@@ -922,7 +924,8 @@
    "blurb": {
     "pt": "Produtora de eventos culturais que cofundei, em Betim. Marca de vinis, papelaria e site institucional.",
     "en": "Cultural events producer I co-founded, in Betim. Vinyl brand, stationery and institutional site."
-   }
+   },
+   "heroImage": "assets/cases/othelo/hero-mockup.webp"
   },
   {
    "id": "jimi-oliver",
@@ -945,7 +948,8 @@
    "blurb": {
     "pt": "Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.",
     "en": "Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio."
-   }
+   },
+   "heroImage": "assets/cases/jimi-oliver/hero-mockup.webp"
   },
   {
    "id": "yerba-fina",
@@ -968,7 +972,8 @@
    "blurb": {
     "pt": "Moda sustentável brasileira. Identidade completa, do bud ao manual.",
     "en": "Brazilian sustainable fashion. Full identity, from the bud to the guidelines."
-   }
+   },
+   "heroImage": "assets/cases/yerba-fina/hero-mockup.webp"
   },
   {
    "id": "gustavo-albino",
@@ -991,7 +996,8 @@
    "blurb": {
     "pt": "Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.",
     "en": "My identity, rebuilt in 2023. The monogram became a seal and the palette became this site."
-   }
+   },
+   "heroImage": "assets/cases/gustavo-albino/hero-mockup.webp"
   },
   {
    "id": "hercules",
@@ -1014,7 +1020,8 @@
    "blurb": {
     "pt": "Marca de suplementos com energia RUN-DMC, do logo aos vídeos.",
     "en": "A supplements brand with RUN-DMC energy, from logo to films."
-   }
+   },
+   "heroImage": "assets/cases/hercules/hero-mockup.webp"
   }
  ],
  "DESTAQUES": [
