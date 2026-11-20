@@ -826,29 +826,6 @@
  ],
  "CASES": [
   {
-   "id": "runpace",
-   "cat": "branding",
-   "detail": true,
-   "color": "#172554",
-   "fg": "#FFFFFF",
-   "mono": "assets/monogram-white.webp",
-   "year": "2026",
-   "bgImage": "assets/cases/runpace/capa-3x2.webp",
-   "bgSquare": "assets/cases/runpace/capa.webp",
-   "title": {
-    "pt": "Runpace",
-    "en": "Runpace"
-   },
-   "typeLabel": {
-    "pt": "Branding + Sistema",
-    "en": "Branding + System"
-   },
-   "blurb": {
-    "pt": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
-    "en": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in."
-   }
-  },
-  {
    "id": "kaya-doc",
    "cat": "uiux",
    "detail": true,
@@ -869,6 +846,29 @@
    "blurb": {
     "pt": "SaaS B2B de cannabis medicinal. Design system e IA.",
     "en": "B2B medical-cannabis SaaS. Design system and AI."
+   }
+  },
+  {
+   "id": "runpace",
+   "cat": "branding",
+   "detail": true,
+   "color": "#172554",
+   "fg": "#FFFFFF",
+   "mono": "assets/monogram-white.webp",
+   "year": "2026",
+   "bgImage": "assets/cases/runpace/capa-3x2.webp",
+   "bgSquare": "assets/cases/runpace/capa.webp",
+   "title": {
+    "pt": "Runpace",
+    "en": "Runpace"
+   },
+   "typeLabel": {
+    "pt": "Branding + Sistema",
+    "en": "Branding + System"
+   },
+   "blurb": {
+    "pt": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
+    "en": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in."
    }
   },
   {
