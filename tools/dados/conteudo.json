@@ -3044,7 +3044,14 @@
       "en": "Wall being prepared"
      }
     }
-   ]
+   ],
+   "pdf": {
+    "src": "assets/pdf/catalogo-muros-jd-teresopolis.pdf",
+    "label": {
+     "pt": "Ver catálogo",
+     "en": "View catalogue"
+    }
+   }
   },
   {
    "id": "recital",
@@ -3344,7 +3351,14 @@
     }
    },
    "capa": "assets/culturais/defesa/post.webp",
-   "hero": "assets/culturais/defesa/poster.webp"
+   "hero": "assets/culturais/defesa/poster.webp",
+   "pdf": {
+    "src": "assets/pdf/portfolio-maria-inez-ribeiro.pdf",
+    "label": {
+     "pt": "Ver portfólio",
+     "en": "View portfolio"
+    }
+   }
   }
  ],
  "LOGO_BRANDS": [
