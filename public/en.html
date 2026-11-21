@@ -65,6 +65,10 @@
 
   /* competências */
   .comp{grid-area:comp;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:var(--gap);min-height:0}
+  .comp .comp-card{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px 0 clamp(14px,4cqw,20px);background:var(--escuro);text-decoration:none}
+  .comp .comp-card b{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(11px,4.4cqw,14px);line-height:1.1;color:var(--hl-text)}
+  .comp .seta{flex:none;width:42px;height:42px;display:grid;place-items:center;border-radius:var(--r-seta);font:700 16px/1 var(--font-mono);color:var(--fg);background:var(--escuro);border:2px solid var(--tinta);box-shadow:var(--sombra-btn);transition:transform .12s,box-shadow .12s,background .12s}
+  .comp .comp-card:hover .seta,.comp .comp-card:focus-visible .seta{background:var(--ouro);color:#000;transform:translate(-2px,-2px);box-shadow:var(--sombra-btn-h)}
   .comp .card>.rot{display:block;padding:8px 11px}
   .comp .rot .n{display:inline;margin-right:7px;font-size:11px}
   .comp .rot b{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;display:inline;font-size:clamp(11px,4.4cqw,14px);line-height:1.1}
@@ -88,7 +92,7 @@
     .feat{min-height:min(520px,70svh)}
     .hero{padding-right:clamp(18px,3cqw,32px)}
     .hero .foto{position:static;order:-1;width:100%;height:240px;object-position:center 8%}
-    .comp{grid-template-rows:none;grid-auto-rows:minmax(150px,1fr)}
+    .comp{grid-template-rows:none;grid-auto-rows:minmax(84px,1fr)}
     .comp .rot span.d{display:block}
   }
 </style>
@@ -135,10 +139,10 @@
   <div class="rotulo"><b>Expertise</b><hr><a class="mono" href="/en/services">View services →</a></div>
 
   <div class="comp">
-    <a class="card card--img" href="/en/projects/logos"><img src="/assets/cases/runpace/capa-3x2.webp" alt="" width="1200" height="800"><span class="rot"><b>Branding & Identity</b><span class="d">Brands, logos, visual systems and guidelines.</span></span></a>
-    <a class="card card--img" href="/en/cases/kaya-doc"><img src="/assets/cases/kaya-doc/capa-3x2.webp" alt="" width="1200" height="800"><span class="rot"><b>Digital Product</b><span class="d">UI, UX, apps and design systems.</span></span></a>
-    <a class="card card--img comp-an" href="/en/projects/reports"><img src="/assets/anuarios/2026-cover.webp" alt="" width="1600" height="2264"><span class="rot"><b>Editorial & Dataviz</b><span class="d">Yearbooks, reports and Power BI.</span></span></a>
-    <a class="card card--img" href="/en/services"><img src="/assets/cases/othelo/hero-studio.webp" alt="" width="1350" height="900"><span class="rot"><b>Creative Direction</b><span class="d">Brands, campaigns and events.</span></span></a>
+    <a class="card comp-card" href="/en/projects/logos"><b>Branding & Identity</b><span class="seta" aria-hidden="true">→</span></a>
+    <a class="card comp-card" href="/en/cases/kaya-doc"><b>Digital Product</b><span class="seta" aria-hidden="true">→</span></a>
+    <a class="card comp-card" href="/en/projects/reports"><b>Editorial & Dataviz</b><span class="seta" aria-hidden="true">→</span></a>
+    <a class="card comp-card" href="/en/services"><b>Creative Direction</b><span class="seta" aria-hidden="true">→</span></a>
   </div>
 </main>
 
