@@ -150,13 +150,15 @@ const ICONES_SERVICO = [
 ];
 paginas.servicos = (lang) => {
   const T = DICTL(lang), p = T.servPage, m = p.metodo;
-  const lista = T.services.map((s, i) => `<li><span class="num mono">${esc(s.num)}</span><div><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p></div><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg></li>`).join('');
+  const quadros = T.services.map((s, i) => `<article class="card bloco serv-q"><div class="serv-q-topo"><span class="num mono">${esc(s.num)}</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg></div><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p></article>`).join('');
   const passos = m.steps.map((x, i) => `<li><span class="mono">${String(i + 1).padStart(2, '0')}</span><div><b>${esc(x.t)}</b><p>${esc(x.d)}</p></div></li>`).join('');
-  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}
-  <div class="serv-par">
-    <section class="card bloco serv-lista"><ul>${lista}</ul></section>
-    <aside class="card card--hl bloco serv-metodo"><span class="mono">${esc(m.kicker)}</span><h2>${esc(m.title)}</h2><p>${esc(m.intro)}</p><ol>${passos}</ol><div class="serv-pag"><b>${esc(m.pagTitle)}</b><p>${esc(m.pag)}</p></div></aside>
-  </div>
+  return casca(lang, 'servicos', p.title, `  <section class="card bloco serv-topo" id="topo">
+    <div class="serv-topo-e"><span class="mono tag-ouro">${esc(p.kicker)}</span><h1 class="disp">${esc(p.title)}</h1><p class="intro">${esc(p.intro)}</p>
+      <div class="serv-met"><span class="mono tag-ouro">${esc(m.kicker)}</span><h2>${esc(m.title)}</h2><p>${esc(m.intro)}</p></div>
+      <div class="serv-pag"><b>${esc(m.pagTitle)}</b><p>${esc(m.pag)}</p></div></div>
+    <ol class="serv-passos">${passos}</ol>
+  </section>
+  <div class="serv-grade">${quadros}</div>
   <section class="card bloco serv-cta"><h2 class="disp">${esc(m.ctaTitle)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(m.cta)}</a></section>`);
 };
 
