@@ -173,7 +173,7 @@
 .midia-card img{max-height:100%}
 
 .midia--j{display:flex;flex-wrap:wrap;gap:var(--gap);align-content:flex-start}
-.midia--j figure{flex:var(--r,1.5) 1 calc(var(--r,1.5) * 200px);min-width:0;display:block}
+.midia--j figure{flex:var(--r,1.5) 1 calc(var(--r,1.5) * var(--b,200px));min-width:0;display:block}
 
 .hero-pontos{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
 .hero-pontos li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline;font-size:14px;line-height:1.45;color:var(--fg)}
