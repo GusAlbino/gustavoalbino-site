@@ -24,9 +24,9 @@
 <link rel="stylesheet" href="/ds-v2/componentes.css">
 <style>
   /* Home: uma dobra em desktop. Destaque rotativo à esquerda, chamada e competências à direita. */
-  .stage{height:auto;padding:var(--gap);display:grid;gap:var(--gap);
+  .stage{height:auto;min-height:100svh;box-sizing:border-box;padding:var(--gap);display:grid;gap:var(--gap);
     grid-template-columns:repeat(6,minmax(0,1fr));
-    grid-template-rows:84px clamp(470px,60svh,620px);
+    grid-template-rows:84px minmax(470px,1fr);
     grid-template-areas:
       "logo nav nav nav nav nav"
       "feat feat feat hero hero hero"}
