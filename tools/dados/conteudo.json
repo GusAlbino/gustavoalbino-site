@@ -361,7 +361,9 @@
      "pagTitle": "Pagamento",
      "pag": "O valor é negociado de acordo com o projeto. A prática é 50% no início e 50% na entrega.",
      "ctaTitle": "Vamos falar do seu projeto?",
-     "cta": "Entrar em contato"
+     "cta": "Entrar em contato",
+     "titulo": "Vamos trabalhar juntos?",
+     "lead": "Todo projeto segue o mesmo passo a passo, do primeiro contato à entrega. Escopo, prazo e valor ficam combinados antes de começar."
     }
    },
    "contatoPage": {
@@ -781,7 +783,9 @@
      "pagTitle": "Payment",
      "pag": "The price is negotiated according to the project. The usual practice is 50% at the start and 50% on delivery.",
      "ctaTitle": "Shall we talk about your project?",
-     "cta": "Get in touch"
+     "cta": "Get in touch",
+     "titulo": "Shall we work together?",
+     "lead": "Every project follows the same step by step, from first contact to delivery. Scope, deadline and price are agreed before we start."
     }
    },
    "contatoPage": {
