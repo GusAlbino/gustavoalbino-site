@@ -152,11 +152,11 @@ paginas.servicos = (lang) => {
   const T = DICTL(lang), p = T.servPage, m = p.metodo;
   const quadros = T.services.map((s, i) => `<article class="card bloco serv-q"><div class="serv-q-topo"><span class="num mono">${esc(s.num)}</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg></div><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p></article>`).join('');
   const passos = m.steps.map((x, i) => `<li><span class="mono">${String(i + 1).padStart(2, '0')}</span><div><b>${esc(x.t)}</b><p>${esc(x.d)}</p></div></li>`).join('');
-  return casca(lang, 'servicos', p.title, `  <div class="serv-par">
+  return casca(lang, 'servicos', p.title, `  <div class="serv-stage"><div class="serv-par">
     <section class="card bloco serv-topo" id="topo"><h1 class="disp">${esc(m.titulo)}</h1><p class="intro">${esc(m.lead)}</p><ol class="serv-passos">${passos}</ol><div class="serv-pag"><b>${esc(m.pagTitle)}</b><p>${esc(m.pag)}</p></div></section>
     <div class="serv-grade">${quadros}</div>
   </div>
-  <section class="card bloco serv-cta"><h2 class="disp">${esc(m.ctaTitle)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(m.cta)}</a></section>`);
+  <section class="card bloco serv-cta"><h2 class="disp">${esc(m.ctaTitle)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(m.cta)}</a></section></div>`);
 };
 
 // ---------- SOBRE ----------
