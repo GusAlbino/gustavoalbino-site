@@ -856,31 +856,6 @@
    "heroImage": "assets/destaques/kaya-doc-home.webp"
   },
   {
-   "id": "runpace",
-   "cat": "branding",
-   "detail": true,
-   "color": "#172554",
-   "fg": "#FFFFFF",
-   "mono": "assets/monogram-white.webp",
-   "year": "2026",
-   "bgImage": "assets/cases/runpace/capa-3x2.webp",
-   "bgSquare": "assets/cases/runpace/capa.webp",
-   "title": {
-    "pt": "Runpace",
-    "en": "Runpace"
-   },
-   "typeLabel": {
-    "pt": "Branding + Sistema",
-    "en": "Branding + System"
-   },
-   "blurb": {
-    "pt": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
-    "en": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in."
-   },
-   "heroImage": "assets/cases/runpace/hero-corredora.webp",
-   "heroWide": true
-  },
-  {
    "id": "elos-saber",
    "cat": "uiux",
    "detail": true,
@@ -905,6 +880,31 @@
    "heroImage": "assets/cases/elos-saber/hero-mockup.webp",
    "heroWide": "16/11",
    "heroBg": "#2C2C7E"
+  },
+  {
+   "id": "runpace",
+   "cat": "branding",
+   "detail": true,
+   "color": "#172554",
+   "fg": "#FFFFFF",
+   "mono": "assets/monogram-white.webp",
+   "year": "2026",
+   "bgImage": "assets/cases/runpace/capa-3x2.webp",
+   "bgSquare": "assets/cases/runpace/capa.webp",
+   "title": {
+    "pt": "Runpace",
+    "en": "Runpace"
+   },
+   "typeLabel": {
+    "pt": "Branding + Sistema",
+    "en": "Branding + System"
+   },
+   "blurb": {
+    "pt": "Óculos esportivos. Rebranding feito tirando: sai o descritor, entra proporção obrigatória de cor.",
+    "en": "Sports eyewear. A rebrand done by removing: the descriptor goes, a mandatory colour ratio comes in."
+   },
+   "heroImage": "assets/cases/runpace/hero-corredora.webp",
+   "heroWide": true
   },
   {
    "id": "othelo",
@@ -1088,27 +1088,18 @@
    "en": "Cannabis Yearbooks"
   },
   {
-   "cat": "ilustracao",
-   "color": "var(--gold)",
-   "fg": "var(--paper-100)",
-   "mono": "assets/monogram-black.webp",
-   "h": "270px",
-   "img": "assets/ilustracao/amazon.webp",
-   "route": "ilustracao",
-   "pt": "Ilustração Autoral",
-   "en": "Original Illustration"
-  },
-  {
-   "cat": "ebooks",
-   "color": "var(--ink)",
+   "cat": "grafico",
+   "color": "var(--cerulean)",
    "fg": "var(--paper-100)",
    "mono": "assets/monogram-white.webp",
-   "h": "230px",
-   "img": "assets/ebooks/tendencias.webp",
-   "imgFit": "cover",
-   "route": "ebooks",
-   "pt": "E-books · Série",
-   "en": "E-books · Series"
+   "h": "260px",
+   "img": "assets/logo-seal-black.webp",
+   "imgFit": "auto 56%",
+   "imgPos": "center 38%",
+   "imgBg": "#F2EDE3",
+   "route": "logos",
+   "pt": "Logo & Marca",
+   "en": "Logo & Mark"
   },
   {
    "cat": "culturais",
@@ -1125,18 +1116,27 @@
    "en": "Cultural Projects"
   },
   {
-   "cat": "grafico",
-   "color": "var(--cerulean)",
+   "cat": "ebooks",
+   "color": "var(--ink)",
    "fg": "var(--paper-100)",
    "mono": "assets/monogram-white.webp",
-   "h": "260px",
-   "img": "assets/logo-seal-black.webp",
-   "imgFit": "auto 56%",
-   "imgPos": "center 38%",
-   "imgBg": "#F2EDE3",
-   "route": "logos",
-   "pt": "Logo & Marca",
-   "en": "Logo & Mark"
+   "h": "230px",
+   "img": "assets/ebooks/tendencias.webp",
+   "imgFit": "cover",
+   "route": "ebooks",
+   "pt": "E-books · Série",
+   "en": "E-books · Series"
+  },
+  {
+   "cat": "ilustracao",
+   "color": "var(--gold)",
+   "fg": "var(--paper-100)",
+   "mono": "assets/monogram-black.webp",
+   "h": "270px",
+   "img": "assets/ilustracao/amazon.webp",
+   "route": "ilustracao",
+   "pt": "Ilustração Autoral",
+   "en": "Original Illustration"
   }
  ],
  "GAL_FILTERS": [
@@ -1146,19 +1146,19 @@
    "en": "All"
   },
   {
+   "key": "reports",
+   "pt": "Reports",
+   "en": "Reports"
+  },
+  {
    "key": "grafico",
    "pt": "Gráfico",
    "en": "Graphic"
   },
   {
-   "key": "ilustracao",
-   "pt": "Ilustração",
-   "en": "Illustration"
-  },
-  {
-   "key": "reports",
-   "pt": "Reports",
-   "en": "Reports"
+   "key": "culturais",
+   "pt": "Projetos culturais",
+   "en": "Cultural projects"
   },
   {
    "key": "ebooks",
@@ -1166,9 +1166,9 @@
    "en": "E-books"
   },
   {
-   "key": "culturais",
-   "pt": "Projetos culturais",
-   "en": "Cultural projects"
+   "key": "ilustracao",
+   "pt": "Ilustração",
+   "en": "Illustration"
   }
  ],
  "CASE_FILTERS": [

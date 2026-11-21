@@ -92,7 +92,7 @@ ${corpo}
 <footer class="card rodape" aria-label="${lang === 'pt' ? 'Rodapé' : 'Footer'}">
   <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="40" height="40"><p>${esc(f.marca)}</p><span class="mono">Betim · Minas Gerais</span></div>
   <nav class="col f-cases" aria-label="Cases"><h2 class="mono">${f.cases}</h2><ul>${D.CASES.map((c) => `<li><a href="${caseHref(lang, c.id)}">${esc(c.title[lang])}</a></li>`).join('')}</ul></nav>
-  <nav class="col f-proj" aria-label="${f.proj}"><h2 class="mono">${f.proj}</h2><ul>${['logos', 'relatorios', 'ebooks', 'culturais', 'ilustracao'].map((k) => `<li><a href="${href(lang, k)}">${esc(projNome(lang, k))}</a></li>`).join('')}</ul></nav>
+  <nav class="col f-proj" aria-label="${f.proj}"><h2 class="mono">${f.proj}</h2><ul>${['relatorios', 'logos', 'culturais', 'ebooks', 'ilustracao'].map((k) => `<li><a href="${href(lang, k)}">${esc(projNome(lang, k))}</a></li>`).join('')}</ul></nav>
   <nav class="col f-site" aria-label="${f.site}"><h2 class="mono">${f.site}</h2><ul><li><a href="${href(lang, 'home')}">${f.inicio}</a></li>${['cases', 'projetos', 'servicos', 'sobre', 'cv', 'contato'].map((k) => `<li><a href="${href(lang, k)}">${n[k]}</a></li>`).join('')}</ul></nav>
   <div class="col f-fale card--hl"><div><p class="grande">${f.fale}</p></div><div>
     <a class="mail" href="mailto:${D.LINKS.email}">${D.LINKS.email}</a>
