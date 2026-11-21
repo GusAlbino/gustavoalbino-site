@@ -165,7 +165,7 @@ paginas.sobre = (lang) => {
   const corpo = `${cab(s.kicker, s.title, '', '', f)}
   <div id="lista" style="display:grid;gap:var(--gap)">
   <div class="g2" data-cat="quem" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)">
-    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-pedra-grande.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
+    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
     <div class="card bloco"><div class="texto-longo">${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div>
   </div>
   <div class="g4 mantem" data-cat="entrega">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h2>${esc(x.title)}</h2><p>${esc(x.desc)}</p></article>`).join('')}</div>
