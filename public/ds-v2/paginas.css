@@ -348,3 +348,8 @@
 .sobre-stage .servico .num{font-size:clamp(28px,2.6vw,38px)}
 .sobre-stage .servico h2{font-size:clamp(16px,1.4vw,20px)}
 .sobre-stage .servico p{font-size:13px;line-height:1.4;margin:0}
+/* Sobre: dobra termina nos quatro blocos; rodape so aparece ao rolar */
+.sobre-stage{height:calc(max(100svh,820px) - 120px);grid-template-rows:minmax(0,1fr) auto}
+.sobre-par{grid-template-columns:minmax(0,.58fr) minmax(0,1.42fr);min-height:0}
+.sobre-par .sobre-foto>img{object-position:center 100%}
+@media (max-width:960px){.sobre-stage{height:auto}}
