@@ -902,7 +902,8 @@
         "en": "Website for the training, consulting and professional development practice of Prof. Dr. Carolina Galdino, rebuilt from Lovable and WordPress into code."
       },
       "heroImage": "assets/cases/elos-saber/hero-mockup.webp",
-      "heroWide": true
+      "heroWide": "16/11",
+      "heroBg": "#2C2C7E"
     },
     {
       "id": "othelo",
@@ -926,7 +927,8 @@
         "pt": "Produtora de eventos culturais que cofundei, em Betim. Marca de vinis, papelaria e site institucional.",
         "en": "Cultural events producer I co-founded, in Betim. Vinyl brand, stationery and institutional site."
       },
-      "heroImage": "assets/cases/othelo/hero-mockup.webp"
+      "heroImage": "assets/cases/othelo/hero-mockup.webp",
+      "heroWide": true
     },
     {
       "id": "jimi-oliver",
@@ -4817,7 +4819,7 @@
       "role": "Cofundador · Direção criativa · Marca e site",
       "title": "Othelo",
       "slogan": "Seja grande, vem pra Othelo!",
-      "lede": "Identidade visual e site para a Othelo Produtora, uma produtora de eventos culturais em Betim, Minas Gerais, que cofundei e onde sigo como diretor criativo. Da virada de marca (ex-Produtora Oliver) ao logotipo de vinis, da papelaria ao site: um sistema retrô-soul que homenageia Grande Otelo e a diversidade da cultura brasileira.",
+      "lede": "Marca e site da Othelo Produtora, de eventos culturais em Betim, que cofundei e onde sigo como diretor criativo. Um sistema retrô-soul que homenageia Grande Otelo.",
       "ficha": [
         {
           "k": "Cliente",
@@ -4881,24 +4883,41 @@
         "A hero abre com o convite “Seja grande, vem pra Othelo!”, seguida de próximos eventos, Instagram, a história de Grande Otelo e a missão, tudo na nova linguagem visual: tipografia, cores, grafismos e arquitetura de informação alinhados à nova fase."
       ],
       "webCap": "Home · site institucional da Othelo Produtora",
-      "aplicaKicker": "Aplicações",
-      "aplicaTitle": "Da camiseta ao outdoor.",
-      "aplicaNote": "A marca desce do digital para o físico (camisetas, peças out-of-home e social), sempre com o mesmo grito retrô.",
       "billboardCap": "Out-of-home · boombox + assinatura Othelo",
-      "papelKicker": "Meu papel",
-      "papelTitle": "Cofundador e diretor criativo.",
-      "papelParas": [
-        "A Othelo não é só um cliente: é uma marca que ajudei a fundar. Conduzi a transição da Produtora Oliver, criei a nova identidade e o site, e defini a linguagem visual da casa.",
-        "Sigo atuando na produtora como diretor criativo, à frente da direção de arte de campanhas, eventos e projetos culturais, garantindo que cada peça fale a mesma língua da marca."
-      ],
-      "resultadoKicker": "Resultado",
-      "resultadoTitle": "Uma marca cultural pronta para crescer.",
-      "resultadoParas": [
-        "Do nome ao site, um sistema coeso e reconhecível: vinis, grafite e laranja em todos os pontos de contato, do palco às redes.",
-        "Uma base sólida para a Othelo conectar artistas a editais, festivais e oportunidades reais, e seguir profissionalizando a cena cultural brasileira."
-      ],
       "cta": "Quer construir uma marca cultural assim?",
-      "ctaBtn": "Vamos conversar"
+      "ctaBtn": "Vamos conversar",
+      "bigNumbers": [
+        {
+          "num": "3",
+          "label": "leis de incentivo: Rouanet, Noemi Gontijo e Aldir Blanc"
+        },
+        {
+          "num": "2",
+          "label": "vinis viram os “O” do logo"
+        },
+        {
+          "num": "4",
+          "label": "versões da marca: positivo, negativo, terracota e contorno"
+        },
+        {
+          "num": "1",
+          "label": "site institucional no ar"
+        }
+      ],
+      "heroPontos": [
+        {
+          "t": "Meu papel",
+          "d": "Cofundador e diretor criativo: virada de marca, identidade, site e direção de arte."
+        },
+        {
+          "t": "Aplicações",
+          "d": "Da camiseta ao outdoor, sempre com o mesmo grito retrô."
+        },
+        {
+          "t": "Resultado",
+          "d": "Um sistema coeso, com vinis, grafite e laranja do palco às redes."
+        }
+      ]
     },
     "en": {
       "back": "Back to cases",
@@ -4906,7 +4925,7 @@
       "role": "Co-founder · Creative direction · Brand & site",
       "title": "Othelo",
       "slogan": "Seja grande, vem pra Othelo!",
-      "lede": "Visual identity and website for Othelo Produtora, a cultural events producer in Betim, Minas Gerais, that I co-founded and still lead as creative director. From the rebrand (formerly Produtora Oliver) to the vinyl logotype, from stationery to the site: a retro-soul system honouring Grande Otelo and the diversity of Brazilian culture.",
+      "lede": "Brand and website for Othelo Produtora, a cultural events company in Betim that I co-founded and where I remain creative director. A retro-soul system that honours Grande Otelo.",
       "ficha": [
         {
           "k": "Client",
@@ -4970,24 +4989,41 @@
         "The hero opens with the invitation “Seja grande, vem pra Othelo!”, followed by upcoming events, Instagram, the story of Grande Otelo and the mission, all in the new visual language: type, colours, graphics and information architecture aligned with the new phase."
       ],
       "webCap": "Home · Othelo Produtora institutional site",
-      "aplicaKicker": "Applications",
-      "aplicaTitle": "From tee to billboard.",
-      "aplicaNote": "The brand steps from digital into the physical (tees, out-of-home and social), always with the same retro shout.",
       "billboardCap": "Out-of-home · boombox + Othelo signature",
-      "papelKicker": "My role",
-      "papelTitle": "Co-founder and creative director.",
-      "papelParas": [
-        "Othelo isn’t just a client: it’s a brand I helped found. I led the transition from Produtora Oliver, created the new identity and the site, and defined the house’s visual language.",
-        "I still work at the company as creative director, leading art direction for campaigns, events and cultural projects, making sure every piece speaks the same brand language."
-      ],
-      "resultadoKicker": "Result",
-      "resultadoTitle": "A cultural brand ready to grow.",
-      "resultadoParas": [
-        "From the name to the site, a cohesive, recognisable system: vinyls, graphite and orange across every touchpoint, from stage to social.",
-        "A solid base for Othelo to connect artists with grants, festivals and real opportunities, and keep professionalising Brazil’s cultural scene."
-      ],
       "cta": "Want to build a cultural brand like this?",
-      "ctaBtn": "Let’s talk"
+      "ctaBtn": "Let’s talk",
+      "bigNumbers": [
+        {
+          "num": "3",
+          "label": "incentive laws: Rouanet, Noemi Gontijo and Aldir Blanc"
+        },
+        {
+          "num": "2",
+          "label": "vinyl records become the “O”s in the logo"
+        },
+        {
+          "num": "4",
+          "label": "brand versions: positive, negative, terracotta and outline"
+        },
+        {
+          "num": "1",
+          "label": "institutional website live"
+        }
+      ],
+      "heroPontos": [
+        {
+          "t": "My role",
+          "d": "Co-founder and creative director: rebrand, identity, website and art direction."
+        },
+        {
+          "t": "Applications",
+          "d": "From the T-shirt to the billboard, always with the same retro shout."
+        },
+        {
+          "t": "Result",
+          "d": "A cohesive system, with vinyl, graffiti and orange from the stage to social media."
+        }
+      ]
     }
   },
   "GA_MARCA": {
@@ -5232,7 +5268,7 @@
       "role": "Design de interface · Design system · Código",
       "title": "Elos Saber",
       "slogan": "elossaber.com.br",
-      "lede": "Site da Elos Saber, ecossistema de formação, consultoria e desenvolvimento da Profa. Dra. Carolina Galdino, doutora em Relações Internacionais. Quatro programas, uma voz de marca e um site que a própria equipe consegue manter.",
+      "lede": "Site da Elos Saber, ecossistema de formação, consultoria e desenvolvimento da Profa. Dra. Carolina Galdino. Quatro programas, uma voz de marca.",
       "ficha": [
         {
           "k": "Cliente",
@@ -5290,48 +5326,6 @@
       "mockupParas": [
         "O mesmo sistema em três tamanhos. No celular o menu vira botão e as fichas empilham em uma coluna."
       ],
-      "fluxoKicker": "Como foi feito",
-      "fluxoTitle": "O fluxo, resumido.",
-      "fluxoItems": [
-        {
-          "t": "Conversa",
-          "d": "Entender a Carolina, o público e o que o site precisa vender."
-        },
-        {
-          "t": "Marca e sistema",
-          "d": "Redesenho do logo em vetor, manual de marca de 36 páginas e tokens de cor e tipo."
-        },
-        {
-          "t": "Layout",
-          "d": "Três modelos de página apresentados a ela. A Carolina escolheu o Editorial."
-        },
-        {
-          "t": "Código",
-          "d": "Páginas em HTML e CSS, geradas a partir de um conjunto único de dados e de componentes."
-        },
-        {
-          "t": "Revisão",
-          "d": "Duas rodadas de correções dela, com conferência automática e teste manual dos controles."
-        },
-        {
-          "t": "Publicação",
-          "d": "Código no GitHub e site no ar na Cloudflare, no domínio dela."
-        }
-      ],
-      "transicaoKicker": "A virada",
-      "transicaoTitle": "Do Lovable e do WordPress para código próprio.",
-      "transicaoParas": [
-        "O endereço elossaber.com.br rodava em um WordPress antigo, em hospedagem compartilhada. Em paralelo, existia uma versão feita no Lovable, que gerava as telas mas deixava o projeto preso à plataforma e difícil de ajustar com precisão.",
-        "Reconstruí o site em código. As páginas saem de um gerador estático, sem banco de dados nem painel para atualizar. Cada texto e cada cor vive em um arquivo, e o resultado é um site leve, rápido e sem plugin para quebrar.",
-        "O código mora em um repositório no GitHub, que serve de histórico e de cópia de segurança. A publicação é feita na Cloudflare: o site roda em Workers, o DNS do domínio também está lá, e o e-mail do domínio é encaminhado pelo Email Routing.",
-        "O Lovable e o WordPress deixaram de ser a fonte do site. O repositório e o gerador passaram a ser."
-      ],
-      "sistemaKicker": "Design system",
-      "sistemaTitle": "Púrpura, dourado e uma serifa de acento.",
-      "sistemaParas": [
-        "Quatro cores fixas, com o púrpura como principal e o dourado como acento, a cor do logo. O texto usa Host Grotesk e, em uma palavra por título, Instrument Serif em itálico.",
-        "A marca virou imagotipo: logo, assinatura e símbolo. Redesenhei os anéis em vetor, com linhas contínuas que afinam quando passam por trás do outro anel."
-      ],
       "cta": "Precisa de um site que sua equipe consiga manter?",
       "ctaBtn": "Vamos conversar",
       "cores": [
@@ -5355,6 +5349,38 @@
           "hex": "#FFFFFF",
           "share": "Texto e respiro"
         }
+      ],
+      "bigNumbers": [
+        {
+          "num": "4",
+          "label": "programas"
+        },
+        {
+          "num": "10",
+          "label": "páginas no ar"
+        },
+        {
+          "num": "36",
+          "label": "páginas de manual de marca"
+        },
+        {
+          "num": "2",
+          "label": "temas, escuro e claro"
+        }
+      ],
+      "heroPontos": [
+        {
+          "t": "Processo",
+          "d": "Conversa, marca, layout, código, revisão e publicação, com duas rodadas de correção da cliente."
+        },
+        {
+          "t": "A virada",
+          "d": "Saiu do Lovable e do WordPress para código próprio, no GitHub e na Cloudflare."
+        },
+        {
+          "t": "Sistema",
+          "d": "Púrpura e dourado, Host Grotesk com uma serifa de acento, logo redesenhado em vetor."
+        }
       ]
     },
     "en": {
@@ -5363,7 +5389,7 @@
       "role": "Interface design · Design system · Code",
       "title": "Elos Saber",
       "slogan": "elossaber.com.br",
-      "lede": "Website for Elos Saber, the training, consulting and development practice of Prof. Dr. Carolina Galdino, a doctor in International Relations. Four programmes, one brand voice, and a site her own team can keep up.",
+      "lede": "Website for Elos Saber, the training, consulting and development practice of Prof. Dr. Carolina Galdino. Four programmes, one brand voice.",
       "ficha": [
         {
           "k": "Client",
@@ -5421,48 +5447,6 @@
       "mockupParas": [
         "One system at three sizes. On the phone the menu becomes a button and the sheets stack into one column."
       ],
-      "fluxoKicker": "How it was made",
-      "fluxoTitle": "The workflow, short version.",
-      "fluxoItems": [
-        {
-          "t": "Conversation",
-          "d": "Understanding Carolina, her audience and what the site has to sell."
-        },
-        {
-          "t": "Brand and system",
-          "d": "Vector redraw of the logo, a 36-page brand manual and colour and type tokens."
-        },
-        {
-          "t": "Layout",
-          "d": "Three page models shown to her. Carolina chose the Editorial one."
-        },
-        {
-          "t": "Code",
-          "d": "Pages in HTML and CSS, generated from a single set of data and components."
-        },
-        {
-          "t": "Review",
-          "d": "Two rounds of her corrections, with automated checks and manual testing of the controls."
-        },
-        {
-          "t": "Publishing",
-          "d": "Code on GitHub and the site live on Cloudflare, on her own domain."
-        }
-      ],
-      "transicaoKicker": "The switch",
-      "transicaoTitle": "From Lovable and WordPress to code of its own.",
-      "transicaoParas": [
-        "The elossaber.com.br address was running an old WordPress site on shared hosting. In parallel there was a version built in Lovable, which produced screens but tied the project to the platform and made precise changes hard.",
-        "I rebuilt the site in code. The pages come out of a static generator, with no database and no admin panel to maintain. Every text and every colour lives in a file, so the result is light, fast and has no plugin to break.",
-        "The code lives in a GitHub repository, which works as history and backup. Publishing happens on Cloudflare: the site runs on Workers, the domain's DNS is there too, and the domain's email is forwarded through Email Routing.",
-        "Lovable and WordPress stopped being the source of the site. The repository and the generator took over."
-      ],
-      "sistemaKicker": "Design system",
-      "sistemaTitle": "Purple, gold and a serif accent.",
-      "sistemaParas": [
-        "Four fixed colours, purple as the main one and gold as the accent, the colour of the logo. Text is set in Host Grotesk and, in one word per headline, Instrument Serif italic.",
-        "The brand became a combined mark: logo, signature and symbol. I redrew the rings as vectors, with continuous lines that thin out where they pass behind the other ring."
-      ],
       "cta": "Need a site your team can keep up?",
       "ctaBtn": "Let's talk",
       "cores": [
@@ -5485,6 +5469,38 @@
           "nome": "White",
           "hex": "#FFFFFF",
           "share": "Text and air"
+        }
+      ],
+      "bigNumbers": [
+        {
+          "num": "4",
+          "label": "programmes"
+        },
+        {
+          "num": "10",
+          "label": "pages live"
+        },
+        {
+          "num": "36",
+          "label": "pages of brand manual"
+        },
+        {
+          "num": "2",
+          "label": "themes, dark and light"
+        }
+      ],
+      "heroPontos": [
+        {
+          "t": "Process",
+          "d": "Conversation, brand, layout, code, review and launch, with two rounds of client corrections."
+        },
+        {
+          "t": "The shift",
+          "d": "Moved from Lovable and WordPress to custom code, on GitHub and Cloudflare."
+        },
+        {
+          "t": "System",
+          "d": "Purple and gold, Host Grotesk with a serif accent, logo redrawn as vectors."
         }
       ]
     },
