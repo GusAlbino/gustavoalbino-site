@@ -323,3 +323,5 @@
 /* Kaya Doc no card de cases: so o print da home, ancorado a esquerda (sem cursor nem barra de rolagem) */
 .item--mockup>img{object-fit:cover;object-position:left top}
 .sobre-foto>img{object-position:center 22%}
+.sobre-foto{background:#141212}
+.sobre-foto>img{object-fit:contain;object-position:center}
