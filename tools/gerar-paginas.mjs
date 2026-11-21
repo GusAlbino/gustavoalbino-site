@@ -161,12 +161,11 @@ paginas.servicos = (lang) => {
 // ---------- SOBRE ----------
 paginas.sobre = (lang) => {
   const T = DICTL(lang), s = T.sobre;
-  const f = chips(lang, [{ key: 'all', rot: lang === 'pt' ? 'Tudo' : 'All' }, { key: 'quem', rot: lang === 'pt' ? 'Quem sou' : 'About' }, { key: 'entrega', rot: lang === 'pt' ? 'O que entrego' : 'What I deliver' }], '#lista');
-  const corpo = `${cab(s.kicker, s.title, '', '', f)}
-  <div id="lista" style="display:grid;gap:var(--gap)">
-  <div class="g2" data-cat="quem" style="grid-template-columns:minmax(0,.688fr) minmax(0,1.312fr)">
-    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
-    <div class="card bloco"><div class="texto-longo">${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div>
+  const [titulo, ...resto] = s.paras;
+  const corpo = `  <div id="lista" class="sobre-stage">
+  <div class="sobre-par" data-cat="quem">
+    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"><figcaption class="foto-tags mono"><span class="t1">Senior Designer</span><span class="t2">Lead Designer</span></figcaption></figure>
+    <section class="card bloco sobre-texto" id="topo"><h1 class="disp">${esc(titulo)}</h1><div class="texto-longo">${resto.map((x) => `<p>${esc(x)}</p>`).join('')}</div></section>
   </div>
   <div class="g4 mantem" data-cat="entrega">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h2>${esc(x.title)}</h2><p>${esc(x.desc)}</p></article>`).join('')}</div>
   </div>`;

@@ -328,3 +328,23 @@
 .sobre-foto{aspect-ratio:9/16;min-height:0;align-self:start}
 .sobre-foto>img{object-fit:cover}
 @media (max-width:960px){.sobre-foto{aspect-ratio:9/16;max-width:420px}}
+
+/* Sobre numa dobra: titulo = frase de abertura, tags na foto, pilares visiveis */
+.sobre-stage{display:grid;gap:var(--gap)}
+.sobre-par{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:var(--gap);align-items:stretch}
+.sobre-par .sobre-foto{aspect-ratio:auto;min-height:0;max-width:none;align-self:stretch}
+.sobre-par .sobre-foto>img{object-fit:cover;object-position:center 24%}
+.sobre-texto{gap:12px;align-content:center}
+.sobre-texto h1{font-size:clamp(24px,2.5vw,36px);line-height:1.08;margin:0}
+.sobre-texto .texto-longo{font-size:clamp(13px,1vw,14.5px);line-height:1.5;gap:10px}
+.sobre-texto .texto-longo p:first-child{font-family:inherit;font-weight:400;color:inherit;font-size:inherit;line-height:inherit}
+.foto-tags{position:absolute;z-index:2;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap}
+.foto-tags span{border:0;padding:6px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r-tag,6px)}
+.foto-tags .t1{background:var(--ouro);color:#000}
+.foto-tags .t2{background:#000;color:#fff}
+@media (max-width:960px){.sobre-par{grid-template-columns:1fr}.sobre-par .sobre-foto{height:380px}}
+.sobre-texto .texto-longo p{max-width:none}
+.sobre-stage .servico{padding:14px 18px;gap:6px}
+.sobre-stage .servico .num{font-size:clamp(28px,2.6vw,38px)}
+.sobre-stage .servico h2{font-size:clamp(16px,1.4vw,20px)}
+.sobre-stage .servico p{font-size:13px;line-height:1.4;margin:0}
