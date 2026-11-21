@@ -90,7 +90,7 @@ ${cabecalho(lang)}
 ${corpo}
 </div>
 <footer class="card rodape" aria-label="${lang === 'pt' ? 'Rodapé' : 'Footer'}">
-  <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="40" height="40"><p>${esc(f.marca)}</p></div>
+  <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="72" height="72"><p>${esc(f.marca)}</p></div>
   <nav class="col f-cases" aria-label="Cases"><h2 class="mono">${f.cases}</h2><ul>${D.CASES.map((c) => `<li><a href="${caseHref(lang, c.id)}">${esc(c.title[lang])}</a></li>`).join('')}</ul></nav>
   <nav class="col f-proj" aria-label="${f.proj}"><h2 class="mono">${f.proj}</h2><ul>${['relatorios', 'logos', 'culturais', 'ebooks', 'ilustracao'].map((k) => `<li><a href="${href(lang, k)}">${esc(projNome(lang, k))}</a></li>`).join('')}</ul></nav>
   <nav class="col f-site" aria-label="${f.site}"><h2 class="mono">${f.site}</h2><ul><li><a href="${href(lang, 'home')}">${f.inicio}</a></li>${['cases', 'projetos', 'servicos', 'sobre', 'cv', 'contato'].map((k) => `<li><a href="${href(lang, k)}">${n[k]}</a></li>`).join('')}</ul></nav>
@@ -98,7 +98,7 @@ ${corpo}
     <a class="mail" href="mailto:${D.LINKS.email}">${D.LINKS.email}</a>
     <ul style="margin-top:6px"><li><a href="${D.LINKS.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="${D.LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${D.LINKS.instagram}" target="_blank" rel="noopener">Instagram</a></li></ul>
     <p class="mono" style="margin:8px 0 0;opacity:.85;font-size:10px">${f.resp}</p></div></div>
-  <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span><span>gustavoalbino.com.br</span><a href="#topo">${f.topo}</a></div>
+  <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 ${extra}
 ${SCRIPT_FILTROS}
