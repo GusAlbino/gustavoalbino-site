@@ -184,3 +184,8 @@
 .caso-hero--wide>img{aspect-ratio:3/2}
 @media (max-width:560px){.hero-pontos li{grid-template-columns:1fr;gap:2px}}
 .caso-hero--wide>img{aspect-ratio:var(--ar,3/2)}
+
+.secao-par--card{grid-template-columns:minmax(0,1fr) minmax(0,.78fr)}
+.secao-par--card.inv{grid-template-columns:minmax(0,.78fr) minmax(0,1fr)}
+.secao-par--card .midia-card{padding:10px}
+@media (max-width:960px){.secao-par--card,.secao-par--card.inv{grid-template-columns:1fr}}
