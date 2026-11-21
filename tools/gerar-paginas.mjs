@@ -319,7 +319,7 @@ paginas.casos = (lang, id) => {
   const rot = lang === 'pt' ? { img: 'Mais imagens', cor: 'Paleta', back: 'Voltar aos cases' } : { img: 'More images', cor: 'Palette', back: 'Back to cases' };
   const ficha = (t.ficha || []).map((f) => `<div><span class="mono">${esc(f.k)}</span><b>${esc(f.v)}</b></div>`).join('');
   const secs = secoes(t);
-  const todas = imagensDoCase(id);
+  const todas = imagensDoCase(id).filter((x) => !(dados.excluir || []).some((e) => x.endsWith('/' + e)));
   const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
   const mapa = dados.mapaImagens;
   const { por, sobra } = mapa
@@ -328,8 +328,11 @@ paginas.casos = (lang, id) => {
   if (mapa) { telasExt.length = 0; telasLog.length = 0; }
   const galeria = (srcs) => `<div class="galeria">${srcs.map((src) => fig(src)).join('')}</div>`;
   const telas = (telasExt.length ? `<div class="rotulo" id="telas"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
+  const coresLista = (dados.cores || []).filter((x) => x.hex);
+  const alvoCor = coresLista.length ? (secs.findIndex((s) => /^(cor|pale)/i.test(s.prefixo)) >= 0 ? secs.findIndex((s) => /^(cor|pale)/i.test(s.prefixo)) : secs.findIndex((s) => /^sistema/i.test(s.prefixo))) : -1;
+  const coresDentro = coresLista.map((x) => `<div class="amostra"><span style="background:${x.hex}"></span><b>${esc(x.nome || '')}</b><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div>`).join('');
   const blocos = secs.map((s, i) => {
-    const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}</div>`;
+    const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}${i === alvoCor ? `<div class="amostras">${coresDentro}</div>` : ''}</div>`;
     if (!s.paras.length && !(s.items || []).length && por[i].length > 1) return `<section>${texto}</section>\n  ${galeria(por[i])}`;
     const m = midiaHtml(por[i], dados.midiaCard, s.prefixo === 'logo' ? dados.midiaBase : 0);
     return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}${dados.midiaCard && por[i].length === 1 ? ' secao-par--card' : ''}">${texto}${m}</section>` : `<section>${texto}</section>`;
@@ -347,7 +350,7 @@ paginas.casos = (lang, id) => {
     <div class="card ficha-linha">${ficha}</div>
   ${blocos}
   ${telas}
-  ${cores ? `<div class="rotulo"><b>${rot.cor}</b><hr></div><div class="g4 mantem">${cores}</div>` : ''}
+  ${cores && alvoCor < 0 ? `<div class="rotulo"><b>${rot.cor}</b><hr></div><div class="g4 mantem">${cores}</div>` : ''}
   ${sobra.length ? `<div class="rotulo"><b>${rot.img}</b><hr></div><div class="galeria">${sobra.map((src) => fig(src)).join('')}</div>` : ''}
   <section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(t.cta || (lang === 'pt' ? 'Vamos conversar?' : "Let's talk?"))}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(t.ctaBtn || (lang === 'pt' ? 'Vamos conversar' : "Let's talk"))}</a></section>`;
   return casca(lang, 'cases', titulo, corpo);

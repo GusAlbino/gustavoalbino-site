@@ -189,3 +189,9 @@
 .secao-par--card.inv{grid-template-columns:minmax(0,.78fr) minmax(0,1fr)}
 .secao-par--card .midia-card{padding:10px}
 @media (max-width:960px){.secao-par--card,.secao-par--card.inv{grid-template-columns:1fr}}
+
+.amostras{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:6px}
+.amostra{display:grid;gap:2px;font-size:13px}
+.amostra>span:first-child{display:block;height:64px;border:var(--bw) solid var(--tinta);border-radius:10px;margin-bottom:6px}
+.amostra b{color:var(--fg);font-size:13px}
+.amostra .mono{font-size:11px;color:var(--fg2)}

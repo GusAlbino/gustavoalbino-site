@@ -4138,7 +4138,10 @@
    ]
   },
   "midiaCard": true,
-  "midiaBase": 80
+  "midiaBase": 80,
+  "excluir": [
+   "ap-6.webp"
+  ]
  },
  "KAYA_DOC": {
   "pt": {
