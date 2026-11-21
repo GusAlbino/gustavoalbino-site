@@ -251,7 +251,7 @@ paginas.cultural = (lang, id) => {
   const extra = '';
   const fotos = [...(c.rua || []), ...(c.fotos || [])];
   const galFotos = fotos.length ? `<div class="rotulo"><b>${esc(p.fotosTitulo)}</b><hr></div><div class="galeria">${fotos.map((x) => fig(x.src, '', esc(x.cap[lang]))).join('')}</div>` : '';
-  const apoios = (c.apoios || []).length ? `<div class="rotulo"><b>${esc(p.apoios)}</b><hr></div><div class="card apoios">${c.apoios.map((a) => `<figure>${a.src ? `<img src="/${a.src}" alt="${esc(a.nome)}" loading="lazy">` : `<b class="apoio-nome">${esc(a.nome)}</b>`}<figcaption class="mono">${esc(a.papel[lang])}</figcaption></figure>`).join('')}</div>` : '';
+  const apoios = (c.apoios || []).length ? `<div class="rotulo"><b>${esc(p.apoios)}</b><hr></div><div class="card apoios">${c.apoios.map((a) => `<figure${a.escuro ? ' class="escuro"' : ''}>${a.src ? `<img src="/${a.src}" alt="${esc(a.nome)}" loading="lazy">` : `<b class="apoio-nome">${esc(a.nome)}</b>`}<figcaption class="mono">${esc(a.papel[lang])}</figcaption></figure>`).join('')}</div>` : '';
   const voltar = `<div class="voltar"><a class="btn btn--ghost" href="${href(lang, 'culturais')}">← ${esc(p.back)}</a></div>`;
   const cta = `<section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(p.cta)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(p.ctaBtn)}</a></section>`;
   ctx.meta = { title: c.title[lang], desc: c.tema[lang] };

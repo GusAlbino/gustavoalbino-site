@@ -3181,26 +3181,31 @@
      }
     },
     {
+     "src": "assets/culturais/apoio-comum/lei-noemi-gontijo.png",
      "nome": "Lei Noemi Gontijo",
      "papel": {
       "pt": "Realização",
       "en": "Production"
-     }
+     },
+     "escuro": true
     },
     {
-     "src": "assets/culturais/recital/apoio/prefeitura-de-betim.png",
+     "src": "assets/culturais/apoio-comum/prefeitura-de-betim.png",
      "nome": "Prefeitura de Betim",
      "papel": {
       "pt": "Realização",
       "en": "Production"
-     }
+     },
+     "escuro": true
     },
     {
+     "src": "assets/culturais/apoio-comum/secretaria-municipal-de-cultura.png",
      "nome": "Secretaria Municipal de Cultura",
      "papel": {
       "pt": "Realização",
       "en": "Production"
-     }
+     },
+     "escuro": true
     }
    ]
   },
@@ -3407,19 +3412,22 @@
      }
     },
     {
-     "src": "assets/culturais/defesa/apoio/prefeitura-de-betim.png",
+     "src": "assets/culturais/apoio-comum/prefeitura-de-betim.png",
      "nome": "Prefeitura de Betim",
      "papel": {
       "pt": "Realização",
       "en": "Production"
-     }
+     },
+     "escuro": true
     },
     {
+     "src": "assets/culturais/apoio-comum/secretaria-municipal-de-cultura.png",
      "nome": "Secretaria Municipal de Cultura",
      "papel": {
       "pt": "Realização",
       "en": "Production"
-     }
+     },
+     "escuro": true
     }
    ]
   }
