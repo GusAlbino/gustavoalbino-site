@@ -149,9 +149,15 @@ const ICONES_SERVICO = [
   '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>', // planejamento
 ];
 paginas.servicos = (lang) => {
-  const T = DICTL(lang), p = T.servPage;
-  const cards = T.services.map((s, i) => `<article class="card bloco servico"><div class="servico-topo"><h2>${esc(s.title)}</h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg></div><p>${esc(s.desc)}</p><a class="btn" href="${href(lang, 'contato')}">${esc(p.cta)}</a></article>`).join('\n    ');
-  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
+  const T = DICTL(lang), p = T.servPage, m = p.metodo;
+  const lista = T.services.map((s, i) => `<li><span class="num mono">${esc(s.num)}</span><div><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p></div><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONES_SERVICO[i] || ''}</svg></li>`).join('');
+  const passos = m.steps.map((x, i) => `<li><span class="mono">${String(i + 1).padStart(2, '0')}</span><div><b>${esc(x.t)}</b><p>${esc(x.d)}</p></div></li>`).join('');
+  return casca(lang, 'servicos', p.title, `${cab(p.kicker, p.title, p.intro)}
+  <div class="serv-par">
+    <section class="card bloco serv-lista"><ul>${lista}</ul></section>
+    <aside class="card card--hl bloco serv-metodo"><span class="mono">${esc(m.kicker)}</span><h2>${esc(m.title)}</h2><p>${esc(m.intro)}</p><ol>${passos}</ol><div class="serv-pag"><b>${esc(m.pagTitle)}</b><p>${esc(m.pag)}</p></div></aside>
+  </div>
+  <section class="card bloco serv-cta"><h2 class="disp">${esc(m.ctaTitle)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(m.cta)}</a></section>`);
 };
 
 // ---------- SOBRE ----------

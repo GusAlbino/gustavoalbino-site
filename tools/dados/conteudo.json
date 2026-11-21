@@ -327,7 +327,42 @@
     "kicker": "O que ofereço",
     "title": "Serviços",
     "intro": "Cada serviço pode vir isolado ou combinado, conforme o momento da sua marca. Do primeiro rascunho ao manual que o time usa depois que eu saio.",
-    "cta": "Solicitar"
+    "cta": "Solicitar",
+    "metodo": {
+     "kicker": "Como trabalho",
+     "title": "Do primeiro contato à entrega.",
+     "intro": "Trabalho por projeto, com escopo, prazo e valor combinados antes de começar. O processo é o mesmo em branding, produto, site ou landing page.",
+     "steps": [
+      {
+       "t": "Reunião",
+       "d": "Conversa inicial para entender o negócio, o público e o que o projeto precisa resolver."
+      },
+      {
+       "t": "Análise",
+       "d": "Estudo do cliente, do mercado e das referências, para definir o caminho."
+      },
+      {
+       "t": "Briefing",
+       "d": "Envio ao cliente de um briefing com as demandas, para confirmar escopo e expectativas."
+      },
+      {
+       "t": "Orçamento",
+       "d": "Proposta com escopo, etapas, prazo e valor."
+      },
+      {
+       "t": "Devolutiva e negociação",
+       "d": "O cliente responde, ajustamos o que for preciso e fechamos o acordo."
+      },
+      {
+       "t": "Prazo",
+       "d": "A data de entrega é combinada em conjunto, antes de iniciar."
+      }
+     ],
+     "pagTitle": "Pagamento",
+     "pag": "O valor é negociado de acordo com o projeto. A prática é 50% no início e 50% na entrega.",
+     "ctaTitle": "Vamos falar do seu projeto?",
+     "cta": "Entrar em contato"
+    }
    },
    "contatoPage": {
     "kicker": "Contato",
@@ -712,7 +747,42 @@
     "kicker": "What I offer",
     "title": "Services",
     "intro": "Each service can come alone or combined, depending on where your brand is. From the first sketch to the manual the team uses after I leave.",
-    "cta": "Request"
+    "cta": "Request",
+    "metodo": {
+     "kicker": "How I work",
+     "title": "From first contact to delivery.",
+     "intro": "I work per project, with scope, deadline and price agreed before we start. The process is the same for branding, product, website or landing page.",
+     "steps": [
+      {
+       "t": "Meeting",
+       "d": "A first conversation to understand the business, the audience and what the project has to solve."
+      },
+      {
+       "t": "Analysis",
+       "d": "A study of the client, the market and the references, to set the path."
+      },
+      {
+       "t": "Brief",
+       "d": "A brief with the demands goes to the client, to confirm scope and expectations."
+      },
+      {
+       "t": "Quote",
+       "d": "A proposal with scope, stages, deadline and price."
+      },
+      {
+       "t": "Feedback and negotiation",
+       "d": "The client replies, we adjust what is needed and close the deal."
+      },
+      {
+       "t": "Deadline",
+       "d": "The delivery date is agreed together, before work begins."
+      }
+     ],
+     "pagTitle": "Payment",
+     "pag": "The price is negotiated according to the project. The usual practice is 50% at the start and 50% on delivery.",
+     "ctaTitle": "Shall we talk about your project?",
+     "cta": "Get in touch"
+    }
    },
    "contatoPage": {
     "kicker": "Contact",

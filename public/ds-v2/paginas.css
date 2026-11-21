@@ -217,3 +217,26 @@
 .cartao .mono{color:var(--hl-text);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
 .cartao p{font-size:13px;line-height:1.45;margin:0}
 @media (max-width:960px){.versoes{grid-template-columns:1fr}}
+
+.serv-par{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap);align-items:stretch}
+.serv-lista ul{list-style:none;margin:0;padding:0;display:grid}
+.serv-lista li{display:grid;grid-template-columns:44px minmax(0,1fr) 40px;gap:14px;align-items:start;padding:16px 0;border-top:3px dashed var(--line)}
+.serv-lista li:first-child{border-top:0;padding-top:0}
+.serv-lista li:last-child{padding-bottom:0}
+.serv-lista .num{color:var(--hl-text);font-size:13px;padding-top:4px}
+.serv-lista h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(18px,1.7vw,24px);line-height:1.05;margin:0 0 6px;color:var(--fg)}
+.serv-lista p{margin:0;color:var(--fg2);font-size:14px;line-height:1.5}
+.serv-lista .ico{width:36px;height:36px;color:var(--hl-text)}
+.serv-metodo{color:#000;gap:12px}
+.serv-metodo .mono{color:#000;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.serv-metodo h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(22px,2.2vw,32px);line-height:1;color:#000;margin:0}
+.serv-metodo p{color:#000;margin:0;font-size:14px;line-height:1.5}
+.serv-metodo ol{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:10px}
+.serv-metodo li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:baseline}
+.serv-metodo li b{display:block;font-size:15px;color:#000}
+.serv-metodo li p{font-size:13px}
+.serv-pag{border-top:3px dashed rgba(0,0,0,.55);padding-top:12px}
+.serv-pag b{display:block;font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:15px;margin-bottom:4px;color:#000}
+.serv-cta{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.serv-cta h2{font-size:clamp(20px,2.4vw,32px);margin:0}
+@media (max-width:960px){.serv-par{grid-template-columns:1fr}}
