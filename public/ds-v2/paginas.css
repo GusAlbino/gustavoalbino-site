@@ -368,3 +368,8 @@
 .sobre-cta{width:fit-content;justify-self:start;align-self:start}
 .sobre-marcas{background:#F4EEE8}
 .sobre-marcas-t{color:#3a3330}
+.sobre-marcas-bloco{display:grid;gap:8px}
+.sobre-marcas-bloco .sobre-marcas-t{color:var(--fg);padding:0 4px;font-size:12px}
+.sobre-marcas{padding:20px 22px;gap:0}
+.sobre-marcas li{height:64px}
+.sobre-marcas img{max-height:calc(62% * var(--fit,1))}

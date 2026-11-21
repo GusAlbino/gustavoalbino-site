@@ -167,7 +167,7 @@ paginas.sobre = (lang) => {
     <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"></figure>
     <section class="card bloco sobre-texto" id="topo"><h1 class="disp">${esc(titulo)}</h1><div class="texto-longo">${resto.map((x) => `<p>${esc(x)}</p>`).join('')}</div><a class="btn btn--ouro sobre-cta" href="${href(lang, 'contato')}">${esc(T.servPage.metodo.cta)}</a></section>
   </div>
-  <section class="card bloco sobre-marcas" data-cat="entrega"><span class="mono sobre-marcas-t">${lang === 'pt' ? 'Marcas e empresas com que já trabalhei' : 'Brands and companies I have worked with'}</span><ul>${D.BRANDS.map((b) => `<li><img src="/${b.logo}" alt="${esc(b.name)}" loading="lazy"${b.fit ? ` style="--fit:${b.fit}"` : ''}></li>`).join('')}</ul></section>
+  <div class="sobre-marcas-bloco" data-cat="entrega"><span class="mono sobre-marcas-t">${lang === 'pt' ? 'Empresas que confiam no meu trabalho' : 'Companies that trust my work'}</span><section class="card bloco sobre-marcas"><ul>${D.BRANDS.map((b) => `<li><img src="/${b.logo}" alt="${esc(b.name)}" loading="lazy"${b.fit ? ` style="--fit:${b.fit}"` : ''}></li>`).join('')}</ul></section></div>
   </div>`;
   return casca(lang, 'sobre', s.kicker, corpo);
 };
