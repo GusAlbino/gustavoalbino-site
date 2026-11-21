@@ -436,7 +436,7 @@ for (const lang of ['pt', 'en']) {
     .replace('aria-label="Últimos trabalhos"', 'aria-label="Latest work"').replace('aria-label="Apresentação"', 'aria-label="Introduction"')
     .replace('Mais de 10 anos de design. Hoje, mais de 3.000 profissionais de saúde usam o que eu desenho.', 'Over 10 years in design. Today, more than 3,000 health professionals use what I design.')
     .replace('>Ver trabalhos<', '>View work<').replace('>Vamos conversar<', ">Let's talk<")
-    .replace('<b>Competências</b>', '<b>Expertise</b>').replace('Ver serviços →', 'View services →')
+    .replace('aria-label="Competências"', 'aria-label="Expertise"').replace('Ver serviços →', 'View services →')
     .replace('Kaya Doc · Produto digital', 'Kaya Doc · Digital product').replace('Elos Saber · Website', 'Elos Saber · Website').replace('Anuário 2026 · Relatório', '2026 Yearbook · Report').replaceAll('/projetos/relatorios#2026', '/en/projects/reports#2026').replace('Abrir "+(x.rot||"o case")+" "', 'Open "+(x.rot==="o relatório"?"the report":"the case")+" "').replace('Abrir o relatório Anuário 2026', 'Open the 2026 Yearbook report')
     .replace('<b>Branding e identidade</b>', '<b>Branding & Identity</b>').replace('<b>Produto digital</b>', '<b>Digital Product</b>').replace('<b>Editorial e dataviz</b>', '<b>Editorial & Dataviz</b>').replace('<b>Direção criativa</b>', '<b>Creative Direction</b>')
     .replace('Marcas, logos, sistema visual e manual.', 'Brands, logos, visual systems and guidelines.').replace('UI, UX, apps e design systems.', 'UI, UX, apps and design systems.').replace('Anuários, relatórios e Power BI.', 'Yearbooks, reports and Power BI.').replace('Marcas, campanhas e eventos.', 'Brands, campaigns and events.');
