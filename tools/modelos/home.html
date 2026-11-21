@@ -48,7 +48,9 @@
   .hero .col>.mono{width:0;min-width:100%;white-space:nowrap}
   .hero .lead{width:0;min-width:100%}
   .hero .sup{display:block}
-  .hero .cta-comp .btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;padding:clamp(11px,1.9cqw,16px) 16px;font-size:clamp(11px,2.3cqw,15px);line-height:1}
+  .hero .cta-comp .btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;padding:clamp(13px,2.3cqw,19px) 18px;font-size:clamp(12px,2.7cqw,17px);line-height:1;transition:background .15s,color .15s,border-color .15s,transform .12s,box-shadow .12s}
+  .hero .cta-comp .btn:hover,.hero .cta-comp .btn:focus-visible{background:var(--vermilion,#E8604C);color:#000;border-color:var(--tinta);transform:translate(-2px,-2px)}
+  .hero .cta-comp .btn:hover b,.hero .cta-comp .btn:hover i,.hero .cta-comp .btn:focus-visible b,.hero .cta-comp .btn:focus-visible i{color:#000}
   .hero .cta-comp .btn b{font-weight:inherit}
   .hero .cta-comp .btn i{font-style:normal;font-family:var(--font-mono)}
 
