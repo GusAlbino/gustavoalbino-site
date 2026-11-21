@@ -3358,7 +3358,9 @@
      "pt": "Ver portfólio",
      "en": "View portfolio"
     }
-   }
+   },
+   "descNoTopo": true,
+   "extraPrimeiro": true
   }
  ],
  "LOGO_BRANDS": [
