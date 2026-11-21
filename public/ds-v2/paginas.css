@@ -161,3 +161,7 @@
 .midia-cards{display:grid;gap:var(--gap);align-content:start}
 .midia-card{padding:clamp(10px,1.4vw,18px);align-items:stretch}
 .midia-card img{width:100%;height:auto;display:block;border:0;border-radius:calc(var(--r-card) - 6px)}
+
+.caso-hero--wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.caso-hero--wide>img{aspect-ratio:16/11;object-fit:cover}
+@media (max-width:960px){.caso-hero--wide{grid-template-columns:1fr}}

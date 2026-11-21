@@ -901,7 +901,8 @@
         "pt": "Site de formação, consultoria e desenvolvimento profissional da Profa. Dra. Carolina Galdino, do Lovable e WordPress ao código próprio.",
         "en": "Website for the training, consulting and professional development practice of Prof. Dr. Carolina Galdino, rebuilt from Lovable and WordPress into code."
       },
-      "heroImage": "assets/cases/elos-saber/hero-mockup.webp"
+      "heroImage": "assets/cases/elos-saber/hero-mockup.webp",
+      "heroWide": true
     },
     {
       "id": "othelo",
