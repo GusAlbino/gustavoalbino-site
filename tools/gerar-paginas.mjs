@@ -164,10 +164,10 @@ paginas.sobre = (lang) => {
   const [titulo, ...resto] = s.paras;
   const corpo = `  <div id="lista" class="sobre-stage">
   <div class="sobre-par" data-cat="quem">
-    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"><figcaption class="foto-tags mono"><span class="t1">Senior Designer</span><span class="t2">Lead Designer</span></figcaption></figure>
-    <section class="card bloco sobre-texto" id="topo"><h1 class="disp">${esc(titulo)}</h1><div class="texto-longo">${resto.map((x) => `<p>${esc(x)}</p>`).join('')}</div></section>
+    <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"></figure>
+    <section class="card bloco sobre-texto" id="topo"><h1 class="disp">${esc(titulo)}</h1><div class="texto-longo">${resto.map((x) => `<p>${esc(x)}</p>`).join('')}</div><a class="btn btn--ouro sobre-cta" href="${href(lang, 'contato')}">${esc(T.servPage.metodo.cta)}</a></section>
   </div>
-  <div class="g4 mantem" data-cat="entrega">${T.entrega.pillars.map((x) => `<article class="card bloco servico"><span class="num">${x.num}</span><h2>${esc(x.title)}</h2><p>${esc(x.desc)}</p></article>`).join('')}</div>
+  <section class="card bloco sobre-marcas" data-cat="entrega"><span class="mono sobre-marcas-t">${lang === 'pt' ? 'Marcas e empresas com que já trabalhei' : 'Brands and companies I have worked with'}</span><ul>${D.BRANDS.map((b) => `<li><img src="/${b.logo}" alt="${esc(b.name)}" loading="lazy"${b.fit ? ` style="--fit:${b.fit}"` : ''}></li>`).join('')}</ul></section>
   </div>`;
   return casca(lang, 'sobre', s.kicker, corpo);
 };

@@ -355,3 +355,16 @@
 @media (max-width:960px){.sobre-stage{height:auto}}
 /* Foto com proporcao fixa (corta ~12% so da parede de cima): a cabeca nunca sai do quadro, em qualquer tela */
 @media (min-width:961px){.sobre-par{grid-template-columns:calc((max(100svh,820px) - 269px) * .64) minmax(0,1fr)}}
+
+/* Sobre: faixa de marcas e CTA no texto */
+.sobre-texto{align-content:start}
+.sobre-cta{justify-self:start;margin-top:6px;padding:14px 30px;font-size:16px}
+.sobre-marcas{display:grid;gap:10px;padding:14px 20px}
+.sobre-marcas-t{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg2)}
+.sobre-marcas ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:10px;align-items:center}
+.sobre-marcas li{display:grid;place-items:center;height:48px}
+.sobre-marcas img{max-width:100%;max-height:calc(100% * var(--fit,1));width:auto;height:auto;object-fit:contain}
+@media (max-width:960px){.sobre-marcas ul{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.sobre-cta{width:fit-content;justify-self:start;align-self:start}
+.sobre-marcas{background:#F4EEE8}
+.sobre-marcas-t{color:#3a3330}
