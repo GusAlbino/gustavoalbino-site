@@ -54,3 +54,6 @@
 @keyframes entra{from{opacity:0;transform:translateY(26px) scale(.97)}}
 .rodape.rev{opacity:0;transform:translateY(32px)}
 .rodape.rev.vis{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+
+/* rodapé na mesma largura das páginas (.pagina: 1680px com padding var(--gap)) */
+.rodape{width:calc(100% - 2 * var(--gap));max-width:calc(1680px - 2 * var(--gap));margin-left:auto;margin-right:auto}
