@@ -308,7 +308,7 @@ function distribuir(secs, imgs) {
 }
 function midiaHtml(srcs, card) {
   if (!srcs.length) return '';
-  if (card) return `<div class="midia-cards">${srcs.map((src) => `<div class="card midia-card"><img src="/${src}" alt="" loading="lazy"></div>`).join('')}</div>`;
+  if (card && srcs.length === 1) return `<div class="midia-cards">${srcs.map((src) => `<div class="card midia-card"><img src="/${src}" alt="" loading="lazy"></div>`).join('')}</div>`;
   if (srcs.length > 1) return `<div class="midia midia--j">${srcs.map((src) => fig(src)).join('')}</div>`;
   return `<div class="midia midia--1">${srcs.map((src) => fig(src)).join('')}</div>`;
 }
@@ -331,7 +331,7 @@ paginas.casos = (lang, id) => {
   const blocos = secs.map((s, i) => {
     const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}</div>`;
     const m = midiaHtml(por[i], dados.midiaCard);
-    return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}${dados.midiaCard ? ' secao-par--card' : ''}">${texto}${m}</section>` : `<section>${texto}</section>`;
+    return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}${dados.midiaCard && por[i].length === 1 ? ' secao-par--card' : ''}">${texto}${m}</section>` : `<section>${texto}</section>`;
   }).join('\n  ');
   const cores = (dados.cores || []).filter((x) => x.hex).map((x) => `<div class="card bloco" style="padding:0"><span style="display:block;height:84px;background:${x.hex};border-bottom:var(--bw) solid var(--tinta)"></span><div style="padding:10px 14px"><b style="color:var(--fg)">${esc(x.nome || '')}</b><br><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div></div>`).join('');
   const textoTopo = `<div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1></div></div>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes">${(telasExt.length || telasLog.length) ? `<a class="btn btn--ouro" href="#telas">${lang === 'pt' ? 'Ver as telas ↓' : 'See the screens ↓'}</a>` : ''}</div>`;
