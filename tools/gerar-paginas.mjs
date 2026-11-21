@@ -164,7 +164,7 @@ paginas.sobre = (lang) => {
   const f = chips(lang, [{ key: 'all', rot: lang === 'pt' ? 'Tudo' : 'All' }, { key: 'quem', rot: lang === 'pt' ? 'Quem sou' : 'About' }, { key: 'entrega', rot: lang === 'pt' ? 'O que entrego' : 'What I deliver' }], '#lista');
   const corpo = `${cab(s.kicker, s.title, '', '', f)}
   <div id="lista" style="display:grid;gap:var(--gap)">
-  <div class="g2" data-cat="quem" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)">
+  <div class="g2" data-cat="quem" style="grid-template-columns:minmax(0,.688fr) minmax(0,1.312fr)">
     <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"><figcaption class="rot mono">${esc(s.imgTag)}</figcaption></figure>
     <div class="card bloco"><div class="texto-longo">${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div>
   </div>

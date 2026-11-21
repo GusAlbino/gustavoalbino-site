@@ -325,3 +325,6 @@
 .sobre-foto>img{object-position:center 22%}
 .sobre-foto{background:#141212}
 .sobre-foto>img{object-fit:contain;object-position:center}
+.sobre-foto{aspect-ratio:9/16;min-height:0;align-self:start}
+.sobre-foto>img{object-fit:cover}
+@media (max-width:960px){.sobre-foto{aspect-ratio:9/16;max-width:420px}}
