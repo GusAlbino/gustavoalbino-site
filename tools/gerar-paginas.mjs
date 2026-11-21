@@ -122,7 +122,7 @@ const paginas = {};
 paginas.cases = (lang) => {
   const p = DICTL(lang).casesPage;
   const f = chips(lang, D.CASE_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
-  const cards = D.CASES.map((c) => `<a class="card card--img item" data-cat="${c.cat}" href="${caseHref(lang, c.id)}"><img src="/${c.bgImage}" alt="" loading="lazy"><span class="mono ano">${esc(c.year)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.typeLabel[lang])}</span><p>${esc(c.blurb[lang])}</p></span></a>`).join('\n    ');
+  const cards = D.CASES.map((c) => `<a class="card card--img item${c.id === 'kaya-doc' ? ' item--mockup' : ''}" data-cat="${c.cat}" href="${caseHref(lang, c.id)}"><img src="/${c.bgImage}" alt="" loading="lazy"><span class="mono ano">${esc(c.year)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.typeLabel[lang])}</span><p>${esc(c.blurb[lang])}</p></span></a>`).join('\n    ');
   return casca(lang, 'cases', p.title, `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro, '', f)}
   <div class="g3" id="lista">
     ${cards}
