@@ -4138,7 +4138,9 @@
    ]
   },
   "midiaCard": true,
-  "midiaBase": 80,
+  "midiaBase": {
+   "logo": 80
+  },
   "excluir": [
    "ap-6.webp"
   ]
@@ -5112,7 +5114,43 @@
     }
    ]
   },
-  "midiaCard": true
+  "midiaCard": true,
+  "mapaImagens": {
+   "projeto": [
+    "billboard.webp"
+   ],
+   "marca": [
+    "disc-dark.webp",
+    "disc-white.webp"
+   ],
+   "variants": [
+    "logo-orange.webp",
+    "logo-dark.webp",
+    "logo-white.webp",
+    "logo-negative.webp",
+    "logo-terracota.webp",
+    "logo-bg-orange.webp"
+   ],
+   "cor": [
+    "brand-board.webp"
+   ],
+   "web": [
+    "web-home.webp"
+   ]
+  },
+  "midiaBase": {
+   "variants": 90
+  },
+  "trio": [
+   "cor",
+   "web"
+  ],
+  "depois": {
+   "variants": [
+    "tee-black.webp",
+    "tee-orange.webp"
+   ]
+  }
  },
  "GA_MARCA": {
   "cores": [

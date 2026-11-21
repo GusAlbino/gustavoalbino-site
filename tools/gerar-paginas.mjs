@@ -334,11 +334,19 @@ paginas.casos = (lang, id) => {
   const coresLista = (dados.cores || []).filter((x) => x.hex);
   const alvoCor = coresLista.length ? (secs.findIndex((s) => /^(cor|pale)/i.test(s.prefixo)) >= 0 ? secs.findIndex((s) => /^(cor|pale)/i.test(s.prefixo)) : secs.findIndex((s) => /^sistema/i.test(s.prefixo))) : -1;
   const coresDentro = coresLista.map((x) => `<div class="amostra"><span style="background:${x.hex}"></span><b>${esc(x.nome || '')}</b><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div>`).join('');
+  const textoDe = (s, i) => `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}${i === alvoCor ? `<div class="amostras">${coresDentro}</div>` : ''}</div>`;
+  const trio = dados.trio || [];
   const blocos = secs.map((s, i) => {
-    const texto = `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}${i === alvoCor ? `<div class="amostras">${coresDentro}</div>` : ''}</div>`;
+    if (trio.includes(s.prefixo)) {
+      if (s.prefixo !== trio[0]) return '';
+      const idx = trio.map((pre) => secs.findIndex((x) => x.prefixo === pre));
+      return `<section class="trio"><div class="trio-t">${idx.map((k) => textoDe(secs[k], k)).join('')}</div>${idx.map((k) => `<div class="card midia-card">${por[k].map((src) => `<img src="/${src}" alt="" loading="lazy">`).join('')}</div>`).join('')}</section>`;
+    }
+    const texto = textoDe(s, i);
     if (!s.paras.length && !(s.items || []).length && por[i].length > 1) return `<section>${texto}</section>\n  ${galeria(por[i])}`;
-    const m = midiaHtml(por[i], dados.midiaCard, s.prefixo === 'logo' ? dados.midiaBase : 0);
-    return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}${dados.midiaCard && por[i].length === 1 ? ' secao-par--card' : ''}">${texto}${m}</section>` : `<section>${texto}</section>`;
+    const m = midiaHtml(por[i], dados.midiaCard, (dados.midiaBase || {})[s.prefixo] || 0);
+    const depois = ((dados.depois || {})[s.prefixo] || []).length ? `\n  <div class="galeria">${dados.depois[s.prefixo].map((f) => fig('assets/cases/' + id + '/' + f)).join('')}</div>` : '';
+    return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}${dados.midiaCard && por[i].length === 1 ? ' secao-par--card' : ''}">${texto}${m}</section>${depois}` : `<section>${texto}</section>${depois}`;
   }).join('\n  ');
   const cores = (dados.cores || []).filter((x) => x.hex).map((x) => `<div class="card bloco" style="padding:0"><span style="display:block;height:84px;background:${x.hex};border-bottom:var(--bw) solid var(--tinta)"></span><div style="padding:10px 14px"><b style="color:var(--fg)">${esc(x.nome || '')}</b><br><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div></div>`).join('');
   const textoTopo = `<div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(tag)}${t.role ? ' · ' + esc(t.role) : ''}</span><h1 class="disp">${esc(titulo)}</h1></div></div>${t.slogan ? `<p class="mono" style="color:var(--hl-text)">${esc(t.slogan)}</p>` : ''}<p class="intro">${esc(t.lede || '')}</p><div class="acoes">${(telasExt.length || telasLog.length) ? `<a class="btn btn--ouro" href="#telas">${lang === 'pt' ? 'Ver as telas ↓' : 'See the screens ↓'}</a>` : ''}</div>`;

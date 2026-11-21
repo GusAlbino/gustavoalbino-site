@@ -196,3 +196,10 @@
 .amostra b{color:var(--fg);font-size:13px}
 .amostra .mono{font-size:11px;color:var(--fg2)}
 .midia figure.fig-branco,.galeria figure.fig-branco{background:#fff}
+
+.trio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr) minmax(0,.62fr);gap:var(--gap);align-items:stretch}
+.trio-t{display:grid;gap:var(--gap);grid-auto-rows:1fr}
+.trio-t .secao{height:100%}
+.trio .midia-card{padding:10px;align-items:center;justify-content:center}
+@media (max-width:960px){.trio{grid-template-columns:1fr 1fr}.trio-t{grid-column:1/-1;grid-auto-rows:auto}}
+@media (max-width:560px){.trio{grid-template-columns:1fr}}
