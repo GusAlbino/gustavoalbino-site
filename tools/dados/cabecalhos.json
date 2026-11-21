@@ -833,58 +833,6 @@
    ],
    "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gusalbino/\",\"https://www.instagram.com/gustavoalbinodesign/\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/yerba-fina#trabalho\",\"name\":\"Yerba Fina\",\"headline\":\"Yerba Fina\",\"description\":\"Brazilian sustainable fashion. Full identity, from the bud to the guidelines.\",\"url\":\"https://gustavoalbino.com.br/en/cases/yerba-fina\",\"inLanguage\":\"en\",\"dateCreated\":\"2024\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/yerba-fina/card-cover.webp\"}]}"
   },
-  "/cases/gustavo-albino": {
-   "title": "Gustavo Albino · Case · Gustavo Albino",
-   "lang": "pt-BR",
-   "desc": "Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.",
-   "canonical": "https://gustavoalbino.com.br/cases/gustavo-albino",
-   "ogTitle": "Gustavo Albino · Case · Gustavo Albino",
-   "ogDesc": "Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.",
-   "ogUrl": "https://gustavoalbino.com.br/cases/gustavo-albino",
-   "ogImage": "https://gustavoalbino.com.br/assets/og/gustavo-albino.jpg",
-   "ogLocale": "pt_BR",
-   "alternates": [
-    [
-     "pt-BR",
-     "https://gustavoalbino.com.br/cases/gustavo-albino"
-    ],
-    [
-     "en",
-     "https://gustavoalbino.com.br/en/cases/gustavo-albino"
-    ],
-    [
-     "x-default",
-     "https://gustavoalbino.com.br/cases/gustavo-albino"
-    ]
-   ],
-   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer com 10+ anos em branding, design de produto e direção criativa. Atendo empresas no Brasil e no exterior. Veja os cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gusalbino/\",\"https://www.instagram.com/gustavoalbinodesign/\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"pt-BR\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/cases/gustavo-albino#trabalho\",\"name\":\"Gustavo Albino\",\"headline\":\"Gustavo Albino\",\"description\":\"Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.\",\"url\":\"https://gustavoalbino.com.br/cases/gustavo-albino\",\"inLanguage\":\"pt-BR\",\"dateCreated\":\"2023\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/gustavo-albino/capa-3x2.webp\"}]}"
-  },
-  "/en/cases/gustavo-albino": {
-   "title": "Gustavo Albino · Case · Gustavo Albino",
-   "lang": "en",
-   "desc": "My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.",
-   "canonical": "https://gustavoalbino.com.br/en/cases/gustavo-albino",
-   "ogTitle": "Gustavo Albino · Case · Gustavo Albino",
-   "ogDesc": "My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.",
-   "ogUrl": "https://gustavoalbino.com.br/en/cases/gustavo-albino",
-   "ogImage": "https://gustavoalbino.com.br/assets/og/gustavo-albino.jpg",
-   "ogLocale": "en_US",
-   "alternates": [
-    [
-     "pt-BR",
-     "https://gustavoalbino.com.br/cases/gustavo-albino"
-    ],
-    [
-     "en",
-     "https://gustavoalbino.com.br/en/cases/gustavo-albino"
-    ],
-    [
-     "x-default",
-     "https://gustavoalbino.com.br/cases/gustavo-albino"
-    ]
-   ],
-   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://gustavoalbino.com.br/#gustavo\",\"name\":\"Gustavo Albino\",\"jobTitle\":\"Lead Designer\",\"url\":\"https://gustavoalbino.com.br/\",\"email\":\"mailto:gustavorsalbino@gmail.com\",\"image\":\"https://gustavoalbino.com.br/assets/og-card.png\",\"description\":\"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.\",\"knowsLanguage\":[\"pt-BR\",\"en\",\"fr\",\"es\"],\"address\":{\"@type\":\"PostalAddress\",\"addressRegion\":\"Minas Gerais\",\"addressCountry\":\"BR\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Kaya Mind\"},\"sameAs\":[\"https://www.linkedin.com/in/gusalbino/\",\"https://www.instagram.com/gustavoalbinodesign/\"]},{\"@type\":\"WebSite\",\"@id\":\"https://gustavoalbino.com.br/#site\",\"url\":\"https://gustavoalbino.com.br/\",\"name\":\"Gustavo Albino\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://gustavoalbino.com.br/en/cases/gustavo-albino#trabalho\",\"name\":\"Gustavo Albino\",\"headline\":\"Gustavo Albino\",\"description\":\"My identity, rebuilt in 2023. The monogram became a seal and the palette became this site.\",\"url\":\"https://gustavoalbino.com.br/en/cases/gustavo-albino\",\"inLanguage\":\"en\",\"dateCreated\":\"2023\",\"creator\":{\"@id\":\"https://gustavoalbino.com.br/#gustavo\"},\"image\":\"https://gustavoalbino.com.br/assets/cases/gustavo-albino/capa-3x2.webp\"}]}"
-  },
   "/cases/hercules": {
    "title": "Hercules · Case · Gustavo Albino",
    "lang": "pt-BR",

@@ -203,3 +203,17 @@
 .trio .midia-card{padding:10px;align-items:center;justify-content:center}
 @media (max-width:960px){.trio{grid-template-columns:1fr 1fr}.trio-t{grid-column:1/-1;grid-auto-rows:auto}}
 @media (max-width:560px){.trio{grid-template-columns:1fr}}
+
+.midia figure{position:relative}
+.midia figcaption,.galeria figcaption{position:static;display:block;padding:2px 10px 8px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#283618}
+.fig-verde{background:#283618!important}
+.fig-verde figcaption{color:#FFF2B0}
+.versoes{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+.versoes-g{display:grid;gap:var(--gap)}
+.versoes-g .rotulo{margin:0}
+.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:6px}
+.cartao{display:grid;gap:4px;align-content:start;border:var(--bw) solid var(--tinta);border-radius:12px;padding:14px;background:var(--tinta)}
+.cartao b{font-family:var(--font-display);font-weight:900;font-size:clamp(20px,2vw,28px);color:var(--ouro)}
+.cartao .mono{color:var(--hl-text);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.cartao p{font-size:13px;line-height:1.45;margin:0}
+@media (max-width:960px){.versoes{grid-template-columns:1fr}}

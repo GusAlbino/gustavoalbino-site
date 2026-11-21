@@ -983,30 +983,6 @@
    "heroWide": "16/9"
   },
   {
-   "id": "gustavo-albino",
-   "cat": "branding",
-   "detail": true,
-   "color": "#1B1B1B",
-   "fg": "#F4EFE6",
-   "mono": "assets/monogram-white.webp",
-   "year": "2023",
-   "bgImage": "assets/cases/gustavo-albino/capa-3x2.webp",
-   "bgSquare": "assets/cases/gustavo-albino/capa.webp",
-   "title": {
-    "pt": "Gustavo Albino",
-    "en": "Gustavo Albino"
-   },
-   "typeLabel": {
-    "pt": "Marca própria",
-    "en": "Own brand"
-   },
-   "blurb": {
-    "pt": "Minha identidade, refeita em 2023. O monograma virou selo e a paleta virou este site.",
-    "en": "My identity, rebuilt in 2023. The monogram became a seal and the palette became this site."
-   },
-   "heroImage": "assets/cases/gustavo-albino/hero-mockup.webp"
-  },
-  {
    "id": "hercules",
    "cat": "branding",
    "detail": true,
@@ -4432,7 +4408,9 @@
    "desafioTitle": "Vestir o cânhamo sem perder a rua.",
    "desafioParas": [
     "A Yerba Fina nasce de uma ideia simples e ousada: moda sustentável de verdade, brasileira, sem cara de “ecológico comportado”. Roupas de cânhamo e fibra de bambu, para quem anda de skate, sobe a montanha, pega o metrô e ocupa a cidade.",
-    "O desafio era construir uma identidade que segurasse esses dois mundos ao mesmo tempo: a natureza e o concreto. Orgânica o suficiente para falar de sustentabilidade, urbana o bastante para viver no grafite, no rolê e na rua."
+    "O desafio era construir uma identidade que segurasse esses dois mundos ao mesmo tempo: a natureza e o concreto. Orgânica o suficiente para falar de sustentabilidade, urbana o bastante para viver no grafite, no rolê e na rua.",
+    "As roupas da Yerba Fina usam 65% de cânhamo e 35% de fibras de bambu. Mais ecológico, mais sustentável, e brasileiro.",
+    "Cada peça vira um manifesto vestível: “Vista cânhamo, vista roupas sustentáveis, vista o seu meio ambiente”."
    ],
    "sloganLabel": "O slogan",
    "sloganNote": "Remete ao espírito aventureiro de se conectar com o seu meio, explorando a natureza ou desfrutando dos encantos da cidade.",
@@ -4443,27 +4421,12 @@
     "O nome acompanha o mesmo traço de pincel: letras manuais e inclinadas, naturais e sofisticadas ao mesmo tempo. A marca usa apenas o verde mais escuro da paleta.",
     "Mais importante: o logo nasceu como um sistema responsivo. Não é uma peça única, e sim uma família de versões que se adaptam ao meio (do cabeçalho do site ao impresso, do avatar da rede social ao favicon), sempre mantendo a mesma identidade."
    ],
-   "logoSysKicker": "Sistema responsivo",
-   "logoSysTitle": "Uma marca, vários meios.",
-   "logoSysNote": "Cada versão foi desenhada para um contexto de uso. Escolha o lockup que melhor se encaixa no espaço (vertical, horizontal, quadrado ou mínimo) sem nunca quebrar a identidade.",
    "logoVariantsTitle": "As versões do logo",
-   "logoMainCap": "Logo principal · aplicação preferencial",
    "paletaKicker": "Paleta de cores",
    "paletaTitle": "Da mata ao pôr do sol.",
-   "paletaNote": "Os verdes remetem à natureza, ecologia e sustentabilidade. O amarelo é o sol: energia e leveza. Laranja e vermelho vêm do pôr do sol, trazendo calor à paleta. O logo oficial usa apenas o verde mais escuro.",
+   "paletaNote": "O logo oficial usa só o verde mais escuro. Os verdes remetem à natureza, à ecologia e à sustentabilidade. O amarelo é o sol, energia e leveza. Laranja e vermelho vêm do pôr do sol e trazem um calor suave, o que também melhora a usabilidade do logo. O logo pode ir sobre qualquer cor da paleta, desde que haja contraste e legibilidade. As outras cores do sistema nunca entram com opacidade.",
    "tipoKicker": "Tipografia",
    "tipoTitle": "Pincel, slab e leitura.",
-   "produtoKicker": "Produto & sustentabilidade",
-   "produtoTitle": "65% cânhamo. 35% bambu. 100% Brasil.",
-   "produtoParas": [
-    "As roupas da Yerba Fina usam 65% de cânhamo e 35% de fibras de bambu. Mais ecológico, mais sustentável, e brasileiro.",
-    "Cada peça vira um manifesto vestível: “Vista cânhamo, vista roupas sustentáveis, vista o seu meio ambiente”."
-   ],
-   "produtoTags": [
-    "65% Cânhamo",
-    "35% Bambu",
-    "Feito no Brasil"
-   ],
    "aplicKicker": "Aplicações",
    "aplicTitle": "A marca na rua.",
    "aplicNote": "A identidade ganha vida em campanhas de social media, mockups de produto e peças de comunicação, sempre com a tensão entre o orgânico e o urbano.",
@@ -4493,14 +4456,36 @@
      "label": "bambu"
     },
     {
-     "num": "4",
-     "label": "versões do logo"
+     "num": "6",
+     "label": "versões oficiais do logo"
     },
     {
      "num": "1",
      "label": "bud desenhado à mão"
     }
-   ]
+   ],
+   "logoVariantsKicker": "Versões do logo",
+   "logoVariantsNote": "Cada versão foi desenhada para um contexto de uso: vertical, extenso ou só o símbolo. O manual define duas famílias oficiais. A versão 1 traz o bud e o nome. A versão 2, completa, acrescenta o slogan “Explore o seu meio”. Cada uma existe em verde escuro, preto e branco, num total de 18 arquivos. Em transparência, verde e preto podem ir até 25% de opacidade. O tamanho mínimo é 10 mm².",
+   "tipoNote": "Três famílias, cada uma com função fechada: uma para o logo, uma para os títulos e uma para a leitura.",
+   "cartoes": {
+    "tipo": [
+     {
+      "t": "Nafta Light",
+      "m": "Pincel",
+      "d": "Criada por Krisjanis Mezulis, da WildOnes Type Foundry, com pincel e marcador. Só para o logo e o slogan, nunca em outro material impresso ou digital."
+     },
+     {
+      "t": "Quartzo",
+      "m": "Slab serif",
+      "d": "Versão gratuita, para títulos e destaques. Não tem numerais."
+     },
+     {
+      "t": "Roboto",
+      "m": "Leitura",
+      "d": "Textos em geral, títulos e botões, em seis pesos, do Thin ao Black. Está na maioria dos sites e programas gráficos."
+     }
+    ]
+   }
   },
   "en": {
    "back": "Back to cases",
@@ -4531,7 +4516,9 @@
    "desafioTitle": "Wear hemp without losing the street.",
    "desafioParas": [
     "Yerba Fina was born from a simple, bold idea: truly sustainable Brazilian fashion, without the tame “eco” look. Hemp and bamboo-fibre clothing for people who skate, climb the mountain, ride the metro and own the city.",
-    "The challenge was an identity that could hold both worlds at once: nature and concrete. Organic enough to talk sustainability, urban enough to live on graffiti, the session and the street."
+    "The challenge was an identity that could hold both worlds at once: nature and concrete. Organic enough to talk sustainability, urban enough to live on graffiti, the session and the street.",
+    "Yerba Fina garments use 65% hemp and 35% bamboo fibre. More ecological, more sustainable, and Brazilian.",
+    "Each piece becomes a wearable manifesto: “Wear hemp, wear sustainable clothes, wear your environment”."
    ],
    "sloganLabel": "The slogan",
    "sloganNote": "It speaks to the adventurous spirit of connecting with your environment, exploring nature or enjoying the charms of the city.",
@@ -4542,27 +4529,12 @@
     "The name follows the same brush stroke: handmade, slanted letters, natural and sophisticated at once. The brand uses only the darkest green of the palette.",
     "Most importantly, the logo was built as a responsive system. It isn’t a single asset but a family of versions that adapt to the medium (from the website header to print, from the social avatar to the favicon), always keeping the same identity."
    ],
-   "logoSysKicker": "Responsive system",
-   "logoSysTitle": "One brand, many media.",
-   "logoSysNote": "Each version is designed for a usage context. Pick the lockup that best fits the space (vertical, horizontal, square or minimal) without ever breaking the identity.",
    "logoVariantsTitle": "The logo versions",
-   "logoMainCap": "Primary logo · preferred application",
    "paletaKicker": "Colour palette",
    "paletaTitle": "From the woods to the sunset.",
-   "paletaNote": "The greens evoke nature, ecology and sustainability. Yellow is the sun: energy and lightness. Orange and red come from the sunset, bringing warmth. The official logo uses only the darkest green.",
+   "paletaNote": "The official logo uses only the darkest green. The greens evoke nature, ecology and sustainability. Yellow is the sun, energy and lightness. Orange and red come from the sunset and bring a soft warmth, which also helps the logo’s usability. The logo can sit on any palette colour as long as contrast and legibility hold. The other system colours never go in with opacity.",
    "tipoKicker": "Typography",
    "tipoTitle": "Brush, slab and reading.",
-   "produtoKicker": "Product & sustainability",
-   "produtoTitle": "65% hemp. 35% bamboo. 100% Brazil.",
-   "produtoParas": [
-    "Yerba Fina garments use 65% hemp and 35% bamboo fibre. More ecological, more sustainable, and Brazilian.",
-    "Each piece becomes a wearable manifesto: “Wear hemp, wear sustainable clothes, wear your environment”."
-   ],
-   "produtoTags": [
-    "65% Hemp",
-    "35% Bamboo",
-    "Made in Brazil"
-   ],
    "aplicKicker": "Applications",
    "aplicTitle": "The brand on the street.",
    "aplicNote": "The identity comes alive across social media campaigns, product mockups and comms pieces, always with the tension between the organic and the urban.",
@@ -4592,19 +4564,180 @@
      "label": "bamboo"
     },
     {
-     "num": "4",
-     "label": "logo versions"
+     "num": "6",
+     "label": "official logo versions"
     },
     {
      "num": "1",
      "label": "hand-drawn bud"
     }
-   ]
+   ],
+   "logoVariantsKicker": "Logo versions",
+   "logoVariantsNote": "Each version was designed for a context of use: vertical, wide or symbol only. The guidelines define two official families. Version 1 has the bud and the name. Version 2, the full one, adds the slogan “Explore your medium”. Each exists in dark green, black and white, 18 files in all. With transparency, green and black can go down to 25% opacity. Minimum size is 10 mm².",
+   "tipoNote": "Three families, each with a fixed job: one for the logo, one for headlines and one for reading.",
+   "cartoes": {
+    "tipo": [
+     {
+      "t": "Nafta Light",
+      "m": "Brush",
+      "d": "Made by Krisjanis Mezulis of WildOnes Type Foundry, with brush and marker. Only for the logo and the slogan, never on other print or digital material."
+     },
+     {
+      "t": "Quartzo",
+      "m": "Slab serif",
+      "d": "Free version, for headlines and highlights. It has no numerals."
+     },
+     {
+      "t": "Roboto",
+      "m": "Reading",
+      "d": "General text, headings and buttons, in six weights, from Thin to Black. It ships on most sites and design software."
+     }
+    ]
+   }
   },
   "midiaCard": true,
   "fundoBranco": [
-   "logo-",
+   "logo-v1-",
+   "logo-v2-",
+   "logo-simbolo",
    "tag-bud"
+  ],
+  "cores": [
+   {
+    "hex": "#283618",
+    "nome": {
+     "pt": "Verde escuro",
+     "en": "Dark green"
+    },
+    "share": {
+     "pt": "logo oficial",
+     "en": "official logo"
+    }
+   },
+   {
+    "hex": "#616C38",
+    "nome": {
+     "pt": "Verde",
+     "en": "Green"
+    },
+    "share": {
+     "pt": "natureza",
+     "en": "nature"
+    }
+   },
+   {
+    "hex": "#FFF2B0",
+    "nome": {
+     "pt": "Amarelo",
+     "en": "Yellow"
+    },
+    "share": {
+     "pt": "sol",
+     "en": "sun"
+    }
+   },
+   {
+    "hex": "#E09D3E",
+    "nome": {
+     "pt": "Laranja",
+     "en": "Orange"
+    },
+    "share": {
+     "pt": "pôr do sol",
+     "en": "sunset"
+    }
+   },
+   {
+    "hex": "#9E2A2C",
+    "nome": {
+     "pt": "Vermelho",
+     "en": "Red"
+    },
+    "share": {
+     "pt": "pôr do sol",
+     "en": "sunset"
+    }
+   }
+  ],
+  "versoes": {
+   "apos": "logoVariants",
+   "formatos": [
+    "vertical",
+    "extenso",
+    "simbolo"
+   ],
+   "cores": [
+    "verde",
+    "preto",
+    "branco"
+   ],
+   "grupos": [
+    {
+     "k": "v1",
+     "pt": "Versão 1 · bud e nome",
+     "en": "Version 1 · bud and name"
+    },
+    {
+     "k": "v2",
+     "pt": "Versão 2 · completa, com slogan",
+     "en": "Version 2 · full, with slogan"
+    }
+   ],
+   "fmt": {
+    "vertical": {
+     "pt": "vertical",
+     "en": "vertical"
+    },
+    "extenso": {
+     "pt": "extenso",
+     "en": "wide"
+    },
+    "simbolo": {
+     "pt": "símbolo",
+     "en": "symbol"
+    }
+   },
+   "cor": {
+    "verde": {
+     "pt": "verde escuro",
+     "en": "dark green"
+    },
+    "preto": {
+     "pt": "preto",
+     "en": "black"
+    },
+    "branco": {
+     "pt": "branco",
+     "en": "white"
+    }
+   }
+  },
+  "mapaImagens": {
+   "desafio": [
+    "green-man.webp",
+    "rooftop.webp",
+    "train-bw.webp",
+    "stat-canhamo.webp"
+   ],
+   "logo": [
+    "logo-simbolo.webp"
+   ],
+   "aplic": [
+    "app-graffiti.webp",
+    "app-hoodie.webp",
+    "app-rain.webp",
+    "app-skater.webp",
+    "app-tunnel.webp",
+    "skate-vista.webp",
+    "tag-bud.webp",
+    "tote-logo.webp"
+   ]
+  },
+  "larga": [
+   "aplic"
+  ],
+  "fundoVerde": [
+   "-branco."
   ]
  },
  "HERCULES": {
@@ -4813,31 +4946,20 @@
     "Face to Face é o álbum de renascimento de Jimi Oliver, concebido durante a pandemia, depois da sua recuperação. A música atravessa as raízes do Brasil e cria uma simbiose com o jazz; a identidade precisava carregar a mesma carga emocional.",
     "A resposta foi colocar o artista, literalmente, frente a frente com quem ouve: um retrato em preto e branco, alto contraste, e um logotipo serifado de contraste extremo. Sóbrio, autoral e atemporal. Longe de qualquer clichê de gênero."
    ],
-   "capaKicker": "A capa",
-   "capaTitle": "Preto e branco, frente a frente.",
-   "capaParas": [
-    "O conceito nasce do título: o rosto do músico ocupa toda a capa, em duotom granulado, dividido entre sombra e luz. O logotipo “Face to Face”, em serifa Didone, traz o brilho gráfico que contrasta com a textura da fotografia.",
-    "A mesma assinatura se repete em cada peça (vinil, CD, encarte e palco), garantindo que o álbum seja reconhecido num relance, em qualquer formato."
-   ],
-   "capaCap": "Capa oficial · retrato em duotom + logotipo Face to Face",
    "discoKicker": "O disco",
    "discoTitle": "Do vinil à bolacha.",
    "discoNote": "A arte foi pensada para o objeto físico: a capa do vinil, o miolo do CD com as faixas em arco e a citação de Salmos 126, e o encarte aberto com a tracklist e a ficha técnica completa.",
-   "aoVivoKicker": "Ao vivo",
-   "aoVivoTitle": "A capa vira cenário.",
-   "aoVivoNote": "No lançamento, a mesma identidade tomou o palco: o retrato da capa em halftone gigante no telão e as letras “JIMI” em painéis de LED. Do encarte ao show, um sistema só.",
-   "aoVivoPortraitCap": "Show de lançamento · Betim, MG",
+   "capaAoVivoKicker": "Capa e palco",
+   "capaAoVivoTitle": "Do rosto ao telão.",
+   "capaAoVivoParas": [
+    "O rosto do músico ocupa toda a capa, em duotom granulado, dividido entre sombra e luz. O logotipo “Face to Face”, em serifa Didone, contrasta com a textura da fotografia e se repete em cada peça: vinil, CD, encarte e palco.",
+    "No lançamento, a mesma identidade tomou o palco: o retrato da capa em halftone gigante no telão e as letras “JIMI” em painéis de LED."
+   ],
    "portfolioKicker": "Desdobramento",
    "portfolioTitle": "E rendeu um portfólio.",
    "portfolioParas": [
     "O projeto não parou na capa. A parceria gerou também o portfólio do artista: um documento editorial que reúne a trajetória de Jimi Oliver, seus álbuns, shows e currículo musical, no mesmo cuidado tipográfico e fotográfico da identidade.",
     "Uma peça pronta para abrir portas com produtores, festivais e contratantes, dentro e fora do Brasil."
-   ],
-   "resultadoKicker": "Resultado",
-   "resultadoTitle": "Uma identidade que toca antes da primeira nota.",
-   "resultadoParas": [
-    "Da capa do álbum ao palco e ao portfólio, um sistema coeso: preto, branco e fotografia de alto contraste, com a mesma elegância em todos os pontos de contato.",
-    "Mais que uma capa: a cara de um artista, pronta para circular no mercado da música instrumental."
    ],
    "cta": "Quer uma identidade assim para o seu projeto?",
    "ctaBtn": "Vamos conversar",
@@ -4872,6 +4994,12 @@
      "num": "1",
      "label": "identidade, do encarte ao palco"
     }
+   ],
+   "portfolioItems": [
+    {
+     "t": "Uma identidade que toca antes da primeira nota",
+     "d": "Da capa do álbum ao palco e ao portfólio, um sistema coeso: preto, branco e fotografia de alto contraste, com a mesma elegância em todos os pontos de contato. Mais que uma capa: a cara de um artista, pronta para circular no mercado da música instrumental."
+    }
    ]
   },
   "en": {
@@ -4905,31 +5033,20 @@
     "Face to Face is Jimi Oliver’s album of rebirth, conceived during the pandemic, after his recovery. The music crosses Brazil’s roots and fuses with jazz; the identity had to carry the same emotional weight.",
     "The answer was to put the artist literally face to face with the listener: a high-contrast black-and-white portrait and an extreme-contrast serif logotype. Sober, authorial and timeless. Far from any genre cliché."
    ],
-   "capaKicker": "The cover",
-   "capaTitle": "Black and white, face to face.",
-   "capaParas": [
-    "The concept comes from the title: the musician’s face fills the whole cover in a grainy duotone, split between shadow and light. The “Face to Face” logotype, set in a Didone serif, brings the graphic shine that contrasts with the photographic grain.",
-    "That same signature repeats on every piece (vinyl, CD, booklet and stage), so the album is recognised at a glance, in any format."
-   ],
-   "capaCap": "Official cover · duotone portrait + Face to Face logotype",
    "discoKicker": "The record",
    "discoTitle": "From vinyl to label.",
    "discoNote": "The art was built for the physical object: the vinyl sleeve, the CD label with the tracks set in an arc and the Psalm 126 quote, and the open booklet with the tracklist and full credits.",
-   "aoVivoKicker": "Live",
-   "aoVivoTitle": "The cover becomes the stage.",
-   "aoVivoNote": "At the launch, the same identity took over the stage: the cover portrait in giant halftone on the screen and the “JIMI” letters on LED panels. From booklet to show, one single system.",
-   "aoVivoPortraitCap": "Launch show · Betim, Brazil",
+   "capaAoVivoKicker": "Cover and stage",
+   "capaAoVivoTitle": "From the face to the screen.",
+   "capaAoVivoParas": [
+    "The musician’s face fills the whole cover, in grainy duotone, split between shadow and light. The “Face to Face” logotype, in a Didone serif, plays against the texture of the photograph and repeats on every piece: vinyl, CD, booklet and stage.",
+    "At the launch, the same identity took the stage: the cover portrait as a giant halftone on the screen and the letters “JIMI” on LED panels."
+   ],
    "portfolioKicker": "Spin-off",
    "portfolioTitle": "And it became a portfolio.",
    "portfolioParas": [
     "The project didn’t stop at the cover. The collaboration also produced the artist’s portfolio: an editorial document gathering Jimi Oliver’s career, albums, shows and musical résumé, with the same typographic and photographic care as the identity.",
     "A piece ready to open doors with producers, festivals and bookers, in Brazil and abroad."
-   ],
-   "resultadoKicker": "Result",
-   "resultadoTitle": "An identity that plays before the first note.",
-   "resultadoParas": [
-    "From album cover to stage and portfolio, one cohesive system: black, white and high-contrast photography, with the same elegance across every touchpoint.",
-    "More than a cover: the face of an artist, ready to circulate in the instrumental-music market."
    ],
    "cta": "Want an identity like this for your project?",
    "ctaBtn": "Let’s talk",
@@ -4964,11 +5081,52 @@
      "num": "1",
      "label": "identity, from booklet to stage"
     }
+   ],
+   "portfolioItems": [
+    {
+     "t": "An identity that plays before the first note",
+     "d": "From album cover to stage and portfolio, one cohesive system: black, white and high-contrast photography, with the same elegance across every touchpoint. More than a cover: the face of an artist, ready to circulate in the instrumental-music market."
+    }
    ]
   },
   "excluir": [
    "cover-art.webp"
-  ]
+  ],
+  "mapaImagens": {
+   "projeto": [
+    "foto-album-fisico.webp"
+   ],
+   "disco": [
+    "vinyl-grey.webp",
+    "cd-label.webp",
+    "inner-spread.webp"
+   ],
+   "capaAoVivo": [
+    "cover-portrait.webp",
+    "live-1.webp",
+    "live-2.webp",
+    "live-jimi.webp"
+   ],
+   "portfolio": [
+    "portfolio-1.webp",
+    "portfolio-2.webp",
+    "portfolio-3.webp",
+    "portfolio-4.webp",
+    "portfolio-5.webp",
+    "portfolio-6.webp",
+    "portfolio-7.webp",
+    "portfolio-8.webp"
+   ]
+  },
+  "larga": [
+   "capaAoVivo",
+   "portfolio"
+  ],
+  "depois": {
+   "portfolio": [
+    "vinyl-leather.webp"
+   ]
+  }
  },
  "OTHELO": {
   "pt": {

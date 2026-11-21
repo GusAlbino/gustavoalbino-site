@@ -249,12 +249,13 @@ function proporcao(src) {
     return w && h ? w / h : 1.5;
   } catch { return 1.5; }
 }
-let FUNDO_BRANCO = [];
-const fig = (src, extra = '') => {
+let FUNDO_BRANCO = [], FUNDO_VERDE = [];
+const fig = (src, extra = '', cap = '') => {
   const r = proporcao(src).toFixed(3);
   const m = src.endsWith('.mp4') ? `<video src="/${src}" controls preload="none" playsinline></video>` : `<img src="/${src}" alt="" loading="lazy"${extra}>`;
-  const branco = FUNDO_BRANCO.some((k) => src.includes(k));
-  return `<figure${branco ? ' class="fig-branco"' : ''} style="--r:${r}">${m}</figure>`;
+  const verde = FUNDO_VERDE.some((k) => src.includes(k));
+  const branco = !verde && FUNDO_BRANCO.some((k) => src.includes(k));
+  return `<figure${verde ? ' class="fig-verde"' : branco ? ' class="fig-branco"' : ''} style="--r:${r}">${m}${cap ? `<figcaption class="mono">${cap}</figcaption>` : ''}</figure>`;
 };
 paginas.ilustracao = (lang) => {
   const imgs = D.ILUSTRA.map((i) => fig(i.src)).join('');
@@ -263,7 +264,7 @@ paginas.ilustracao = (lang) => {
 
 
 // ---------- CASES (página de cada case) ----------
-const DADOS_CASE = { runpace: D.RUNPACE, 'kaya-doc': D.KAYA_DOC, 'yerba-fina': D.YERBA, hercules: D.HERCULES, 'jimi-oliver': D.JIMI, othelo: D.OTHELO, 'gustavo-albino': D.GA_MARCA, 'elos-saber': D.ELOS };
+const DADOS_CASE = { runpace: D.RUNPACE, 'kaya-doc': D.KAYA_DOC, 'yerba-fina': D.YERBA, hercules: D.HERCULES, 'jimi-oliver': D.JIMI, othelo: D.OTHELO, 'elos-saber': D.ELOS };
 function imagensDoCase(id) {
   const raiz = new URL('../public/assets/cases/' + id + '/', import.meta.url);
   const lista = [];
@@ -322,6 +323,7 @@ paginas.casos = (lang, id) => {
   const rot = lang === 'pt' ? { img: 'Mais imagens', cor: 'Paleta', back: 'Voltar aos cases' } : { img: 'More images', cor: 'Palette', back: 'Back to cases' };
   const ficha = (t.ficha || []).map((f) => `<div><span class="mono">${esc(f.k)}</span><b>${esc(f.v)}</b></div>`).join('');
   FUNDO_BRANCO = dados.fundoBranco || [];
+  FUNDO_VERDE = dados.fundoVerde || [];
   const secs = secoes(t);
   const todas = imagensDoCase(id).filter((x) => !(dados.excluir || []).some((e) => x.endsWith('/' + e)));
   const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
@@ -334,8 +336,9 @@ paginas.casos = (lang, id) => {
   const telas = (telasExt.length ? `<div class="rotulo" id="telas"><b>${lang === 'pt' ? 'Telas · site externo' : 'Screens · public site'}</b><hr></div>${galeria(telasExt)}` : '') + (telasLog.length ? `<div class="rotulo"><b>${lang === 'pt' ? 'Telas · área logada' : 'Screens · logged-in area'}</b><hr></div>${galeria(telasLog)}` : '');
   const coresLista = (dados.cores || []).filter((x) => x.hex);
   const alvoCor = coresLista.length ? (secs.findIndex((s) => /^(cor|pale)/i.test(s.prefixo)) >= 0 ? secs.findIndex((s) => /^(cor|pale)/i.test(s.prefixo)) : secs.findIndex((s) => /^sistema/i.test(s.prefixo))) : -1;
-  const coresDentro = coresLista.map((x) => `<div class="amostra"><span style="background:${x.hex}"></span><b>${esc(x.nome || '')}</b><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(x.share) : ''}</span></div>`).join('');
-  const textoDe = (s, i) => `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}${i === alvoCor ? `<div class="amostras">${coresDentro}</div>` : ''}</div>`;
+  const L = (v) => (v && typeof v === 'object' ? v[lang] : v);
+  const coresDentro = coresLista.map((x) => `<div class="amostra"><span style="background:${x.hex}"></span><b>${esc(L(x.nome) || '')}</b><span class="mono">${esc(x.hex)}${x.share ? ' · ' + esc(L(x.share)) : ''}</span></div>`).join('');
+  const textoDe = (s, i) => `<div class="card bloco secao">${s.kicker ? `<span class="mono tag-ouro">${esc(s.kicker)}</span>` : ''}<h2>${esc(s.title)}</h2>${s.paras.map((x) => `<p>${esc(x)}</p>`).join('')}${(s.items || []).map((it) => `<p><b>${esc(it.t)}.</b> ${esc(it.d)}</p>`).join('')}${i === alvoCor ? `<div class="amostras">${coresDentro}</div>` : ''}${((t.cartoes || {})[s.prefixo] || []).length ? `<div class="cartoes">${t.cartoes[s.prefixo].map((c) => `<div class="cartao"><span class="mono">${esc(c.m)}</span><b>${esc(c.t)}</b><p>${esc(c.d)}</p></div>`).join('')}</div>` : ''}</div>`;
   const trio = dados.trio || [];
   const blocos = secs.map((s, i) => {
     if (trio.includes(s.prefixo)) {
@@ -344,8 +347,11 @@ paginas.casos = (lang, id) => {
       return `<section class="trio"><div class="trio-t">${idx.map((k) => textoDe(secs[k], k)).join('')}</div>${idx.map((k) => `<div class="card midia-card">${por[k].map((src) => `<img src="/${src}" alt="" loading="lazy">`).join('')}</div>`).join('')}</section>`;
     }
     const texto = textoDe(s, i);
-    if (!s.paras.length && !(s.items || []).length && por[i].length > 1) return `<section>${texto}</section>\n  ${galeria(por[i])}`;
+    if (por[i].length > 1 && ((dados.larga || []).includes(s.prefixo) || (!s.paras.length && !(s.items || []).length))) return `<section>${texto}</section>\n  ${galeria(por[i])}${((dados.depois || {})[s.prefixo] || []).length ? `\n  <div class="galeria">${dados.depois[s.prefixo].map((f) => fig('assets/cases/' + id + '/' + f)).join('')}</div>` : ''}`;
     const m = midiaHtml(por[i], dados.midiaCard, (dados.midiaBase || {})[s.prefixo] || 0);
+    const V = dados.versoes;
+    const versoes = V && V.apos === s.prefixo ? `\n  <div class="versoes">${V.grupos.map((g) => `<div class="versoes-g"><div class="rotulo"><b>${esc(g[lang])}</b><hr></div>${V.cores.map((cor) => `<div class="midia midia--j" style="--b:60px">${V.formatos.map((f) => fig('assets/cases/' + id + '/versoes/logo-' + g.k + '-' + f + '-' + cor + '.webp', '', esc(V.fmt[f][lang] + ' · ' + V.cor[cor][lang]))).join('')}</div>`).join('')}</div>`).join('')}</div>` : '';
+    if (versoes) return `<section>${texto}</section>${versoes}`;
     const depois = ((dados.depois || {})[s.prefixo] || []).length ? `\n  <div class="galeria">${dados.depois[s.prefixo].map((f) => fig('assets/cases/' + id + '/' + f)).join('')}</div>` : '';
     return m ? `<section class="secao-par${i % 2 ? ' inv' : ''}${dados.midiaCard && por[i].length === 1 ? ' secao-par--card' : ''}">${texto}${m}</section>${depois}` : `<section>${texto}</section>${depois}`;
   }).join('\n  ');
