@@ -241,11 +241,12 @@ paginas.cultural = (lang, id) => {
   const retrato = c.hero.includes('/recital/') || c.hero.includes('/defesa/');
   const insta = c.link ? `<a class="btn btn--ouro" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)} · ${esc(c.linkLabel)}</a>` : '';
   const topoTxt = `<div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h1 class="disp">${esc(c.title[lang])}</h1></div></div><p class="intro">${esc(c.tema[lang].replace(/\n/g, ' '))}</p>${c.descNoTopo ? c.desc[lang].map((x) => `<p>${esc(x)}</p>`).join('') : ''}${(insta || c.pdf) ? `<div class="acoes">${insta}${c.pdf ? `<a class="btn btn--ghost" href="/${c.pdf.src}" target="_blank" rel="noopener">${esc(c.pdf.label[lang])} ↗</a>` : ''}</div>` : ''}`;
-  const topo = `<section class="card caso-hero${retrato ? ' caso-hero--retrato' : ''}" id="topo"><div class="cab">${topoTxt}${retrato ? `<div class="ficha-in">${ficha}</div>` : ''}</div><img src="/${c.hero}" alt=""${retrato ? ` style="aspect-ratio:${c.posterRatio};object-fit:cover"` : ' style="aspect-ratio:4/3;object-fit:cover"'}></section>`;
+  const topo = `<section class="card caso-hero hero-cult${retrato ? ' caso-hero--retrato' : ''}" id="topo"><div class="cab">${topoTxt}<div class="ficha-in">${ficha}</div></div><img src="/${c.hero}" alt=""${retrato ? ` style="aspect-ratio:${c.posterRatio};object-fit:cover"` : ' style="height:100%;aspect-ratio:auto;object-fit:cover"'}></section>`;
   const sobre = `<div class="card bloco secao"><span class="mono tag-ouro">${esc(p.sobre)}</span><h2>${esc(c.title[lang])}</h2>${c.desc[lang].map((x) => `<p>${esc(x)}</p>`).join('')}</div>`;
   const marca = c.logo ? `<div class="card midia-card" style="display:grid;place-items:center;padding:clamp(18px,3vw,40px);background:#fff"><img src="/${c.logo}" alt="" loading="lazy" style="width:100%;height:auto;max-height:420px;object-fit:contain"><span class="mono" style="color:#283618;margin-top:12px;text-align:center">${esc(c.logoNota[lang])}</span></div>` : '';
-  const par = c.descNoTopo ? '' : marca ? `<section class="secao-par">${sobre}${marca}</section>` : `<section>${sobre}</section>`;
-  const pecas = c.extraPrimeiro ? [{ ...c.extra, grande: true }, { ...c.pecas[0], grande: true }, ...c.pecas.slice(1)] : [ ...(c.id === 'muros' ? [{ src: c.poster, cap: c.posterCap }] : []), ...(c.pecas || []), ...(c.extra ? [c.extra] : []) ];
+  const par = c.descNoTopo ? (marca ? `<section class="secao-par"><div class="card bloco secao"><span class="mono tag-ouro">${esc(p.logoKicker)}</span><h2>${esc(c.title[lang])}</h2><p>${esc(c.logoNota[lang])}</p></div>${marca.replace(/<span class="mono"[^>]*>.*?<\/span>/, '')}</section>` : '') : marca ? `<section class="secao-par">${sobre}${marca}</section>` : `<section>${sobre}</section>`;
+  const base = [...(c.pecas || []), ...(c.id === 'muros' ? [{ src: c.poster, cap: c.posterCap }] : [])];
+  const pecas = c.extraPrimeiro ? [...(c.extra ? [{ ...c.extra, grande: true }] : []), { ...base[0], grande: true }, ...base.slice(1)] : [...base, ...(c.extra ? [c.extra] : [])];
   const galPecas = pecas.length ? `<div class="rotulo" id="pecas"><b>${esc(p.pecasTitulo)}</b><hr></div><div class="galeria">${pecas.map((x) => { const f = fig(x.src, '', esc(x.cap[lang])); return x.grande ? f.replace('<figure', '<figure data-grande') : f; }).join('')}</div>` : '';
   const extra = '';
   const fotos = [...(c.rua || []), ...(c.fotos || [])];
@@ -254,7 +255,7 @@ paginas.cultural = (lang, id) => {
   const voltar = `<div class="voltar"><a class="btn btn--ghost" href="${href(lang, 'culturais')}">← ${esc(p.back)}</a></div>`;
   const cta = `<section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(p.cta)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(p.ctaBtn)}</a></section>`;
   ctx.meta = { title: c.title[lang], desc: c.tema[lang] };
-  return casca(lang, 'projetos', c.title[lang], `${voltar}\n  ${topo}\n    ${retrato ? '' : `<div class="card ficha-linha">${ficha}</div>`}\n  ${par}\n  ${galPecas}\n  ${extra}\n  ${galFotos}\n  ${apoios}\n  ${cta}`);
+  return casca(lang, 'projetos', c.title[lang], `${voltar}\n  ${topo}\n    \n  ${par}\n  ${galPecas}\n  ${extra}\n  ${galFotos}\n  ${apoios}\n  ${cta}`);
 };
 paginas.logos = (lang) => {
   const p = DICTL(lang).logosPage, L = lang === 'pt' ? 'Pt' : 'En';

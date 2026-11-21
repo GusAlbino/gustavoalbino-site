@@ -3051,7 +3051,9 @@
      "pt": "Ver catálogo",
      "en": "View catalogue"
     }
-   }
+   },
+   "descNoTopo": true,
+   "extraPrimeiro": true
   },
   {
    "id": "recital",
@@ -3166,7 +3168,9 @@
     }
    ],
    "capa": "assets/culturais/recital/post.webp",
-   "hero": "assets/culturais/recital/poster.webp"
+   "hero": "assets/culturais/recital/poster.webp",
+   "descNoTopo": true,
+   "extraPrimeiro": true
   },
   {
    "id": "defesa",
