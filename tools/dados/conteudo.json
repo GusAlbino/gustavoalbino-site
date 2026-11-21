@@ -335,35 +335,35 @@
      "steps": [
       {
        "t": "Reunião",
-       "d": "Conversa inicial para entender o negócio, o público e o que o projeto precisa resolver."
+       "d": "A gente começa com uma conversa para eu entender o seu negócio, o seu público e o que o seu projeto precisa resolver."
       },
       {
        "t": "Análise",
-       "d": "Estudo do cliente, do mercado e das referências, para definir o caminho."
+       "d": "Depois eu estudo o seu mercado e as suas referências para definir o caminho do projeto."
       },
       {
        "t": "Briefing",
-       "d": "Envio ao cliente de um briefing com as demandas, para confirmar escopo e expectativas."
+       "d": "Eu te envio um briefing com as demandas, e a gente confirma juntos o escopo e o que você espera."
       },
       {
        "t": "Orçamento",
-       "d": "Proposta com escopo, etapas, prazo e valor."
+       "d": "Você recebe a minha proposta com escopo, etapas, prazo e valor."
       },
       {
        "t": "Devolutiva e negociação",
-       "d": "O cliente responde, ajustamos o que for preciso e fechamos o acordo."
+       "d": "Você me responde, a gente ajusta o que for preciso e fecha o acordo."
       },
       {
        "t": "Prazo",
-       "d": "A data de entrega é combinada em conjunto, antes de iniciar."
+       "d": "Combinamos a data de entrega juntos, antes de eu começar."
       }
      ],
      "pagTitle": "Pagamento",
-     "pag": "O valor é negociado de acordo com o projeto. A prática é 50% no início e 50% na entrega.",
+     "pag": "O valor a gente negocia de acordo com o seu projeto. O que costumo fazer é 50% no início e 50% na entrega.",
      "ctaTitle": "Vamos falar do seu projeto?",
      "cta": "Entrar em contato",
      "titulo": "Vamos trabalhar juntos?",
-     "lead": "Todo projeto segue o mesmo passo a passo, do primeiro contato à entrega. Escopo, prazo e valor ficam combinados antes de começar."
+     "lead": "Todo projeto segue o mesmo caminho, do nosso primeiro contato à entrega. Escopo, prazo e valor ficam combinados antes de eu começar."
     }
    },
    "contatoPage": {
@@ -757,35 +757,35 @@
      "steps": [
       {
        "t": "Meeting",
-       "d": "A first conversation to understand the business, the audience and what the project has to solve."
+       "d": "We start with a conversation so I can understand your business, your audience and what your project needs to solve."
       },
       {
        "t": "Analysis",
-       "d": "A study of the client, the market and the references, to set the path."
+       "d": "Then I study your market and your references to set the direction of the project."
       },
       {
        "t": "Brief",
-       "d": "A brief with the demands goes to the client, to confirm scope and expectations."
+       "d": "I send you a brief with the demands, and we confirm the scope and what you expect, together."
       },
       {
        "t": "Quote",
-       "d": "A proposal with scope, stages, deadline and price."
+       "d": "You receive my proposal with scope, stages, deadline and price."
       },
       {
        "t": "Feedback and negotiation",
-       "d": "The client replies, we adjust what is needed and close the deal."
+       "d": "You reply, we adjust what is needed and close the deal."
       },
       {
        "t": "Deadline",
-       "d": "The delivery date is agreed together, before work begins."
+       "d": "We agree on the delivery date together, before I begin."
       }
      ],
      "pagTitle": "Payment",
-     "pag": "The price is negotiated according to the project. The usual practice is 50% at the start and 50% on delivery.",
+     "pag": "We negotiate the price according to your project. What I usually do is 50% at the start and 50% on delivery.",
      "ctaTitle": "Shall we talk about your project?",
      "cta": "Get in touch",
      "titulo": "Shall we work together?",
-     "lead": "Every project follows the same step by step, from first contact to delivery. Scope, deadline and price are agreed before we start."
+     "lead": "Every project follows the same path, from our first contact to delivery. Scope, deadline and price are agreed before I start."
     }
    },
    "contatoPage": {
