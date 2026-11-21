@@ -288,6 +288,7 @@ function secoes(t) {
   return out;
 }
 const PALAVRAS = [ // prefixo da seção (parte do nome) -> trechos do nome do arquivo que a ilustram
+  ['projeto', ['foto-album']],
   ['logosys', ['logo-ext', 'variant', 'versao', 'versoes', 'lockup']], ['logo', ['logo', 'wm-', 'ic-', 'simbolo', 'tag-bud']], ['pale', ['palet', 'paleta', 'cor']], ['cor', ['palet', 'paleta', 'board']],
   ['tipo', ['type', 'tipo', 'font']], ['aplic', ['app', 'aplic', 'ap-']], ['mockup', ['mock']], ['news', ['news']], ['social', ['social', 'post']], ['video', ['video']],
   ['v1', ['v1-']], ['v2', ['v2-']], ['disco', ['disc', 'vinil', 'cd-']], ['aoVivo', ['live', 'show']], ['portfolio', ['portfolio']], ['produto', ['prod', 'line']],

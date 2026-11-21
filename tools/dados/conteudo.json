@@ -953,7 +953,9 @@
     "pt": "Identidade musical do álbum “Face to Face”: capa, vinil, CD, encarte e portfólio.",
     "en": "Musical identity for the album “Face to Face”: cover, vinyl, CD, booklet and portfolio."
    },
-   "heroImage": "assets/cases/jimi-oliver/hero-mockup.webp"
+   "heroImage": "assets/cases/jimi-oliver/hero-capa.webp",
+   "heroWide": "1600/1426",
+   "heroBg": "#0E0E0E"
   },
   {
    "id": "yerba-fina",
@@ -4838,7 +4840,39 @@
     "Mais que uma capa: a cara de um artista, pronta para circular no mercado da música instrumental."
    ],
    "cta": "Quer uma identidade assim para o seu projeto?",
-   "ctaBtn": "Vamos conversar"
+   "ctaBtn": "Vamos conversar",
+   "heroPontos": [
+    {
+     "t": "Conceito",
+     "d": "O rosto do músico ocupa a capa inteira, em duotom granulado, com logotipo em serifa Didone."
+    },
+    {
+     "t": "Peças",
+     "d": "Capa de vinil, miolo do CD, encarte aberto e portfólio do artista."
+    },
+    {
+     "t": "Palco",
+     "d": "A capa virou retrato em halftone no telão e as letras JIMI em painéis de LED."
+    }
+   ],
+   "bigNumbers": [
+    {
+     "num": "6",
+     "label": "faixas no álbum"
+    },
+    {
+     "num": "8",
+     "label": "páginas no portfólio"
+    },
+    {
+     "num": "2",
+     "label": "formatos físicos, vinil e CD"
+    },
+    {
+     "num": "1",
+     "label": "identidade, do encarte ao palco"
+    }
+   ]
   },
   "en": {
    "back": "Back to cases",
@@ -4898,8 +4932,43 @@
     "More than a cover: the face of an artist, ready to circulate in the instrumental-music market."
    ],
    "cta": "Want an identity like this for your project?",
-   "ctaBtn": "Let’s talk"
-  }
+   "ctaBtn": "Let’s talk",
+   "heroPontos": [
+    {
+     "t": "Concept",
+     "d": "The musician’s face fills the whole cover, in grainy duotone, with a Didone serif logotype."
+    },
+    {
+     "t": "Pieces",
+     "d": "Vinyl cover, CD inlay, open booklet and the artist’s portfolio."
+    },
+    {
+     "t": "Stage",
+     "d": "The cover became a halftone portrait on the screen and JIMI in LED panels."
+    }
+   ],
+   "bigNumbers": [
+    {
+     "num": "6",
+     "label": "tracks on the album"
+    },
+    {
+     "num": "8",
+     "label": "portfolio pages"
+    },
+    {
+     "num": "2",
+     "label": "physical formats, vinyl and CD"
+    },
+    {
+     "num": "1",
+     "label": "identity, from booklet to stage"
+    }
+   ]
+  },
+  "excluir": [
+   "cover-art.webp"
+  ]
  },
  "OTHELO": {
   "pt": {
