@@ -195,3 +195,4 @@
 .amostra>span:first-child{display:block;height:64px;border:var(--bw) solid var(--tinta);border-radius:10px;margin-bottom:6px}
 .amostra b{color:var(--fg);font-size:13px}
 .amostra .mono{font-size:11px;color:var(--fg2)}
+.midia figure.fig-branco,.galeria figure.fig-branco{background:#fff}

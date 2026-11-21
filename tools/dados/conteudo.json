@@ -4597,7 +4597,11 @@
     }
    ]
   },
-  "midiaCard": true
+  "midiaCard": true,
+  "fundoBranco": [
+   "logo-",
+   "tag-bud"
+  ]
  },
  "HERCULES": {
   "pt": {

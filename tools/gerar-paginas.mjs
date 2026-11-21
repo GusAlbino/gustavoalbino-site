@@ -249,10 +249,12 @@ function proporcao(src) {
     return w && h ? w / h : 1.5;
   } catch { return 1.5; }
 }
+let FUNDO_BRANCO = [];
 const fig = (src, extra = '') => {
   const r = proporcao(src).toFixed(3);
   const m = src.endsWith('.mp4') ? `<video src="/${src}" controls preload="none" playsinline></video>` : `<img src="/${src}" alt="" loading="lazy"${extra}>`;
-  return `<figure style="--r:${r}">${m}</figure>`;
+  const branco = FUNDO_BRANCO.some((k) => src.includes(k));
+  return `<figure${branco ? ' class="fig-branco"' : ''} style="--r:${r}">${m}</figure>`;
 };
 paginas.ilustracao = (lang) => {
   const imgs = D.ILUSTRA.map((i) => fig(i.src)).join('');
@@ -318,6 +320,7 @@ paginas.casos = (lang, id) => {
   const titulo = t.title || c.title[lang];
   const rot = lang === 'pt' ? { img: 'Mais imagens', cor: 'Paleta', back: 'Voltar aos cases' } : { img: 'More images', cor: 'Palette', back: 'Back to cases' };
   const ficha = (t.ficha || []).map((f) => `<div><span class="mono">${esc(f.k)}</span><b>${esc(f.v)}</b></div>`).join('');
+  FUNDO_BRANCO = dados.fundoBranco || [];
   const secs = secoes(t);
   const todas = imagensDoCase(id).filter((x) => !(dados.excluir || []).some((e) => x.endsWith('/' + e)));
   const telasExt = todas.filter((s) => /\/v2-ext-/.test('/' + s)), telasLog = todas.filter((s) => /\/v2-log-/.test('/' + s));
