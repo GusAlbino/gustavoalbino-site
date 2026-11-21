@@ -320,6 +320,5 @@
 .serv-stage .serv-passos{gap:44px 24px;margin-top:14px}
 .serv-stage .serv-pag{align-self:end;margin-top:0}
 @media (max-width:960px){.serv-stage .serv-passos{gap:28px}}
-/* Kaya Doc no card de cases: mockup inteiro, sem corte, acima da etiqueta */
-.item--mockup{background:#141212}
-.item--mockup>img{object-fit:contain;object-position:center top;padding:14px 14px 128px;background:#141212}
+/* Kaya Doc no card de cases: so o print da home, ancorado a esquerda (sem cursor nem barra de rolagem) */
+.item--mockup>img{object-fit:cover;object-position:left top}
