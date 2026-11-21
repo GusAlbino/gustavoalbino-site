@@ -312,3 +312,4 @@
 .serv-stage .serv-q .ico{width:40px;height:40px;padding:8px}
 .serv-stage .serv-q h2{font-size:clamp(20px,1.7vw,24px)}
 .serv-stage .serv-q p{font-size:14.5px;line-height:1.4}
+@media (max-width:560px){.serv-stage .serv-par .serv-grade{grid-template-columns:1fr}.serv-stage .serv-q{overflow:visible}.serv-stage .serv-topo .serv-cta .btn{width:100%;text-align:center}}
