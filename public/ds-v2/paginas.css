@@ -419,3 +419,7 @@
 .hero-cult .cab>.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 .hero-cult .ficha-in{margin-top:auto;padding-top:20px;border-top:3px dashed var(--line);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 24px}
 @media (max-width:960px){.hero-cult .ficha-in{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.apoios{flex-wrap:nowrap;gap:18px}
+.apoios figure{flex:1 1 0;min-width:0}
+.apoios img{height:46px}
+@media (max-width:760px){.apoios{flex-wrap:wrap}.apoios figure{flex:1 1 90px}}

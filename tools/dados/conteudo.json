@@ -2783,8 +2783,8 @@
       "en": "Incentive law"
      },
      "v": {
-      "pt": "Lei Rouanet · MinC",
-      "en": "Rouanet Law · MinC"
+      "pt": "Lei Rouanet",
+      "en": "Rouanet Law"
      }
     },
     {
@@ -2831,6 +2831,16 @@
      "k": {
       "pt": "Realização",
       "en": "Production"
+     },
+     "v": {
+      "pt": "Ministério da Cultura · Governo Federal",
+      "en": "Ministry of Culture · Federal Government"
+     }
+    },
+    {
+     "k": {
+      "pt": "Apoio",
+      "en": "Support"
      },
      "v": {
       "pt": "Othelo Produtora",
@@ -2904,32 +2914,32 @@
      "src": "assets/culturais/muros/apoio/lei-rouanet-2026.webp",
      "nome": "Lei Rouanet",
      "papel": {
-      "pt": "Incentivo",
-      "en": "Incentive"
+      "pt": "Realização",
+      "en": "Production"
      }
     },
     {
      "src": "assets/culturais/muros/apoio/minc.webp",
      "nome": "Ministério da Cultura",
      "papel": {
-      "pt": "Incentivo",
-      "en": "Incentive"
+      "pt": "Realização",
+      "en": "Production"
      }
     },
     {
      "src": "assets/culturais/muros/apoio/governo.webp",
      "nome": "Governo Federal",
      "papel": {
-      "pt": "Incentivo",
-      "en": "Incentive"
+      "pt": "Realização",
+      "en": "Production"
      }
     },
     {
      "src": "assets/culturais/muros/apoio/othelo-produtora.webp",
      "nome": "Othelo Produtora",
      "papel": {
-      "pt": "Realização",
-      "en": "Production"
+      "pt": "Apoio",
+      "en": "Support"
      }
     },
     {
