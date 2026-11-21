@@ -373,3 +373,9 @@
 .sobre-marcas{padding:20px 22px;gap:0}
 .sobre-marcas li{height:64px}
 .sobre-marcas img{max-height:calc(62% * var(--fit,1))}
+/* faixa de marcas: distribuicao equidistante, laterais aproveitadas */
+.sobre-marcas{padding:20px 14px}
+.sobre-marcas ul{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:nowrap}
+.sobre-marcas li{display:flex;align-items:center;justify-content:center;height:64px;flex:0 0 auto}
+.sobre-marcas img{height:calc(24px * var(--fit,1));width:auto;max-width:none;max-height:none}
+@media (max-width:960px){.sobre-marcas ul{flex-wrap:wrap;justify-content:center;gap:16px 26px}}

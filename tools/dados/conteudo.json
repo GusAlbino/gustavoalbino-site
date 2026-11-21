@@ -856,52 +856,57 @@
   {
    "name": "Kaya",
    "logo": "assets/brands/kaya.webp",
-   "fit": 0.88
+   "fit": 1.5
   },
   {
    "name": "PelicanCorp",
    "logo": "assets/brands/pelicancorp.webp",
-   "fit": 0.93
+   "fit": 1.15
   },
   {
    "name": "Geolantis360",
-   "logo": "assets/brands/geolantis360.webp"
+   "logo": "assets/brands/geolantis360.webp",
+   "fit": 1
   },
   {
    "name": "beforeudig",
-   "logo": "assets/brands/beforeudig.webp"
+   "logo": "assets/brands/beforeudig.webp",
+   "fit": 1
   },
   {
    "name": "MindMaze",
-   "logo": "assets/brands/mindmaze.webp"
+   "logo": "assets/brands/mindmaze.webp",
+   "fit": 0.85
   },
   {
    "name": "Duetto",
    "logo": "assets/brands/duetto.webp",
-   "fit": 0.91
+   "fit": 1.05
   },
   {
    "name": "Total Energia",
    "logo": "assets/brands/total-energia.svg",
-   "fit": 0.88
+   "fit": 1
   },
   {
    "name": "Bamo",
-   "logo": "assets/brands/bamo.webp"
+   "logo": "assets/brands/bamo.webp",
+   "fit": 1.15
   },
   {
    "name": "Aurora Eco",
    "logo": "assets/brands/auroraeco.webp",
-   "fit": 0.88
+   "fit": 1.1
   },
   {
    "name": "West1",
-   "logo": "assets/brands/west1.webp"
+   "logo": "assets/brands/west1.webp",
+   "fit": 1.15
   },
   {
    "name": "Glance",
    "logo": "assets/brands/glance.webp",
-   "fit": 0.9
+   "fit": 1
   }
  ],
  "CASES": [
