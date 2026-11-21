@@ -284,3 +284,5 @@
 .serv-stage .serv-cta h2{font-size:clamp(18px,1.8vw,24px)}
 .serv-stage .serv-cta .btn{padding:14px 30px;font-size:16px}
 @media (max-width:960px){.serv-stage{height:auto}.serv-stage .serv-par .serv-grade{grid-template-rows:none}.serv-stage .serv-passos{grid-template-columns:1fr}.serv-stage .serv-cta{flex-wrap:wrap}}
+.serv-par .serv-passos li,.serv-stage .serv-passos li,.serv-stage .serv-passos li:nth-last-child(2),.serv-par .serv-pag,.serv-stage .serv-pag{border:0}
+.serv-stage .serv-passos li,.serv-stage .serv-passos li:nth-last-child(2){padding-bottom:0}
