@@ -82,7 +82,6 @@
 /* ---------- galerias ---------- */
 /* linhas justificadas: cada imagem cresce pela sua proporção, então a linha fecha sem buraco e sem corte */
 .galeria{display:flex;flex-wrap:wrap;gap:var(--gap)}
-.galeria::after{content:"";flex-grow:1000}
 .galeria figure{margin:0;flex:var(--r,1.5) 1 calc(var(--r,1.5) * 230px);min-width:0;border:var(--bw) solid var(--tinta);border-radius:var(--r-card);box-shadow:var(--sombra);overflow:hidden;background:var(--tinta)}
 .galeria img,.galeria video{width:100%;height:auto;display:block}
 .ficha{display:grid;grid-template-columns:clamp(180px,20vw,280px) minmax(0,1fr);gap:var(--gap);align-items:start}
@@ -124,7 +123,7 @@
 .secao h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(18px,1.9vw,26px);line-height:1.05;color:var(--fg)}
 .secao p{max-width:68ch;color:var(--fg2);font-size:15px}
 .secao p b{color:var(--fg)}
-.secao-par{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:var(--gap);align-items:start}
+.secao-par{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:var(--gap);align-items:stretch}
 .secao-par.inv{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
 .secao-par.inv>.secao{order:2}
 .midia{display:grid;gap:var(--gap);grid-template-columns:1fr}
@@ -165,3 +164,13 @@
 .caso-hero--wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
 .caso-hero--wide>img{aspect-ratio:16/11;object-fit:cover}
 @media (max-width:960px){.caso-hero--wide{grid-template-columns:1fr}}
+
+/* sem buracos: o par texto+imagem tem sempre a mesma altura */
+.secao-par>.secao{justify-content:center}
+.midia,.midia-cards{align-content:stretch}
+.midia figure{display:flex;align-items:center;background:var(--tinta)}
+.midia-card{display:flex;align-items:center;justify-content:center}
+.midia-card img{max-height:100%}
+
+.midia--j{display:flex;flex-wrap:wrap;gap:var(--gap);align-content:flex-start}
+.midia--j figure{flex:var(--r,1.5) 1 calc(var(--r,1.5) * 200px);min-width:0;display:block}

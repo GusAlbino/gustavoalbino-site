@@ -309,8 +309,8 @@ function distribuir(secs, imgs) {
 function midiaHtml(srcs, card) {
   if (!srcs.length) return '';
   if (card) return `<div class="midia-cards">${srcs.map((src) => `<div class="card midia-card"><img src="/${src}" alt="" loading="lazy"></div>`).join('')}</div>`;
-  const fig = (src) => (src.endsWith('.mp4') ? `<figure><video src="/${src}" controls preload="none" playsinline></video></figure>` : `<figure><img src="/${src}" alt="" loading="lazy"></figure>`);
-  return `<div class="midia midia--${Math.min(srcs.length, 4)}">${srcs.map(fig).join('')}</div>`;
+  if (srcs.length > 1) return `<div class="midia midia--j">${srcs.map((src) => fig(src)).join('')}</div>`;
+  return `<div class="midia midia--1">${srcs.map((src) => fig(src)).join('')}</div>`;
 }
 paginas.casos = (lang, id) => {
   const c = D.CASES.find((x) => x.id === id), dados = DADOS_CASE[id], t = dados[lang];
