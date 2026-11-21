@@ -3136,18 +3136,8 @@
       "en": "Production"
      },
      "v": {
-      "pt": "Phoenix Escola de Música",
-      "en": "Phoenix Escola de Música"
-     }
-    },
-    {
-     "k": {
-      "pt": "Apoio",
-      "en": "Support"
-     },
-     "v": {
-      "pt": "Prefeitura de Betim",
-      "en": "Betim City Hall"
+      "pt": "Phoenix Escola de Música · Prefeitura de Betim",
+      "en": "Phoenix Escola de Música · Betim City Hall"
      }
     },
     {
@@ -3180,7 +3170,39 @@
    "capa": "assets/culturais/recital/post.webp",
    "hero": "assets/culturais/recital/poster.webp",
    "descNoTopo": true,
-   "extraPrimeiro": true
+   "extraPrimeiro": true,
+   "apoios": [
+    {
+     "src": "assets/culturais/recital/apoio/phoenix.png",
+     "nome": "Phoenix Escola de Música",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    },
+    {
+     "nome": "Lei Noemi Gontijo",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    },
+    {
+     "src": "assets/culturais/recital/apoio/prefeitura-de-betim.png",
+     "nome": "Prefeitura de Betim",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    },
+    {
+     "nome": "Secretaria Municipal de Cultura",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    }
+   ]
   },
   {
    "id": "defesa",
@@ -3259,12 +3281,12 @@
     },
     {
      "k": {
-      "pt": "Apoio",
-      "en": "Support"
+      "pt": "Realização",
+      "en": "Production"
      },
      "v": {
-      "pt": "Prefeitura de Betim",
-      "en": "Betim City Hall"
+      "pt": "Prefeitura de Betim · Secretaria Municipal de Cultura",
+      "en": "Betim City Hall · Municipal Culture Department"
      }
     },
     {
@@ -3374,7 +3396,32 @@
     }
    },
    "descNoTopo": true,
-   "extraPrimeiro": true
+   "extraPrimeiro": true,
+   "apoios": [
+    {
+     "src": "assets/culturais/defesa/apoio/pnab-aldir-blanc.png",
+     "nome": "PNAB · Aldir Blanc",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    },
+    {
+     "src": "assets/culturais/defesa/apoio/prefeitura-de-betim.png",
+     "nome": "Prefeitura de Betim",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    },
+    {
+     "nome": "Secretaria Municipal de Cultura",
+     "papel": {
+      "pt": "Realização",
+      "en": "Production"
+     }
+    }
+   ]
   }
  ],
  "LOGO_BRANDS": [

@@ -423,3 +423,4 @@
 .apoios figure{flex:1 1 0;min-width:0}
 .apoios img{height:46px}
 @media (max-width:760px){.apoios{flex-wrap:wrap}.apoios figure{flex:1 1 90px}}
+.apoios .apoio-nome{display:grid;align-items:center;min-height:46px;text-align:center;font-family:var(--f-disp,inherit);font-weight:700;font-size:13px;line-height:1.15;color:#141212}
