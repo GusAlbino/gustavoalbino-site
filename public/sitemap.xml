@@ -267,4 +267,46 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/cases/hercules"/>
     <lastmod>2026-11-21</lastmod>
   </url>
+  <url>
+    <loc>https://gustavoalbino.com.br/projetos/culturais/muros</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/projetos/culturais/muros"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en/projects/cultural/muros"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/projetos/culturais/muros"/>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://gustavoalbino.com.br/en/projects/cultural/muros</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/projetos/culturais/muros"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en/projects/cultural/muros"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/projetos/culturais/muros"/>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://gustavoalbino.com.br/projetos/culturais/recital</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/projetos/culturais/recital"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en/projects/cultural/recital"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/projetos/culturais/recital"/>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://gustavoalbino.com.br/en/projects/cultural/recital</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/projetos/culturais/recital"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en/projects/cultural/recital"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/projetos/culturais/recital"/>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://gustavoalbino.com.br/projetos/culturais/defesa</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/projetos/culturais/defesa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en/projects/cultural/defesa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/projetos/culturais/defesa"/>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://gustavoalbino.com.br/en/projects/cultural/defesa</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/projetos/culturais/defesa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en/projects/cultural/defesa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/projetos/culturais/defesa"/>
+    <lastmod>2026-11-21</lastmod>
+  </url>
 </urlset>

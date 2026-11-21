@@ -387,3 +387,15 @@
 .serv-stage .serv-topo .intro{font-size:15.5px}
 .serv-stage .serv-pag p{font-size:15.5px}
 .serv-stage .serv-passos{gap:30px 22px}
+
+/* ---------- projetos culturais: faixa de apoios ---------- */
+.apoios{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;padding:clamp(16px,2vw,26px);background:#fff}
+.apoios figure{margin:0;display:grid;gap:8px;justify-items:center;flex:1 1 110px}
+.apoios img{height:54px;width:auto;max-width:100%;object-fit:contain}
+.apoios figcaption{color:#283618;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+.caso-hero--retrato{grid-template-columns:minmax(0,1fr) min(32vw,400px)}
+.caso-hero--retrato .cab{display:flex;flex-direction:column}
+.ficha-in{margin-top:auto;padding-top:20px;border-top:3px dashed var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px 24px}
+.ficha-in>div{display:grid;gap:4px;align-content:start}
+.ficha-in .mono{color:var(--muted)}.ficha-in b{color:var(--fg);font-weight:600;font-size:14px}
+@media (max-width:960px){.caso-hero--retrato{grid-template-columns:1fr}}

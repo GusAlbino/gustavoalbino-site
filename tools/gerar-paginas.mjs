@@ -25,7 +25,7 @@ const ROTA = {
   relatorios: ['projetos/relatorios', 'en/projects/reports'], ebooks: ['projetos/ebooks', 'en/projects/ebooks'],
   culturais: ['projetos/culturais', 'en/projects/cultural'], logos: ['projetos/logos', 'en/projects/logos'], ilustracao: ['projetos/ilustracao', 'en/projects/illustration'],
 };
-const caminho = (lang, chave, caseId) => (chave === 'caso' ? (lang === 'en' ? 'en/cases/' : 'cases/') + caseId : ROTA[chave][lang === 'en' ? 1 : 0]);
+const caminho = (lang, chave, caseId) => (chave === 'caso' ? (lang === 'en' ? 'en/cases/' : 'cases/') + caseId : chave === 'cultural' ? (lang === 'en' ? 'en/projects/cultural/' : 'projetos/culturais/') + caseId : ROTA[chave][lang === 'en' ? 1 : 0]);
 const href = (lang, chave, caseId) => '/' + caminho(lang, chave, caseId);
 const caseHref = (lang, id) => href(lang, 'caso', id);
 const arquivoDe = (rota) => (rota === '' ? 'index.html' : rota + '.html');
@@ -36,8 +36,8 @@ function cabecalho(lang) {
   let c = CAB[rota === '/' ? '/' : rota];
   const par = (l) => SITE + '/' + caminho(l, ctx.chave, ctx.caseId);
   if (!c) { // página nova, sem entrada no manifesto antigo (ex.: CV)
-    const T = D.DICT[lang].cv;
-    c = { title: `${T.title} · Gustavo Albino`, lang: lang === 'en' ? 'en' : 'pt-BR', desc: lang === 'en' ? 'Résumé of Gustavo Albino: Senior Designer and Lead Designer of Kaya Doc. 10+ years in design, product, brand and editorial.' : 'Currículo de Gustavo Albino: Senior Designer e Lead Designer do Kaya Doc. Mais de 10 anos de design, produto, marca e editorial.',
+    const T = D.DICT[lang].cv, X = ctx.meta;
+    c = { title: X ? `${X.title} · Gustavo Albino` : `${T.title} · Gustavo Albino`, lang: lang === 'en' ? 'en' : 'pt-BR', desc: X ? X.desc : lang === 'en' ? 'Résumé of Gustavo Albino: Senior Designer and Lead Designer of Kaya Doc. 10+ years in design, product, brand and editorial.' : 'Currículo de Gustavo Albino: Senior Designer e Lead Designer do Kaya Doc. Mais de 10 anos de design, produto, marca e editorial.',
       canonical: par(lang), ogUrl: par(lang), ogImage: SITE + '/assets/og-card.png', ogLocale: lang === 'en' ? 'en_US' : 'pt_BR',
       alternates: [['pt-BR', par('pt')], ['en', par('en')], ['x-default', par('pt')]] };
     c.ogTitle = c.title; c.ogDesc = c.desc;
@@ -231,8 +231,30 @@ paginas.ebooks = (lang) => {
 };
 paginas.culturais = (lang) => {
   const p = DICTL(lang).culturaisPage;
-  const itens = D.CULTURAIS.map((c) => `<article class="ficha"><a class="card card--img capa" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="/${c.poster}" alt="" loading="lazy"></a><div class="card bloco"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h2>${esc(c.title[lang])}</h2><p class="tema" style="white-space:normal">${esc(c.tema[lang].replace(/\n/g, " "))}</p><a class="btn btn--ghost" style="align-self:flex-start;margin-top:auto" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)}</a></div></article>`).join('\n  ');
-  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  ${itens}`);
+  const itens = D.CULTURAIS.map((c) => `<a class="card card--img item" href="${href(lang, 'cultural', c.id)}"><img src="/${c.capa}" alt="" loading="lazy"><span class="mono ano">${esc(c.ano)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.edicao[lang])}</span><p>${esc(c.tema[lang].replace(/\n/g, ' '))}</p></span></a>`).join('\n    ');
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3">\n    ${itens}\n  </div>`);
+};
+paginas.cultural = (lang, id) => {
+  const p = DICTL(lang).culturaisPage, c = D.CULTURAIS.find((x) => x.id === id);
+  FUNDO_BRANCO = []; FUNDO_VERDE = [];
+  const ficha = c.ficha.map((f) => `<div><span class="mono">${esc(f.k[lang])}</span><b>${esc(f.v[lang])}</b></div>`).join('');
+  const retrato = c.hero.includes('/recital/') || c.hero.includes('/defesa/');
+  const insta = c.link ? `<a class="btn btn--ouro" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(p.link)} · ${esc(c.linkLabel)}</a>` : '';
+  const topoTxt = `<div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">${esc(c.edicao[lang])} · ${esc(c.ano)}</span><h1 class="disp">${esc(c.title[lang])}</h1></div></div><p class="intro">${esc(c.tema[lang].replace(/\n/g, ' '))}</p>${insta ? `<div class="acoes">${insta}</div>` : ''}`;
+  const topo = `<section class="card caso-hero${retrato ? ' caso-hero--retrato' : ''}" id="topo"><div class="cab">${topoTxt}${retrato ? `<div class="ficha-in">${ficha}</div>` : ''}</div><img src="/${c.hero}" alt=""${retrato ? ` style="aspect-ratio:${c.posterRatio};object-fit:cover"` : ' style="aspect-ratio:4/3;object-fit:cover"'}></section>`;
+  const sobre = `<div class="card bloco secao"><span class="mono tag-ouro">${esc(p.sobre)}</span><h2>${esc(c.title[lang])}</h2>${c.desc[lang].map((x) => `<p>${esc(x)}</p>`).join('')}</div>`;
+  const marca = c.logo ? `<div class="card midia-card" style="display:grid;place-items:center;padding:clamp(18px,3vw,40px);background:#fff"><img src="/${c.logo}" alt="" loading="lazy" style="width:100%;height:auto;max-height:420px;object-fit:contain"><span class="mono" style="color:#283618;margin-top:12px;text-align:center">${esc(c.logoNota[lang])}</span></div>` : '';
+  const par = marca ? `<section class="secao-par">${sobre}${marca}</section>` : `<section>${sobre}</section>`;
+  const pecas = [ ...(retrato ? [] : []), ...(c.id === 'muros' ? [{ src: c.poster, cap: c.posterCap }] : []), ...(c.pecas || []), ...(c.extra ? [c.extra] : []) ];
+  const galPecas = pecas.length ? `<div class="rotulo" id="pecas"><b>${esc(p.pecasTitulo)}</b><hr></div><div class="galeria">${pecas.map((x) => fig(x.src, '', esc(x.cap[lang]))).join('')}</div>` : '';
+  const extra = '';
+  const fotos = [...(c.rua || []), ...(c.fotos || [])];
+  const galFotos = fotos.length ? `<div class="rotulo"><b>${esc(p.fotosTitulo)}</b><hr></div><div class="galeria">${fotos.map((x) => fig(x.src, '', esc(x.cap[lang]))).join('')}</div>` : '';
+  const apoios = (c.apoios || []).length ? `<div class="rotulo"><b>${esc(p.apoios)}</b><hr></div><div class="card apoios">${c.apoios.map((a) => `<figure><img src="/${a.src}" alt="${esc(a.nome)}" loading="lazy"><figcaption class="mono">${esc(a.papel[lang])}</figcaption></figure>`).join('')}</div>` : '';
+  const voltar = `<div class="voltar"><a class="btn btn--ghost" href="${href(lang, 'culturais')}">← ${esc(p.back)}</a></div>`;
+  const cta = `<section class="card card--hl bloco" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap"><h2 class="disp" style="color:#000;font-size:clamp(20px,2.4vw,32px)">${esc(p.cta)}</h2><a class="btn btn--ouro" href="${href(lang, 'contato')}">${esc(p.ctaBtn)}</a></section>`;
+  ctx.meta = { title: c.title[lang], desc: c.tema[lang] };
+  return casca(lang, 'projetos', c.title[lang], `${voltar}\n  ${topo}\n    ${retrato ? '' : `<div class="card ficha-linha">${ficha}</div>`}\n  ${par}\n  ${galPecas}\n  ${extra}\n  ${galFotos}\n  ${apoios}\n  ${cta}`);
 };
 paginas.logos = (lang) => {
   const p = DICTL(lang).logosPage, L = lang === 'pt' ? 'Pt' : 'En';
@@ -384,11 +406,12 @@ function gravar(rota, html) {
 }
 for (const lang of ['pt', 'en']) {
   for (const [nome, fn] of Object.entries(paginas)) {
-    if (nome === 'casos') continue;
+    if (nome === 'casos' || nome === 'cultural') continue;
     ctx = { chave: nome };
     gravar(caminho(lang, nome), fn(lang));
   }
   for (const c of D.CASES) { ctx = { chave: 'caso', caseId: c.id }; gravar(caminho(lang, 'caso', c.id), paginas.casos(lang, c.id)); }
+  for (const c of D.CULTURAIS) { ctx = { chave: 'cultural', caseId: c.id }; const h = paginas.cultural(lang, c.id); gravar(caminho(lang, 'cultural', c.id), h); }
 }
 
 // ---------- HOME: modelo em tools/modelos/home.html; EN derivada do PT ----------
@@ -422,7 +445,7 @@ for (const lang of ['pt', 'en']) {
 // ---------- sitemap.xml ----------
 {
   const hoje = new Date().toISOString().slice(0, 10);
-  const chaves = [...Object.keys(ROTA).map((k) => [k]), ...D.CASES.map((c) => ['caso', c.id])];
+  const chaves = [...Object.keys(ROTA).map((k) => [k]), ...D.CASES.map((c) => ['caso', c.id]), ...D.CULTURAIS.map((c) => ['cultural', c.id])];
   const url = (l, [k, id]) => SITE + '/' + caminho(l, k, id);
   const itens = [];
   for (const par of chaves) for (const l of ['pt', 'en']) {

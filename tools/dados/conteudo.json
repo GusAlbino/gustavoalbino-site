@@ -308,14 +308,21 @@
    "culturaisPage": {
     "kicker": "Projetos culturais · Betim, MG",
     "title": "Projetos culturais",
-    "intro": "Identidade e material gráfico para projetos aprovados em lei de incentivo. Cada um traz a lei, o local, a data, quem financiou e o que foi entregue, porque num projeto cultural essa ficha é parte do trabalho.",
+    "intro": "Identidade e material gráfico para projetos aprovados em lei de incentivo. Cada projeto tem a sua página, com a ficha, as peças e as fotos do que aconteceu.",
     "ficha": "Ficha do projeto",
     "pecas": "Peças entregues",
     "fotos": "O projeto na rua",
     "apoios": "Apoio, patrocínio e realização",
     "logoKicker": "Marca criada para o evento",
     "extra": "Também saiu daqui",
-    "link": "Acompanhar no Instagram"
+    "link": "Acompanhar no Instagram",
+    "back": "Voltar aos projetos culturais",
+    "ver": "Ver o projeto",
+    "pecasTitulo": "Peças entregues",
+    "fotosTitulo": "O projeto na rua",
+    "sobre": "Sobre o projeto",
+    "cta": "Tem um projeto cultural em andamento?",
+    "ctaBtn": "Vamos conversar"
    },
    "ebooksLabel": "Baixar na Kaya",
    "logosPage": {
@@ -730,14 +737,21 @@
    "culturaisPage": {
     "kicker": "Cultural projects · Betim, Brazil",
     "title": "Cultural projects",
-    "intro": "Identity and graphic material for projects approved under cultural incentive law. Each one lists the law, the venue, the date, who funded it and what shipped, because on a cultural project that sheet is part of the work.",
+    "intro": "Identity and graphic material for projects approved under cultural incentive law. Each project has its own page, with the credits, the pieces and photos of what happened.",
     "ficha": "Project sheet",
     "pecas": "Delivered pieces",
     "fotos": "The project on the street",
     "apoios": "Support, sponsorship and production",
     "logoKicker": "Mark created for the event",
     "extra": "Also came out of this",
-    "link": "Follow on Instagram"
+    "link": "Follow on Instagram",
+    "back": "Back to cultural projects",
+    "ver": "View project",
+    "pecasTitulo": "Delivered pieces",
+    "fotosTitulo": "The project on the street",
+    "sobre": "About the project",
+    "cta": "Have a cultural project coming up?",
+    "ctaBtn": "Let's talk"
    },
    "ebooksLabel": "Download on Kaya",
    "logosPage": {
@@ -2942,6 +2956,94 @@
       "en": "Support"
      }
     }
+   ],
+   "capa": "assets/culturais/muros/rua/02-23.webp",
+   "hero": "assets/culturais/muros/rua/01-36.webp",
+   "rua": [
+    {
+     "src": "assets/culturais/muros/rua/01-36.webp",
+     "cap": {
+      "pt": "Turma reunida sob o viaduto",
+      "en": "The whole class under the viaduct"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/02-23.webp",
+     "cap": {
+      "pt": "Painel coletivo concluído",
+      "en": "Finished collective panel"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/03-19.webp",
+     "cap": {
+      "pt": "Equipe diante do painel",
+      "en": "Crew in front of the panel"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/04-12.webp",
+     "cap": {
+      "pt": "Educanda pintando o rosto no muro",
+      "en": "Student painting the face on the wall"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/05-18.webp",
+     "cap": {
+      "pt": "Painel com figuras e escada",
+      "en": "Panel with figures and ladder"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/06-05.webp",
+     "cap": {
+      "pt": "Oficina de desenho",
+      "en": "Drawing workshop"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/07-03.webp",
+     "cap": {
+      "pt": "Oficina de desenho",
+      "en": "Drawing workshop"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/08-28.webp",
+     "cap": {
+      "pt": "Saída de campo",
+      "en": "Field trip"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/09-33.webp",
+     "cap": {
+      "pt": "Visita ao museu",
+      "en": "Museum visit"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/10-24.webp",
+     "cap": {
+      "pt": "Educandos diante do painel",
+      "en": "Students in front of the panel"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/11-40.webp",
+     "cap": {
+      "pt": "Painel da árvore",
+      "en": "Tree panel"
+     }
+    },
+    {
+     "src": "assets/culturais/muros/rua/12-08.webp",
+     "cap": {
+      "pt": "Muro em preparo",
+      "en": "Wall being prepared"
+     }
+    }
    ]
   },
   {
@@ -3055,7 +3157,9 @@
       "en": "Banner 60x120cm"
      }
     }
-   ]
+   ],
+   "capa": "assets/culturais/recital/post.webp",
+   "hero": "assets/culturais/recital/poster.webp"
   },
   {
    "id": "defesa",
@@ -3238,7 +3342,9 @@
      "pt": "Portfólio artístico da Maria Inez, 12 páginas",
      "en": "Maria Inez's artist portfolio, 12 pages"
     }
-   }
+   },
+   "capa": "assets/culturais/defesa/post.webp",
+   "hero": "assets/culturais/defesa/poster.webp"
   }
  ],
  "LOGO_BRANDS": [
