@@ -353,3 +353,5 @@
 .sobre-par{grid-template-columns:minmax(0,.58fr) minmax(0,1.42fr);min-height:0}
 .sobre-par .sobre-foto>img{object-position:center 100%}
 @media (max-width:960px){.sobre-stage{height:auto}}
+/* Foto com proporcao fixa (corta ~12% so da parede de cima): a cabeca nunca sai do quadro, em qualquer tela */
+@media (min-width:961px){.sobre-par{grid-template-columns:calc((max(100svh,820px) - 269px) * .64) minmax(0,1fr)}}
