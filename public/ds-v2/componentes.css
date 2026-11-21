@@ -43,7 +43,7 @@
 .f-fale .mail{font-family:var(--font-mono);font-weight:700;font-size:clamp(15px,1.25vw,18px);line-height:1.2;text-transform:lowercase;overflow-wrap:anywhere}
 .f-fale ul a{border-color:rgba(0,0,0,.3);font-size:15px;padding:6px 0}
 .f-fale ul a::after,.f-fale ul a:hover{color:#000}
-.f-base{grid-area:base;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:14px;border-top:3px dashed var(--line);color:var(--muted)}
+.f-base{grid-area:base;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:6px;color:var(--muted)}
 .f-base a{text-decoration:none}.f-base a:hover{color:var(--hl-text)}
 @media (max-width:960px){
   .rodape{grid-template-columns:1fr 1fr;grid-template-areas:"marca marca" "cases proj" "site site" "fale fale" "base base"}
