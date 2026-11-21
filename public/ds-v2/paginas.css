@@ -286,3 +286,6 @@
 @media (max-width:960px){.serv-stage{height:auto}.serv-stage .serv-par .serv-grade{grid-template-rows:none}.serv-stage .serv-passos{grid-template-columns:1fr}.serv-stage .serv-cta{flex-wrap:wrap}}
 .serv-par .serv-passos li,.serv-stage .serv-passos li,.serv-stage .serv-passos li:nth-last-child(2),.serv-par .serv-pag,.serv-stage .serv-pag{border:0}
 .serv-stage .serv-passos li,.serv-stage .serv-passos li:nth-last-child(2){padding-bottom:0}
+.serv-stage .serv-topo{align-content:start;gap:16px}
+.serv-stage .serv-passos{gap:28px 24px;margin-top:6px}
+.serv-stage .serv-pag{margin-top:10px}
