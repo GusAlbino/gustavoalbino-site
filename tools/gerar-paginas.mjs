@@ -102,7 +102,6 @@ ${corpo}
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 ${extra}
-${SCRIPT_FILTROS}
 ${SCRIPT_MENU}
 </body>
 </html>
@@ -125,9 +124,8 @@ const paginas = {};
 // ---------- CASES ----------
 paginas.cases = (lang) => {
   const p = DICTL(lang).casesPage;
-  const f = chips(lang, D.CASE_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
   const cards = D.CASES.map((c) => `<a class="card card--img item${c.id === 'kaya-doc' ? ' item--mockup' : ''}" data-cat="${c.cat}" href="${caseHref(lang, c.id)}"><img src="/${c.bgImage}" alt="" loading="lazy"><span class="mono ano">${esc(c.year)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.typeLabel[lang])}</span><p>${esc(c.blurb[lang])}</p></span></a>`).join('\n    ');
-  return casca(lang, 'cases', p.title, `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro, '', f)}
+  return casca(lang, 'cases', p.title, `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro)}
   <div class="g3" id="lista">
     ${cards}
   </div>`);
@@ -137,9 +135,8 @@ paginas.cases = (lang) => {
 paginas.projetos = (lang) => {
   const p = DICTL(lang).galPage;
   const rota = { reports: 'relatorios', ilustracao: 'ilustracao', ebooks: 'ebooks', culturais: 'culturais', grafico: 'logos' };
-  const f = chips(lang, D.GAL_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
   const cards = D.GAL.map((g) => `<a class="card card--img item${g.cat === 'grafico' ? ' item--img-contida' : ''}" data-cat="${g.cat}" href="${href(lang, rota[g.cat])}"><img src="/${g.img}" alt="" loading="lazy"><span class="rot"><b>${esc(g[lang])}</b></span></a>`).join('\n    ');
-  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro, '', f)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
 // ---------- SERVIÇOS ----------

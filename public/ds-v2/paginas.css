@@ -437,6 +437,7 @@
 }
 @media (max-width:960px){
   .sobre-par{grid-template-columns:1fr;grid-template-rows:auto}
-  .sobre-par .sobre-foto{height:min(460px,100vw);min-height:0}
-  .sobre-par .sobre-foto>img{object-position:center 18%}
+  /* foto inteira (9:16, sem recorte), menor e centralizada */
+  .sobre-par .sobre-foto{height:400px;width:auto;aspect-ratio:9/16;min-height:0;max-width:100%;justify-self:center;align-self:center}
+  .sobre-par .sobre-foto>img{object-fit:contain;object-position:center}
 }
