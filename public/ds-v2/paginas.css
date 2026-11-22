@@ -428,7 +428,8 @@
 
 /* celular: o menu quebra em linhas em vez de rolar de lado, para PT/EN e Contato ficarem à vista */
 @media (max-width:720px){
-  .ficha{grid-template-columns:minmax(0,300px)}
+  .ficha{grid-template-columns:minmax(0,1fr)}
+  .ficha .capa{width:min(100%,300px);justify-self:center}
   .topo{position:relative;grid-template-rows:72px}
   .topo .menu-btn{position:absolute;top:0;right:0;z-index:61}
   .topo .navbar{top:calc(72px + var(--gap));left:0;right:0;padding:6px 18px 18px;overflow:visible}
