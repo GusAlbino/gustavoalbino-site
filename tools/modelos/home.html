@@ -83,8 +83,8 @@
     .stage .navbar .dir{margin:10px 0 0}
     /* hero na primeira dobra: foto grande, nome e texto menores, CTAs em 2 colunas */
     .hero{padding:12px;gap:10px;min-height:calc(100svh - 72px - var(--gap) * 3)}
-    .hero .foto{flex:1 1 auto;height:auto;min-height:220px;object-position:center 10%}
-    .hero .col{gap:9px}
+    .hero .foto{flex:1 1 0;height:auto;min-height:150px;object-position:center 10%}
+    .hero .col{gap:9px;flex:none}
     .hero h1{font-size:clamp(30px,9.6vw,44px);line-height:.9;margin:0}
     .hero h1 br{display:none}
     .hero .tag-ouro,.hero .lead{font-size:12.5px;line-height:1.4;letter-spacing:.02em}
@@ -93,6 +93,7 @@
     .hero .cta-comp{grid-template-columns:repeat(2,minmax(0,1fr))}
     .hero .cta-comp .btn i{display:none}
     .hero .cta-comp .btn{padding:12px 8px;gap:4px;font-size:11px;letter-spacing:0;white-space:nowrap;line-height:1.1;text-align:left}
+    @media (max-width:380px){.hero .cta-comp .btn{padding:12px 6px;letter-spacing:-.03em}}
   }
 </style>
 </head>
