@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/en" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Main">
+    <nav class="card navbar" id="menu-nav" aria-label="Main">
       <ul class="mono"><li><a href="/en/cases">Cases</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/en/services" aria-current="page">Services</a></li><li><a href="/en/cv">CV / About me</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/servicos" >PT</a><a href="/en/services" aria-current="true">EN</a></span>
         <a class="btn" href="/en/contact">Contact</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
   <div class="serv-stage"><div class="serv-par">
     <section class="card bloco serv-topo" id="topo"><h1 class="disp">Shall we work together?</h1><p class="intro">Every project follows the same path, from our first contact to delivery. Scope, deadline and price are agreed before I start.</p><ol class="serv-passos"><li><span class="mono">01</span><div><b>Meeting</b><p>We start with a conversation so I can understand your business, your audience and what your project needs to solve.</p></div></li><li><span class="mono">02</span><div><b>Analysis</b><p>Then I study your market and your references to set the direction of the project.</p></div></li><li><span class="mono">03</span><div><b>Brief</b><p>I send you a brief with the demands, and we confirm the scope and what you expect, together.</p></div></li><li><span class="mono">04</span><div><b>Quote</b><p>You receive my proposal with scope, stages, deadline and price.</p></div></li><li><span class="mono">05</span><div><b>Feedback and negotiation</b><p>You reply, we adjust what is needed and close the deal.</p></div></li><li><span class="mono">06</span><div><b>Deadline</b><p>We agree on the delivery date together, before I begin.</p></div></li></ol><div class="serv-pag"><b>Payment</b><p>We negotiate the price according to your project. What I usually do is 50% at the start and 50% on delivery.</p></div><div class="serv-cta"><a class="btn btn--ouro" href="/en/contact">Get in touch</a></div></section>
@@ -56,5 +57,6 @@
 </footer>
 
 <script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

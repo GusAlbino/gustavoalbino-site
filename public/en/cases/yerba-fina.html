@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/en" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Main">
+    <nav class="card navbar" id="menu-nav" aria-label="Main">
       <ul class="mono"><li><a href="/en/cases" aria-current="page">Cases</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/cases/yerba-fina" >PT</a><a href="/en/cases/yerba-fina" aria-current="true">EN</a></span>
         <a class="btn" href="/en/contact">Contact</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/en/cases">← Back to cases</a></div>
   <section class="card caso-hero caso-hero--wide" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Branding · Identity · Logo · Brand guidelines</span><h1 class="disp">Yerba Fina</h1></div></div><p class="mono" style="color:var(--hl-text)">Explore your medium</p><p class="intro">A full visual identity for a Brazilian sustainable fashion brand: hemp and bamboo clothing, with street attitude and respect for nature.</p><div class="acoes"></div><ul class="hero-pontos"><li><span class="mono">The name</span>Yerba is Spanish for herb. Fina is double: well-made fashion and cannabis culture.</li><li><span class="mono">Slogan</span>Explore your medium, nature or city.</li><li><span class="mono">Result</span>A system from symbol to post, at home in graffiti black and white or forest green.</li></ul><div class="stats-mini"><div><b>65%</b><span>hemp</span></div><div><b>35%</b><span>bamboo</span></div><div><b>6</b><span>official logo versions</span></div><div><b>1</b><span>hand-drawn bud</span></div></div></div><img src="/assets/cases/yerba-fina/hero-imagem2.webp" alt="" style="--ar:16/9;"></section>
@@ -67,5 +68,6 @@
 </footer>
 
 <script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

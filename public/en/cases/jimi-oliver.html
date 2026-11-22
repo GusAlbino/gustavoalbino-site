@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/en" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Main">
+    <nav class="card navbar" id="menu-nav" aria-label="Main">
       <ul class="mono"><li><a href="/en/cases" aria-current="page">Cases</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/cases/jimi-oliver" >PT</a><a href="/en/cases/jimi-oliver" aria-current="true">EN</a></span>
         <a class="btn" href="/en/contact">Contact</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/en/cases">← Back to cases</a></div>
   <section class="card caso-hero caso-hero--wide" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Visual Identity · Art direction, album cover &amp; design</span><h1 class="disp">Jimi Oliver</h1></div></div><p class="mono" style="color:var(--hl-text)">Face to Face</p><p class="intro">Visual identity and art direction for guitarist Jimi Oliver’s instrumental album, from cover to vinyl, from CD to stage. A black-and-white, photographic, elegant system worthy of his jazz-meets-Brazil fusion.</p><div class="acoes"><a class="btn btn--ghost" href="/assets/pdf/portfolio-jimi-oliver-en.pdf" target="_blank" rel="noopener">View portfolio ↗</a></div><ul class="hero-pontos"><li><span class="mono">Concept</span>The musician’s face fills the whole cover, in grainy duotone, with a Didone serif logotype.</li><li><span class="mono">Pieces</span>Vinyl cover, CD inlay, open booklet and the artist’s portfolio.</li><li><span class="mono">Stage</span>The cover became a halftone portrait on the screen and JIMI in LED panels.</li></ul><div class="stats-mini"><div><b>6</b><span>tracks on the album</span></div><div><b>8</b><span>portfolio pages</span></div><div><b>2</b><span>physical formats, vinyl and CD</span></div><div><b>1</b><span>identity, from booklet to stage</span></div></div></div><img src="/assets/cases/jimi-oliver/hero-capa.webp" alt="" style="--ar:1600/1426;background:#0E0E0E;object-fit:contain"></section>
@@ -66,5 +67,6 @@
 </footer>
 
 <script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

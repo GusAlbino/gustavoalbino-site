@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/en" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Main">
+    <nav class="card navbar" id="menu-nav" aria-label="Main">
       <ul class="mono"><li><a href="/en/cases">Cases</a></li><li><a href="/en/projects" aria-current="page">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/projetos/culturais/muros" >PT</a><a href="/en/projects/cultural/muros" aria-current="true">EN</a></span>
         <a class="btn" href="/en/contact">Contact</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/en/projects/cultural">← Back to cultural projects</a></div>
   <section class="card caso-hero hero-cult" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">4th edition · 2026</span><h1 class="disp">Muros do Jardim Teresópolis · Cor e Vida</h1></div></div><p class="intro">Urban art as a path for human development.</p><p>The project brings graffiti and urban aesthetics to the walls of Jardim Teresópolis, in Betim. Fifty students go through a training process and change how they see their own territory while learning visual technique.</p><p>The 4th edition organises the work in three themes: ethnic diversity, social and urban sustainability, and popular knowledge. Each theme becomes a street panel and later a catalogue page.</p><p>I sign the graphic design of the project. On the credits page that is the line; in practice it means the event mark and every piece that comes out of it, from the 12cm sticker to the 9 metre banner.</p><div class="acoes"><a class="btn btn--ouro" href="https://www.instagram.com/muroscorevida/" target="_blank" rel="noopener">Follow on Instagram · @muroscorevida</a><a class="btn btn--ghost" href="/assets/pdf/catalogo-muros-jd-teresopolis.pdf" target="_blank" rel="noopener">View catalogue ↗</a></div><div class="ficha-in"><div><span class="mono">Incentive law</span><b>Rouanet Law</b></div><div><span class="mono">Venue</span><b>Jd. Teresópolis · Betim, Brazil</b></div><div><span class="mono">Edition</span><b>4th · 2026</b></div><div><span class="mono">My role</span><b>Graphic designer</b></div><div><span class="mono">Sponsor</span><b>Grupo SADA</b></div><div><span class="mono">Production</span><b>Ministry of Culture · Federal Government</b></div><div><span class="mono">Support</span><b>Othelo Produtora</b></div></div></div><img src="/assets/culturais/muros/rua/01-36.webp" alt="" style="height:100%;aspect-ratio:auto;object-fit:cover"></section>
@@ -61,5 +62,6 @@
 </footer>
 
 <script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

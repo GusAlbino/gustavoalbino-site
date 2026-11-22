@@ -29,7 +29,7 @@
     grid-template-rows:84px minmax(470px,1fr);
     grid-template-areas:
       "logo nav nav nav nav nav"
-      "feat feat feat hero hero hero"}
+      "hero hero hero feat feat feat"}
   .logo{grid-area:logo}.navbar{grid-area:nav}
 
   /* destaque rotativo: os três últimos trabalhos */
@@ -84,7 +84,7 @@
 
   @media (max-width:960px){
     .stage{height:auto;min-height:100svh;grid-template-columns:1fr;grid-template-rows:72px 56px auto auto;
-      grid-template-areas:"logo" "nav" "feat" "hero"}
+      grid-template-areas:"logo" "nav" "hero" "feat"}
     .navbar{padding:0 8px 0 18px;overflow-x:auto;scrollbar-width:none}.navbar::-webkit-scrollbar{display:none}
     .navbar ul{gap:18px;white-space:nowrap}.navbar .dir{margin-left:18px}
     .feat{min-height:min(520px,70svh)}
@@ -92,10 +92,11 @@
     .hero .foto{position:static;order:-1;width:100%;height:240px;object-position:center 8%}
   }
   @media (max-width:720px){
-    .stage{grid-template-rows:72px auto auto auto}
-    .stage .navbar{flex-wrap:wrap;overflow:visible;padding:12px 14px;row-gap:12px}
-    .stage .navbar ul{flex-wrap:wrap;gap:8px 18px;white-space:normal;width:100%}
-    .stage .navbar .dir{margin-left:0;width:100%;justify-content:space-between}
+    .stage{position:relative;grid-template-rows:72px auto auto;grid-template-areas:"logo" "hero" "feat"}
+    .stage .menu-btn{position:absolute;top:var(--gap);right:var(--gap);z-index:61}
+    .stage .navbar{top:calc(var(--gap) * 2 + 72px);left:var(--gap);right:var(--gap);padding:6px 18px 18px;overflow:visible}
+    .stage .navbar ul{gap:0;white-space:normal}
+    .stage .navbar .dir{margin:10px 0 0}
   }
 </style>
 <script src="/analytics.js" defer></script>
@@ -106,7 +107,7 @@
 <main class="stage" id="stage">
   <a class="card logo" href="/" aria-label="Gustavo Albino, página inicial"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
 
-  <nav class="card navbar" aria-label="Principal">
+  <nav class="card navbar" id="menu-nav" aria-label="Principal">
     <ul class="mono">
       <li><a href="/cases">Cases</a></li><li><a href="/projetos">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li>
     </ul>
@@ -115,6 +116,7 @@
       <a class="btn" href="/contato">Contato</a>
     </div>
   </nav>
+  <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
 
   <div class="card card--img feat" id="feat" role="group" aria-roledescription="carrossel" aria-label="Últimos trabalhos">
     <img class="slide on" src="/assets/destaques/anuario-composicao.webp" alt="" width="1560" height="1200">
@@ -187,5 +189,6 @@
 
 })();
 </script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

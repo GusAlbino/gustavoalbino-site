@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/en" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Main">
+    <nav class="card navbar" id="menu-nav" aria-label="Main">
       <ul class="mono"><li><a href="/en/cases">Cases</a></li><li><a href="/en/projects" aria-current="page">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/projetos/culturais/defesa" >PT</a><a href="/en/projects/cultural/defesa" aria-current="true">EN</a></span>
         <a class="btn" href="/en/contact">Contact</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/en/projects/cultural">← Back to cultural projects</a></div>
   <section class="card caso-hero hero-cult caso-hero--retrato" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Exhibition · 2024</span><h1 class="disp">In Defence of Animals and the Environment</h1></div></div><p class="intro">The elephant skin becomes the poster ground.</p><p>Exhibition of paintings by Maria Inez Ribeiro at Casa da Cultura in Betim, on the preservation of wildlife and nature.</p><p>The artist created the project &quot;A Arte em Defesa dos Elefantes&quot;, which became the book &quot;Elefantes de A a Z&quot;. The poster starts there: a close-up of elephant skin in a blue to orange gradient, with the title broken across six lines that fill the full height of the sheet.</p><p>Besides the poster and the post, I designed ten thank-you cards, one for each painting on show, and the pull-up banner at the entrance. Each card carries the painting and its title, so the visitor leaves with the piece they saw.</p><div class="acoes"><a class="btn btn--ghost" href="/assets/pdf/portfolio-maria-inez-ribeiro.pdf" target="_blank" rel="noopener">View portfolio ↗</a></div><div class="ficha-in"><div><span class="mono">Incentive law</span><b>PNAB · Aldir Blanc</b></div><div><span class="mono">Venue</span><b>Casa da Cultura · Betim, Brazil</b></div><div><span class="mono">Date</span><b>14 Dec 2024 · 10am to 5:30pm</b></div><div><span class="mono">Artist</span><b>Maria Inez Ribeiro</b></div><div><span class="mono">Production</span><b>Betim City Hall · Municipal Culture Department</b></div><div><span class="mono">Pieces</span><b>Poster, post, 10 cards</b></div></div></div><img src="/assets/culturais/defesa/poster.webp" alt="" style="aspect-ratio:848/1200;object-fit:cover"></section>
@@ -61,5 +62,6 @@
 </footer>
 
 <script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

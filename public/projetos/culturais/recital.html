@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Principal">
+    <nav class="card navbar" id="menu-nav" aria-label="Principal">
       <ul class="mono"><li><a href="/cases">Cases</a></li><li><a href="/projetos" aria-current="page">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/projetos/culturais/recital" aria-current="true">PT</a><a href="/en/projects/cultural/recital" >EN</a></span>
         <a class="btn" href="/contato">Contato</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/projetos/culturais">← Voltar aos projetos culturais</a></div>
   <section class="card caso-hero hero-cult caso-hero--retrato" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Evento · 2024</span><h1 class="disp">Recital de Natal · alunos Phoenix</h1></div></div><p class="intro">Um retrato, um lettering e o vermelho da escola.</p><p>Recital de encerramento dos alunos da Phoenix Escola de Música, na Loja Duetto Musical do Shopping Monte Carmo, em Betim.</p><p>A identidade parte de um retrato do professor com a guitarra, em luz vermelha sobre preto, e resolve o título em lettering manuscrito. O vermelho não foi escolha minha: já é a cor da fênix no logo da escola, e a peça só amplia o que a marca tinha.</p><p>Saiu em três formatos, cada um com um enquadramento próprio do retrato: post quadrado para Instagram, pôster A3 e banner vertical de 60x120cm para o ponto de venda.</p><div class="ficha-in"><div><span class="mono">Lei de incentivo</span><b>Lei Noemi Gontijo</b></div><div><span class="mono">Local</span><b>Loja Duetto Musical · Betim</b></div><div><span class="mono">Data</span><b>14/12/2024 · 19h30</b></div><div><span class="mono">Realização</span><b>Phoenix Escola de Música · Prefeitura de Betim</b></div><div><span class="mono">Peças</span><b>Pôster, post e banner</b></div></div></div><img src="/assets/culturais/recital/poster.webp" alt="" style="aspect-ratio:848/1200;object-fit:cover"></section>
@@ -61,5 +62,6 @@
 </footer>
 
 <script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

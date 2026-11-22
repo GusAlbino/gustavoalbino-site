@@ -429,10 +429,11 @@
 /* celular: o menu quebra em linhas em vez de rolar de lado, para PT/EN e Contato ficarem à vista */
 @media (max-width:720px){
   .ficha{grid-template-columns:minmax(0,300px)}
-  .topo{grid-template-rows:72px auto}
-  .topo .navbar{flex-wrap:wrap;overflow:visible;padding:12px 14px;row-gap:12px}
-  .topo .navbar ul{flex-wrap:wrap;gap:8px 18px;white-space:normal;width:100%}
-  .topo .navbar .dir{margin-left:0;width:100%;justify-content:space-between}
+  .topo{position:relative;grid-template-rows:72px}
+  .topo .menu-btn{position:absolute;top:0;right:0;z-index:61}
+  .topo .navbar{top:calc(72px + var(--gap));left:0;right:0;padding:6px 18px 18px;overflow:visible}
+  .topo .navbar ul{gap:0;white-space:normal}
+  .topo .navbar .dir{margin:10px 0 0}
 }
 @media (max-width:960px){
   .sobre-par{grid-template-columns:1fr;grid-template-rows:auto}
