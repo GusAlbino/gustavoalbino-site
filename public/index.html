@@ -29,7 +29,7 @@
     grid-template-rows:84px minmax(470px,1fr);
     grid-template-areas:
       "logo nav nav nav nav nav"
-      "hero hero hero feat feat feat"}
+      "feat feat feat hero hero hero"}
   .logo{grid-area:logo}.navbar{grid-area:nav}
 
   /* destaque rotativo: os três últimos trabalhos */
@@ -84,7 +84,7 @@
 
   @media (max-width:960px){
     .stage{height:auto;min-height:100svh;grid-template-columns:1fr;grid-template-rows:72px 56px auto auto;
-      grid-template-areas:"logo" "nav" "hero" "feat"}
+      grid-template-areas:"logo" "nav" "feat" "hero"}
     .navbar{padding:0 8px 0 18px;overflow-x:auto;scrollbar-width:none}.navbar::-webkit-scrollbar{display:none}
     .navbar ul{gap:18px;white-space:nowrap}.navbar .dir{margin-left:18px}
     .feat{min-height:min(520px,70svh)}
