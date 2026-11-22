@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo Albino · Lead Designer | Branding, digital product and art direction</title>
+<meta name="description" content="Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.">
+<link rel="canonical" href="https://gustavoalbino.com.br/en">
+<link rel="icon" href="/assets/logo-seal-black.webp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gustavo Albino">
+<meta property="og:title" content="Gustavo Albino · Lead Designer | Branding, digital product and art direction">
+<meta property="og:description" content="Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.">
+<meta property="og:url" content="https://gustavoalbino.com.br/en">
+<meta property="og:image" content="https://gustavoalbino.com.br/assets/og-card.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gustavoalbino.com.br/assets/og-card.png">
+<link rel="alternate" hreflang="pt-BR" href="https://gustavoalbino.com.br/">
+<link rel="alternate" hreflang="en" href="https://gustavoalbino.com.br/en">
+<link rel="alternate" hreflang="x-default" href="https://gustavoalbino.com.br/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://gustavoalbino.com.br/#gustavo","name":"Gustavo Albino","jobTitle":"Lead Designer","url":"https://gustavoalbino.com.br/","email":"mailto:gustavorsalbino@gmail.com","image":"https://gustavoalbino.com.br/assets/og-card.png","description":"Lead Designer with 10+ years in branding, product design and art direction. Working with clients in Brazil and abroad. See the cases.","knowsLanguage":["pt-BR","en","fr","es"],"address":{"@type":"PostalAddress","addressRegion":"Minas Gerais","addressCountry":"BR"},"worksFor":{"@type":"Organization","name":"Kaya Mind"},"sameAs":["https://www.linkedin.com/in/gusalbino/","https://www.instagram.com/gustavoalbinodesign/"]},{"@type":"WebSite","@id":"https://gustavoalbino.com.br/#site","url":"https://gustavoalbino.com.br/","name":"Gustavo Albino","inLanguage":"en","publisher":{"@id":"https://gustavoalbino.com.br/#gustavo"}}]}</script>
+<link rel="stylesheet" href="/ds-v2/tokens.css">
+<link rel="stylesheet" href="/ds-v2/componentes.css">
+<style>
+  /* Home: uma dobra em desktop. Destaque rotativo à esquerda, chamada e competências à direita. */
+  .stage{height:auto;min-height:100svh;box-sizing:border-box;padding:var(--gap);display:grid;gap:var(--gap);
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    grid-template-rows:84px minmax(470px,1fr);
+    grid-template-areas:
+      "logo nav nav nav nav nav"
+      "feat feat feat hero hero hero"}
+  .logo{grid-area:logo}.navbar{grid-area:nav}
+
+  /* destaque rotativo: os três últimos trabalhos */
+  .feat{grid-area:feat}
+  .feat .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateX(106%);z-index:0;
+    transition:transform .75s var(--ease),filter .75s var(--ease)}
+  .feat .slide.on{transform:none;z-index:2}
+  .feat .slide.sai{transform:translateX(-8%) scale(.9);filter:brightness(.45);z-index:1}
+  .feat .esticar{position:absolute;inset:0;z-index:1}
+  .feat .chip{position:absolute;z-index:2;top:16px;left:16px;display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border-radius:var(--r-tag);background:rgba(0,0,0,.58);color:var(--fg);border:2px solid rgba(248,239,232,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .feat .chip::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--hl);border:2px solid var(--tinta)}
+  .feat::after{display:none}
+  .feat .ctrl{position:absolute;z-index:3;right:16px;bottom:26px;display:flex;gap:8px}
+  .feat .seta{width:42px;height:42px;display:grid;place-items:center;border-radius:var(--r-seta);cursor:pointer;font:700 16px/1 var(--font-mono);color:var(--fg);background:var(--escuro);border:2px solid var(--tinta);box-shadow:var(--sombra-btn);transition:transform .12s,box-shadow .12s,background .12s}
+  .feat .seta:hover,.feat .seta:focus-visible{background:var(--ouro);color:#000;transform:translate(-2px,-2px);box-shadow:var(--sombra-btn-h)}
+  .feat .prog{position:absolute;z-index:3;left:16px;right:16px;bottom:14px;display:flex;gap:6px;pointer-events:none}
+  .feat .prog span{flex:1;height:8px;border:2px solid var(--tinta);border-radius:4px;background:rgba(248,239,232,.35);overflow:hidden}
+  .feat .prog i{display:block;height:100%;width:0;background:var(--ouro)}
+  .feat .prog span.feito i{width:100%}
+  .feat .prog span.ativo i{animation:prog 7s linear forwards}
+  .feat:hover .prog span.ativo i,.feat:focus-within .prog span.ativo i{animation-play-state:paused}
+  @keyframes prog{to{width:100%}}
+  @media (prefers-reduced-motion:reduce){.feat .prog span.ativo i{width:100%}}
+
+  /* chamada: o nome em branco, quase tocando a foto */
+  .hero{grid-area:hero;position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:clamp(14px,2.4cqw,26px);padding:clamp(18px,3cqw,32px);padding-right:calc(40% + 12px)}
+  .hero .foto{position:absolute;top:12px;right:12px;bottom:12px;width:40%;height:calc(100% - 24px);object-fit:cover;object-position:45% 14%;border:var(--bw) solid var(--tinta);border-radius:var(--r-tag);box-shadow:4px 4px 0 var(--tinta)}
+  .hero h1{font-size:clamp(44px,18.8cqw,190px);line-height:.88;letter-spacing:-.035em;color:#FFFFFF;margin:clamp(8px,1.6cqw,16px) 0 0}
+  .hero .lead{margin:clamp(22px,3.6cqw,40px) 0 0;font-size:clamp(26px,6.1cqw,46px);line-height:1.22;max-width:none;color:var(--hl-text);font-weight:600}
+  .hero .cta-comp{display:grid;gap:10px;width:0;min-width:100%;margin-top:auto}
+  .hero .col{display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(12px,2cqw,22px);width:max-content;max-width:100%;flex:1}
+  .hero .col>.mono{width:0;min-width:100%;white-space:normal;line-height:1.35}
+  .hero .lead{width:0;min-width:100%}
+  .hero .sup{display:block}
+  .hero .cta-comp .btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;padding:clamp(13px,2.3cqw,19px) 18px;font-size:clamp(12px,2.7cqw,17px);line-height:1;transition:background .15s,color .15s,border-color .15s,transform .12s,box-shadow .12s}
+  .hero .cta-comp .btn:hover,.hero .cta-comp .btn:focus-visible{filter:brightness(1.1);color:#000;border-color:var(--tinta);transform:translate(-2px,-2px)}
+  .hero .cta-comp .btn:hover b,.hero .cta-comp .btn:hover i,.hero .cta-comp .btn:focus-visible b,.hero .cta-comp .btn:focus-visible i{color:#000}
+  .hero .cta-comp .btn{color:#000;border-color:var(--tinta)}
+  .hero .cta-comp .btn:nth-child(1){background:var(--vermilion,#E8604C)}
+  .hero .cta-comp .btn:nth-child(2){background:var(--ouro)}
+  .hero .cta-comp .btn:nth-child(3){background:var(--c2)}
+  .hero .cta-comp .btn:nth-child(4){background:var(--c3)}
+  .hero .cta-comp .btn b{font-weight:inherit}
+  .hero .cta-comp .btn i{font-style:normal;font-family:var(--font-mono)}
+
+  /* entrada em sequência: cada quadro sobe e aparece (fill backwards, para o hover continuar livre depois) */
+  .stage>*{animation:entra .8s var(--ease) backwards;animation-delay:calc(var(--i,0) * 90ms + 80ms)}
+  .stage>:nth-child(1){--i:0}.stage>:nth-child(2){--i:1}.stage>:nth-child(3){--i:2}.stage>:nth-child(4){--i:3}.stage>:nth-child(5){--i:4}
+  .rodape{width:auto;max-width:none;margin:0 var(--gap) var(--gap)}
+  .rodape.vis .col{animation:entra .8s var(--ease) backwards;animation-delay:calc(var(--c,0) * 90ms + 150ms)}
+  .rodape .col:nth-child(2){--c:1}.rodape .col:nth-child(3){--c:2}.rodape .col:nth-child(4){--c:3}.rodape .col:nth-child(5){--c:4}
+
+  @media (max-width:960px){
+    .stage{height:auto;min-height:100svh;grid-template-columns:1fr;grid-template-rows:72px 56px auto auto;
+      grid-template-areas:"logo" "nav" "feat" "hero"}
+    .navbar{padding:0 8px 0 18px;overflow-x:auto;scrollbar-width:none}.navbar::-webkit-scrollbar{display:none}
+    .navbar ul{gap:18px;white-space:nowrap}.navbar .dir{margin-left:18px}
+    .feat{min-height:min(520px,70svh)}
+    .hero{padding-right:clamp(18px,3cqw,32px)}
+    .hero .foto{position:static;order:-1;width:100%;height:240px;object-position:center 8%}
+  }
+  @media (max-width:720px){
+    .stage{grid-template-rows:72px auto auto auto}
+    .stage .navbar{flex-wrap:wrap;overflow:visible;padding:12px 14px;row-gap:12px}
+    .stage .navbar ul{flex-wrap:wrap;gap:8px 18px;white-space:normal;width:100%}
+    .stage .navbar .dir{margin-left:0;width:100%;justify-content:space-between}
+  }
+</style>
+<script src="/analytics.js" defer></script>
+</head>
+<body id="topo-pagina">
+<div class="fundo" aria-hidden="true"></div>
+
+<main class="stage" id="stage">
+  <a class="card logo" href="/en" aria-label="Gustavo Albino, home"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
+
+  <nav class="card navbar" aria-label="Main">
+    <ul class="mono">
+      <li><a href="/en/cases">Cases</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li>
+    </ul>
+    <div class="dir">
+      <span class="idioma" role="group" aria-label="Language"><a href="/">PT</a><a href="/en" aria-current="true">EN</a></span>
+      <a class="btn" href="/en/contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="card card--img feat" id="feat" role="group" aria-roledescription="carrossel" aria-label="Latest work">
+    <img class="slide on" src="/assets/destaques/anuario-composicao.webp" alt="" width="1560" height="1200">
+    <img class="slide" src="/assets/destaques/kaya-doc-composicao.webp" alt="" width="1560" height="1200">
+    <img class="slide" src="/assets/destaques/elos-saber-home.webp" alt="" width="1400" height="1400">
+    <a class="esticar" id="fLink" href="/en/projects/reports#2026" aria-label="Open the 2026 Yearbook report"></a>
+    <span class="chip mono" id="fTag">2026 Yearbook · Report</span>
+    <div class="ctrl"><button class="seta" type="button" data-d="-1" aria-label="Trabalho anterior">←</button><button class="seta" type="button" data-d="1" aria-label="Próximo trabalho">→</button></div>
+    <div class="prog" aria-hidden="true"><span class="ativo"><i></i></span><span><i></i></span><span><i></i></span></div>
+  </div>
+
+  <section class="card hero" aria-label="Introduction">
+    <img class="foto" src="/assets/hero-gustavo.webp" alt="Gustavo Albino" width="1400" height="1541">
+    <div class="col">
+      <span class="mono tag-ouro">Senior Designer · Lead Designer</span>
+      <h1 class="disp">Gustavo<br>Albino</h1>
+      <p class="lead">Over 10 years in design. Today, more than 3,000 health professionals use what I design.</p>
+      <nav class="cta-comp" aria-label="Expertise"><a class="btn btn--ghost" href="/en/projects/logos"><b>Branding & Identity</b><i aria-hidden="true">→</i></a><a class="btn btn--ghost" href="/en/cases/kaya-doc"><b>Digital Product</b><i aria-hidden="true">→</i></a><a class="btn btn--ghost" href="/en/projects/reports"><b>Editorial & Dataviz</b><i aria-hidden="true">→</i></a><a class="btn btn--ghost" href="/en/services"><b>Creative Direction</b><i aria-hidden="true">→</i></a></nav>
+    </div>
+  </section>
+
+</main>
+
+<footer class="card rodape" aria-label="Footer">
+  <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="72" height="72"><p>Senior Designer and Lead Designer of Kaya Doc. Brand, product and editorial, from Betim to remote teams.</p></div>
+  <nav class="col f-cases" aria-label="Cases"><h2 class="mono">Cases</h2><ul><li><a href="/en/cases/kaya-doc">Kaya Doc</a></li><li><a href="/en/cases/elos-saber">Elos Saber</a></li><li><a href="/en/cases/runpace">Runpace</a></li><li><a href="/en/cases/othelo">Othelo</a></li><li><a href="/en/cases/jimi-oliver">Jimi Oliver</a></li><li><a href="/en/cases/yerba-fina">Yerba Fina</a></li><li><a href="/en/cases/hercules">Hercules</a></li></ul></nav>
+  <nav class="col f-proj" aria-label="Projects"><h2 class="mono">Projects</h2><ul><li><a href="/en/projects/reports">Reports</a></li><li><a href="/en/projects/logos">Logos</a></li><li><a href="/en/projects/cultural">Cultural</a></li><li><a href="/en/projects/ebooks">E-books</a></li><li><a href="/en/projects/illustration">Illustration</a></li></ul></nav>
+  <nav class="col f-site" aria-label="Site"><h2 class="mono">Site</h2><ul><li><a href="/en">Home</a></li><li><a href="/en/cases">Cases</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li><li><a href="/en/contact">Contact</a></li></ul></nav>
+  <div class="col f-fale card--hl"><div><p class="grande">Let's talk</p></div><div>
+    <a class="mail" href="mailto:gustavorsalbino@gmail.com">gustavorsalbino@gmail.com</a>
+    <ul style="margin-top:6px"><li><a href="https://wa.me/5531971422346" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.linkedin.com/in/gusalbino/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/gustavoalbinodesign/" target="_blank" rel="noopener">Instagram</a></li></ul>
+    <p class="mono" style="margin:8px 0 0;opacity:.85;font-size:10px">Reply within 2 business days</p></div></div>
+  <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
+</footer>
+
+<script>
+(function(){
+  var reduz=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* destaque rotativo: troca a cada 7s, pausa com o mouse em cima, parado se o sistema pedir menos movimento */
+  var T=[
+    {tag:"Anuário 2026 · Relatório",href:"/en/projects/reports#2026",nome:"Anuário 2026",rot:"o relatório"},
+    {tag:"Kaya Doc · Digital product",href:"/en/cases/kaya-doc",nome:"Kaya Doc"},
+    {tag:"Elos Saber · Website",href:"/en/cases/elos-saber",nome:"Elos Saber"}
+  ];
+  var feat=document.getElementById("feat"),slides=[].slice.call(feat.querySelectorAll(".slide")),segs=[].slice.call(feat.querySelectorAll(".prog span")),at=0;
+  function ir(k,dir){
+    var nx=(k+T.length)%T.length;if(nx===at)return;dir=dir||1;
+    var velho=slides[at],novo=slides[nx];
+    slides.forEach(function(s){if(s!==velho&&s!==novo){s.style.transition="none";s.classList.remove("sai","on");s.style.transform=""}});
+    /* o novo parte de fora do quadro, do lado de onde a pessoa vai */
+    novo.style.transition="none";novo.classList.remove("sai","on");novo.style.transform="translateX("+(dir>0?106:-106)+"%)";void novo.offsetWidth;
+    novo.style.transition="";novo.style.transform="";novo.classList.add("on");
+    velho.classList.remove("on");velho.classList.add("sai");
+    setTimeout(function(){if(!velho.classList.contains("on")){velho.style.transition="none";velho.classList.remove("sai");void velho.offsetWidth;velho.style.transition=""}},800);
+    at=nx;var x=T[at];
+    segs.forEach(function(g,i){g.classList.remove("ativo","feito");void g.offsetWidth;if(i<at)g.classList.add("feito");if(i===at)g.classList.add("ativo")});
+    document.getElementById("fTag").textContent=x.tag;
+    var l=document.getElementById("fLink");l.href=x.href;l.setAttribute("aria-label","Open "+(x.rot==="o relatório"?"the report":"the case")+" "+x.nome);
+  }
+  /* a barra do trabalho atual enche em 7s e, ao terminar, passa para o próximo; o mouse em cima pausa */
+  segs.forEach(function(g){g.querySelector("i").addEventListener("animationend",function(){if(g.classList.contains("ativo"))ir(at+1,1)})});
+  [].forEach.call(feat.querySelectorAll(".seta"),function(b){b.addEventListener("click",function(){var d=+b.getAttribute("data-d");ir(at+d,d)})});
+
+  /* rodapé aparece quando entra na tela */
+  var rod=document.querySelector(".rodape");
+  if(rod&&"IntersectionObserver" in window){
+    rod.classList.add("rev");
+    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){rod.classList.add("vis");o.disconnect()}})},{threshold:.15}).observe(rod);
+  }
+
+})();
+</script>
+</body>
+</html>
