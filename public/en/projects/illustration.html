@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/en" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Main">
+    <nav class="card navbar" id="menu-nav" aria-label="Main">
       <ul class="mono"><li><a href="/en/cases">Cases</a></li><li><a href="/en/projects" aria-current="page">Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/projetos/ilustracao" >PT</a><a href="/en/projects/illustration" aria-current="true">EN</a></span>
         <a class="btn" href="/en/contact">Contact</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
   <section class="card cab" id="topo"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Original illustration</span><h1 class="disp">Illustration</h1></div></div></section>
   <div class="galeria"><figure style="--r:1.432"><img src="/assets/ilustracao/bird.webp" alt="" loading="lazy"></figure><figure style="--r:0.707"><img src="/assets/ilustracao/davi-valentes.webp" alt="" loading="lazy"></figure><figure style="--r:1.004"><img src="/assets/ilustracao/amazon.webp" alt="" loading="lazy"></figure><figure style="--r:1.415"><img src="/assets/ilustracao/ephesians.webp" alt="" loading="lazy"></figure><figure style="--r:0.707"><img src="/assets/ilustracao/afro-vaquinha.webp" alt="" loading="lazy"></figure><figure style="--r:1.045"><img src="/assets/ilustracao/eye.webp" alt="" loading="lazy"></figure><figure style="--r:1.334"><img src="/assets/ilustracao/dzola-80s.webp" alt="" loading="lazy"></figure><figure style="--r:1.303"><img src="/assets/ilustracao/pest-terminator.webp" alt="" loading="lazy"></figure><figure style="--r:0.750"><img src="/assets/ilustracao/blackfellas.webp" alt="" loading="lazy"></figure><figure style="--r:1.086"><img src="/assets/ilustracao/pixel-studio.webp" alt="" loading="lazy"></figure><figure style="--r:0.750"><img src="/assets/ilustracao/crocodile-mask.webp" alt="" loading="lazy"></figure><figure style="--r:0.832"><img src="/assets/ilustracao/planeta-brasil.webp" alt="" loading="lazy"></figure><figure style="--r:0.695"><img src="/assets/ilustracao/rei-davi.webp" alt="" loading="lazy"></figure><figure style="--r:0.716"><img src="/assets/ilustracao/black-lightning-1.webp" alt="" loading="lazy"></figure><figure style="--r:0.705"><img src="/assets/ilustracao/black-lightning-2.webp" alt="" loading="lazy"></figure><figure style="--r:0.714"><img src="/assets/ilustracao/black-lightning-3.webp" alt="" loading="lazy"></figure><figure style="--r:0.699"><img src="/assets/ilustracao/sketch-3.webp" alt="" loading="lazy"></figure><figure style="--r:0.673"><img src="/assets/ilustracao/sketch-4.webp" alt="" loading="lazy"></figure></div>
@@ -53,6 +54,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 
-<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

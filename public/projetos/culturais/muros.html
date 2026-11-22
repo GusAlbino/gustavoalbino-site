@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Principal">
+    <nav class="card navbar" id="menu-nav" aria-label="Principal">
       <ul class="mono"><li><a href="/cases">Cases</a></li><li><a href="/projetos" aria-current="page">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/projetos/culturais/muros" aria-current="true">PT</a><a href="/en/projects/cultural/muros" >EN</a></span>
         <a class="btn" href="/contato">Contato</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/projetos/culturais">← Voltar aos projetos culturais</a></div>
   <section class="card caso-hero hero-cult" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">4ª edição · 2026</span><h1 class="disp">Muros do Jardim Teresópolis · Cor e Vida</h1></div></div><p class="intro">Arte urbana como caminho de desenvolvimento humano.</p><p>O projeto leva grafite e estética urbana para os muros do Jardim Teresópolis, em Betim. Cinquenta educandos passam por um processo formativo e transformam a percepção do próprio território enquanto aprendem técnica visual.</p><p>A 4ª edição organiza o trabalho em três temas: diversidade étnica, sustentabilidade social e urbana, e saberes populares. Cada tema vira painel de rua e depois página de catálogo.</p><p>Assino o design gráfico do projeto, o que na ficha técnica é o crédito e na prática significa a marca do evento e todas as peças que saem dela, do adesivo de 12cm ao banner de 9 metros.</p><div class="acoes"><a class="btn btn--ouro" href="https://www.instagram.com/muroscorevida/" target="_blank" rel="noopener">Acompanhar no Instagram · @muroscorevida</a><a class="btn btn--ghost" href="/assets/pdf/catalogo-muros-jd-teresopolis.pdf" target="_blank" rel="noopener">Ver catálogo ↗</a></div><div class="ficha-in"><div><span class="mono">Lei de incentivo</span><b>Lei Rouanet</b></div><div><span class="mono">Local</span><b>Jd. Teresópolis · Betim, MG</b></div><div><span class="mono">Edição</span><b>4ª · 2026</b></div><div><span class="mono">Meu papel</span><b>Designer gráfico</b></div><div><span class="mono">Patrocínio</span><b>Grupo SADA</b></div><div><span class="mono">Realização</span><b>Ministério da Cultura · Governo Federal</b></div><div><span class="mono">Apoio</span><b>Othelo Produtora</b></div></div></div><img src="/assets/culturais/muros/rua/01-36.webp" alt="" style="height:100%;aspect-ratio:auto;object-fit:cover"></section>
@@ -60,6 +61,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 
-<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

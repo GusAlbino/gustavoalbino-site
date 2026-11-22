@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Principal">
+    <nav class="card navbar" id="menu-nav" aria-label="Principal">
       <ul class="mono"><li><a href="/cases" aria-current="page">Cases</a></li><li><a href="/projetos">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/cases/yerba-fina" aria-current="true">PT</a><a href="/en/cases/yerba-fina" >EN</a></span>
         <a class="btn" href="/contato">Contato</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/cases">← Voltar aos cases</a></div>
   <section class="card caso-hero caso-hero--wide" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Branding · Identidade · Logo · Manual de marca</span><h1 class="disp">Yerba Fina</h1></div></div><p class="mono" style="color:var(--hl-text)">Explore o seu meio</p><p class="intro">Identidade visual completa para uma marca de moda sustentável brasileira: roupas de cânhamo e bambu, com a atitude da rua e o respeito pela natureza.</p><div class="acoes"></div><ul class="hero-pontos"><li><span class="mono">O nome</span>Yerba é erva em espanhol. Fina tem duplo sentido: moda bem-feita e cultura canábica.</li><li><span class="mono">O slogan</span>Explore o seu meio, a natureza ou a cidade.</li><li><span class="mono">O resultado</span>Um sistema do símbolo ao post, que vive no preto e branco do grafite ou no verde da mata.</li></ul><div class="stats-mini"><div><b>65%</b><span>cânhamo</span></div><div><b>35%</b><span>bambu</span></div><div><b>6</b><span>versões oficiais do logo</span></div><div><b>1</b><span>bud desenhado à mão</span></div></div></div><img src="/assets/cases/yerba-fina/hero-imagem2.webp" alt="" style="--ar:16/9;"></section>
@@ -66,6 +67,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 
-<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

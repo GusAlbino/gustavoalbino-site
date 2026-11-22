@@ -429,13 +429,15 @@
 /* celular: o menu quebra em linhas em vez de rolar de lado, para PT/EN e Contato ficarem à vista */
 @media (max-width:720px){
   .ficha{grid-template-columns:minmax(0,300px)}
-  .topo{grid-template-rows:72px auto}
-  .topo .navbar{flex-wrap:wrap;overflow:visible;padding:12px 14px;row-gap:12px}
-  .topo .navbar ul{flex-wrap:wrap;gap:8px 18px;white-space:normal;width:100%}
-  .topo .navbar .dir{margin-left:0;width:100%;justify-content:space-between}
+  .topo{position:relative;grid-template-rows:72px}
+  .topo .menu-btn{position:absolute;top:0;right:0;z-index:61}
+  .topo .navbar{top:calc(72px + var(--gap));left:0;right:0;padding:6px 18px 18px;overflow:visible}
+  .topo .navbar ul{gap:0;white-space:normal}
+  .topo .navbar .dir{margin:10px 0 0}
 }
 @media (max-width:960px){
   .sobre-par{grid-template-columns:1fr;grid-template-rows:auto}
-  .sobre-par .sobre-foto{height:min(460px,100vw);min-height:0}
-  .sobre-par .sobre-foto>img{object-position:center 18%}
+  /* foto inteira (9:16, sem recorte), menor e centralizada */
+  .sobre-par .sobre-foto{height:400px;width:auto;aspect-ratio:9/16;min-height:0;max-width:100%;justify-self:center;align-self:center}
+  .sobre-par .sobre-foto>img{object-fit:contain;object-position:center}
 }

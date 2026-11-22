@@ -79,13 +79,14 @@ ${cabecalho(lang)}
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="${href(lang, 'home')}" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="${lang === 'pt' ? 'Principal' : 'Main'}">
+    <nav class="card navbar" id="menu-nav" aria-label="${lang === 'pt' ? 'Principal' : 'Main'}">
       <ul class="mono">${['cases', 'projetos', 'servicos', 'cv'].map(link).join('')}</ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="${href('pt', ctx.chave, ctx.caseId)}" ${lang === 'pt' ? 'aria-current="true"' : ''}>PT</a><a href="${href('en', ctx.chave, ctx.caseId)}" ${lang === 'en' ? 'aria-current="true"' : ''}>EN</a></span>
         <a class="btn" href="${href(lang, 'contato')}">${n.contato}</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="${lang === 'pt' ? 'Abrir menu' : 'Open menu'}" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 ${corpo}
 </div>
@@ -101,7 +102,7 @@ ${corpo}
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 ${extra}
-${SCRIPT_FILTROS}
+${SCRIPT_MENU}
 </body>
 </html>
 `;
@@ -116,14 +117,15 @@ const cab = (kicker, titulo, intro, acoes = '', filtros = '') => `  <section cla
 const chips = (lang, itens, alvo) => `<div class="filtros" role="group" aria-label="${lang === 'pt' ? 'Filtrar' : 'Filter'}" data-alvo="${alvo}">${itens.map((f, i) => `<button type="button" data-f="${esc(f.key)}" aria-pressed="${i === 0}">${esc(f.rot)}</button>`).join('')}</div>`;
 const SCRIPT_FILTROS = `<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>`;
 
+const SCRIPT_MENU = `<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>`;
+
 const paginas = {};
 
 // ---------- CASES ----------
 paginas.cases = (lang) => {
   const p = DICTL(lang).casesPage;
-  const f = chips(lang, D.CASE_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
   const cards = D.CASES.map((c) => `<a class="card card--img item${c.id === 'kaya-doc' ? ' item--mockup' : ''}" data-cat="${c.cat}" href="${caseHref(lang, c.id)}"><img src="/${c.bgImage}" alt="" loading="lazy"><span class="mono ano">${esc(c.year)}</span><span class="rot"><b>${esc(c.title[lang])}</b><span class="mono">${esc(c.typeLabel[lang])}</span><p>${esc(c.blurb[lang])}</p></span></a>`).join('\n    ');
-  return casca(lang, 'cases', p.title, `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro, '', f)}
+  return casca(lang, 'cases', p.title, `${cab((lang === 'pt' ? 'Acervo · ' : 'Collection · ') + D.CASES.length + ' cases', p.title, p.intro)}
   <div class="g3" id="lista">
     ${cards}
   </div>`);
@@ -133,9 +135,8 @@ paginas.cases = (lang) => {
 paginas.projetos = (lang) => {
   const p = DICTL(lang).galPage;
   const rota = { reports: 'relatorios', ilustracao: 'ilustracao', ebooks: 'ebooks', culturais: 'culturais', grafico: 'logos' };
-  const f = chips(lang, D.GAL_FILTERS.map((x) => ({ key: x.key, rot: x[lang] })), '#lista');
   const cards = D.GAL.map((g) => `<a class="card card--img item${g.cat === 'grafico' ? ' item--img-contida' : ''}" data-cat="${g.cat}" href="${href(lang, rota[g.cat])}"><img src="/${g.img}" alt="" loading="lazy"><span class="rot"><b>${esc(g[lang])}</b></span></a>`).join('\n    ');
-  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro, '', f)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
+  return casca(lang, 'projetos', p.title, `${cab(p.kicker, p.title, p.intro)}\n  <div class="g3" id="lista">\n    ${cards}\n  </div>`);
 };
 
 // ---------- SERVIÇOS ----------
@@ -419,7 +420,7 @@ for (const lang of ['pt', 'en']) {
 {
   const rodape = (lang) => { ctx = { chave: 'cases' }; return paginas.cases(lang).match(/<footer[\s\S]*?<\/footer>/)[0]; };
   const modelo = fs.readFileSync(new URL('./modelos/home.html', import.meta.url), 'utf8');
-  const montar = (lang, html) => { ctx = { chave: 'home' }; return html.replace('<!--HEAD-->', cabecalho(lang)).replace('</head>', '<script src="/analytics.js" defer></script>\n</head>'); };
+  const montar = (lang, html) => { ctx = { chave: 'home' }; return html.replace('<!--HEAD-->', cabecalho(lang)).replace('</head>', '<script src="/analytics.js" defer></script>\n</head>').replace('</body>', SCRIPT_MENU + '\n</body>'); };
   const pt = montar('pt', modelo.replace(/<footer[\s\S]*?<\/footer>/, rodape('pt')));
   gravar('', pt);
   const E = D.DICT.en;
@@ -432,7 +433,7 @@ for (const lang of ['pt', 'en']) {
     .replace('>Projetos</a></li><li><a href="/en/services">Serviços</a></li><li><a href="/en/cv">CV / Sobre mim</a>', '>Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a>')
     .replace('>Contato</a>\n    </div>', '>Contact</a>\n    </div>')
     .replace('Gustavo Albino, página inicial', 'Gustavo Albino, home')
-    .replace('aria-label="Principal"', 'aria-label="Main"').replace('aria-label="Idioma"', 'aria-label="Language"')
+    .replace('aria-label="Principal"', 'aria-label="Main"').replace('aria-label="Abrir menu"', 'aria-label="Open menu"').replace('aria-label="Idioma"', 'aria-label="Language"')
     .replace('aria-label="Últimos trabalhos"', 'aria-label="Latest work"').replace('aria-label="Apresentação"', 'aria-label="Introduction"')
     .replace('Mais de 10 anos de design. Hoje, mais de 3.000 profissionais de saúde usam o que eu desenho.', 'Over 10 years in design. Today, more than 3,000 health professionals use what I design.')
     .replace('>Ver trabalhos<', '>View work<').replace('>Vamos conversar<', ">Let's talk<")

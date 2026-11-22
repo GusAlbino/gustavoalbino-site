@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Principal">
+    <nav class="card navbar" id="menu-nav" aria-label="Principal">
       <ul class="mono"><li><a href="/cases" aria-current="page">Cases</a></li><li><a href="/projetos">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/cases/kaya-doc" aria-current="true">PT</a><a href="/en/cases/kaya-doc" >EN</a></span>
         <a class="btn" href="/contato">Contato</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/cases">← Voltar aos cases</a></div>
   <section class="card caso-hero" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Produto digital · Lead Designer · UI, UX research e design system</span><h1 class="disp">Kaya Doc</h1></div></div><p class="mono" style="color:var(--hl-text)">Prescrever com base em evidência</p><p class="intro">Plataforma de cannabis medicinal para prescritores. Catálogo, comparador de produtos, biblioteca de estudos científicos e co-piloto de prescrição, num setor onde a informação é dispersa e a regulação é rígida. Lidero o design de produto desde 2022.</p><div class="acoes"></div><div class="stats-mini"><div><b>3.000+</b><span>profissionais de saúde</span></div><div><b>1.500+</b><span>produtos catalogados</span></div><div><b>200+</b><span>marcas integradas</span></div><div><b>250+</b><span>estudos científicos</span></div><div><b>100+</b><span>condições médicas</span></div></div></div><img src="/assets/destaques/kaya-doc-home.webp" alt=""></section>
@@ -66,6 +67,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 
-<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

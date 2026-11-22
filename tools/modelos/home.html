@@ -76,10 +76,23 @@
     .hero .foto{position:static;order:-1;width:100%;height:240px;object-position:center 8%}
   }
   @media (max-width:720px){
-    .stage{grid-template-rows:72px auto auto auto}
-    .stage .navbar{flex-wrap:wrap;overflow:visible;padding:12px 14px;row-gap:12px}
-    .stage .navbar ul{flex-wrap:wrap;gap:8px 18px;white-space:normal;width:100%}
-    .stage .navbar .dir{margin-left:0;width:100%;justify-content:space-between}
+    .stage{position:relative;grid-template-rows:72px auto auto;grid-template-areas:"logo" "hero" "feat"}
+    .stage .menu-btn{position:absolute;top:var(--gap);right:var(--gap);z-index:61}
+    .stage .navbar{top:calc(var(--gap) * 2 + 72px);left:var(--gap);right:var(--gap);padding:6px 18px 18px;overflow:visible}
+    .stage .navbar ul{gap:0;white-space:normal}
+    .stage .navbar .dir{margin:10px 0 0}
+    /* hero na primeira dobra: foto grande, nome e texto menores, CTAs em 2 colunas */
+    .hero{padding:12px;gap:10px;min-height:calc(100svh - 72px - var(--gap) * 3)}
+    .hero .foto{flex:1 1 auto;height:auto;min-height:220px;object-position:center 10%}
+    .hero .col{gap:9px}
+    .hero h1{font-size:clamp(30px,9.6vw,44px);line-height:.9;margin:0}
+    .hero h1 br{display:none}
+    .hero .tag-ouro,.hero .lead{font-size:12.5px;line-height:1.4;letter-spacing:.02em}
+    .hero .lead{margin:0;width:auto;min-width:0}
+    .hero .cta-comp{grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+    .hero .cta-comp{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .hero .cta-comp .btn i{display:none}
+    .hero .cta-comp .btn{padding:12px 8px;gap:4px;font-size:11px;letter-spacing:0;white-space:nowrap;line-height:1.1;text-align:left}
   }
 </style>
 </head>
@@ -89,7 +102,7 @@
 <main class="stage" id="stage">
   <a class="card logo" href="/" aria-label="Gustavo Albino, página inicial"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
 
-  <nav class="card navbar" aria-label="Principal">
+  <nav class="card navbar" id="menu-nav" aria-label="Principal">
     <ul class="mono">
       <li><a href="/cases">Cases</a></li><li><a href="/projetos">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li>
     </ul>
@@ -98,6 +111,7 @@
       <a class="btn" href="/contato">Contato</a>
     </div>
   </nav>
+  <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
 
   <div class="card card--img feat" id="feat" role="group" aria-roledescription="carrossel" aria-label="Últimos trabalhos">
     <img class="slide on" src="/assets/destaques/anuario-composicao.webp" alt="" width="1560" height="1200">
@@ -113,7 +127,7 @@
     <img class="foto" src="/assets/hero-gustavo.webp" alt="Gustavo Albino" width="1400" height="1541">
     <div class="col">
       <span class="mono tag-ouro">Senior Designer · Lead Designer</span>
-      <h1 class="disp">Gustavo<br>Albino</h1>
+      <h1 class="disp">Gustavo <br>Albino</h1>
       <p class="lead">Mais de 10 anos de design. Hoje, mais de 3.000 profissionais de saúde usam o que eu desenho.</p>
       <nav class="cta-comp" aria-label="Competências"><a class="btn btn--ghost" href="/projetos/logos"><b>Branding e identidade</b><i aria-hidden="true">→</i></a><a class="btn btn--ghost" href="/cases/kaya-doc"><b>Produto digital</b><i aria-hidden="true">→</i></a><a class="btn btn--ghost" href="/projetos/relatorios"><b>Editorial e dataviz</b><i aria-hidden="true">→</i></a><a class="btn btn--ghost" href="/servicos"><b>Direção criativa</b><i aria-hidden="true">→</i></a></nav>
     </div>

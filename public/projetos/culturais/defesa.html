@@ -30,13 +30,14 @@
 <div class="pagina">
   <header class="topo">
     <a class="card logo" href="/" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
-    <nav class="card navbar" aria-label="Principal">
+    <nav class="card navbar" id="menu-nav" aria-label="Principal">
       <ul class="mono"><li><a href="/cases">Cases</a></li><li><a href="/projetos" aria-current="page">Projetos</a></li><li><a href="/servicos">Serviços</a></li><li><a href="/cv">CV / Sobre mim</a></li></ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="/projetos/culturais/defesa" aria-current="true">PT</a><a href="/en/projects/cultural/defesa" >EN</a></span>
         <a class="btn" href="/contato">Contato</a>
       </div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav"><span aria-hidden="true"></span></button>
   </header>
 <div class="voltar"><a class="btn btn--ghost" href="/projetos/culturais">← Voltar aos projetos culturais</a></div>
   <section class="card caso-hero hero-cult caso-hero--retrato" id="topo"><div class="cab"><div class="cab-linha"><div class="cab-tit"><span class="mono tag-ouro">Exposição · 2024</span><h1 class="disp">Defesa dos Animais e Meio Ambiente</h1></div></div><p class="intro">A pele do elefante vira o fundo do cartaz.</p><p>Exposição de telas de Maria Inez Ribeiro na Casa da Cultura de Betim, sobre preservação da fauna e da natureza.</p><p>A artista criou o projeto &quot;A Arte em Defesa dos Elefantes&quot;, que virou o livro &quot;Elefantes de A a Z&quot;. O cartaz parte daí: um close da pele do elefante em gradiente do azul ao laranja, com o título quebrado em seis linhas que ocupam a altura inteira da folha.</p><p>Além do cartaz e do post, desenhei dez cartões de agradecimento, um para cada tela exposta, e o banner pull-up da entrada. O cartão leva a tela na frente e o nome da obra, para o visitante sair com a peça que viu.</p><div class="acoes"><a class="btn btn--ghost" href="/assets/pdf/portfolio-maria-inez-ribeiro.pdf" target="_blank" rel="noopener">Ver portfólio ↗</a></div><div class="ficha-in"><div><span class="mono">Lei de incentivo</span><b>PNAB · Aldir Blanc</b></div><div><span class="mono">Local</span><b>Casa da Cultura · Betim, MG</b></div><div><span class="mono">Data</span><b>14/12/2024 · 10h às 17h30</b></div><div><span class="mono">Artista</span><b>Maria Inez Ribeiro</b></div><div><span class="mono">Realização</span><b>Prefeitura de Betim · Secretaria Municipal de Cultura</b></div><div><span class="mono">Peças</span><b>Cartaz, post, 10 cartões</b></div></div></div><img src="/assets/culturais/defesa/poster.webp" alt="" style="aspect-ratio:848/1200;object-fit:cover"></section>
@@ -60,6 +61,6 @@
   <div class="f-base mono"><span>© 2026 Gustavo Albino</span><span>Betim · Minas Gerais</span></div>
 </footer>
 
-<script>(function(){[].forEach.call(document.querySelectorAll('.filtros'),function(g){var bs=[].slice.call(g.querySelectorAll('button')),it=[].slice.call(document.querySelectorAll(g.dataset.alvo+' [data-cat]'));bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});it.forEach(function(e){e.style.display=(b.dataset.f==='all'||e.dataset.cat===b.dataset.f)?'':'none'})})})})})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn');if(!b)return;var c=b.parentNode,n=document.getElementById('menu-nav');function set(o){c.classList.toggle('menu-aberto',o);b.setAttribute('aria-expanded',o);var l=b.getAttribute('aria-label');b.setAttribute('aria-label',/Open|Abrir|Close|Fechar/.test(l)?(document.documentElement.lang==='en'?(o?'Close menu':'Open menu'):(o?'Fechar menu':'Abrir menu')):l)}b.addEventListener('click',function(){set(!c.classList.contains('menu-aberto'))});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&c.classList.contains('menu-aberto')){set(false);b.focus()}});document.addEventListener('click',function(e){if(c.classList.contains('menu-aberto')&&!c.contains(e.target))set(false)});n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(innerWidth>720)set(false)})})();</script>
 </body>
 </html>

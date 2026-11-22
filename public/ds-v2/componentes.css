@@ -66,3 +66,27 @@
 .f-base{align-self:end;justify-content:flex-start;gap:6px 22px;padding:0;color:var(--c2)}
 .f-base span{color:var(--c2)}
 @media (max-width:960px){.rodape{grid-template-rows:none;grid-template-areas:"marca marca" "cases proj" "site site" "fale fale" "base base"}}
+
+/* ---------- menu hambúrguer (celular): botão dentro do card do logo, navegação vira dropdown ---------- */
+.menu-btn{display:none}
+@media (max-width:720px){
+  .logo{padding-right:72px}
+  .menu-btn{display:grid;place-items:center;width:72px;height:72px;padding:0;border:0;background:none;color:var(--fg);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:26px;height:3px;border-radius:2px;background:currentColor;transition:transform .2s var(--ease,ease),opacity .15s,background .15s}
+  .menu-btn span{position:relative}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+  .menu-btn span::before{top:-8px}.menu-btn span::after{top:8px}
+  .menu-btn:hover,.menu-btn:focus-visible{color:var(--hl-text)}
+  .menu-aberto .menu-btn span{background:transparent}
+  .menu-aberto .menu-btn span::before{top:0;transform:rotate(45deg)}
+  .menu-aberto .menu-btn span::after{top:0;transform:rotate(-45deg)}
+  .navbar{display:none;position:absolute;z-index:60;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:6px 18px 18px;overflow:visible;box-shadow:6px 6px 0 var(--tinta)}
+  .menu-aberto .navbar{display:flex;animation:menu-entra .18s var(--ease,ease)}
+  @keyframes menu-entra{from{opacity:0;transform:translateY(-6px)}}
+  .navbar ul{flex-direction:column;gap:0;white-space:normal;width:100%}
+  .navbar ul li+li{border-top:2px solid rgba(248,239,232,.14)}
+  .navbar ul a{display:block;padding:16px 0;border-bottom:0;font-size:14px}
+  .navbar .dir{margin:10px 0 0;width:100%;justify-content:space-between}
+  .navbar .btn{padding:14px 22px}
+}
+@media (prefers-reduced-motion:reduce){.menu-aberto .navbar{animation:none}}
