@@ -1,8 +1,5 @@
 {
-  // Configuracao do Cloudflare Workers para um site estatico com rotas.
-  //
-  // Diferente do Cloudflare Pages, o Workers NAO descobre sozinho o que
-  // servir: sem este arquivo ele publica o script padrao "Hello World!".
+  // Configuracao do Cloudflare Workers para um site estatico.
   //
   // Precisa bater exatamente com o nome do projeto criado na Cloudflare. Se
   // divergir, o deploy vai para outro Worker e a URL em uso continua servindo
@@ -10,38 +7,14 @@
   "name": "gustavoalbino-site",
   "compatibility_date": "2026-09-07",
 
-  // Houve um tempo sem script aqui, e era o certo enquanto o site nao tinha
-  // endereco por pagina. Com o roteamento por URL, caminho como
-  // /cases/runpace nao e arquivo nenhum e o Workers devolvia 404 em toda
-  // recarga fora da raiz. O script resolve isso, e so isso: o motivo completo
-  // esta escrito em src/worker.js.
-  "main": "src/worker.js",
-
+  // Sem script: o site sao paginas HTML reais, uma por rota, geradas por
+  // tools/gerar-paginas.mjs. /cases serve cases.html, /en serve en.html e
+  // /en/cases serve en/cases.html pela regra de HTML dos assets (padrao
+  // "auto-trailing-slash"). Caminho que nao existe sai 404 de verdade.
+  // Historico: o app antigo precisava de um worker para servir o index.html em
+  // toda rota e para costurar o <head>; isso acabou com a troca por paginas.
   "assets": {
-    // Somente o conteudo publicado. README, docs/ e tools/ ficam de fora
-    // justamente para nao irem para a web.
-    "directory": "./public",
-
-    // O binding e o que deixa o script devolver o asset em vez de
-    // reimplementar um servidor de arquivo.
-    "binding": "ASSETS",
-
-    // Sem isto o worker nao roda quando o caminho existe como arquivo: a
-    // Cloudflare entrega da borda e pula o script. Era o que acontecia na raiz.
-    // "/" resolve para index.html, que existe, entao a home saia sem os
-    // hreflang e sem o JSON-LD enquanto as outras 35 rotas saiam certas, porque
-    // nenhuma delas existe como arquivo.
-    //
-    // O custo e o worker ser chamado em toda requisicao, inclusive de imagem.
-    // Para este site e irrelevante, e o script devolve o asset intacto quando o
-    // caminho nao e rota: a primeira coisa que ele faz e checar isso.
-    "run_worker_first": true
-
-    // "not_found_handling" continua no padrao, que e 404 de verdade. O modo
-    // "single-page-application" resolveria as rotas em uma linha, e foi
-    // recusado: ele serve o index.html para TODO 404, inclusive imagem que
-    // faltou. Asset com nome errado passaria a responder 200 com HTML dentro,
-    // e o defeito so apareceria na tela do visitante. O worker faz o recorte
-    // estreito, devolvendo o app apenas em caminho sem extensao.
+    // Somente o conteudo publicado. README, docs/ e tools/ ficam de fora.
+    "directory": "./public"
   }
 }
