@@ -1,0 +1,86 @@
+/* Gustavo Albino · D.S. v3 · "Quadrinhos escuro"
+   Dashboard em quadros, no tom da primeira versão do portfólio (História em Quadrinhos), sobre fundo escuro chapado.
+   v1 (papel claro) está na tag v1-historia-em-quadrinhos e na branch legacy/v1. v2 (Vidro) foi substituída por esta.
+   Fonte única dos tokens e dos componentes base. Os componentes compartilhados (logo, navegação, rodapé, rótulo de seção)
+   estão em componentes.css. Não há modo claro: o site inteiro é escuro. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800;900&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap");
+
+:root{
+  /* famílias */
+  --font-display:"Montserrat",system-ui,sans-serif;
+  --font-body:"Archivo",system-ui,sans-serif;
+  --font-mono:"Space Mono",ui-monospace,SFMono-Regular,monospace;
+
+  /* superfícies */
+  --bg:#232020;          /* fundo da página, chapado */
+  --escuro:#141212;      /* fundo dos quadros */
+  --tinta:#000000;       /* contorno e sombra dura */
+  --pto:rgba(248,239,232,.07); /* pontos de meio-tom do fundo */
+
+  /* texto */
+  --fg:#F8EFE8; --fg2:#E6DDD3; --muted:#A8A8A8; --line:rgba(248,239,232,.22);
+
+  /* cor: vermilion é o destaque; ouro é a chamada principal; as outras duas só em ilustração */
+  --hl:#E8604C; --on-hl:#000000; --hl-text:#E8604C;
+  --ouro:#EEBD23;
+  --c2:#3FB0DC; --c3:#A57BD0;
+
+  /* forma */
+  --bw:3px;                         /* contorno dos quadros e botões */
+  --r-card:6px; --r-btn:6px; --r-seta:12px; --r-tag:4px;
+  --sombra:6px 6px 0 var(--tinta);  /* sombra dura, sem desfoque */
+  --sombra-h:9px 9px 0 var(--tinta);
+  --sombra-btn:3px 3px 0 var(--tinta); --sombra-btn-h:5px 5px 0 var(--tinta);
+  --gap:12px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+
+/* ============ FUNDO · cor chapada, só pontos de meio-tom. Sem degradê, sem luz, sem grade ============ */
+.fundo{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--bg)}
+.fundo::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--pto) 24%,transparent 26%);background-size:14px 14px}
+/* compatibilidade: as camadas do fundo v2 não existem mais */
+.fundo .orb,.fundo .chao,.fundo .vinheta{display:none}
+
+/* ============ QUADRO · fundo escuro, contorno preto de 3px, sombra dura ============ */
+.card{position:relative;overflow:hidden;border-radius:var(--r-card);color:var(--fg2);text-decoration:none;container-type:inline-size;
+  background:var(--escuro);border:var(--bw) solid var(--tinta);box-shadow:var(--sombra);
+  transition:transform .15s ease,box-shadow .15s ease}
+a.card:hover,a.card:focus-visible{transform:translate(-3px,-3px);box-shadow:var(--sombra-h)}
+a.card:active{transform:none;box-shadow:2px 2px 0 var(--tinta)}
+.card--hl{background:var(--hl);color:var(--on-hl)}
+/* quadro de imagem: borda a borda, sem degradê e sem pontos (o meio-tom fica só no fundo da página); etiqueta transparente na base */
+.card--img{padding:0;background:var(--tinta)}
+.card--img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+a.card--img:hover>img{transform:scale(1.05)}
+.card--img>.rot{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:9px 12px;border-radius:var(--r-tag);background:rgba(0,0,0,.58);color:var(--fg);border:2px solid rgba(248,239,232,.55);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* ============ TIPO ============ */
+.disp{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;margin:0;color:var(--fg)}
+.mono{font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.hl-t{color:var(--hl-text)}
+/* texto de apoio em amarelo, sem container (ex.: cargo no hero) */
+.tag-ouro{color:var(--ouro);font-size:13px}
+
+/* ============ BOTÃO · contorno de 3px, sombra dura que desloca ============
+   Padrão (.btn): vermilion. Principal da página (.btn--ouro): amarelo, um por tela. Secundário (.btn--ghost): escuro. */
+.btn{display:inline-flex;align-items:center;gap:.7em;font-family:var(--font-mono);font-weight:700;font-size:12px;line-height:1;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  padding:14px 18px;border:var(--bw) solid var(--tinta);border-radius:var(--r-btn);background:var(--hl);color:var(--on-hl);box-shadow:var(--sombra-btn);cursor:pointer;
+  transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:var(--sombra-btn-h)}
+.btn:active{transform:translate(2px,2px);box-shadow:none}
+.btn--ouro{background:var(--ouro);color:#000}
+.btn--ghost{background:var(--escuro);color:var(--fg)}
+
+/* ============ BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg2);font-family:var(--font-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+::selection{background:var(--hl);color:var(--on-hl)}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+img.sel{filter:invert(1)} /* selo da marca é preto: inverte sobre quadro escuro */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

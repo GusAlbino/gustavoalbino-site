@@ -103,9 +103,9 @@
     el.setAttribute('role', 'dialog');
     el.setAttribute('aria-label', 'Cookies');
     el.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;' +
-      'max-width:520px;margin:0 auto;padding:16px 18px;background:#111;color:#fff;' +
-      'font:14px/1.45 system-ui,-apple-system,sans-serif;border-radius:10px;' +
-      'box-shadow:0 8px 30px rgba(0,0,0,.35);display:flex;flex-wrap:wrap;gap:12px;align-items:center';
+      'max-width:520px;margin:0 auto;padding:12px 14px;background:#111;color:#fff;' +
+      'font:13px/1.4 system-ui,-apple-system,sans-serif;border-radius:10px;' +
+      'box-shadow:0 8px 30px rgba(0,0,0,.35);display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center';
     var p = document.createElement('span');
     p.style.cssText = 'flex:1 1 240px';
     p.textContent = t.msg;
@@ -113,7 +113,7 @@
       var b = document.createElement('button');
       b.type = 'button';
       b.textContent = rotulo;
-      b.style.cssText = 'min-height:44px;padding:0 18px;border-radius:8px;cursor:pointer;font:inherit;' +
+      b.style.cssText = 'min-height:44px;padding:0 16px;border-radius:8px;cursor:pointer;font:inherit;' +
         'font-weight:600;border:1px solid #fff;' +
         (primario ? 'background:#fff;color:#111' : 'background:transparent;color:#fff');
       b.addEventListener('click', function () { el.remove(); fn(); });
