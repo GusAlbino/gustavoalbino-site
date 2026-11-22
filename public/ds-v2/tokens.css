@@ -59,14 +59,14 @@ a.card--img:hover>img{transform:scale(1.05)}
 
 /* ============ TIPO ============ */
 .disp{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;margin:0;color:var(--fg)}
-.mono{font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.mono{font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .hl-t{color:var(--hl-text)}
 /* texto de apoio em amarelo, sem container (ex.: cargo no hero) */
 .tag-ouro{color:var(--ouro);font-size:13px}
 
 /* ============ BOTÃO · contorno de 3px, sombra dura que desloca ============
    Padrão (.btn): vermilion. Principal da página (.btn--ouro): amarelo, um por tela. Secundário (.btn--ghost): escuro. */
-.btn{display:inline-flex;align-items:center;gap:.7em;font-family:var(--font-mono);font-weight:700;font-size:11px;line-height:1;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+.btn{display:inline-flex;align-items:center;gap:.7em;font-family:var(--font-mono);font-weight:700;font-size:12px;line-height:1;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
   padding:14px 18px;border:var(--bw) solid var(--tinta);border-radius:var(--r-btn);background:var(--hl);color:var(--on-hl);box-shadow:var(--sombra-btn);cursor:pointer;
   transition:transform .12s ease,box-shadow .12s ease}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:var(--sombra-btn-h)}
