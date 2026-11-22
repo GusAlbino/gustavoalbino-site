@@ -1,0 +1,42 @@
+<html><head><meta charset="utf-8"><style>
+  @font-face { font-family:'MontLocal'; src:local('Montserrat ExtraBold'), url('file:///Users/dzoladesign/Library/Fonts/Montserrat-ExtraBold.ttf'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  /* A pagina continua com 1200 de lado logico, igual ao og-card: o -s do
+     qlmanage so define a resolucao de saida e escala tudo junto. Tentar
+     desenhar a pagina em 1920 quebra o enquadramento. */
+  html,body { width:1200px; height:1200px; overflow:hidden; background:#F8EFE8;
+              font-family:'MontLocal','Montserrat',Helvetica,Arial,sans-serif; }
+  /* card 16:9 (1200x675 logicos = 1920x1080 na saida), centralizado na pagina
+     quadrada e com os mesmos -45px de compensacao do deslocamento do Quick Look:
+     (1200-675)/2 = 262,5, menos 45, da 217,5. */
+  .card { position:absolute; left:-45px; top:217.5px; width:1200px; height:675px;
+          background:#F8EFE8; overflow:hidden; }
+  .foto { position:absolute; right:0; top:0; bottom:0; width:440px; overflow:hidden;
+          border-left:3px solid #1B1B1B; background:#EEBD24; }
+  /* cover a mao: 1080x1080 na altura de 675 vira 675x675, sobra horizontal
+     (675-440=235) dividida nos dois lados. */
+  .foto img { position:absolute; top:0; left:-117px; width:675px; height:675px; display:block; }
+  .bloco { position:absolute; left:60px; top:50%; transform:translateY(-50%); width:700px; }
+  .kicker { font-size:21px; letter-spacing:.18em; color:#C33C29; font-weight:800;
+            text-transform:uppercase; display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .kicker::before { content:''; width:42px; height:3px; background:#C33C29; }
+  h1 { font-size:112px; line-height:.92; letter-spacing:-.03em; color:#1B1B1B;
+       text-transform:uppercase; font-weight:800; }
+  h1 em { color:#C33C29; font-style:normal; }
+  .sub { margin-top:24px; font-size:29px; line-height:1.35; color:#2E2E2E; font-weight:600; }
+  .meta { margin-top:26px; display:inline-block; background:#1B1B1B; color:#F8EFE8;
+          padding:10px 20px; border-radius:6px; font-size:18px; letter-spacing:.1em;
+          text-transform:uppercase; font-weight:800; }
+  .borda { position:absolute; inset:0; border:12px solid #1B1B1B; }
+</style></head><body>
+  <div class="card">
+    <div class="foto"><img src="foto.jpg"></div>
+    <div class="bloco">
+      <div class="kicker">Lead Designer · Brasil</div>
+      <h1>Gustavo<br><em>Albino</em></h1>
+      <div class="sub">Branding, design de produto<br>e direção criativa</div>
+      <div class="meta">10+ anos · 4 países · 4 idiomas</div>
+    </div>
+    <div class="borda"></div>
+  </div>
+</body></html>

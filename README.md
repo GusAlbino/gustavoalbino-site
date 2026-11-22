@@ -13,6 +13,17 @@ Site pessoal de Gustavo Albino. Fonte da verdade do site publicado.
 Toda alteração nasce em uma branch, vira PR, ganha um link de preview automático
 da Cloudflare, e só entra em produção depois do merge.
 
+## Como o site é feito hoje (v3, Quadrinhos escuro)
+
+O site deixou de ser um aplicativo de uma página só e passou a ser **uma página HTML real por rota**, geradas por script. Isto vale mais do que qualquer trecho abaixo que fale de `index.html`, `support.js`, `_ds/`, `responsivo.css`, `cabecalhos.json` ou `src/worker.js`: esses arquivos foram aposentados. As seções mais antigas ficam como histórico.
+
+- **Conteúdo:** `tools/dados/conteudo.json` (textos PT/EN, cases, acervos) e `tools/dados/cabecalhos.json` (title, descrição, og e dado estruturado de cada rota).
+- **Gerador:** `node tools/gerar-paginas.mjs` escreve todas as páginas em `public/` e o `sitemap.xml`. A home vem do modelo `tools/modelos/home.html`.
+- **Desenho:** `public/ds-v2/tokens.css`, `componentes.css` e `paginas.css`. Regras em `DESIGN.md`.
+- **Rotas:** `/cases` é `cases.html`, `/cases/runpace` é `cases/runpace.html`, `/en` é `en.html`, `/en/cases` é `en/cases.html`. O Workers resolve isso sozinho; não há script (`wrangler.jsonc` só aponta `public/`).
+- **Depois de mudar conteúdo ou desenho:** rode o gerador e commite as páginas geradas junto.
+- **Ferramentas ainda presas ao app antigo:** `tools/gerar-og-cases.py` e `tools/otimizar-assets.py` leem o `index.html` antigo e precisam ser adaptadas antes do próximo uso.
+
 ## Fluxo de uma alteração
 
 1. Desenho ajustado no Claude Design (quando for mudança visual).

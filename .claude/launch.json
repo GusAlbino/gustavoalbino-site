@@ -2,10 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "ga-site",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4321", "--directory", "public"],
-      "port": 4321
+      "name": "site-estudos",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": [
+        "-c",
+        "cd / && exec python3 -m http.server 4470 --directory '/Users/dzoladesign/Library/Mobile Documents/com~apple~CloudDocs/GUSTAVO ALBINO DESIGNING/Website/gustavoalbino-site/public'"
+      ],
+      "port": 4470
     }
   ]
 }
