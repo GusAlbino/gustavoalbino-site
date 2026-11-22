@@ -11,8 +11,8 @@ const SITE = 'https://gustavoalbino.com.br';
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const NAV = {
-  pt: { cases: 'Cases', projetos: 'Projetos', servicos: 'Serviços', sobre: 'Sobre', cv: 'CV', contato: 'Contato' },
-  en: { cases: 'Cases', projetos: 'Projects', servicos: 'Services', sobre: 'About', cv: 'CV', contato: 'Contact' },
+  pt: { cases: 'Cases', projetos: 'Projetos', servicos: 'Serviços', cv: 'CV / Sobre mim', contato: 'Contato' },
+  en: { cases: 'Cases', projetos: 'Projects', servicos: 'Services', cv: 'CV / About me', contato: 'Contact' },
 };
 const FOOT = {
   pt: { marca: 'Senior Designer e Lead Designer do Kaya Doc. Marca, produto e editorial, de Betim para quem trabalha remoto.', cases: 'Cases', proj: 'Projetos', site: 'Site', fale: 'Vamos conversar', resp: 'Resposta em até 2 dias úteis', topo: 'Voltar ao topo ↑', inicio: 'Início' },
@@ -21,7 +21,7 @@ const FOOT = {
 // rota de cada página: caminho sem barra inicial. A home PT é "" e a EN é "en".
 const ROTA = {
   home: ['', 'en'], cases: ['cases', 'en/cases'], projetos: ['projetos', 'en/projects'], servicos: ['servicos', 'en/services'],
-  sobre: ['sobre', 'en/about'], cv: ['cv', 'en/cv'], contato: ['contato', 'en/contact'],
+  cv: ['cv', 'en/cv'], contato: ['contato', 'en/contact'],
   relatorios: ['projetos/relatorios', 'en/projects/reports'], ebooks: ['projetos/ebooks', 'en/projects/ebooks'],
   culturais: ['projetos/culturais', 'en/projects/cultural'], logos: ['projetos/logos', 'en/projects/logos'], ilustracao: ['projetos/ilustracao', 'en/projects/illustration'],
 };
@@ -80,7 +80,7 @@ ${cabecalho(lang)}
   <header class="topo">
     <a class="card logo" href="${href(lang, 'home')}" aria-label="Gustavo Albino"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="52" height="52"><span class="mono">Gustavo Albino</span></a>
     <nav class="card navbar" aria-label="${lang === 'pt' ? 'Principal' : 'Main'}">
-      <ul class="mono">${['cases', 'projetos', 'servicos', 'sobre', 'cv'].map(link).join('')}</ul>
+      <ul class="mono">${['cases', 'projetos', 'servicos', 'cv'].map(link).join('')}</ul>
       <div class="dir">
         <span class="idioma" role="group" aria-label="Idioma"><a href="${href('pt', ctx.chave, ctx.caseId)}" ${lang === 'pt' ? 'aria-current="true"' : ''}>PT</a><a href="${href('en', ctx.chave, ctx.caseId)}" ${lang === 'en' ? 'aria-current="true"' : ''}>EN</a></span>
         <a class="btn" href="${href(lang, 'contato')}">${n.contato}</a>
@@ -93,7 +93,7 @@ ${corpo}
   <div class="col f-marca"><img class="sel" src="/assets/logo-seal-black.webp" alt="" width="72" height="72"><p>${esc(f.marca)}</p></div>
   <nav class="col f-cases" aria-label="Cases"><h2 class="mono">${f.cases}</h2><ul>${D.CASES.map((c) => `<li><a href="${caseHref(lang, c.id)}">${esc(c.title[lang])}</a></li>`).join('')}</ul></nav>
   <nav class="col f-proj" aria-label="${f.proj}"><h2 class="mono">${f.proj}</h2><ul>${['relatorios', 'logos', 'culturais', 'ebooks', 'ilustracao'].map((k) => `<li><a href="${href(lang, k)}">${esc(projNome(lang, k))}</a></li>`).join('')}</ul></nav>
-  <nav class="col f-site" aria-label="${f.site}"><h2 class="mono">${f.site}</h2><ul><li><a href="${href(lang, 'home')}">${f.inicio}</a></li>${['cases', 'projetos', 'servicos', 'sobre', 'cv', 'contato'].map((k) => `<li><a href="${href(lang, k)}">${n[k]}</a></li>`).join('')}</ul></nav>
+  <nav class="col f-site" aria-label="${f.site}"><h2 class="mono">${f.site}</h2><ul><li><a href="${href(lang, 'home')}">${f.inicio}</a></li>${['cases', 'projetos', 'servicos', 'cv', 'contato'].map((k) => `<li><a href="${href(lang, k)}">${n[k]}</a></li>`).join('')}</ul></nav>
   <div class="col f-fale card--hl"><div><p class="grande">${f.fale}</p></div><div>
     <a class="mail" href="mailto:${D.LINKS.email}">${D.LINKS.email}</a>
     <ul style="margin-top:6px"><li><a href="${D.LINKS.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="${D.LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${D.LINKS.instagram}" target="_blank" rel="noopener">Instagram</a></li></ul>
@@ -159,17 +159,16 @@ paginas.servicos = (lang) => {
 };
 
 // ---------- SOBRE ----------
-paginas.sobre = (lang) => {
+const blocoSobre = (lang) => {
   const T = DICTL(lang), s = T.sobre;
   const [titulo, ...resto] = s.paras;
-  const corpo = `  <div id="lista" class="sobre-stage">
+  return `  <div id="lista" class="sobre-stage">
   <div class="sobre-par" data-cat="quem">
     <figure class="card card--img sobre-foto" style="margin:0"><img src="/assets/sobre-gustavo.webp" alt="" loading="lazy"></figure>
     <section class="card bloco sobre-texto" id="topo"><h1 class="disp">${esc(titulo)}</h1><div class="texto-longo">${resto.map((x) => `<p>${esc(x)}</p>`).join('')}</div><a class="btn btn--ouro sobre-cta" href="${href(lang, 'contato')}">${esc(T.servPage.metodo.cta)}</a></section>
   </div>
   <div class="sobre-marcas-bloco" data-cat="entrega"><span class="mono sobre-marcas-t">${lang === 'pt' ? 'Empresas que confiam no meu trabalho' : 'Companies that trust my work'}</span><section class="card bloco sobre-marcas"><ul>${D.BRANDS.map((b) => `<li><img src="/${b.logo}" alt="${esc(b.name)}" loading="lazy"${b.fit ? ` style="--fit:${b.fit}"` : ''}></li>`).join('')}</ul></section></div>
   </div>`;
-  return casca(lang, 'sobre', s.kicker, corpo);
 };
 
 // ---------- CV ----------
@@ -177,7 +176,8 @@ paginas.cv = (lang) => {
   const T = DICTL(lang), c = T.cv;
   const cargoKaya = lang === 'pt' ? 'Senior Designer · Lead Designer do Kaya Doc' : 'Senior Designer · Lead Designer of Kaya Doc';
   const barras = (arr) => `<ul class="barras">${arr.map((x) => `<li><span>${esc(x.label)}<em class="mono" style="font-style:normal;color:var(--muted)">${x.level}/5</em></span><i><b style="width:${x.level * 20}%"></b></i></li>`).join('')}</ul>`;
-  const corpo = `<section class="card cab cv-intro"><span class="mono tag-ouro">${esc(c.kicker)}</span><div class="cv-linha"><div class="cv-btns"><a class="btn btn--ouro" href="/assets/gustavo-albino-cv-pt.pdf" download>${esc(c.btnPT)}</a><a class="btn btn--ghost" href="/assets/gustavo-albino-cv-en.pdf" download>${esc(c.btnEN)}</a></div><p class="intro">${esc(c.intro)}</p></div></section>
+  const corpo = `${blocoSobre(lang)}
+  <section class="card cab cv-intro"><span class="mono tag-ouro">${esc(c.kicker)}</span><div class="cv-linha"><div class="cv-btns"><a class="btn btn--ouro" href="/assets/gustavo-albino-cv-pt.pdf" download>${esc(c.btnPT)}</a><a class="btn btn--ghost" href="/assets/gustavo-albino-cv-en.pdf" download>${esc(c.btnEN)}</a></div><p class="intro">${esc(c.intro)}</p></div></section>
   <div class="g4 mantem">${c.stats.map((s) => `<div class="card bloco stat"><b>${esc(s.num)}</b><span class="mono">${esc(s.label)}</span></div>`).join('')}</div>
   <div class="g2" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
     <section class="card bloco"><h2 class="mono">${esc(c.expTitle)}</h2>${c.timeline.map((e) => `<div class="linha"><span class="mono">${esc(e.period)}</span><div><h3>${esc(e.company)}</h3><span class="mono" style="color:var(--ouro)">${esc(e.company === 'Kaya Mind' ? cargoKaya : e.role)} · ${esc(e.place)}</span><p style="margin-top:8px;color:var(--fg2)">${esc(e.desc)}</p></div></div>`).join('')}</section>
@@ -429,7 +429,7 @@ for (const lang of ['pt', 'en']) {
     .replace(/(href=|href:)"(\/[^"]*)"/g, (m, a, p) => (/^\/(ds-v2|assets)/.test(p) ? m : `${a}"${trocar(m, p)}"`))
     .replace('<a href="/en" aria-current="true">PT</a><a href="/en">EN</a>', '<a href="/">PT</a><a href="/en" aria-current="true">EN</a>')
     .replace('<a href="/">PT</a><a href="/en">EN</a>', '<a href="/">PT</a><a href="/en" aria-current="true">EN</a>')
-    .replace('>Projetos</a></li><li><a href="/en/services">Serviços</a></li><li><a href="/en/about">Sobre</a>', '>Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/about">About</a>')
+    .replace('>Projetos</a></li><li><a href="/en/services">Serviços</a></li><li><a href="/en/cv">CV / Sobre mim</a>', '>Projects</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/cv">CV / About me</a>')
     .replace('>Contato</a>\n    </div>', '>Contact</a>\n    </div>')
     .replace('Gustavo Albino, página inicial', 'Gustavo Albino, home')
     .replace('aria-label="Principal"', 'aria-label="Main"').replace('aria-label="Idioma"', 'aria-label="Language"')
